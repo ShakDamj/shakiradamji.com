@@ -1,0 +1,20 @@
+.full-name {
+  font-size: 3rem;
+  margin-bottom: 0;
+}
+
+.first-name,
+.rest-name {
+  display: inline-block;
+  overflow: hidden;
+}
+
+.first-name {
+  text-overflow: '.';
+  max-width: 1.2ex;
+  transition: max-width 0.3s ease-out;
+}
+
+.full-name:hover .first-name {
+  max-width: 10ex;
+}

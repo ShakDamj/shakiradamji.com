@@ -1,0 +1,7 @@
+.display-en [lang='es'] {
+  display: none;
+}
+
+.display-es [lang='en'] {
+  display: none;
+}

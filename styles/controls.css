@@ -1,0 +1,14 @@
+.controls {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  right: 1rem;
+  top: 1rem;
+}
+
+.control {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  color: white;
+}
