@@ -12,11 +12,15 @@
     "remixicon": "^2.5.0"
   },
   "devDependencies": {
+    "@types/js-yaml": "^4.0.1",
     "@types/react": "^17.0.5",
     "cheerio": "*",
+    "js-yaml": "^3.14.1",
     "next": "^10.2.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "remark": "^13.0.0",
+    "remark-html": "^13.0.1",
     "typescript": "^4.2.4"
   }
 }

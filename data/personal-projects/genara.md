@@ -1,0 +1,35 @@
+---
+key: genara
+name: Genara
+
+links:
+  github: https://github.com/amatiasq/genara
+
+# media:
+#   assets/projects/genara-pelea.png: Combate
+#   assets/projects/genara-time.png: Pedir hora
+#   assets/projects/genara-mensaje.png: Mierda
+
+tags:
+  - Javascript
+  - Discord API
+  - NodeJS
+  - MongoDB
+  - Mongoose
+---
+
+A set of Discord bots based on three characters of [Eh Tio!](https://ehtio.es) comic series. All bots have the same base structure and custom behavior is added through a plugin system.
+
+All of them could learn sentences, pass messages to other users, ignore users, answer with images... One of
+them implemented a combat system shamelessly copied from [Monkey Island (tm) sword fight](https://github.com/amatiasq/genara/blob/master/src/antuan/insultos.json),
+with an increasing difficulty level as you pass the tests, while another could [invoke a daemon to tell you the time](https://github.com/amatiasq/genara/blob/43c36c635c3c6dd2f7b4426a3ef435d74bc22cdb/src/genara/middleware/20-hora.js#L16-L25).
+
+Offline due to lack of resources.
+
+---
+
+Un grupo de bots de Discord basados en tres personajes del webcomic [Eh Tio!](https://ehtio.es). Todos los bots tienen la misma estructura base y tienen comportamiento personalizado mediante un sistema de plugin.
+
+Todos puedes aprender frases, pasar mensajes a otros usuarios, ignorar usuarios, responder con imágenes... Uno de ellos implementa un [sistema de combate copiado de Monkey Island (tm)]((https://github.com/amatiasq/genara/blob/master/src/antuan/insultos.json) con aumento de dificultad a medida que superas las pruebas, mientras que otro puede [invocar a un demonio para decirte la hora](https://github.com/amatiasq/genara/blob/43c36c635c3c6dd2f7b4426a3ef435d74bc22cdb/src/genara/middleware/20-hora.js#L16-L25).
+
+Desconectado debido a falta de recursos.

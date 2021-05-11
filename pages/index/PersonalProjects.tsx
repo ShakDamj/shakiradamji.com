@@ -1,86 +1,77 @@
-import { RemixIcon } from '../../components/RemixIcon';
+import { ProjectSummary } from '../../components/ProjectSummary';
+import { Translatable } from '../../components/Translatable';
+import { Project } from '../../lib/projects';
 
-export function PersonalProjectsSummary() {
+export interface PersonalProjectsProps {
+  projects: Project[];
+}
+
+export function PersonalProjects({ projects }: PersonalProjectsProps) {
   return (
     <section className="projects">
-      <h2 lang="en">Personal projects</h2>
-      <h2 lang="es">Proyectos personales</h2>
-      <h5 lang="en">I build these for fun and to learn</h5>
-      <h5 lang="es">Constru&iacute;dos por diversión y para aprender</h5>
+      <Translatable render={x => <h2>{x}</h2>} value={{ en: 'Personal projects', es: 'Proyectos personales' }} />
 
-      <div className="project mud">
-        <h4>
-          Web MUD client
-          <a href="https://amatiasq.github.io/mud/">
-            <RemixIcon name="external-link" title="Live project" />
+      <Translatable
+        render={x => <h5>{x}</h5>}
+        value={{
+          en: 'I build these for fun and to learn',
+          es: 'Construidos por diversión y para aprender',
+        }}
+      />
+
+      {projects.map(x => (
+        <ProjectSummary {...x} />
+      ))}
+
+      {/* <ProjectSummary na
+        title={{ en: 'Web MUD client', es: 'Cliente MUD web' }}
+        tags={['TDD', 'Typescript', 'Canvas', 'Jest']}
+        links={{
+          live: 'https://amatiasq.github.io/mud/',
+          github: 'https://github.com/amatiasq/mud/',
+        }}
+      >
+        <p>
+          A terminal emulator running in the browser connected by WebSocket to a
+          <a href="https://en.wikipedia.org/wiki/MUD">MUD</a> server via Telnet.
+        </p>
+
+        <p>
+          The tool has a plugin system to track state like inventory, chat, skills tree... and
+          <a href="https://github.com/amatiasq/mud/blob/main/client/src/registerWorkflows.ts#L22-L44">
+            "workflows" in order to automate behavior
           </a>
-          <a href="https://github.com/amatiasq/mud/">
-            <RemixIcon name="github" title="GitHub" fill />
-          </a>
-        </h4>
+          .
+        </p>
+      </ProjectSummary>
 
-        <img />
+      <ProjectSummary
+        title="Lulas"
+        tags={[
+          'Typescript',
+          'Preact',
+          'WebSockets',
+          { en: 'Regular Expressions', es: 'Expresiones regulares' },
+          'Webpack',
+        ]}
+        links={{
+          live: 'https://repos.amatiasq.com/lulas/',
+          github: 'https://github.com/amatiasq/lulas/',
+          tests: 'https://coveralls.io/github/amatiasq/lulas',
+        }}
+      >
+        <p>
+          A simulation of cells hunting each other. There are three kind of cells: Plants (dark green), Gatherer (light
+          green) and Hunter (red).
+        </p>
 
-        <summary>
-          <p>
-            A terminal emulator running in the browser connected by WebSocket to a
-            <a href="https://en.wikipedia.org/wiki/MUD">MUD</a> server via Telnet.
-          </p>
+        <p>
+          Development paused while working on
+          <a href="https://amatiasq.github.io/lulas">V2</a> in order to simplify implementation of more complex behavior
+          like flocking.
+        </p>
+      </ProjectSummary>
 
-          <p>
-            The tool has a plugin system to track state like inventory, chat, skills tree... and
-            <a href="https://github.com/amatiasq/mud/blob/main/client/src/registerWorkflows.ts#L22-L44">
-              "workflows" in order to automate behavior
-            </a>
-            .
-          </p>
-
-          <ul className="tech-stack">
-            <li>Typescript</li>
-            <li>Preact</li>
-            <li>WebSockets</li>
-            <li>Regular Expressions</li>
-            <li>Webpack</li>
-          </ul>
-        </summary>
-      </div>
-
-      <div className="project lulas">
-        <h4>
-          Lulas (cell simulation)
-          <a href="https://repos.amatiasq.com/lulas/">
-            <RemixIcon name="external-link" title="Live project" />
-          </a>
-          <a href="https://github.com/amatiasq/lulas/">
-            <RemixIcon name="github" title="GitHub" fill />
-          </a>
-          <a href="https://coveralls.io/github/amatiasq/lulas">
-            <RemixIcon name="test-tube" title="Test results" fill />
-          </a>
-        </h4>
-
-        <img />
-
-        <summary>
-          <p>
-            A simulation of cells hunting each other. There are three kind of cells: Plants (dark green), Gatherer
-            (light green) and Hunter (red).
-          </p>
-
-          <p>
-            Development paused while working on
-            <a href="https://amatiasq.github.io/lulas">V2</a> in order to simplify implementation of more complex
-            behavior like flocking.
-          </p>
-
-          <ul className="tech-stack">
-            <li>TDD</li>
-            <li>Typescript</li>
-            <li>Canvas</li>
-            <li>Jest</li>
-          </ul>
-        </summary>
-      </div>
 
       <div className="project better-gist">
         <h4>

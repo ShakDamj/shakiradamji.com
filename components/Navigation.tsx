@@ -4,7 +4,7 @@ export function Navigation() {
   return (
     <nav className="page-navigation">
       <div className="external">
-        <button className="icon-button" language-toggle>
+        <button className="icon-button" data-language-toggle>
           <span lang="en">ES</span>
           <span lang="es">EN</span>
         </button>

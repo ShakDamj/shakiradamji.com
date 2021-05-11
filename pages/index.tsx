@@ -2,19 +2,36 @@ import React from 'react';
 
 import { Header } from '../components/Header';
 import { Navigation } from '../components/Navigation';
+import { loadProject } from '../lib/projects';
 import css from './index.module.css';
 import { ExperimentsSummary } from './index/Experiments';
-import { PersonalProjectsSummary } from './index/PersonalProjects';
+import {
+  PersonalProjects,
+  PersonalProjectsProps
+} from './index/PersonalProjects';
 import { ProfessionalExperienceSummary } from './index/ProfessionalExperienceSummary';
 
-export default function Index() {
+export default function Index(props: PersonalProjectsProps) {
   return (
     <>
       <Header />
       <Navigation />
       <ProfessionalExperienceSummary />
-      <PersonalProjectsSummary />
+      <PersonalProjects projects={props.projects} />
       <ExperimentsSummary />
     </>
   );
+}
+
+export async function getStaticProps() {
+  return {
+    props: {
+      projects: [
+        await loadProject('better-gist'),
+        await loadProject('lulas'),
+        await loadProject('mud'),
+        await loadProject('genara'),
+      ],
+    },
+  };
 }

@@ -1,6 +1,8 @@
+import { TranslatableString } from './Translatable';
+
 export interface RemixIconProps {
   name: string;
-  title: string;
+  title: TranslatableString;
   fill?: boolean;
 }
 
