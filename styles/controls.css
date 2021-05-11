@@ -1,14 +1,27 @@
-.controls {
-  display: flex;
-  flex-direction: column;
-  position: fixed;
-  right: 1rem;
-  top: 1rem;
+.icon-button {
+  --size: 1.8em;
+
+  appearance: none;
+  background: none;
+  border: 0;
+
+  display: inline-block;
+  border-radius: 100%;
+  width: var(--size);
+  height: var(--size);
+  line-height: var(--size);
+  text-align: center;
+
+  color: var(--fg-color);
+  font-family: var(--font-family);
 }
 
-.control {
-  appearance: none;
-  border: 0;
-  background: transparent;
-  color: white;
+.icon-button:hover {
+  background-color: var(--hover-color);
+}
+
+.icon-button:active {
+  background-color: var(--active-color);
+  transform: scale(0.8);
+  transform-origin: center center;
 }

@@ -10,6 +10,11 @@
     <title></title>
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+
     <link rel="stylesheet" href="./styles/styles.css" />
   </head>
 
@@ -24,51 +29,184 @@
     <main class="container">
       <header>
         <div class="author-info">
-          <h1 class="full-name" data-to-clipboard="A. Matías Quezada">
-            <span class="first-name">Adrián</span>
-            <span class="rest-name">Mat&iacute;as Quezada</span>
+          <h1 class="full-name">
+            <span class="name-part abbreviated">Adrián</span>
+            <span class="name-part">Mat&iacute;as</span>
+            <span class="name-part">Quezada</span>
           </h1>
-          <h3 lang="en">Senior Software Engineer</h3>
-          <h3 lang="es">Senior Software Engineer</h3>
+
+          <h2 class="subtitle">
+            <span lang="en">Senior Software Engineer</span>
+            <span lang="es">Senior Software Engineer</span>
+          </h2>
         </div>
 
-        <div class="controls">
-          <button class="control toggle-language">
+        <div class="controls"></div>
+      </header>
+
+      <nav class="page-navigation">
+        <div class="external">
+          <button class="icon-button" language-toggle>
             <span lang="en">ES</span>
             <span lang="es">EN</span>
           </button>
 
-          <a class="control" href="https://amatiasq.com/cv">CV</a>
-          <a href="https://github.com/amatiasq">GitHub</a>
-          <a href="https://www.linkedin.com/in/amatiasq/">LinkedIn</a>
+          <a class="icon-button" href="https://amatiasq.com/cv">CV</a>
+          <a class="icon-button" href="https://github.com/amatiasq">
+            <remix-icon name="github" title="GitHub" fill />
+          </a>
+          <a class="icon-button" href="https://www.linkedin.com/in/amatiasq/">
+            <remix-icon name="linkedin" title="LinkedIn" />
+          </a>
           <a
+            class="icon-button"
             href="https://stackoverflow.com/users/1721248/a-mat%c3%adas-quezada?tab=profile"
           >
-            StackOverflow
+            <remix-icon name="stack-overflow" title="StackOverflow" />
           </a>
         </div>
-      </header>
 
-      <nav>
-        <a href="/blog">Blog</a>
+        <div class="internal">
+          <a class="section" href="/blog">Blog</a>
 
-        <a href="#projects">
-          <span lang="en">Proyects</span>
-          <span lang="es">Proyectos</span>
-        </a>
+          <a class="section" href="#projects">
+            <span lang="en">Projects</span>
+            <span lang="es">Proyectos</span>
+          </a>
 
-        <a href="#professional-experience">
-          <span lang="en">Experience</span>
-          <span lang="es">Experience</span>
-        </a>
+          <a class="section" href="#professional-experience">
+            <span lang="en">Experience</span>
+            <span lang="es">Experience</span>
+          </a>
 
-        <a href="#contact">
-          <span lang="en">Contact</span>
-          <span lang="es">Contacto</span>
-        </a>
+          <a class="section" href="#contact">
+            <span lang="en">Contact</span>
+            <span lang="es">Contacto</span>
+          </a>
+        </div>
       </nav>
+
+      <section class="projects">
+        <div class="project mud">
+          <h3>
+            Web MUD client
+
+            <a href="https://amatiasq.github.io/mud/">
+              <remix-icon name="external-link" label="Live project" />
+            </a>
+            <a href="https://github.com/amatiasq/mud/">
+              <remix-icon name="github" title="GitHub" fill />
+            </a>
+          </h3>
+
+          <img />
+
+          <summary>
+            <p>
+              A terminal emulator running in the browser connected by WebSocket
+              to a <a href="https://en.wikipedia.org/wiki/MUD">MUD</a> server
+              via Telnet.
+            </p>
+
+            <p>
+              The tool has a plugin system to track state like inventory, chat,
+              skills tree... and
+              <a
+                href="https://github.com/amatiasq/mud/blob/main/client/src/registerWorkflows.ts#L22-L44"
+                >"workflows" in order to automate behavior</a
+              >.
+            </p>
+
+            <ul class="tech-stack">
+              <li>Typescript</li>
+              <li>Preact</li>
+              <li>WebSockets</li>
+              <li>Regular Expressions</li>
+              <li>Webpack</li>
+            </ul>
+          </summary>
+        </div>
+
+        <div class="project lulas">
+          <h3>
+            Lulas (cell simulation)
+
+            <a href="https://repos.amatiasq.com/lulas/">
+              <remix-icon name="external-link" label="Live project" />
+            </a>
+            <a href="https://github.com/amatiasq/lulas/">
+              <remix-icon name="github" title="GitHub" fill />
+            </a>
+            <a href="https://coveralls.io/github/amatiasq/lulas">
+              <remix-icon name="test-tube" title="Test results" fill />
+            </a>
+          </h3>
+
+          <img />
+
+          <summary>
+            <p>
+              A simulation of cells hunting each other. There are three kind of
+              cells: Plants (dark green), Gatherer (light green) and Hunter
+              (red).
+            </p>
+
+            <p>
+              Development paused while working on
+              <a href="https://amatiasq.github.io/lulas">V2</a> in order to
+              simplify implementation of more complex behavior like flocking.
+            </p>
+
+            <ul class="tech-stack">
+              <li>TDD</li>
+              <li>Typescript</li>
+              <li>Canvas</li>
+              <li>Jest</li>
+            </ul>
+          </summary>
+        </div>
+
+        <div class="project better-gist">
+          <h3>
+            Better Gist
+
+            <a href="https://gist.amatiasq.com/">
+              <remix-icon name="external-link" label="Live project" />
+            </a>
+            <a href="https://github.com/amatiasq/np/">
+              <remix-icon name="github" title="GitHub" fill />
+            </a>
+          </h3>
+
+          <img />
+
+          <summary>
+            <p>
+              A tool to edit your Github Gists. It has all the power of Visual
+              Studio Code since it's using Monaco Editor: Multi-cursor
+              selection, syntax highlighting, even Typescript validation.
+            </p>
+
+            <p>
+              It's installable in Windows, Linux, Mac, Android and iPhone as an
+              application. It manages synchronization with GitHub API and there
+              is plan for offline support.
+            </p>
+
+            <ul class="tech-stack">
+              <li>Typescript</li>
+              <li>React</li>
+              <li>Progressive Web Application (PWA)</li>
+              <li>Page Visibility API</li>
+              <li>OAuth</li>
+            </ul>
+          </summary>
+        </div>
+      </section>
     </main>
 
     <script src="main.js" async defer></script>
+    <!-- <script src="components/external-link.js" async defer></script> -->
+    <script src="components/remix-icon.js" async defer></script>
   </body>
 </html>

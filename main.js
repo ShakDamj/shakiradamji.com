@@ -2,7 +2,7 @@ const $ = selector => document.querySelector(selector);
 const $$ = selector => Array.from(document.querySelectorAll(selector));
 
 (function i18n() {
-  $('.toggle-language').addEventListener('click', () => {
+  $('[language-toggle]').addEventListener('click', () => {
     const { body } = document;
 
     if (body.classList.contains('display-en')) {
@@ -33,7 +33,11 @@ const $$ = selector => Array.from(document.querySelectorAll(selector));
   });
 })();
 
-const clipboard = (() => {
+function writeToClipboard(content) {
+  return getPermission().then(() => {
+    return navigator.clipboard.writeText(content);
+  });
+
   function getPermission() {
     return new Promise((resolve, reject) => {
       navigator.permissions.query({ name: 'clipboard-write' }).then(result => {
@@ -45,4 +49,4 @@ const clipboard = (() => {
       });
     });
   }
-})();
+}

@@ -9,6 +9,9 @@ body {
   --bg-color: #0f0f0f;
   --fg-color: #bcabae;
   --primary-color: #fbfbfb;
+  --page-margin: 1rem;
+  --hover-color: rgba(255, 255, 255, 0.1);
+  --active-color: rgba(255, 255, 255, 0.3);
 
   /* --font-family: 'Courier New', Courier, monospace; */
   --font-family: 'Source Code Pro', monospace; /*, 'Helvetica', 'Arial', sans-serif;*/
@@ -25,19 +28,19 @@ body {
   color: var(--fg-color);
   max-width: var(--max-width);
   height: 100vh;
-  padding: 1rem;
+  padding: var(--page-margin);
   margin: 0 auto;
   overflow: auto;
 }
-
+/*
 h1,
 h2,
 h3 {
   color: var(--primary-color);
-}
+} */
 
-.container a {
-  color: var(--fg-color);
+a {
+  color: var(--primary-color);
   text-decoration: none;
   font-weight: bold;
 }
