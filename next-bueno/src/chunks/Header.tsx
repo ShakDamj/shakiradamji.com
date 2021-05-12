@@ -1,5 +1,3 @@
-import React from 'https://esm.sh/react';
-
 export function Header() {
   return (
     <header>

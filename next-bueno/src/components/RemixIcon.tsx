@@ -1,6 +1,4 @@
-import React from 'https://esm.sh/react';
-
-import { TranslatableString } from './Translatable.tsx';
+import { TranslatableString } from './Translatable';
 
 export interface RemixIconProps {
   name: string;

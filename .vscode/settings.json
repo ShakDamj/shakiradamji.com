@@ -1,6 +1,5 @@
 // .vscode/settings.json
 {
-  "deno.enable": true,
   "cSpell.words": [
     "reactroot"
   ]

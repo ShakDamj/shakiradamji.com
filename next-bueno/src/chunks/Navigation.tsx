@@ -1,6 +1,4 @@
-import React from 'https://esm.sh/react';
-
-import { RemixIcon } from './RemixIcon.tsx';
+import { RemixIcon } from '../components/RemixIcon';
 
 export function Navigation() {
   return (
@@ -12,12 +10,10 @@ export function Navigation() {
         </button>
 
         <a lang="en" className="icon-button" href="https://amatiasq.com/cv">
-          {' '}
-          CV{' '}
+          CV
         </a>
         <a lang="es" className="icon-button" href="https://amatiasq.com/cv-es">
-          {' '}
-          CV{' '}
+          CV
         </a>
         <a className="icon-button" href="https://github.com/amatiasq">
           <RemixIcon name="github" title="GitHub" fill />

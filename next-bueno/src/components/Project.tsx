@@ -15,7 +15,7 @@ const linkTypes = {
 
 type LinkTypes = keyof typeof linkTypes;
 
-export interface ProjectSummaryProps {
+export interface Project {
   key: string;
   name: TranslatableString;
   links: Partial<Record<LinkTypes, ValidUrl>>;
@@ -24,9 +24,9 @@ export interface ProjectSummaryProps {
   content: TranslatableString;
 }
 
-export function ProjectSummary({ name, links, media = {}, tags, content }: ProjectSummaryProps) {
+export function ProjectView({ name, links, media = {}, tags, content }: Project) {
   return (
-    <div className="project-summary">
+    <div className="project">
       <h4>
         <Translatable value={name} />
 
@@ -45,13 +45,15 @@ export function ProjectSummary({ name, links, media = {}, tags, content }: Proje
 
       <Translatable value={content} render={x => <summary dangerouslySetInnerHTML={{ __html: x }}></summary>} />
 
-      <ul className="tech-stack">
-        {tags.map((x, i) => (
-          <li key={i}>
-            <Translatable value={x} />
-          </li>
-        ))}
-      </ul>
+      {tags?.length ? (
+        <ul className="tech-stack">
+          {tags.map((x, i) => (
+            <li key={i}>
+              <Translatable value={x} />
+            </li>
+          ))}
+        </ul>
+      ) : null}
     </div>
   );
 }
