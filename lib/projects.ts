@@ -6,7 +6,7 @@ import html from 'remark-html';
 
 import { ProjectSummaryProps } from '../components/ProjectSummary';
 
-const PROJECTS_DIR = join(process.cwd(), 'data/personal-projects');
+const PROJECTS_DIR = join(process.cwd(), 'data');
 const markdown = remark().use(html);
 
 type UnPromisify<T> = T extends Promise<infer U> ? U : T;

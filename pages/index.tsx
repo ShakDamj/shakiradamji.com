@@ -27,10 +27,10 @@ export async function getStaticProps() {
   return {
     props: {
       projects: [
-        await loadProject('better-gist'),
-        await loadProject('lulas'),
-        await loadProject('mud'),
-        await loadProject('genara'),
+        await loadProject('projects/better-gist'),
+        await loadProject('projects/lulas'),
+        await loadProject('projects/mud'),
+        await loadProject('projects/genara'),
       ],
     },
   };

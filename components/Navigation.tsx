@@ -1,4 +1,6 @@
-import { RemixIcon } from './RemixIcon';
+import React from 'https://esm.sh/react';
+
+import { RemixIcon } from './RemixIcon.tsx';
 
 export function Navigation() {
   return (
