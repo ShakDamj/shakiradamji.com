@@ -1,0 +1,13 @@
+@import 'node_modules/remixicon/fonts/remixicon.css';
+
+[lang] {
+  display: none;
+}
+
+.display-en [lang='en'] {
+  display: inherit;
+}
+
+.display-es [lang='es'] {
+  display: inherit;
+}
