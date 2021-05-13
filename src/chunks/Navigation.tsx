@@ -1,32 +1,33 @@
 import { RemixIcon } from '../components/RemixIcon';
+import css from './Navigation.module.css';
 
 export function Navigation() {
   return (
-    <nav className="page-navigation">
-      <div className="external">
-        <button className="icon-button" data-language-toggle>
+    <nav>
+      <div className={css.external}>
+        <button className={css.iconButton} data-language-toggle>
           <span lang="en">ES</span>
           <span lang="es">EN</span>
         </button>
 
-        <a lang="en" className="icon-button" href="https://amatiasq.com/cv">
+        <a lang="en" className={css.iconButton} href="https://amatiasq.com/cv">
           CV
         </a>
-        <a lang="es" className="icon-button" href="https://amatiasq.com/cv-es">
+        <a lang="es" className={css.iconButton} href="https://amatiasq.com/cv-es">
           CV
         </a>
-        <a className="icon-button" href="https://github.com/amatiasq">
+        <a className={css.iconButton} href="https://github.com/amatiasq">
           <RemixIcon name="github" title="GitHub" fill />
         </a>
-        <a className="icon-button" href="https://www.linkedin.com/in/amatiasq/">
+        <a className={css.iconButton} href="https://www.linkedin.com/in/amatiasq/">
           <RemixIcon name="linkedin" title="LinkedIn" />
         </a>
-        <a className="icon-button" href="https://stackoverflow.com/users/1721248/a-mat%c3%adas-quezada?tab=profile">
+        <a className={css.iconButton} href="https://stackoverflow.com/users/1721248/a-mat%c3%adas-quezada?tab=profile">
           <RemixIcon name="stack-overflow" title="StackOverflow" />
         </a>
       </div>
 
-      <div className="internal">
+      <div className={css.internal}>
         <a className="section" href="/blog">
           Blog
         </a>

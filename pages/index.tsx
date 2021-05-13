@@ -9,6 +9,8 @@ import { Projects, ProjectsProps } from '../src/chunks/Projects';
 import { Talks, TalksProps } from '../src/chunks/Talks';
 import { loadAllMds, loadMd } from '../src/data';
 
+// export const config = { amp: true };
+
 export async function getStaticProps(): Promise<{ props: IndexProps }> {
   return {
     props: {

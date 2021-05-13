@@ -1,4 +1,5 @@
-import React, { Component, PropsWithChildren } from 'react';
+import Head from 'next/head';
+import React from 'react';
 
 import { ValidUrl } from '../types';
 import { RemixIcon } from './RemixIcon';
@@ -43,7 +44,10 @@ export function ProjectView({ name, links, media = {}, tags, content }: Project)
         ))}
       </div>
 
-      <Translatable value={content} render={x => <summary dangerouslySetInnerHTML={{ __html: x }}></summary>} />
+      <Translatable
+        value={content}
+        render={x => <div className="markdown" dangerouslySetInnerHTML={{ __html: x }}></div>}
+      />
 
       {tags?.length ? (
         <ul className="tech-stack">

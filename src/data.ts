@@ -5,7 +5,7 @@ import remark from 'remark';
 import html from 'remark-html';
 import { promisify } from 'util';
 
-import { TranslatableString } from '../components/Translatable';
+import { TranslatableString } from './components/Translatable';
 
 const DATA_DIR = join(process.cwd(), 'data');
 const markdown = remark().use(html);

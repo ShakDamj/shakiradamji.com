@@ -1,0 +1,15 @@
+.abbreviated {
+  display: inline-block;
+  overflow: hidden;
+  max-width: 0.7em;
+  transition: max-width 0.3s ease-out;
+}
+
+.name {
+  display: flex;
+  gap: 0.3em;
+}
+
+.name:hover .abbreviated {
+  max-width: 6em;
+}

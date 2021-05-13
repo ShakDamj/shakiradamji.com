@@ -1,5 +1,7 @@
 import Document, { Head, Html, Main, NextScript } from 'next/document';
 
+import { RuntimeScripts, RuntimeStyles } from '../src/components/Runtime';
+
 export default class MyDocument extends Document {
   static async getInitialProps(ctx) {
     const initialProps = await Document.getInitialProps(ctx);
@@ -11,8 +13,10 @@ export default class MyDocument extends Document {
       <Html>
         <Head />
         <body className="display-en">
+          <RuntimeStyles />
           <Main />
           <NextScript />
+          <RuntimeScripts />
         </body>
       </Html>
     );
