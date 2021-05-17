@@ -1,7 +1,13 @@
 import React from 'react';
 
 import { RemixIcon } from '../components/RemixIcon';
-import { Translatable, TranslatableString } from '../components/Translatable';
+import { Tag } from '../components/Tag';
+import { TagList } from '../components/TagList';
+import {
+  getKeyFrom,
+  Translatable,
+  TranslatableString
+} from '../components/Translatable';
 import { ValidUrl } from '../types';
 
 const linkTypes = {
@@ -48,15 +54,7 @@ export function ProjectView({ name, links, media = {}, tags, content }: Project)
         render={x => <div className="markdown" dangerouslySetInnerHTML={{ __html: x }}></div>}
       />
 
-      {tags?.length ? (
-        <ul className="tech-stack">
-          {tags.map((x, i) => (
-            <li key={i}>
-              <Translatable value={x} />
-            </li>
-          ))}
-        </ul>
-      ) : null}
+      <TagList tags={tags} />
     </div>
   );
 }

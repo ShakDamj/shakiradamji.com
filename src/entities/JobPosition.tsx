@@ -1,12 +1,19 @@
 import React from 'react';
 
 import { Moment } from '../components/Moment';
-import { Translatable, TranslatableString } from '../components/Translatable';
+import { Tag } from '../components/Tag';
+import { TagList } from '../components/TagList';
+import {
+  getKeyFrom,
+  Translatable,
+  TranslatableString
+} from '../components/Translatable';
+import { Month } from '../types';
 import { Article } from './Article';
 
 export interface JobPosition extends Article {
-  from: string;
-  to: string;
+  from: Month;
+  to: Month;
   org: string;
   link: string;
   role: TranslatableString;
@@ -15,38 +22,31 @@ export interface JobPosition extends Article {
 
 export function JobPositionView({ from, to, org, link, role, tags, content }: JobPosition) {
   const title = <Translatable value={org} />;
+  const orgElement = link ? (
+    <a target="_blank" href={link}>
+      {title}
+    </a>
+  ) : (
+    title
+  );
 
   return (
-    <div className="job-position">
-      <h4>
-        {role}
-        <Moment value={from} /> - <Moment value={to} />
-      </h4>
-
-      <h5>
-        {link ? (
-          <a target="_blank" href={link}>
-            {title}
-          </a>
-        ) : (
-          title
-        )}
-      </h5>
+    <details className="JobPositionView">
+      <summary className="JobPositionView__summary">
+        <span className="JobPositionView__duration">
+          <Moment month={from} />
+        </span>
+        <h4 className="JobPositionView__title">
+          {role} at {orgElement}
+        </h4>
+      </summary>
 
       <Translatable
         value={content}
         render={x => <div className="markdown" dangerouslySetInnerHTML={{ __html: x }}></div>}
       />
 
-      {tags?.length ? (
-        <ul className="tech-stack">
-          {tags.map((x, i) => (
-            <li key={i}>
-              <Translatable value={x} />
-            </li>
-          ))}
-        </ul>
-      ) : null}
-    </div>
+      <TagList tags={tags} />
+    </details>
   );
 }

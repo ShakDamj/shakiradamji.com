@@ -11,20 +11,6 @@ export interface TranslatableProps {
   render?: (value: string) => JSX.Element;
 }
 
-const css = /*css*/ `
-  [lang] {
-    display: none;
-  }
-
-  .display-en [lang='en'] {
-    display: inherit;
-  }
-
-  .display-es [lang='es'] {
-    display: inherit;
-  }
-`;
-
 const js = /*js*/ `
   $('[data-language-toggle]').addEventListener('click', () => {
     const cl = document.body.classList
@@ -39,6 +25,10 @@ const js = /*js*/ `
   });
 `;
 
+export function getKeyFrom(value: TranslatableString) {
+  return typeof value === 'string' ? value : value.en;
+}
+
 export function Translatable({ value, render }: TranslatableProps) {
   if (value == null) {
     throw new Error(`Value is required you motherfucker: ${value}`);
@@ -48,7 +38,7 @@ export function Translatable({ value, render }: TranslatableProps) {
 
   return (
     <>
-      <Runtime css={css} js={js} />
+      <Runtime js={js} />
       {getContent()}
     </>
   );

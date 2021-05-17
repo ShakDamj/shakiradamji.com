@@ -1,0 +1,12 @@
+.TagList {
+  display: inline-flex;
+  flex-flow: row wrap;
+  gap: 0.5rem;
+  max-width: 90%;
+
+  &__tag {
+    border-radius: 3px;
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 0 5px;
+  }
+}

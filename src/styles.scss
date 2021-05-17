@@ -3,11 +3,16 @@
 
 @import './styles/reset.css';
 @import './styles/icon-button.css';
+@import './styles/interaction-feedback.scss';
 
 @import './chunks/Header.scss';
 @import './chunks/Navigation.scss';
 
 @import './components/Menu.scss';
+@import './components/TagList.scss';
+@import './components/Translatable.scss';
+
+@import './entities/JobPosition.scss';
 
 html {
   --bg-color: black;
@@ -32,7 +37,7 @@ body {
 }
 
 .container {
-  max-width: 60rem;
+  max-width: 50rem;
   margin: 0 auto;
 }
 
@@ -41,18 +46,4 @@ a {
   font-family: var(--secondary-font-family);
   color: var(--link-color);
   text-decoration: none;
-
-  display: inline-block;
-  border-radius: 3px;
-  padding: 0.3rem;
-
-  transition-duration: var(--animation-duration);
-  transition-timing-function: ease-out;
-  transition-property: transform, background-color;
-
-  &:hover {
-    background-color: var(--interactive-bg-color);
-    transform-origin: center center;
-    transform: scale(1.1) rotate(var(--rotation));
-  }
 }

@@ -1,4 +1,4 @@
-//@import '../styles/custom-media.scss';
+@import '../styles/custom-media.scss';
 
 .Header {
   &__name {
@@ -11,8 +11,6 @@
     --size: 2rem;
     font-size: var(--size);
     line-height: var(--size);
-
-    @custom-media --standard-up: (width >= 60rem);
 
     @media (--standard-up) {
       --size: 4rem;

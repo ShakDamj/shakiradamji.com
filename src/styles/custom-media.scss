@@ -1,9 +1,9 @@
-@custom-media --mobile-down: (width < 60rem);
-@custom-media --mobile-only: (width < 60rem) and (width >= 30rem);
-@custom-media --mobile-up: (width >= 30rem);
-@custom-media --standard-down: (width < 90rem);
-@custom-media --standard-only: (width < 90rem) and (width >= 60rem);
-@custom-media --standard-up: (width >= 60rem);
-/* @custom-media --desktop-down: screen; */
-/* @custom-media --desktop-only: (width < 90rem) and (width >= 90rem); */
-@custom-media --desktop-up: (width >= 90rem);
+@custom-media --mobile-up (min-width: 30rem);
+@custom-media --mobile-only (min-width: 30rem) and (max-width: 50rem);
+@custom-media --mobile-down (max-width: 50rem);
+
+@custom-media --standard-up (min-width: 50rem);
+@custom-media --standard-only (min-width: 50rem) and (max-width: 90rem);
+@custom-media --standard-down (max-width: 90rem);
+
+@custom-media --desktop-up (min-width: 90rem);

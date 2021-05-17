@@ -8,7 +8,7 @@ import { randomRotation } from '../util/randomRotation';
 type AnchorProps = React.AnchorHTMLAttributes<HTMLAnchorElement>;
 
 const InternalLink = ({ children, ...rest }: AnchorProps) => (
-  <a className="Navigation__anchor" {...rest} style={randomRotation()}>
+  <a className="Navigation__anchor interaction-feedback" {...rest} style={randomRotation()}>
     {children}
   </a>
 );

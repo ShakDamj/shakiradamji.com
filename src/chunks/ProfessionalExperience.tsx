@@ -1,3 +1,4 @@
+import { Translatable } from '../components/Translatable';
 import { JobPosition, JobPositionView } from '../entities/JobPosition';
 
 export interface ProfessionalExperiencesProps {
@@ -6,8 +7,16 @@ export interface ProfessionalExperiencesProps {
 
 export function ProfessionalExperiences({ jobPositions }: ProfessionalExperiencesProps) {
   return (
-    <section className="ProfessionalExperiences">
-      {jobPositions.map(x => (
+    <section>
+      <Translatable
+        value={{
+          en: 'Professional Experience',
+          es: 'Experiencia Profesional',
+        }}
+        render={x => <h2>{x}</h2>}
+      />
+
+      {jobPositions.reverse().map(x => (
         <JobPositionView {...x} />
       ))}
     </section>
