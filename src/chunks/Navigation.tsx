@@ -1,51 +1,81 @@
+import React from 'react';
+
+import { Menu } from '../components/Menu';
 import { RemixIcon } from '../components/RemixIcon';
-import css from './Navigation.module.css';
+import { Translatable } from '../components/Translatable';
+import { randomRotation } from '../util/randomRotation';
+
+type AnchorProps = React.AnchorHTMLAttributes<HTMLAnchorElement>;
+
+const InternalLink = ({ children, ...rest }: AnchorProps) => (
+  <a className="Navigation__anchor" {...rest} style={randomRotation()}>
+    {children}
+  </a>
+);
+
+const ExternalLink = ({ children, ...rest }: AnchorProps) => (
+  <a className="Navigation__item icon-button" {...rest}>
+    {children}
+  </a>
+);
 
 export function Navigation() {
   return (
-    <nav>
-      <div className={css.external}>
-        <button className={css.iconButton} data-language-toggle>
-          <span lang="en">ES</span>
-          <span lang="es">EN</span>
-        </button>
+    <nav className="container">
+      <div className="Navigation__internal">
+        <InternalLink href="/blog">Blog</InternalLink>
 
-        <a lang="en" className={css.iconButton} href="https://amatiasq.com/cv">
-          CV
-        </a>
-        <a lang="es" className={css.iconButton} href="https://amatiasq.com/cv-es">
-          CV
-        </a>
-        <a className={css.iconButton} href="https://github.com/amatiasq">
-          <RemixIcon name="github" title="GitHub" fill />
-        </a>
-        <a className={css.iconButton} href="https://www.linkedin.com/in/amatiasq/">
-          <RemixIcon name="linkedin" title="LinkedIn" />
-        </a>
-        <a className={css.iconButton} href="https://stackoverflow.com/users/1721248/a-mat%c3%adas-quezada?tab=profile">
-          <RemixIcon name="stack-overflow" title="StackOverflow" />
-        </a>
+        <InternalLink href="#professional-experience">
+          <Translatable value={{ en: 'Experience', es: 'Experiencia' }} />
+        </InternalLink>
+
+        <Menu>
+          <InternalLink href="#projects">
+            <Translatable value={{ en: 'Projects', es: 'Proyectos' }} />
+          </InternalLink>
+
+          <InternalLink href="#experiments">
+            <Translatable value={{ en: 'Experiments', es: 'Experimentos' }} />
+          </InternalLink>
+
+          <InternalLink href="#talks">
+            <Translatable value={{ en: 'Talks', es: 'Charlas' }} />
+          </InternalLink>
+        </Menu>
+
+        <InternalLink href="#contact">
+          <Translatable value={{ en: 'Contact', es: 'Contacto' }} />
+        </InternalLink>
       </div>
 
-      <div className={css.internal}>
-        <a className="section" href="/blog">
-          Blog
-        </a>
+      <div className="Navigation__external">
+        <button className="Navigation__item icon-button" data-language-toggle>
+          <Translatable value={{ en: 'es', es: 'en' }} />
+        </button>
 
-        <a className="section" href="#professional-experience">
-          <span lang="en">Experience</span>
-          <span lang="es">Experience</span>
-        </a>
+        <Translatable
+          value={{
+            en: 'https://amatiasq.com/cv',
+            es: 'https://amatiasq.com/cv-es',
+          }}
+          render={x => (
+            <ExternalLink lang="en" href={x}>
+              <RemixIcon name="file-user" title="CV" fill />
+            </ExternalLink>
+          )}
+        />
 
-        <a className="section" href="#projects">
-          <span lang="en">Projects</span>
-          <span lang="es">Proyectos</span>
-        </a>
+        <ExternalLink href="https://github.com/amatiasq">
+          <RemixIcon name="github" title="GitHub" fill />
+        </ExternalLink>
 
-        <a className="section" href="#contact">
-          <span lang="en">Contact</span>
-          <span lang="es">Contacto</span>
-        </a>
+        <ExternalLink href="https://www.linkedin.com/in/amatiasq/">
+          <RemixIcon name="linkedin" title="LinkedIn" />
+        </ExternalLink>
+
+        <ExternalLink href="https://stackoverflow.com/users/1721248/a-mat%c3%adas-quezada?tab=profile">
+          <RemixIcon name="stack-overflow" title="StackOverflow" />
+        </ExternalLink>
       </div>
     </nav>
   );

@@ -1,0 +1,9 @@
+@custom-media --mobile-down: (width < 60rem);
+@custom-media --mobile-only: (width < 60rem) and (width >= 30rem);
+@custom-media --mobile-up: (width >= 30rem);
+@custom-media --standard-down: (width < 90rem);
+@custom-media --standard-only: (width < 90rem) and (width >= 60rem);
+@custom-media --standard-up: (width >= 60rem);
+/* @custom-media --desktop-down: screen; */
+/* @custom-media --desktop-only: (width < 90rem) and (width >= 90rem); */
+@custom-media --desktop-up: (width >= 90rem);

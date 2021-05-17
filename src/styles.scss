@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Source+Code+Pro:wght@200&display=swap');
+@import '../node_modules/remixicon/fonts/remixicon.css';
+
+@import './styles/reset.css';
+@import './styles/icon-button.css';
+
+@import './chunks/Header.scss';
+@import './chunks/Navigation.scss';
+
+@import './components/Menu.scss';
+
+html {
+  --bg-color: black;
+  --interactive-bg-color: orange;
+  --fg-color: rgba(255, 255, 255, 0.7);
+  --link-color: white;
+
+  --font-family: 'Source Code Pro', monospace;
+  --secondary-font-family: 'Open Sans', sans-serif;
+
+  --animation-duration: 0.2s;
+  --rotation: 2deg;
+  --page-margin: 1rem;
+}
+
+body {
+  background-color: var(--bg-color);
+  font-family: var(--font-family);
+  color: var(--fg-color);
+  line-height: 1.5em;
+  padding: var(--page-margin);
+}
+
+.container {
+  max-width: 60rem;
+  margin: 0 auto;
+}
+
+a {
+  // reset
+  font-family: var(--secondary-font-family);
+  color: var(--link-color);
+  text-decoration: none;
+
+  display: inline-block;
+  border-radius: 3px;
+  padding: 0.3rem;
+
+  transition-duration: var(--animation-duration);
+  transition-timing-function: ease-out;
+  transition-property: transform, background-color;
+
+  &:hover {
+    background-color: var(--interactive-bg-color);
+    transform-origin: center center;
+    transform: scale(1.1) rotate(var(--rotation));
+  }
+}

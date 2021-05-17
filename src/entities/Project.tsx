@@ -1,9 +1,8 @@
-import Head from 'next/head';
 import React from 'react';
 
+import { RemixIcon } from '../components/RemixIcon';
+import { Translatable, TranslatableString } from '../components/Translatable';
 import { ValidUrl } from '../types';
-import { RemixIcon } from './RemixIcon';
-import { Translatable, TranslatableString } from './Translatable';
 
 const linkTypes = {
   live: <RemixIcon name="external-link" title={{ en: 'Open', es: 'Abrir' }} />,

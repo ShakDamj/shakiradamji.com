@@ -1,0 +1,24 @@
+.Menu {
+  flex: 1;
+  position: relative;
+
+  &:not(:hover) &__content {
+    display: none;
+  }
+
+  &__header {
+    flex: 1;
+    display: flex;
+  }
+
+  &__content {
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 0 0 3px 3px;
+  }
+}

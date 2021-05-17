@@ -11,6 +11,34 @@ export interface TranslatableProps {
   render?: (value: string) => JSX.Element;
 }
 
+const css = /*css*/ `
+  [lang] {
+    display: none;
+  }
+
+  .display-en [lang='en'] {
+    display: inherit;
+  }
+
+  .display-es [lang='es'] {
+    display: inherit;
+  }
+`;
+
+const js = /*js*/ `
+  $('[data-language-toggle]').addEventListener('click', () => {
+    const cl = document.body.classList
+
+    if (cl.contains('display-en')) {
+      cl.remove('display-en');
+      cl.add('display-es');
+    } else {
+      cl.remove('display-es');
+      cl.add('display-en');
+    }
+  });
+`;
+
 export function Translatable({ value, render }: TranslatableProps) {
   if (value == null) {
     throw new Error(`Value is required you motherfucker: ${value}`);
@@ -20,39 +48,7 @@ export function Translatable({ value, render }: TranslatableProps) {
 
   return (
     <>
-      <Runtime
-        css={
-          /*css*/ `
-            [lang] {
-              display: none;
-            }
-
-            .display-en [lang='en'] {
-              display: inherit;
-            }
-
-            .display-es [lang='es'] {
-              display: inherit;
-            }
-          `
-        }
-        js={
-          /*js*/ `
-            $('[data-language-toggle]').addEventListener('click', () => {
-              const cl = document.body.classList
-
-              if (cl.contains('display-en')) {
-                cl.remove('display-en');
-                cl.add('display-es');
-              } else {
-                cl.remove('display-es');
-                cl.add('display-en');
-              }
-            });
-          `
-        }
-      />
-
+      <Runtime css={css} js={js} />
       {getContent()}
     </>
   );

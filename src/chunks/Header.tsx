@@ -1,14 +1,12 @@
-import css from './Header.module.css';
-
 export function Header() {
   return (
     <header>
-      <div className="author-info">
-        <h1 className={css.name}>
-          <span className={css.abbreviated}>Adrián</span> Matías Quezada
+      <div className="container">
+        <h1 className="Header__name">
+          <span className="is-abbreviated">Adrián</span> Matías Quezada
         </h1>
 
-        <h3 className="subtitle">Senior Software Engineer</h3>
+        <h3 className="Header__title">Senior Software Engineer</h3>
       </div>
     </header>
   );

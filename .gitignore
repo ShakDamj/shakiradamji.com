@@ -1,4 +1,6 @@
+_site
 .next
+.vscode
 node_modules
 out
 raw

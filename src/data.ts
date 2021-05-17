@@ -20,20 +20,20 @@ export async function loadAllMds<T>(name: string) {
   return Promise.all(promises);
 }
 
-export async function loadMd<T>(name: string): Promise<T & { content: TranslatableString }> {
-  const path = join(DATA_DIR, /\.md$/.test(name) ? name : `${name}.md`);
+export async function loadMd<T>(key: string): Promise<T & { content: TranslatableString }> {
+  const path = join(DATA_DIR, /\.md$/.test(key) ? key : `${key}.md`);
   const content = await readFile(path, 'utf8');
   const [, metadata, enRaw, esRaw] = content.split('---').map(x => x.trim());
 
   const meta = parseYaml(metadata, {}) as T;
 
   if (!esRaw) {
-    return { ...meta, content: await markdownToHtml(enRaw) };
+    return { key, ...meta, content: await markdownToHtml(enRaw) };
   }
 
   const [en, es] = await Promise.all([markdownToHtml(enRaw), markdownToHtml(esRaw)]);
 
-  return { ...meta, content: { en, es } };
+  return { key, ...meta, content: { en, es } };
 }
 
 async function markdownToHtml(text: string) {

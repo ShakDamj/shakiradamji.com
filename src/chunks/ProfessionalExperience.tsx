@@ -1,9 +1,15 @@
-import { JobPosition } from '../components/JobPosition';
+import { JobPosition, JobPositionView } from '../entities/JobPosition';
 
 export interface ProfessionalExperiencesProps {
   jobPositions: JobPosition[];
 }
 
-export function ProfessionalExperiences(props: ProfessionalExperiencesProps) {
-  return <section className="ProfessionalExperiences"></section>;
+export function ProfessionalExperiences({ jobPositions }: ProfessionalExperiencesProps) {
+  return (
+    <section className="ProfessionalExperiences">
+      {jobPositions.map(x => (
+        <JobPositionView {...x} />
+      ))}
+    </section>
+  );
 }

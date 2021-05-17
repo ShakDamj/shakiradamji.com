@@ -1,4 +1,4 @@
-import { Project, ProjectView } from '../components/Project';
+import { Project, ProjectView } from '../entities/Project';
 
 export interface TalksProps {
   talks: Project[];
