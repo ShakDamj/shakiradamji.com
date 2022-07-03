@@ -12,14 +12,16 @@ export interface AmqHeaderProps {
   className?: string;
 }
 
-export function AmqHeader({ className = '' }: React.PropsWithChildren<AmqHeaderProps>) {
+export function AmqHeader({
+  className = '',
+}: React.PropsWithChildren<AmqHeaderProps>) {
   const { Link } = usePageUtils();
 
   const styles = css`
     padding: ${cssSpace.md} 0;
     margin-bottom: ${cssSpace.lg};
-    background-color: ${cssColor.primary};
-    color: ${cssColor.background};
+    background-color: ${cssColor.backgroundDark};
+    color: ${cssColor.foreground};
   `;
 
   const containerStyles = css`
@@ -33,15 +35,15 @@ export function AmqHeader({ className = '' }: React.PropsWithChildren<AmqHeaderP
     gap: ${cssSpace.md};
 
     a {
-      color: ${cssColor.background};
+      color: ${cssColor.link};
       text-decoration: none;
-      padding: calc(${cssSpace.sm} / 2) ${cssSpace.sm};
-      border-radius: 6px;
+      padding: calc(${cssSpace.sm} / 2) ${cssSpace.md};
+      border-radius: 1em;
       border: 1px solid transparent;
     }
 
     a.parent {
-      border: 1px solid ${cssColor.background};
+      border: 1px solid ${cssColor.primaryContrast};
     }
 
     a:hover {
@@ -50,7 +52,7 @@ export function AmqHeader({ className = '' }: React.PropsWithChildren<AmqHeaderP
   `;
 
   const nameStyles = css`
-    font-size: ${cssFontSize.xl};
+    font-size: ${cssFontSize.md};
   `;
 
   return (

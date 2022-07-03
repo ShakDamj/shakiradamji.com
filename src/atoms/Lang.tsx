@@ -11,11 +11,17 @@ export const LangProvider = LangContext.Provider;
 
 export type Translatable = Record<Language, string> | string;
 
-export type LangProps = { tr: Translatable | string[] } | { en: string; es: string };
+export type LangProps =
+  | { tr: Translatable | string[] }
+  | { en: string; es: string };
+
+export function useLang() {
+  return React.useContext(LangContext);
+}
 
 export function Lang(props: LangProps) {
   const tr = 'tr' in props ? props.tr : props;
-  const lang = React.useContext(LangContext);
+  const lang = useLang();
 
   if (typeof tr === 'string') {
     return <RawHtml html={tr} />;
@@ -29,20 +35,23 @@ export function Lang(props: LangProps) {
 }
 
 export function tr(...args: [Translatable] | string[]) {
-  const content = args.length === 1 ? (args[0] as Translatable) : (args as string[]);
+  const content =
+    args.length === 1 ? (args[0] as Translatable) : (args as string[]);
   return <Lang tr={content} />;
 }
 
 export function i18n(parts: TemplateStringsArray, ...params: Translatable[]) {
-  const requireTr = params.filter(x => typeof x !== 'string');
+  const requireTr = params.filter((x) => typeof x !== 'string');
 
   if (!requireTr.length) {
     return String.raw(parts, ...params);
   }
 
-  const langs = Array.from(new Set(requireTr.flatMap(x => Object.keys(x))));
-  const values = langs.map(lang => {
-    const langParams = params.map(x => (typeof x === 'string' ? x : (x as any)[lang]));
+  const langs = Array.from(new Set(requireTr.flatMap((x) => Object.keys(x))));
+  const values = langs.map((lang) => {
+    const langParams = params.map((x) =>
+      typeof x === 'string' ? x : (x as any)[lang]
+    );
     return [lang, String.raw(parts, ...langParams)];
   });
 

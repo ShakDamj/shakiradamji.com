@@ -1,11 +1,24 @@
 import React from 'react';
 import { css } from '../deps/emotion.ts';
 import { cssColor, cssFontSize } from '../theme.ts';
+import { useLang } from './Lang.tsx';
 
 type FourDigits = `${number}${number}${number}${number}`;
 type TwoDigits = `${number}${number}`;
 
-export type YearMonthDay = `${FourDigits}` | `${FourDigits}-${TwoDigits}` | `${FourDigits}-${TwoDigits}-${TwoDigits}`;
+function useLocale() {
+  const lang = useLang();
+  const locales = {
+    en: 'en-US',
+    es: 'es-ES',
+  };
+  return locales[lang] || 'default';
+}
+
+export type YearMonthDay =
+  | `${FourDigits}`
+  | `${FourDigits}-${TwoDigits}`
+  | `${FourDigits}-${TwoDigits}-${TwoDigits}`;
 
 export interface TimeProps {
   className?: string;
@@ -19,35 +32,26 @@ export function Time({ className = '', value, omitDay = false }: TimeProps) {
   const dateStyles = css`
     opacity: 0.8;
     font-family: monospace;
-    font-size: ${cssFontSize.xs};
+    font-size: 0.9em;
     color: ${cssColor.foreground};
   `;
   // font-size: ${cssFontSize.sm};
 
   return (
-    <time className={`${dateStyles} ${className}`} dateTime={formatDateTime(value)}>
+    <time
+      className={`${dateStyles} ${className}`}
+      dateTime={formatDateTime(value)}
+    >
       {printDate(value, { omitDay })}
     </time>
   );
 }
 
-function printDate(value: YearMonthDay | Date, { omitDay }: { omitDay: boolean }) {
-  const [year, month, day] = decomposeDate(value);
-
-  if (!month) {
-    return year;
-  }
-
-  const date = new Date(year, (month || 1) - 1, day || 1);
-
-  if (!day || omitDay) {
-    return new Intl.DateTimeFormat('default', { year: 'numeric', month: 'short' }).format(date);
-  }
-
-  return new Intl.DateTimeFormat('default', { year: 'numeric', month: 'short', day: 'numeric' }).format(date);
-}
-
-function formatDateTime(value: YearMonthDay | Date) {
+function printDate(
+  value: YearMonthDay | Date,
+  { omitDay }: { omitDay: boolean }
+) {
+  const locale = useLocale();
   const [year, month, day] = decomposeDate(value);
 
   if (!month) {
@@ -56,15 +60,53 @@ function formatDateTime(value: YearMonthDay | Date) {
 
   const date = new Date(year, (month || 1) - 1, day || 1);
 
-  if (!day) {
-    return new Intl.DateTimeFormat('default', { year: 'numeric', month: '2-digit' }).format(date);
+  let formatter: Intl.DateTimeFormatOptions = {
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric',
+  };
+
+  if (!day || omitDay) {
+    formatter = {
+      year: 'numeric',
+      month: 'short',
+    };
   }
 
-  return new Intl.DateTimeFormat('default', { year: 'numeric', month: '2-digit', day: '2-digit' }).format(date);
+  return new Intl.DateTimeFormat(locale, formatter)
+    .format(date)
+    .replace(/^[a-z]/g, (x) => x.toUpperCase())
+    .replace(/Sept/, 'Sep');
+}
+
+function formatDateTime(value: YearMonthDay | Date) {
+  const locale = useLocale();
+  const [year, month, day] = decomposeDate(value);
+
+  if (!month) {
+    return `${year}`;
+  }
+
+  const date = new Date(year, (month || 1) - 1, day || 1);
+
+  let formatter: Intl.DateTimeFormatOptions = {
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+  };
+
+  if (!day) {
+    formatter = {
+      year: 'numeric',
+      month: '2-digit',
+    };
+  }
+
+  return new Intl.DateTimeFormat(locale, formatter).format(date);
 }
 
 function decomposeDate(value: YearMonthDay | Date) {
   return typeof value === 'string'
-    ? value.split('-').map(x => parseInt(x, 10))
+    ? value.split('-').map((x) => parseInt(x, 10))
     : [value.getFullYear(), value.getMonth() + 1, value.getDate()];
 }

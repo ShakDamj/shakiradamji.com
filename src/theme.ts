@@ -1,8 +1,10 @@
 export const cssColor = {
-  background: '#1B2430',
+  link: '#EFE751',
+  primary: '#0732A0',
+  primaryContrast: '#FFFFFF',
   foreground: '#FDFBF8',
-  link: '#A8E0FF',
-  primary: '#FFC670',
+  background: '#263238',
+  backgroundDark: '#1B2225',
 };
 
 export const cssFontSize = {
@@ -10,7 +12,7 @@ export const cssFontSize = {
   sm: '18px',
   md: '24px',
   lg: '32px',
-  xl: '42px',
+  xl: '46px',
 };
 
 export const cssFontWeight = {
@@ -31,14 +33,23 @@ export const cssSpace = {
   xl: '40px',
 };
 
+export const cssFontFamily = {
+  default: 'Lato, sans-serif',
+  header: 'Montserrat, sans-serif',
+};
+
 export const cssGlobal = `
-  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@1,400;1,700&family=Montserrat:wght@400;700&display=swap');
 
   :root {
     background-color: ${cssColor.background};
     color: ${cssColor.foreground};
-    font-family: Inter, Helvetica;
+    font-family: ${cssFontFamily.default};
     font-size: 18px;
+  }
+
+  header, h1, h2, h3, h4, h5, h6 {
+    font-family: ${cssFontFamily.header};
   }
 
   a {
