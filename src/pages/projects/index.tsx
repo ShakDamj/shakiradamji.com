@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container } from '../../atoms/Container.tsx';
 import { Heading3 } from '../../atoms/Heading.tsx';
-import { Lang, useLang } from '../../atoms/Lang.tsx';
+import { Lang, tr, useLang } from '../../atoms/Lang.tsx';
 import { RawHtml } from '../../atoms/RawHtml.tsx';
 import { css } from '../../deps/emotion.ts';
 import { getAllPages, getPagesBySection } from '../../generate/pages.ts';
@@ -9,7 +9,6 @@ import { usePageUtils } from '../../generate/PageUtils.tsx';
 import { RelatedLinks } from '../../molecules/RelatedLinks.tsx';
 import { AmqHeader } from '../../organisms/AmqHeader.tsx';
 import { AmqDocument } from '../../templates/AmqDocument.tsx';
-import { getExtract } from '../../util/getExtract.ts';
 
 const { projects, experiments } = getPagesBySection(await getAllPages());
 
@@ -55,7 +54,7 @@ export default (props: any) => {
                 <RelatedLinks className={iconStyles} links={item.links} />
               </Heading3>
 
-              <RawHtml html={getExtract(item.content, lang)} />
+              <RawHtml html={item.extract} />
             </li>
           ))}
         </ol>

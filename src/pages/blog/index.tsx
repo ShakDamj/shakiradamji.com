@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container } from '../../atoms/Container.tsx';
 import { Heading3 } from '../../atoms/Heading.tsx';
-import { useLang } from '../../atoms/Lang.tsx';
+import { tr, useLang } from '../../atoms/Lang.tsx';
 import { RawHtml } from '../../atoms/RawHtml.tsx';
 import { Time } from '../../atoms/Time.tsx';
 import { css } from '../../deps/emotion.ts';
@@ -10,7 +10,6 @@ import { usePageUtils } from '../../generate/PageUtils.tsx';
 import { ExpandableList } from '../../molecules/ExpandableList.tsx';
 import { AmqHeader } from '../../organisms/AmqHeader.tsx';
 import { AmqDocument } from '../../templates/AmqDocument.tsx';
-import { getExtract } from '../../util/getExtract.ts';
 
 const posts = getPagesBySection(await getAllPages()).blog.reverse();
 
@@ -46,7 +45,7 @@ export default (props: any) => {
                 <Link page={item.file}>{item.title}</Link>
                 <Time className={timeStyles} value={item.date} />
               </Heading3>
-              <RawHtml html={getExtract(item.content, lang)} />
+              <RawHtml html={item.extract} />
             </li>
           )}
         </ExpandableList>

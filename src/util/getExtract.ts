@@ -1,17 +1,10 @@
-import { Language, tr, Translatable } from '../atoms/Lang.tsx';
-
+const CROP_IF_LONGER_THAN = 150;
+const CROP_AFTER = 150;
 const EXTRACT_TOKEN = '<!-- extract -->';
 
-export function getExtract(
-  content: Translatable | string[] | null | undefined,
-  lang: Language
-) {
-  if (!content) {
-    return null;
-  }
-
-  const value = tr(content, lang);
-
+export function getExtract(value: null | undefined): null;
+export function getExtract(value: string): string;
+export function getExtract(value: string | null | undefined) {
   if (!value) {
     return null;
   }
@@ -21,10 +14,10 @@ export function getExtract(
     return extract;
   }
 
-  if (value.length < 150) {
+  if (value.length < CROP_IF_LONGER_THAN) {
     return value;
   }
 
-  const cropAt = value.indexOf('\n', 150);
+  const cropAt = value.indexOf('\n', CROP_AFTER);
   return value.slice(0, cropAt).trim();
 }

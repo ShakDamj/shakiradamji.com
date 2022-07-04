@@ -11,22 +11,28 @@ export function Container({
   children,
 }: PropsWithChildren<ContainerProps>) {
   const styles = css`
-    max-width: 30rem;
+    --container-side-gap: 1rem;
+    --container-width: 40rem;
+
+    --container-sides-gap: calc(var(--container-side-gap) * 2);
+    --available-width: min(
+      calc(100vw - var(--container-sides-gap)),
+      calc(var(--container-width) - var(--container-sides-gap))
+    );
+
+    max-width: var(--container-width);
+    padding-left: var(--container-side-gap);
+    padding-right: var(--container-side-gap);
     margin-left: auto;
     margin-right: auto;
-    padding-left: 1rem;
-    padding-right: 1rem;
 
     ${cssBreakpoint.medium} {
-      max-width: 50rem;
-      padding-left: 5rem;
-      padding-right: 5rem;
+      --container-width: 50rem;
+      --container-side-gap: 5rem;
     }
 
     ${cssBreakpoint.wide} {
-      max-width: 60rem;
-      padding-left: 5rem;
-      padding-right: 5rem;
+      --container-width: 60rem;
     }
   `;
 

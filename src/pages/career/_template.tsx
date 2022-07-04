@@ -6,9 +6,9 @@ import { Time, YearMonthDay } from '../../atoms/Time.tsx';
 import { cssFontSize, cssSpace } from '../../theme.ts';
 import { Heading2 } from '../../atoms/Heading.tsx';
 import { AmqMarkdownPage } from '../../templates/AmqMarkdownPage.tsx';
-import { PageMetadata } from '../../generate/pages.ts';
+import { MarkdownPageMetadata } from '../../generate/pages.ts';
 
-export interface CareerProps extends PageMetadata {
+export interface CareerProps extends MarkdownPageMetadata {
   title: Translatable;
   org: Translatable;
   link: string;

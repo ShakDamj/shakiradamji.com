@@ -4,9 +4,9 @@ import { css } from '../../deps/emotion.ts';
 import { Time, YearMonthDay } from '../../atoms/Time.tsx';
 import { Heading2 } from '../../atoms/Heading.tsx';
 import { AmqMarkdownPage } from '../../templates/AmqMarkdownPage.tsx';
-import { PageMetadata } from '../../generate/pages.ts';
+import { MarkdownPageMetadata } from '../../generate/pages.ts';
 
-export interface BlogPostProps extends PageMetadata {
+export interface BlogPostProps extends MarkdownPageMetadata {
   title: Translatable;
   date: YearMonthDay;
   content: Translatable;

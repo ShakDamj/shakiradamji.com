@@ -28,7 +28,9 @@ export function useTr(en: string, es: string) {
   return values[lang] || 'MISSING TRANSLATION';
 }
 
-export function tr(value: Translatable | undefined, lang: Language) {
+export function tr(value: null | undefined, lang: Language): null;
+export function tr(value: Translatable, lang: Language): string;
+export function tr(value: Translatable | null | undefined, lang: Language) {
   if (!value) {
     return null;
   }

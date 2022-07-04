@@ -72,8 +72,13 @@ export interface PageMetadata {
   path: string;
   title: Translatable;
   date: YearMonthDay | null;
-  content?: Translatable;
+}
+
+export interface MarkdownPageMetadata extends PageMetadata {
   labels?: Translatable[];
+  content: Translatable;
+  extract: Translatable;
+  rest: Translatable;
 }
 
 export async function getPageMetadata(page: SitePage): Promise<PageMetadata> {

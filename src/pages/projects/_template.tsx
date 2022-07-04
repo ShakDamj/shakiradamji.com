@@ -5,13 +5,13 @@ import { YearMonthDay } from '../../atoms/Time.tsx';
 import { cssSpace } from '../../theme.ts';
 import { Heading2 } from '../../atoms/Heading.tsx';
 import { AmqMarkdownPage } from '../../templates/AmqMarkdownPage.tsx';
-import { PageMetadata } from '../../generate/pages.ts';
+import { MarkdownPageMetadata } from '../../generate/pages.ts';
 import {
   RelatedLinks,
   RelatedLinksProps,
 } from '../../molecules/RelatedLinks.tsx';
 
-export interface ProjectProps extends PageMetadata {
+export interface ProjectProps extends MarkdownPageMetadata {
   title: Translatable;
   links: RelatedLinksProps['links'];
   labels: Translatable[];
