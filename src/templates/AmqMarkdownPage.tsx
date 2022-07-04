@@ -45,7 +45,7 @@ export function AmqMarkdownPage({
   );
 }
 
-function highlightTheme() {
+export function highlightTheme() {
   return `
     [class*=shj-lang-]{white-space:pre;margin:10px 0;border-radius:10px;padding:30px 20px;background:white;color:#112;box-shadow:0 0 5px #0001;text-shadow:none;font: 18px Consolas,Courier New,Monaco,Andale Mono,Ubuntu Mono,monospace;line-height:24px;box-sizing:border-box;max-width:min(100%,100vw)}
     .shj-inline{margin:0;padding:2px 5px;display:inline-block;border-radius:5px}

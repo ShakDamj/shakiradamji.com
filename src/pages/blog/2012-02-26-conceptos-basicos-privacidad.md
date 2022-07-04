@@ -9,6 +9,8 @@ Uno de los temas más frecuentes cuando uno se inicia en Javascript es la privac
 
 Personalmente cuando diseño un componente (objeto/clase/librería), es porque quiero que ese componente cumpla una funcionalidad, por ejemplo, si yo quiero tener una clase que represente a una impresora necesito enviarle datos y que los imprima; **mi prioridad es que dicho componente sea sencillo de utilizar, lo que facilita la reutilización del componente**. Por lo que primero imagino cómo me gustaría usarlo:
 
+<!-- end extract -->
+
 ```js
 var impresora = new Impresora();
 impresora.encender();

@@ -11,6 +11,8 @@ Todos estos frameworks si bien intentan dividir la aplicación que vas a constru
 
 En otras tecnologías generalmente creas un componente reutilizable y basta con mover el archivo de proyecto para tenerlo listo, pero estos frameworks no se puede hacer eso, por ejemplo una simple targeta que muestre los datos de una persona:
 
+<!-- end extract -->
+
 Con backbone o bien tienes un archivo enorme o tienes varios archivos, modelo, vista, plantilla, estilos... y seguramente los archivos JS y la plantilla se carguen mediante un cargador de dependencias como RequireJS con lo que para usar el módulo necesitas tenerlo o bien compilar el módulo en un solo archivo antes de utilizarlo.
 
 Con angular la separación en módulos no es tan radical al haber mucho menos código, pero una simple directiva será un archivo JS que bien puede tener el HTML en formato string o cargarlo de un archivo aparte y el CSS debería ponerse aparte ya que si se pone en la plantilla cada vez que se instancie la directiva se estaría creando un nuevo tag style ya renderizado.

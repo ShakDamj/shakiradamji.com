@@ -100,7 +100,7 @@ function parseMarkdown(md: string) {
 
 const CROP_IF_LONGER_THAN = 150;
 const CROP_AFTER = 150;
-const EXTRACT_TOKEN = '<!-- extract -->';
+const EXTRACT_TOKEN = '<!-- end extract -->';
 
 function getExtract(value: null | undefined): null;
 function getExtract(value: string): string;
@@ -111,7 +111,7 @@ function getExtract(value: string | null | undefined) {
 
   if (value.includes(EXTRACT_TOKEN)) {
     const extract = value.split(EXTRACT_TOKEN)[0];
-    return extract;
+    return `${extract}\n\n${getReferences(value)}`;
   }
 
   if (value.length < CROP_IF_LONGER_THAN) {
@@ -119,5 +119,12 @@ function getExtract(value: string | null | undefined) {
   }
 
   const cropAt = value.indexOf('\n', CROP_AFTER);
-  return value.slice(0, cropAt).trim();
+  const chunk = value.slice(0, cropAt).trim();
+  return `${chunk}\n\n${getReferences(value)}`;
+}
+
+function getReferences(markdown: string) {
+  const matches = markdown.matchAll(/^\[\d+\]: .*$/gm);
+  const references = Array.from(matches).map((x) => x[0]);
+  return references.join('\n');
 }

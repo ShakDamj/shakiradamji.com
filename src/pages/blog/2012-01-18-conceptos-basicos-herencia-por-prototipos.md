@@ -5,6 +5,8 @@ date: 2012-01-18
 
 Llegó la hora de entrar el en tema que realmente confunde a los recién llegados a Javascript, principalmente para quienes vienen de lenguajes que implementan la orientación a objetos mediante clases, que son la gran mayoría.
 
+<!-- end extract -->
+
 ### Orientación a Objetos
 
 Primero deberemos aclarar que significa Programación Orientada a Objetos (POO u OOP en ingés).

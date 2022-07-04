@@ -22,7 +22,7 @@ Person.prototype.methodA = function() { ... }
 
 En este caso quiero referirme a las limitaciones en cuanto a memoria pero hará falta un poco de introducción
 
-<!--more Seguir leyendo → -->
+<!-- end extract -->
 
 ## Recolector de Basura
 

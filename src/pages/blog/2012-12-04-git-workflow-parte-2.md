@@ -9,11 +9,11 @@ Continuando con [mi último artículo][1], llegó la hora de hablar del gran _Gi
 
 Y finalmente [el artículo][2] que ha inspirado éste. Después de probar el Git Flow (el modelo, no la herramienta) en productos profesionales y a modo de prueba en [pequeñas librerías][3] propias y **aunque para proyectos grandes donde una release se planea durante semanas va bien, en pequeños proyectos, y en proyectos SaaS no acaba de encajar**.
 
+<!-- end extract -->
+
 Para empezar en pequeños proyectos no hay necesidad de planificar con antelación una release, **un proyecto pequeño necesita mucha actividad y poca burocracia para crecer**, por otro lado, en proyectos SaaS (Software as a Serivce), es decir, productos que están disponibles online y todos los usuarios tienen la última versión y reciben los cambios inmediatamente **las versiones y releases pierden fuerza. **Porqué retrasar el lanzamiento de una nueva funcionalidad cuando todos los usuarios podrían tenerla mañana sin ningún coste? en un producto clásico las funcionalidades se empaquetan para entregar al usuario la actualización un paquete cerrado y pasar el proceso de actualización la menor cantidad de veces posibles, pero **en un SaaS para el usuario no tiene ningún coste (en esfuerzo) una actualización**, simplemente la próxima vez que abra el programa tendrá la funcionalidad.
 
 Un ejemplo de SaaS es Gmail (que estuvo más de 5 años en fase Beta por éste motivo), twitter o github. Y es éste último quién, como no podía ser de otra forma, utiliza **un flujo de trabajo de GIT que parece encajar bastante bien con la filosofía SaaS** de release constantes. Lo que ellos llaman **`Github Flow`**.
-
-<!--more Seguir leyendo → -->
 
 Como ellos mismos dicen después de mentar las ventajas de git-flow, "One of the bigger issues for me is that it’s more complicated than I think most developers and development teams actually require" (Uno de sus mayores problemas para mi es que **[git-flow] es más complicado de lo que creo que muchos equipos de desarrollo realmente necesitan**)
 

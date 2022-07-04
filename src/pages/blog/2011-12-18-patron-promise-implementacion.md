@@ -7,6 +7,8 @@ Lo prometido es deuda (bien lo saben las funciones) y he encontrado un momento p
 
 **NOTA:** Me gustaría implementarla en Test Driven Development, pero ya es bastante para quien lee y para el que escribe seguir la implementación como para encima añadir TDD, pero no quisiera dejar de recomendarlo.
 
+<!-- end extract -->
+
 ### Primero: Funcionalidad básica
 
 Lo que necesitamos de un objeto Promise es:

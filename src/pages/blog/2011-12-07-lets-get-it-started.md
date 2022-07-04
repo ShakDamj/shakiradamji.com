@@ -5,6 +5,8 @@ date: 2011-12-07
 
 Bueno, ha llegado la hora de dar el siguiente paso como programador: comenzar un blog para que todos puedan criticarme por poner las llaves `{` a la derecha :D
 
+<!-- end extract -->
+
 ### Y ESTE DE DONDE SALE?
 
 Primero lo primero. Mi nombre es Adrián Matías Quezada pero lo de Adrián está de adorno, tengo 22 años hasta la fecha de los cuales los últimos 5 los he pasado trabajando de programador, a nivel aficionado he estado metido en informática desde que tengo memoria para desgracia de mis padres y para beneficio del la tienda de informática local a la cual acudían cada mes para que arreglara mis desastres con la computadora. Por aquellos tiempos Flash era la última tecnología y gracias al código ActionScript embebido en los frames descubrí que podía controlar el flujo de una película .swf. Desde entonces he me ha ido interesando cada vez más la programación hasta que finalmente aprendí superficialmente C++. Pasaron los años y empecé a trabajar por lo que pude empezar en aplicaciones serias con C#.NET, Java, Python, etc... Finalmente me hice freelance y conseguí un puesto en una RIA bastante compleja gracias a la cual descubrí Javascript y sus good parts con el cual llevo dos años trabajando y disfrutando de sus secretos.

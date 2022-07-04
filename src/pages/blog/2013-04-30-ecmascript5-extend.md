@@ -17,6 +17,8 @@ var a = {
 };
 ```
 
+<!-- end extract -->
+
 O
 
 ```js

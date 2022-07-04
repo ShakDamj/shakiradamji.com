@@ -5,11 +5,11 @@ date: 2012-12-04
 
 Acabo de leer [un artículo][1] creado por los trabajadores de [Github][2] que han dado una vuelta de tuerca a lo que sabía de GIT y creo que será muy útil compartirlo, pero primero vamos por partes:
 
+<!-- end extract -->
+
 ### Control de Versiones
 
 Prefiero empezar por lo más básico porque ésto es algo que los programadores damos por hecho pero para alguien empezando puede ser totalmente desconocido. Una de las herramientas más básicas de un programador junto con el editor de texto es un **sistema de control de versiones**. Se trata básicamente de un programa que **registra los cambios que vamos haciendo en los archivos y cuando nosotros se lo ordenamos (hacemos commit) se guarda el estado actual de los archivos**, si más adelante seguimos haciendo cambio en los archivos y en lugar de mejorar empeora gracias al sistema de control de versiones podemos revertir los archivos y dejarlos tal y como estaban en el último commit o cualquier commit anterior. Además permite que **dos o más personas puedan archivos de un mismo proyecto y cuando ambos envíen sus cambios el sistema hará lo posible por combinarlos** (hacer merge), en caso de que el merge no se pueda hacer automático el sistema notifica un conflicto de cambios y nos pide que lo hagamos a mano.
-
-<!--more Seguir leyendo → -->
 
 ### GIT
 

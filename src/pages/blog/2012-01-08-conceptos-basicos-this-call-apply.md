@@ -7,7 +7,9 @@ Antes de continuar con el Patrón Promise me gustaría explicar en paralelo Conc
 
 ### De dónde sale _this_
 
-He pensado que sería un buen punto empezar por una curiosidad bastante desconocida para los recién llegados a Javascript: La variable `this`, también llamado el `scope` o más correctamente `contexto` de la función. En los lenguajes basados en clases más extendidos (Java, C++, C#...) encontramos que **los métodos de la clase siempre disponen de la variable `this` que nos permite acceder a nuestra propia instancia** sobre la que se está ejecutando el método. Es decir, si tenemos la clase
+He pensado que sería un buen punto empezar por una curiosidad bastante desconocida para los recién llegados a Javascript: La variable `this`, también llamado el `scope` o más correctamente `contexto` de la función. En los lenguajes basados en clases más extendidos (Java, C++, C#...) encontramos que **los métodos de la clase siempre disponen de la variable `this` que nos permite acceder a nuestra propia instancia** sobre la que se está ejecutando el método. Es decir, si tenemos la clase...
+
+<!-- end extract -->
 
 ```js
 class MyClass {

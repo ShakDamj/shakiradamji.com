@@ -9,7 +9,7 @@ date: 2012-03-03
 
 Como ya comenté, la privacidad en Javascript es un tema peliagudo, **el lenguaje no nos ofrece ninguna herramienta para gestionar la privacidad** automáticamente, tenemos que aprovechar el scope de **los closures para ocultar información** que el usuario de nuestra librería no necesita saber, **pero ocultar propiedades de una instancia es mucho más complicado**. Hace algunos años me empeñé en buscar una forma de conseguir privacidad por instancias que no fuera mediante el constructor, como ya expliqué en el [post anterior][1].
 
-<!--more Seguir leyendo → -->
+<!-- end extract -->
 
 Para empezar está claro que es necesario tener un closure, para ocultar las variables desde fuera:
 

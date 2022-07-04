@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container } from '../../atoms/Container.tsx';
 import { Heading3 } from '../../atoms/Heading.tsx';
-import { tr, useLang } from '../../atoms/Lang.tsx';
+import { Lang, tr, useLang } from '../../atoms/Lang.tsx';
 import { RawHtml } from '../../atoms/RawHtml.tsx';
 import { Time } from '../../atoms/Time.tsx';
 import { css } from '../../deps/emotion.ts';
@@ -10,16 +10,21 @@ import { usePageUtils } from '../../generate/PageUtils.tsx';
 import { ExpandableList } from '../../molecules/ExpandableList.tsx';
 import { AmqHeader } from '../../organisms/AmqHeader.tsx';
 import { AmqDocument } from '../../templates/AmqDocument.tsx';
+import { highlightTheme } from '../../templates/AmqMarkdownPage.tsx';
+import { cssColor } from '../../theme.ts';
 
 const posts = getPagesBySection(await getAllPages()).blog.reverse();
 
 // deno-lint-ignore no-explicit-any
 export default (props: any) => {
   const { Link } = usePageUtils();
-  const lang = useLang();
 
   const itemStyles = css`
-    margin: 3rem 0;
+    padding: 3rem 0;
+
+    & + & {
+      border-top: 1px solid ${cssColor.border};
+    }
   `;
 
   const headerStyles = css`
@@ -34,7 +39,7 @@ export default (props: any) => {
   `;
 
   return (
-    <AmqDocument title="A. Matías Quezada" {...props}>
+    <AmqDocument title="Blog" styles={highlightTheme()} {...props}>
       <AmqHeader />
 
       <Container>
@@ -42,10 +47,15 @@ export default (props: any) => {
           {(item) => (
             <li key={item.file} className={itemStyles}>
               <Heading3 className={headerStyles}>
-                <Link page={item.file}>{item.title}</Link>
+                <Lang tr={item.title} />
                 <Time className={timeStyles} value={item.date} />
               </Heading3>
+
               <RawHtml html={item.extract} />
+
+              <Link page={item.file}>
+                <Lang en="Read more" es="Leer más" />
+              </Link>
             </li>
           )}
         </ExpandableList>

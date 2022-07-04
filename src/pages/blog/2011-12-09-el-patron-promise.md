@@ -11,6 +11,8 @@ date: 2011-12-09
 
 Recientemente he tenido que implementar un sistema MVC en Javascript para simplificar el desarrollo sobre una plataforma y me he encontrado con el problema de que las llamadas asíncronas a servidor rompían la simpleza del código, tras un análisis identifiqué cuatro problemas:
 
+<!-- end extract -->
+
 #### 1 - Ensuciar la API
 
 Todas las llamadas reciben un último argumento que es el callback:

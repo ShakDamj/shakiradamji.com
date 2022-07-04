@@ -17,6 +17,8 @@ function fakeNew(Ctor) {
 }
 ```
 
+<!-- end extract -->
+
 Todo empezó cuando quise hacer polyfill de Object.create(), así podría crear objectos sin usar `new`, decidí usar la versión sencilla
 
 ```js
