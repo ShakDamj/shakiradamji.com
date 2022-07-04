@@ -12,13 +12,14 @@ interface TagListProps {
 export function TagList({ className = '', list }: TagListProps) {
   const labelsContainer = css`
     display: flex;
+    flex-wrap: wrap;
     gap: ${cssSpace.lg};
     margin: ${cssSpace.lg} 0;
   `;
 
   return (
     <div className={`${labelsContainer} ${className}`}>
-      {list.map(x => (
+      {list.map((x) => (
         <Tag>{x}</Tag>
       ))}
     </div>

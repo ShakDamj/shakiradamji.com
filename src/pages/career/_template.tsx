@@ -11,8 +11,8 @@ import { cssFontSize, cssSpace } from '../../theme.ts';
 import { Heading2 } from '../../atoms/Heading.tsx';
 
 interface CareerProps {
-  title: string;
-  org: string;
+  title: Translatable;
+  org: Translatable;
   link: string;
   role: Translatable;
   from: YearMonthDay;
@@ -29,8 +29,9 @@ export function meta({ org, role }: CareerProps, file: string) {
 }
 
 export default ({
-  org,
   title,
+  link,
+  org,
   role,
   from,
   to,
@@ -39,11 +40,12 @@ export default ({
 }: CareerProps) => {
   const body = css`
     display: grid;
+    padding-top: ${cssSpace.lg};
+    gap: ${cssSpace.md};
   `;
 
   const timeSpanStyles = css`
     display: flex;
-    // justify-content: flex-end;
     align-items: center;
     gap: ${cssSpace.md};
 
@@ -65,7 +67,13 @@ export default ({
           <small className={atStyles}>
             <Lang en="at" es="en" />
           </small>{' '}
-          <Lang tr={org} />
+          {link ? (
+            <a href={link} target="_blank">
+              <Lang tr={org} />
+            </a>
+          ) : (
+            <Lang tr={org} />
+          )}
         </Heading2>
 
         <div className={timeSpanStyles}>
@@ -73,6 +81,7 @@ export default ({
         </div>
 
         <TagList list={labels} />
+
         <Lang tr={content} />
       </Container>
     </AmqDocument>

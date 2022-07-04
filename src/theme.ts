@@ -61,6 +61,10 @@ export const cssGlobal = `
     margin: ${cssSpace.lg} 0;
     text-align: justify;
   }
+
+  svg {
+    fill: ${cssColor.foreground};
+  }
 `;
 
 export const cssReset = `

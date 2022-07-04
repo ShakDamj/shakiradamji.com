@@ -11,7 +11,10 @@ export const LangProvider = LangContext.Provider;
 
 export type Translatable = Record<Language, string> | string;
 
-export type ValidTr = Translatable | JSX.Element | (JSX.Element | string)[];
+export type ValidTr =
+  | Translatable
+  | JSX.Element
+  | (JSX.Element | string | null)[];
 
 export type LangProps = { tr: ValidTr } | { en: string; es: string };
 
@@ -69,11 +72,13 @@ export function i18n(parts: TemplateStringsArray, ...params: Translatable[]) {
 function isJsxElement(
   // deno-lint-ignore no-explicit-any
   target: any
-): target is JSX.Element | (JSX.Element | string)[] {
+): target is JSX.Element | (JSX.Element | string | null)[] {
   return (
     isValidElement(target) ||
     (Array.isArray(target) &&
-      target.every((x) => typeof x === 'string' || isValidElement(x)))
+      target.every(
+        (x) => x === null || typeof x === 'string' || isValidElement(x)
+      ))
   );
 }
 

@@ -62,14 +62,14 @@ export function ExpandableList<T>({
         </Heading2>
       ) : null}
 
-      <ul>{top.map(children)}</ul>
+      <ol>{top.map(children)}</ol>
 
       {bottom.length ? (
         <details>
           <summary className={viewMoreStyles}>
             <HiddenContent>{viewMore}</HiddenContent>
           </summary>
-          <ul>{bottom.map(children)}</ul>
+          <ol>{bottom.map(children)}</ol>
         </details>
       ) : null}
     </div>

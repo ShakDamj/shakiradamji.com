@@ -1,13 +1,17 @@
 import React from 'react';
-import { Lang } from '../atoms/Lang.tsx';
+import { Lang, Translatable } from '../atoms/Lang.tsx';
 import { cssGlobal, cssReset } from '../theme.ts';
 
 export interface AmqDocumentProps {
   className?: string;
-  title: string;
+  title: Translatable;
 }
 
-export function AmqDocument({ className = '', title, children }: React.PropsWithChildren<AmqDocumentProps>) {
+export function AmqDocument({
+  className = '',
+  title,
+  children,
+}: React.PropsWithChildren<AmqDocumentProps>) {
   return (
     <html lang="en">
       <head>
