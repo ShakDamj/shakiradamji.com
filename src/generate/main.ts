@@ -6,7 +6,7 @@ import {
   getPagesFromDisk,
   SitePage,
 } from './pages.ts';
-import { isMarkdown, renderMd } from './render-md.tsx';
+import { isMarkdown, isMarkedReady, renderMd } from './render-md.tsx';
 import { isTsx, renderTsx } from './render-tsx.tsx';
 // import { emptyDirectory } from './emptyDirectory.ts';
 
@@ -17,6 +17,11 @@ const [sources] = await Promise.all([
   getPagesFromDisk(),
   // emptyDirectory(target),
 ]);
+
+// HACK: We need to wait for async markdown parsing to finish
+await generate(sources, 'en');
+await isMarkedReady();
+// end HACK
 
 await Promise.all([
   // multiline

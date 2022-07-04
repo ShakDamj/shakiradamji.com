@@ -7,6 +7,11 @@ import type { PageProps } from './main.ts';
 import { highlightText } from 'https://deno.land/x/speed_highlight_js@1.1.7/src/index.js';
 
 const cacheHightlight = new Map<string, string>();
+const promises = [] as Array<Promise<string>>;
+
+export function isMarkedReady() {
+  return Promise.all(promises).then(() => null);
+}
 
 Marked.setOptions({
   langPrefix: 'code-block shj-lang-',
@@ -20,6 +25,9 @@ Marked.setOptions({
       code,
       lang || 'js'
     ) as unknown as Promise<string>;
+
+    promises.push(processing);
+
     processing.then((x) => cacheHightlight.set(code, x));
 
     return 'LOADING...';
