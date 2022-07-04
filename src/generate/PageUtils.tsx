@@ -19,21 +19,27 @@ export const UtilsProvider = Context.Provider;
 const urlToSitePage = (url: string) => url.replace('file://', '') as SitePage;
 
 export function createPageUtils(page: string, root: string) {
-  const path = getPagePath(urlToSitePage(page));
+  const pagePath = getPagePath(urlToSitePage(page));
+  const basePath = `${root.startsWith('/') ? '' : '/'}${root}`;
+  const path = `${basePath}/${pagePath}`;
 
   function Link({
     className,
     href,
+    page,
+    isParent,
     children,
   }: {
     className?: string;
-    href: string;
+    href?: string;
+    page?: string;
+    isParent?: boolean;
     children: Translatable | JSX.Element;
   }) {
-    const target = getPagePath(urlToSitePage(href));
+    const target = href || getPagePath(urlToSitePage(page!));
 
     const isActive = target === path;
-    const isContained = !isActive && path.startsWith(target);
+    const isContained = isParent && !isActive && path.startsWith(target);
     const classes = [
       className,
       isActive ? 'active' : null,
@@ -42,8 +48,6 @@ export function createPageUtils(page: string, root: string) {
       .filter(Boolean)
       .join(' ');
 
-    console.log({ page, href, path, target, result: relative(path, target) });
-
     return (
       <a href={relative(path, target)} className={classes}>
         <Lang tr={children} />
@@ -51,11 +55,7 @@ export function createPageUtils(page: string, root: string) {
     );
   }
 
-  function getBasePath() {
-    return `/${root}`;
-  }
-
-  return { Link, getBasePath };
+  return { Link, basePath, path: pagePath };
 }
 
 export type PageUtils = ReturnType<typeof createPageUtils>;

@@ -1,8 +1,8 @@
 import { Marked } from 'markdown';
 import { dirname, extname } from 'std/path/mod.ts';
 import { parse } from 'std/encoding/yaml.ts';
-import { PageProps } from './PageProps.ts';
 import { renderTsx } from './render-tsx.tsx';
+import type { PageProps } from './main.ts';
 
 const templatesDir = '../templates';
 
@@ -17,7 +17,7 @@ export async function readMarkdown(file: string) {
   const [head, ...body] = content
     .split(/---/g)
     .filter(Boolean)
-    .map(x => x.trim());
+    .map((x) => x.trim());
 
   const data = parse(head) as Record<string, unknown>;
 
@@ -50,7 +50,9 @@ export async function readMarkdown(file: string) {
       ...data,
     },
     template: templateRelative,
-    content: body.map(x => `<div class="md">${Marked.parse(x).content}</div>`),
+    content: body.map(
+      (x) => `<div class="md">${Marked.parse(x).content}</div>`
+    ),
   };
 }
 

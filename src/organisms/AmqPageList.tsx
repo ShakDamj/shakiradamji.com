@@ -53,7 +53,7 @@ export function AmqPageList({ className = '', name, list }: AmqPageListProps) {
         {(item) => (
           <li key={item.file} className={listItemStyles}>
             <Time value={item.date} omitDay />
-            <Link className={linkStyles} href={item.file}>
+            <Link className={linkStyles} page={item.file}>
               {item.title}
             </Link>
           </li>

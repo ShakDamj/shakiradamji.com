@@ -15,7 +15,7 @@ export interface AmqHeaderProps {
 export function AmqHeader({
   className = '',
 }: React.PropsWithChildren<AmqHeaderProps>) {
-  const { Link, getBasePath } = usePageUtils();
+  const { Link, path } = usePageUtils();
   const lang = useLang();
 
   const styles = css`
@@ -63,28 +63,29 @@ export function AmqHeader({
     color: ${cssColor.foreground};
   `;
 
-  console.log({ root });
-
   return (
     <header className={`${styles} ${className}`}>
       <Container className={containerStyles}>
         <h2>
-          <Link className={nameStyles} href={root}>
+          <Link className={nameStyles} page={root}>
             A. Matías Quezada
           </Link>
         </h2>
 
         <nav className={navStyles}>
-          <Link href={`${root}/blog`}>Blog</Link>
-          <Link href={`${root}/career`}>
+          <Link page={`${root}/blog`} isParent>
+            Blog
+          </Link>
+          <Link page={`${root}/career`} isParent>
             <Lang en="Career" es="Experiencia" />
           </Link>
-          <Link href={`${root}/projects`}>
+          <Link page={`${root}/projects`} isParent>
             <Lang en="Projects" es="Proyectos" />
           </Link>
 
-          {lang !== 'en' ? <Link href={`${getBasePath()}`}>🇬🇧</Link> : null}
-          {lang !== 'es' ? <Link href={`${getBasePath()}/es`}>🇪🇸</Link> : null}
+          {lang !== 'en' ? <Link href={`/${path}`}>🇬🇧</Link> : null}
+          {lang !== 'es' ? <Link href={`/es/${path}`}>🇪🇸</Link> : null}
+          {/* {lang !== 'cat' ? <Link href={`/cat/${path}`}>CAT</Link> : null} */}
         </nav>
       </Container>
     </header>
