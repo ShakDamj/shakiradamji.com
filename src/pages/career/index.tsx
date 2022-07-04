@@ -33,6 +33,10 @@ export default (props: any) => {
     font-size: 0.8em;
   `;
 
+  const tagsStyles = css`
+    font-size: 0.9rem;
+  `;
+
   return (
     <AmqDocument title="A. Matías Quezada" {...props}>
       <AmqHeader />
@@ -41,18 +45,23 @@ export default (props: any) => {
         <ol>
           {experience.map((item, index) => (
             <li key={item.file} className={itemStyles}>
-              <details open={index < SHOW_OPEN_ONLY_TOP}>
-                <summary>
-                  <Heading3 className={headerStyles}>
-                    <Lang tr={item.title} />
-                    <Time className={timeStyles} value={item.date} />
-                  </Heading3>
+              <Heading3 className={headerStyles}>
+                <Lang tr={item.title} />
+                <Time className={timeStyles} value={item.date} />
+              </Heading3>
 
-                  {item.labels ? <TagList list={item.labels} /> : null}
-                </summary>
+              {item.labels ? (
+                <TagList className={tagsStyles} list={item.labels} />
+              ) : null}
 
+              {index < SHOW_OPEN_ONLY_TOP ? (
                 <RawHtml html={item.content} />
-              </details>
+              ) : (
+                <details>
+                  <summary>Details</summary>
+                  <RawHtml html={item.content} />
+                </details>
+              )}
             </li>
           ))}
         </ol>

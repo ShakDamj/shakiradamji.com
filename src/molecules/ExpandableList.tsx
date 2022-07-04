@@ -26,6 +26,10 @@ export function ExpandableList<T>({
   const styles = css`
     position: relative;
 
+    details summary {
+      list-style: none;
+    }
+
     details summary::after {
       content: '${viewMore}';
       display: block;

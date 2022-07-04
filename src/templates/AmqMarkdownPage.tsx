@@ -39,7 +39,9 @@ export function AmqMarkdownPage({
 
         {labels ? <TagList list={labels} /> : null}
 
-        <RawHtml html={localContent} />
+        <article>
+          <RawHtml html={localContent} />
+        </article>
       </Container>
     </AmqDocument>
   );

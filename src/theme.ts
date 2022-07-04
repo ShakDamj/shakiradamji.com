@@ -37,10 +37,11 @@ export const cssSpace = {
 export const cssFontFamily = {
   default: 'Lato, sans-serif',
   header: 'Montserrat, sans-serif',
+  code: 'Fira Code, monospace',
 };
 
 export const cssGlobal = `
-  @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@1,400;1,700&family=Montserrat:wght@400;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&family=Lato:ital,wght@1,400;1,700&family=Montserrat:wght@400;700&display=swap');
 
   :root {
     background-color: ${cssColor.background};
@@ -62,8 +63,13 @@ export const cssGlobal = `
     text-align: justify;
   }
 
+  code {
+    font-family: ${cssFontFamily.code};
+  }
+
   .md .code-block {
     display: block;
+    font-family: ${cssFontFamily.code};
     width: var(--available-width);
     padding-bottom: 10px;
   }
@@ -93,7 +99,7 @@ export const cssReset = `
     line-height: 1.5;
   }
 
-  ul, ol, summary {
+  ul, ol {
     list-style: none;
   }
   .md ul, .md ol {
@@ -127,3 +133,15 @@ export const cssReset = `
     }
   }
 `;
+
+function hideScrollbar(selector: string) {
+  return `
+    ${selector}::-webkit-scrollbar {
+      display: none;
+    }
+    ${selector} {
+      -ms-overflow-style: none;  /* IE and Edge */
+      scrollbar-width: none;  /* Firefox */
+    }
+  `;
+}

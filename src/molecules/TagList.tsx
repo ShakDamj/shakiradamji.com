@@ -13,8 +13,8 @@ export function TagList({ className = '', list }: TagListProps) {
   const labelsContainer = css`
     display: flex;
     flex-wrap: wrap;
-    gap: ${cssSpace.lg};
-    margin: ${cssSpace.lg} 0;
+    gap: ${cssSpace.md};
+    margin: ${cssSpace.md} 0;
   `;
 
   return (

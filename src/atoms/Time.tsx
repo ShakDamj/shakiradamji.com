@@ -1,6 +1,6 @@
 import React from 'react';
 import { css } from '../deps/emotion.ts';
-import { cssColor, cssFontSize } from '../theme.ts';
+import { cssColor, cssFontFamily, cssFontSize } from '../theme.ts';
 import { useLang } from './Lang.tsx';
 
 type FourDigits = `${number}${number}${number}${number}`;
@@ -31,7 +31,7 @@ export function Time({ className = '', value, omitDay = false }: TimeProps) {
 
   const dateStyles = css`
     opacity: 0.8;
-    font-family: monospace;
+    font-family: ${cssFontFamily.code};
     color: ${cssColor.foreground};
   `;
 
