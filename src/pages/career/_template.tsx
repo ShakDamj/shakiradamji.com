@@ -1,16 +1,14 @@
 import React from 'react';
-import { AmqDocument } from '../../templates/AmqDocument.tsx';
 import { Translatable, Lang, i18n } from '../../atoms/Lang.tsx';
 import { css } from '../../deps/emotion.ts';
-import { Container } from '../../atoms/Container.tsx';
 import { meta as defaultMeta } from '../../templates/default.tsx';
 import { Time, YearMonthDay } from '../../atoms/Time.tsx';
-import { TagList } from '../../molecules/TagList.tsx';
-import { AmqHeader } from '../../organisms/AmqHeader.tsx';
 import { cssFontSize, cssSpace } from '../../theme.ts';
 import { Heading2 } from '../../atoms/Heading.tsx';
+import { AmqMarkdownPage } from '../../templates/AmqMarkdownPage.tsx';
+import { PageMetadata } from '../../generate/pages.ts';
 
-interface CareerProps {
+export interface CareerProps extends PageMetadata {
   title: Translatable;
   org: Translatable;
   link: string;
@@ -38,12 +36,6 @@ export default ({
   labels,
   content,
 }: CareerProps) => {
-  const body = css`
-    display: grid;
-    padding-top: ${cssSpace.lg};
-    gap: ${cssSpace.md};
-  `;
-
   const timeSpanStyles = css`
     display: flex;
     align-items: center;
@@ -59,31 +51,24 @@ export default ({
   `;
 
   return (
-    <AmqDocument title={title}>
-      <AmqHeader />
-      <Container className={body}>
-        <Heading2>
-          <Lang tr={role} />{' '}
-          <small className={atStyles}>
-            <Lang en="at" es="en" />
-          </small>{' '}
-          {link ? (
-            <a href={link} target="_blank">
-              <Lang tr={org} />
-            </a>
-          ) : (
+    <AmqMarkdownPage title={title} labels={labels} content={content}>
+      <Heading2>
+        <Lang tr={role} />{' '}
+        <small className={atStyles}>
+          <Lang en="at" es="en" />
+        </small>{' '}
+        {link ? (
+          <a href={link} target="_blank">
             <Lang tr={org} />
-          )}
-        </Heading2>
+          </a>
+        ) : (
+          <Lang tr={org} />
+        )}
+      </Heading2>
 
-        <div className={timeSpanStyles}>
-          <Time value={from} omitDay /> - <Time value={to} omitDay />
-        </div>
-
-        <TagList list={labels} />
-
-        <Lang tr={content} />
-      </Container>
-    </AmqDocument>
+      <div className={timeSpanStyles}>
+        <Time value={from} omitDay /> - <Time value={to} omitDay />
+      </div>
+    </AmqMarkdownPage>
   );
 };

@@ -32,10 +32,8 @@ export function Time({ className = '', value, omitDay = false }: TimeProps) {
   const dateStyles = css`
     opacity: 0.8;
     font-family: monospace;
-    font-size: 0.9em;
     color: ${cssColor.foreground};
   `;
-  // font-size: ${cssFontSize.sm};
 
   return (
     <time

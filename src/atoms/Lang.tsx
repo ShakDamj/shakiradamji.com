@@ -9,7 +9,7 @@ const LangContext = React.createContext<Language>('en');
 
 export const LangProvider = LangContext.Provider;
 
-export type Translatable = Record<Language, string> | string;
+export type Translatable = Record<Language, string> | string[] | string;
 
 export type ValidTr =
   | Translatable
@@ -28,27 +28,36 @@ export function useTr(en: string, es: string) {
   return values[lang] || 'MISSING TRANSLATION';
 }
 
-export function Lang(props: LangProps) {
-  const tr = 'tr' in props ? props.tr : props;
-  const lang = useLang();
-
-  if (!tr) {
+export function tr(value: Translatable | undefined, lang: Language) {
+  if (!value) {
     return null;
   }
 
-  if (typeof tr === 'string') {
-    return <RawHtml html={tr} />;
+  if (typeof value === 'string') {
+    return value;
   }
 
-  if (isStringArray(tr)) {
-    return <RawHtml html={tr[arrayMap[lang]]} />;
+  if (Array.isArray(value)) {
+    return value[arrayMap[lang]] || value[0];
   }
 
-  if (isJsxElement(tr)) {
-    return tr as JSX.Element;
+  return value[lang] || value.en || 'MISSING TRANSLATION';
+}
+
+export function Lang(props: LangProps) {
+  const value = 'tr' in props ? props.tr : props;
+  const lang = useLang();
+
+  if (!value) {
+    return null;
   }
 
-  return <RawHtml html={tr[lang] || tr.en || 'INVALID TR'} />;
+  if (isJsxElement(value)) {
+    return value as JSX.Element;
+  }
+
+  const html = tr(value, lang);
+  return <RawHtml html={html} />;
 }
 
 export function i18n(parts: TemplateStringsArray, ...params: Translatable[]) {
@@ -73,15 +82,20 @@ function isJsxElement(
   // deno-lint-ignore no-explicit-any
   target: any
 ): target is JSX.Element | (JSX.Element | string | null)[] {
-  return (
-    isValidElement(target) ||
-    (Array.isArray(target) &&
-      target.every(
-        (x) => x === null || typeof x === 'string' || isValidElement(x)
-      ))
-  );
-}
+  if (isValidElement(target)) {
+    return true;
+  }
 
-function isStringArray(target: any): target is string[] {
-  return Array.isArray(target) && target.every((x) => typeof x === 'string');
+  if (!Array.isArray(target)) {
+    return false;
+  }
+
+  const hasJsx = target.some(isValidElement);
+
+  return (
+    hasJsx &&
+    target.every(
+      (x) => x === null || typeof x === 'string' || isValidElement(x)
+    )
+  );
 }

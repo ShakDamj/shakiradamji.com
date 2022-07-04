@@ -8,7 +8,7 @@ import { Heading2 } from '../atoms/Heading.tsx';
 export interface ExpandableListProps<T> {
   className?: string;
   hideAfter?: number;
-  title: Translatable;
+  title?: Translatable;
   list: T[];
   children: (item: T) => React.ReactNode;
 }
@@ -17,7 +17,7 @@ export function ExpandableList<T>({
   className = '',
   title,
   list,
-  hideAfter = 5,
+  hideAfter = 0,
   children,
 }: ExpandableListProps<T>) {
   const viewMore = useTr('View all', 'Ver todo');
@@ -47,10 +47,6 @@ export function ExpandableList<T>({
     margin-bottom: ${cssSpace.lg};
   `;
 
-  const viewMoreStyles = css`
-    list-style: none;
-  `;
-
   const top = hideAfter ? list.slice(0, hideAfter) : list;
   const bottom = hideAfter ? list.slice(hideAfter) : [];
 
@@ -66,7 +62,7 @@ export function ExpandableList<T>({
 
       {bottom.length ? (
         <details>
-          <summary className={viewMoreStyles}>
+          <summary>
             <HiddenContent>{viewMore}</HiddenContent>
           </summary>
           <ol>{bottom.map(children)}</ol>

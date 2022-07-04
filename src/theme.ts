@@ -62,6 +62,10 @@ export const cssGlobal = `
     text-align: justify;
   }
 
+  .md pre {
+    white-space: break-spaces;
+  }
+
   svg {
     fill: ${cssColor.foreground};
   }
@@ -91,9 +95,12 @@ export const cssReset = `
     line-height: 1.5;
   }
 
-  /* Remove list styles on ul, ol elements with a class attribute */
-  ul, ol {
+  ul, ol, summary {
     list-style: none;
+  }
+  .md ul, .md ol {
+    list-style: initial;
+    padding: revert;
   }
 
   /* A elements that don't have a class get default styles */

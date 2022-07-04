@@ -5,6 +5,8 @@ date: 2014-04-14
 
 Me gustaría hacer un repaso al tema de la asincronía en Javascript porque me llama la atención que pese a tener casi 20 años es un tema que sigue madurando y he visto surgir buenas ideas recientemente.
 
+<!-- extract -->
+
 ### El event loop
 
 Primero lo primero, de donde sale la asincronía. Javascript es un lenguaje cuya ejecución se basa en lo que se llama **event loop** (bucle de eventos). El _event loop_ es una cola donde se van añadiendo los bloques de código que quieren ejecutarse, por ejemplo: cuando el navegador está renderizando el HTML de una página y se encuentra un tag `<script>` el contenido de ese elemento se añade al _event loop_ para que sea ejecutado tan pronto como sea posible.

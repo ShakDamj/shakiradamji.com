@@ -24,6 +24,12 @@ export function AmqHeader({
     background-color: ${cssColor.backgroundDark};
     color: ${cssColor.foreground};
     border-bottom: 2px solid ${cssColor.border};
+
+    ${cssBreakpoint.medium} {
+      position: sticky;
+      top: 0;
+      z-index: 1;
+    }
   `;
 
   const containerStyles = css`

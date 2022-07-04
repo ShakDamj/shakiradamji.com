@@ -1,5 +1,9 @@
 import { basename, extname } from 'std/path/mod.ts';
+import { Translatable } from '../atoms/Lang.tsx';
 import { YearMonthDay } from '../atoms/Time.tsx';
+import { BlogPostProps } from '../pages/blog/_template.tsx';
+import { CareerProps } from '../pages/career/_template.tsx';
+import { ProjectProps } from '../pages/projects/_template.tsx';
 import { path } from '../util/path.ts';
 import { getFilesRecursively } from './getFilesRecursively.ts';
 import { isMarkdown, readMarkdown } from './render-md.tsx';
@@ -16,7 +20,7 @@ export function getPagesRoot() {
 
 export async function getPagesFromDisk() {
   const files = await getFilesRecursively(source);
-  return files.filter(x => !x.endsWith('/_template.tsx')) as SitePage[];
+  return files.filter((x) => !x.endsWith('/_template.tsx')) as SitePage[];
 }
 
 export function getPageDestinationOnDisk(page: SitePage, path = '') {
@@ -24,7 +28,9 @@ export function getPageDestinationOnDisk(page: SitePage, path = '') {
   const filename = basename(page);
   const isIndex = filename.replace(extension, '') === 'index';
   const newExtension = isIndex ? '.html' : '/index.html';
-  return page.replace(source, `${target}${path}`).replace(extension, newExtension);
+  return page
+    .replace(source, `${target}${path}`)
+    .replace(extension, newExtension);
 }
 
 export function getPagePath(page: SitePage, path = '') {
@@ -36,24 +42,38 @@ export function getPagePath(page: SitePage, path = '') {
   return final || '/';
 }
 
-export function getPagesBySection(pages: PageMetadata[]) {
+export function getPagesBySection(pages: PageMetadata[]): {
+  blog: BlogPostProps[];
+  career: CareerProps[];
+  projects: ProjectProps[];
+  experiments: PageMetadata[];
+  talks: PageMetadata[];
+} {
   const sections: Record<string, PageMetadata[]> = {};
 
   for (const page of pages) {
     const [, section] = page.path.split('/');
+
+    if (page.file.endsWith('index.tsx')) {
+      continue;
+    }
+
     if (!sections[section]) sections[section] = [page];
     else sections[section].push(page);
   }
 
-  return sections;
+  // deno-lint-ignore no-explicit-any
+  return sections as any;
 }
 
 export interface PageMetadata {
   type: 'md' | 'tsx';
   file: SitePage;
   path: string;
-  title: string;
+  title: Translatable;
   date: YearMonthDay | null;
+  content?: Translatable;
+  labels?: Translatable[];
 }
 
 export async function getPageMetadata(page: SitePage): Promise<PageMetadata> {
@@ -81,7 +101,9 @@ export async function getPageMetadata(page: SitePage): Promise<PageMetadata> {
 function getPageTitle(page: SitePage) {
   const extension = extname(page);
   const filename = removeDate(basename(page));
-  const result = filename.replace(extension, '').replace(/-(\w)/, x => x[1].toUpperCase());
+  const result = filename
+    .replace(extension, '')
+    .replace(/-(\w)/, (x) => x[1].toUpperCase());
   return firstUppercase(result) || page;
 }
 

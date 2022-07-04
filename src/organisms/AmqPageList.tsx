@@ -41,6 +41,10 @@ export function AmqPageList({ className = '', name, list }: AmqPageListProps) {
     }
   `;
 
+  const timeStyles = css`
+    font-size: 0.9em;
+  `;
+
   const linkStyles = css`
     letter-spacing: 1px;
   `;
@@ -49,10 +53,10 @@ export function AmqPageList({ className = '', name, list }: AmqPageListProps) {
 
   return (
     <div className={`${styles} ${className}`}>
-      <ExpandableList title={name} list={reverse}>
+      <ExpandableList title={name} list={reverse} hideAfter={5}>
         {(item) => (
           <li key={item.file} className={listItemStyles}>
-            <Time value={item.date} omitDay />
+            <Time className={timeStyles} value={item.date} omitDay />
             <Link className={linkStyles} page={item.file}>
               {item.title}
             </Link>

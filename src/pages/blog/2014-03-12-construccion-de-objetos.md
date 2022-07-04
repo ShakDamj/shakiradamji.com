@@ -11,8 +11,6 @@ date: 2014-03-12
 
 Buscando optimizaciones para un juego en javascript encontré [un paradigma de definición de tipos y creación de objetos][2] que cambió mi forma de ver el lenguaje.
 
----
-
 He hablado antes de la limitación de los constructores javascript:
 
 ```js
