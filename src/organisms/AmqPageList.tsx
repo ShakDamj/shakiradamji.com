@@ -3,7 +3,7 @@ import { usePageUtils } from '../generate/PageUtils.tsx';
 import { Time } from '../atoms/Time.tsx';
 import { css } from '../deps/emotion.ts';
 import { PageMetadata } from '../generate/pages.ts';
-import { cssSpace } from '../theme.ts';
+import { cssBreakpoint, cssColor, cssSpace } from '../theme.ts';
 import { Translatable } from '../atoms/Lang.tsx';
 import { ExpandableList } from '../molecules/ExpandableList.tsx';
 
@@ -17,24 +17,32 @@ export function AmqPageList({ className = '', name, list }: AmqPageListProps) {
   const { Link } = usePageUtils();
 
   const styles = css`
-    // margin: ${cssSpace.xl} 0;
-    padding: ${cssSpace.xl} 0;
+    // margin: 32px 0;
+    padding: 32px 0;
 
     & + & {
-      border-top: 1px solid #586369;
+      border-top: 1px solid ${cssColor.border};
     }
   `;
 
   const listItemStyles = css`
     display: flex;
-    align-items: center;
-    gap: 1rem;
-    // justify-content: space-between;
-    margin-top: ${cssSpace.sm};
+    margin-top: ${cssSpace.md};
+    flex-direction: column-reverse;
+
+    ${cssBreakpoint.medium} {
+      align-items: center;
+      flex-direction: row;
+      gap: 1rem;
+    }
 
     a {
       text-decoration: none;
     }
+  `;
+
+  const linkStyles = css`
+    letter-spacing: 1px;
   `;
 
   const reverse = useMemo(() => list.slice().reverse(), [list]);
@@ -45,7 +53,9 @@ export function AmqPageList({ className = '', name, list }: AmqPageListProps) {
         {(item) => (
           <li key={item.file} className={listItemStyles}>
             <Time value={item.date} omitDay />
-            <Link href={item.file}>{item.title}</Link>
+            <Link className={linkStyles} href={item.file}>
+              {item.title}
+            </Link>
           </li>
         )}
       </ExpandableList>

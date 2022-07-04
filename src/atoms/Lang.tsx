@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { isValidElement } from 'react';
 import { RawHtml } from './RawHtml.tsx';
 
 export type Language = 'en' | 'es';
@@ -11,33 +11,41 @@ export const LangProvider = LangContext.Provider;
 
 export type Translatable = Record<Language, string> | string;
 
-export type LangProps =
-  | { tr: Translatable | string[] }
-  | { en: string; es: string };
+export type ValidTr = Translatable | JSX.Element | (JSX.Element | string)[];
+
+export type LangProps = { tr: ValidTr } | { en: string; es: string };
 
 export function useLang() {
   return React.useContext(LangContext);
+}
+
+export function useTr(en: string, es: string) {
+  const lang = useLang();
+  const values = { en, es };
+  return values[lang] || 'MISSING TRANSLATION';
 }
 
 export function Lang(props: LangProps) {
   const tr = 'tr' in props ? props.tr : props;
   const lang = useLang();
 
+  if (!tr) {
+    return null;
+  }
+
   if (typeof tr === 'string') {
     return <RawHtml html={tr} />;
   }
 
-  if (Array.isArray(tr)) {
+  if (isStringArray(tr)) {
     return <RawHtml html={tr[arrayMap[lang]]} />;
   }
 
-  return <RawHtml html={tr[lang] || tr.en || 'INVALID TR'} />;
-}
+  if (isJsxElement(tr)) {
+    return tr as JSX.Element;
+  }
 
-export function tr(...args: [Translatable] | string[]) {
-  const content =
-    args.length === 1 ? (args[0] as Translatable) : (args as string[]);
-  return <Lang tr={content} />;
+  return <RawHtml html={tr[lang] || tr.en || 'INVALID TR'} />;
 }
 
 export function i18n(parts: TemplateStringsArray, ...params: Translatable[]) {
@@ -56,4 +64,19 @@ export function i18n(parts: TemplateStringsArray, ...params: Translatable[]) {
   });
 
   return Object.fromEntries(values);
+}
+
+function isJsxElement(
+  // deno-lint-ignore no-explicit-any
+  target: any
+): target is JSX.Element | (JSX.Element | string)[] {
+  return (
+    isValidElement(target) ||
+    (Array.isArray(target) &&
+      target.every((x) => typeof x === 'string' || isValidElement(x)))
+  );
+}
+
+function isStringArray(target: any): target is string[] {
+  return Array.isArray(target) && target.every((x) => typeof x === 'string');
 }

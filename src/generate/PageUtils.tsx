@@ -1,8 +1,9 @@
 import React, { createContext, useContext } from 'react';
 import { relative } from 'std/path/mod.ts';
 import { getPagePath, SitePage } from '../generate/pages.ts';
-import { tr, Translatable } from '../atoms/Lang.tsx';
+import { Lang, Translatable } from '../atoms/Lang.tsx';
 
+// deno-lint-ignore no-explicit-any
 const Context = createContext<PageUtils>(null as any);
 
 export function usePageUtils() {
@@ -17,28 +18,44 @@ export const UtilsProvider = Context.Provider;
 
 const urlToSitePage = (url: string) => url.replace('file://', '') as SitePage;
 
-export function createPageUtils(page: string) {
+export function createPageUtils(page: string, root: string) {
   const path = getPagePath(urlToSitePage(page));
 
-  function Link({ href, children }: { href: string; children: Translatable | JSX.Element }) {
+  function Link({
+    className,
+    href,
+    children,
+  }: {
+    className?: string;
+    href: string;
+    children: Translatable | JSX.Element;
+  }) {
     const target = getPagePath(urlToSitePage(href));
 
     const isActive = target === path;
     const isContained = !isActive && path.startsWith(target);
-    const classes = [isActive ? 'active' : null, isContained ? 'parent' : null].filter(Boolean).join(' ');
+    const classes = [
+      className,
+      isActive ? 'active' : null,
+      isContained ? 'parent' : null,
+    ]
+      .filter(Boolean)
+      .join(' ');
+
+    console.log({ page, href, path, target, result: relative(path, target) });
 
     return (
       <a href={relative(path, target)} className={classes}>
-        {isJsxElement(children) ? children : tr(children)}
+        <Lang tr={children} />
       </a>
     );
   }
 
-  return { Link };
+  function getBasePath() {
+    return `/${root}`;
+  }
+
+  return { Link, getBasePath };
 }
 
 export type PageUtils = ReturnType<typeof createPageUtils>;
-
-function isJsxElement(target: any): target is JSX.Element {
-  return React.isValidElement(target);
-}

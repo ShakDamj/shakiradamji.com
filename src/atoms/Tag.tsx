@@ -10,10 +10,11 @@ export interface TagProps {
 
 export function Tag({ className = '', children }: TagProps) {
   const styles = css`
-    background-color: ${cssColor.primary};
-    color: ${cssColor.background};
-    border-radius: 1rem;
-    padding: 0rem 0.7rem 0.1rem;
+    background-color: ${cssColor.backgroundDark};
+    color: ${cssColor.foreground};
+    border: 1px solid ${cssColor.border};
+    border-radius: 4px;
+    padding: 0.3rem 1rem;
     display: inline-block;
   `;
 

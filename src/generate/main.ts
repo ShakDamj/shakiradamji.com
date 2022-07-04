@@ -1,7 +1,11 @@
 import { dirname } from 'std/path/mod.ts';
 import { Language } from '../atoms/Lang.tsx';
 import { path } from '../util/path.ts';
-import { getPageDestinationOnDisk, getPagesFromDisk, SitePage } from './pages.ts';
+import {
+  getPageDestinationOnDisk,
+  getPagesFromDisk,
+  SitePage,
+} from './pages.ts';
 import { isMarkdown, renderMd } from './render-md.tsx';
 import { isTsx, renderTsx } from './render-tsx.tsx';
 // import { emptyDirectory } from './emptyDirectory.ts';
@@ -26,7 +30,7 @@ console.log('Done');
 // EXECUTION END
 
 async function generate(sources: SitePage[], lang: Language, path = '') {
-  const props = { lang };
+  const props: PageProps = { lang, path };
 
   for (const file of sources) {
     const dist = getPageDestinationOnDisk(file, path);
@@ -46,4 +50,9 @@ async function generate(sources: SitePage[], lang: Language, path = '') {
     await Deno.mkdir(dirname(dist), { recursive: true });
     await Deno.writeTextFile(dist, html);
   }
+}
+
+export interface PageProps {
+  lang: Language;
+  path: string;
 }

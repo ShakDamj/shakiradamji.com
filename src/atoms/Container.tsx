@@ -6,19 +6,22 @@ export interface ContainerProps {
   className?: string;
 }
 
-export function Container({ className, children }: PropsWithChildren<ContainerProps>) {
+export function Container({
+  className,
+  children,
+}: PropsWithChildren<ContainerProps>) {
   const styles = css`
-    width: 30rem;
+    max-width: 30rem;
     margin: 0 auto;
     padding: 0 1rem;
 
     ${cssBreakpoint.medium} {
-      width: 50rem;
+      max-width: 50rem;
       padding: 0 5rem;
     }
 
     ${cssBreakpoint.wide} {
-      width: 60rem;
+      max-width: 60rem;
       padding: 0 5rem;
     }
   `;

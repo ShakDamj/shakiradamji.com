@@ -5,6 +5,7 @@ export const cssColor = {
   foreground: '#FDFBF8',
   background: '#263238',
   backgroundDark: '#1B2225',
+  border: '#586369',
 };
 
 export const cssFontSize = {

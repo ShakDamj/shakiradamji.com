@@ -3,8 +3,8 @@ import React, { FunctionComponent } from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { LangProvider } from '../atoms/Lang.tsx';
 import { cache, flush } from '../deps/emotion.ts';
-import { PageProps } from './PageProps.ts';
 import { createPageUtils, UtilsProvider } from './PageUtils.tsx';
+import type { PageProps } from './main.ts';
 
 // HACK: this is necessary for emotion to work
 // deno-lint-ignore no-explicit-any
@@ -15,17 +15,21 @@ export function isTsx(file: string) {
   return extension === '.ts' || extension === '.tsx';
 }
 
-export async function renderTsx<P extends PageProps>(file: string, { lang, ...props }: P, filePath?: string) {
+export async function renderTsx<P extends PageProps>(
+  file: string,
+  { lang, path, ...props }: P,
+  filePath?: string
+) {
   const mod = await import(file);
   const Page = validateModule(file, mod);
-  const utils = createPageUtils(filePath || file);
+  const utils = createPageUtils(filePath || file, path);
 
   const html = renderToStaticMarkup(
     <UtilsProvider value={utils}>
       <LangProvider value={lang}>
         <Page {...props} />
       </LangProvider>
-    </UtilsProvider>,
+    </UtilsProvider>
   ).replace(/<script><\/script>/g, '');
 
   const css = Object.values(cache.inserted);
@@ -37,7 +41,10 @@ export async function renderTsx<P extends PageProps>(file: string, { lang, ...pr
 }
 
 // deno-lint-ignore no-explicit-any
-function validateModule<T extends { default: FunctionComponent<any> }>(file: string, module: T) {
+function validateModule<T extends { default: FunctionComponent<any> }>(
+  file: string,
+  module: T
+) {
   const Page = module.default;
 
   if (!Page) {
