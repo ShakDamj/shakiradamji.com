@@ -28,6 +28,8 @@ Development and maintenance of a product for clinics and doctors to communicate 
 
 I found myself without a manager to report to shortly after joining, which led me to pull my sleeves and find how to help the company as part of my daily job.
 
+<!-- end extract -->
+
 Saw the need and took the leadership of the development along the transformation from a single unit to a handful of teams, facilitated most cross-team technical meetings, mentored junior developers and created by own initiative an Slack bot to assist other departments into their tasks.
 
 Mentored the team in specific technologies as ESLint and Typescript in order to improve code quality and product stability.
@@ -41,6 +43,8 @@ We created an outstanding team of great individuals with the most efficient dyna
 Desarrollo y mantenimiento de un producto para que clinicas y doctores puedan comunicarse con sus pacientes y registrar sus datos, con particular énfasis en automatización y mostrar sólo la información relevate en cada momento.
 
 Me encontré sin superior al que reportar al poco tiempo de unirme, lo que me llevó a arremangarme y encontrar cómo ayudar a la compañía como parte de mi trabajo diario.
+
+<!-- end extract -->
 
 Vi la necesidad y tomé el liderazgo del equipo de desarrollo durante la transformación de una sola unidad a un puñado de equipos, facilité la mayoría de las reuniones técnicas a través de los equipos, entrené a programadores menos experimentados y creé por iniciativa propia un bot de Slack para ayudar a otros departamentos en sus tareas.
 
