@@ -47,11 +47,9 @@ export function AmqPageList({ className = '', name, list }: AmqPageListProps) {
     letter-spacing: 1px;
   `;
 
-  const reverse = useMemo(() => list.slice().reverse(), [list]);
-
   return (
     <div className={`${styles} ${className}`}>
-      <ExpandableList title={name} list={reverse} hideAfter={5}>
+      <ExpandableList title={name} list={list} hideAfter={5}>
         {(item) => (
           <li key={item.file} className={listItemStyles}>
             <Time className={timeStyles} value={item.date} omitDay />

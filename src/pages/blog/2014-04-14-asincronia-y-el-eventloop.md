@@ -1,6 +1,6 @@
 ---
 title: Asincronía y el EventLoop
-date: 2014-04-14
+published: 2014-04-14
 ---
 
 Me gustaría hacer un repaso al tema de la asincronía en Javascript porque me llama la atención que pese a tener casi 20 años es un tema que sigue madurando y he visto surgir buenas ideas recientemente.

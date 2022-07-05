@@ -1,6 +1,6 @@
 ---
 title: Componentes HTML
-date: 2013-08-23
+published: 2013-08-23
 ---
 
 Acabo de caer en cuenta de porqué no me gusta angular, backbone, ember...

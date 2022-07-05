@@ -1,6 +1,6 @@
 ---
 title: 'Experimento: Privacidad por instancias'
-date: 2012-03-03
+published: 2012-03-03
 ---
 
 > Actualización 19/3/2014: Sorprendentemente parece que una propuesta del ECMAScript 6 sigue mismo el patrón descrito en este post, y yo que pensaba que era demasiado rebuscado...

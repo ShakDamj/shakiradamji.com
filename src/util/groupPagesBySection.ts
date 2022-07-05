@@ -1,7 +1,7 @@
-import { BlogPostProps } from '../../pages/blog/_template.tsx';
-import { CareerProps } from '../../pages/career/_template.tsx';
-import { ProjectProps } from '../../pages/projects/_template.tsx';
-import { PageMetadata } from '../types/PageMetadata.ts';
+import { PageMetadata } from '../generate/mod.ts';
+import { BlogPostProps } from '../pages/blog/_template.tsx';
+import { CareerProps } from '../pages/career/_template.tsx';
+import { ProjectProps } from '../pages/projects/_template.tsx';
 
 export function groupPagesBySection(pages: PageMetadata[]): {
   blog: BlogPostProps[];

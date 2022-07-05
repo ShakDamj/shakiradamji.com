@@ -3,19 +3,15 @@ import { Container } from '../../atoms/Container.tsx';
 import { Heading3 } from '../../atoms/Heading.tsx';
 import { Time } from '../../atoms/Time.tsx';
 import { css } from '../../deps/emotion.ts';
-import {
-  getAllPagesBySection,
-  usePageUtils,
-  Lang,
-  RawHtml,
-} from '../../generate/mod.ts';
+import { usePageUtils, Lang, RawHtml } from '../../generate/mod.ts';
 import { ExpandableList } from '../../molecules/ExpandableList.tsx';
 import { AmqHeader } from '../../organisms/AmqHeader.tsx';
 import { AmqDocument } from '../../templates/AmqDocument.tsx';
 import { highlightTheme } from '../../templates/AmqMarkdownPage.tsx';
 import { cssColor } from '../../theme.ts';
+import { getAllPagesBySection } from '../../util/getAllPagesBySection.ts';
 
-const posts = (await getAllPagesBySection()).blog.reverse();
+const { blog: posts } = await getAllPagesBySection();
 
 // deno-lint-ignore no-explicit-any
 export default (props: any) => {
@@ -50,7 +46,7 @@ export default (props: any) => {
             <li key={item.file} className={itemStyles}>
               <Heading3 className={headerStyles}>
                 <Lang tr={item.title} />
-                <Time className={timeStyles} value={item.date} />
+                <Time className={timeStyles} value={item.published} />
               </Heading3>
 
               <RawHtml html={item.extract} />

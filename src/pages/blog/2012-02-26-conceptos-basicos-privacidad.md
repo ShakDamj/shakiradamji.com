@@ -1,6 +1,6 @@
 ---
 title: 'Conceptos Básicos Javascript: Privacidad'
-date: 2012-02-26
+published: 2012-02-26
 ---
 
 ### Introducción

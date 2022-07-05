@@ -3,7 +3,7 @@ import { AmqDocument } from '../templates/AmqDocument.tsx';
 import { AmqHeader } from '../organisms/AmqHeader.tsx';
 import { AmqPageList } from '../organisms/AmqPageList.tsx';
 import { Container } from '../atoms/Container.tsx';
-import { getAllPagesBySection } from '../generate/mod.ts';
+import { getAllPagesBySection } from '../util/getAllPagesBySection.ts';
 
 const sections = await getAllPagesBySection();
 

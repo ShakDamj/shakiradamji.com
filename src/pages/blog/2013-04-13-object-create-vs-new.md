@@ -1,6 +1,6 @@
 ---
 title: Object.create vs new
-date: 2013-04-13
+published: 2013-04-13
 ---
 
 > Actualización 19/3/2014: Finalmente he entendido la utilidad de reemplazar `new`, se puede ver [aquí][1]

@@ -11,11 +11,11 @@ import {
 
 export interface BlogPostProps extends MarkdownPageMetadata {
   title: Translatable;
-  date: YearMonthDay;
+  published: YearMonthDay;
   content: Translatable;
 }
 
-export default ({ title, date, content }: BlogPostProps) => {
+export default ({ title, published, content }: BlogPostProps) => {
   const headerStyles = css`
     display: flex;
     flex-direction: row;
@@ -27,7 +27,7 @@ export default ({ title, date, content }: BlogPostProps) => {
     <AmqMarkdownPage title={title} content={content}>
       <div className={headerStyles}>
         <Heading2>{title}</Heading2>
-        <Time value={date} />
+        <Time value={published} />
       </div>
     </AmqMarkdownPage>
   );

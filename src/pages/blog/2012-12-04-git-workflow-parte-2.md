@@ -1,6 +1,6 @@
 ---
 title: GIT Workflow (Parte 2)
-date: 2012-12-04
+published: 2012-12-04
 ---
 
 Continuando con [mi último artículo][1], llegó la hora de hablar del gran _Github Flow_:

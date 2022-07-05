@@ -2,20 +2,13 @@ import React from 'react';
 import { Container } from '../../atoms/Container.tsx';
 import { Heading3 } from '../../atoms/Heading.tsx';
 import { css } from '../../deps/emotion.ts';
-import {
-  getAllPagesBySection,
-  usePageUtils,
-  useLang,
-  RawHtml,
-} from '../../generate/mod.ts';
+import { usePageUtils, useLang, RawHtml } from '../../generate/mod.ts';
 import { RelatedLinks } from '../../molecules/RelatedLinks.tsx';
 import { AmqHeader } from '../../organisms/AmqHeader.tsx';
 import { AmqDocument } from '../../templates/AmqDocument.tsx';
+import { getAllPagesBySection } from '../../util/getAllPagesBySection.ts';
 
 const { projects, experiments } = await getAllPagesBySection();
-
-projects.reverse();
-experiments.reverse();
 
 // deno-lint-ignore no-explicit-any
 export default (props: any) => {

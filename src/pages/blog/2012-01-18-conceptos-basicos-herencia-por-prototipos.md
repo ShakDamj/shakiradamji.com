@@ -1,6 +1,6 @@
 ---
 title: 'Conceptos Básicos Javascript: Herencia por prototipos'
-date: 2012-01-18
+published: 2012-01-18
 ---
 
 Llegó la hora de entrar el en tema que realmente confunde a los recién llegados a Javascript, principalmente para quienes vienen de lenguajes que implementan la orientación a objetos mediante clases, que son la gran mayoría.

@@ -1,6 +1,6 @@
 ---
 title: Construcción de objetos
-date: 2014-03-12
+published: 2014-03-12
 ---
 
 > Este artículo quedó muy complejo y caótico, por eso voy a intentar dividirlo en partes, recomiendo leer los nuevos post en lugar de este.

@@ -3,17 +3,13 @@ import { Container } from '../../atoms/Container.tsx';
 import { Heading3 } from '../../atoms/Heading.tsx';
 import { Time } from '../../atoms/Time.tsx';
 import { css } from '../../deps/emotion.ts';
-import {
-  getAllPagesBySection,
-  usePageUtils,
-  Lang,
-  RawHtml,
-} from '../../generate/mod.ts';
+import { usePageUtils, Lang, RawHtml } from '../../generate/mod.ts';
 import { TagList } from '../../molecules/TagList.tsx';
 import { AmqHeader } from '../../organisms/AmqHeader.tsx';
 import { AmqDocument } from '../../templates/AmqDocument.tsx';
+import { getAllPagesBySection } from '../../util/getAllPagesBySection.ts';
 
-const experience = (await getAllPagesBySection()).career.reverse();
+const { career } = await getAllPagesBySection();
 const SHOW_OPEN_ONLY_TOP = 3;
 
 // deno-lint-ignore no-explicit-any
@@ -45,7 +41,7 @@ export default (props: any) => {
 
       <Container>
         <ol>
-          {experience.map((item, index) => (
+          {career.map((item, index) => (
             <li key={item.file} className={itemStyles}>
               <Heading3 className={headerStyles}>
                 <Lang tr={item.title} />
