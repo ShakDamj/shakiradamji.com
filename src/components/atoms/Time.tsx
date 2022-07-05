@@ -1,7 +1,7 @@
 import React from 'react';
-import { css } from '../deps/emotion.ts';
-import { useLang, YearMonthDay } from '../generate/mod.ts';
-import { cssColor, cssFontFamily } from '../theme.ts';
+import { css } from '../../deps/emotion.ts';
+import { useLang, YearMonthDay } from '../../generate/mod.ts';
+import { cssColor, cssFontFamily } from '../../theme.ts';
 
 function useLocale() {
   const lang = useLang();

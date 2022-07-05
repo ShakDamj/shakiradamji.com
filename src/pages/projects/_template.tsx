@@ -1,12 +1,12 @@
 import React from 'react';
 import { css } from '../../deps/emotion.ts';
 import { cssSpace } from '../../theme.ts';
-import { Heading2 } from '../../atoms/Heading.tsx';
-import { AmqMarkdownPage } from '../../templates/AmqMarkdownPage.tsx';
+import { Heading2 } from '../../components/atoms/Heading.tsx';
+import { AmqMarkdownPage } from '../../components/templates/AmqMarkdownPage.tsx';
 import {
   RelatedLinks,
   RelatedLinksProps,
-} from '../../molecules/RelatedLinks.tsx';
+} from '../../components/molecules/RelatedLinks.tsx';
 import {
   MarkdownPageMetadata,
   Translatable,

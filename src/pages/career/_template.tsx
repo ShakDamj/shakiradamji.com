@@ -1,10 +1,10 @@
 import React from 'react';
 import { css } from '../../deps/emotion.ts';
-import { meta as defaultMeta } from '../../templates/default.tsx';
-import { Time } from '../../atoms/Time.tsx';
+import { meta as defaultMeta } from '../../components/templates/default.tsx';
+import { Time } from '../../components/atoms/Time.tsx';
+import { Heading2 } from '../../components/atoms/Heading.tsx';
+import { AmqMarkdownPage } from '../../components/templates/AmqMarkdownPage.tsx';
 import { cssFontSize, cssSpace } from '../../theme.ts';
-import { Heading2 } from '../../atoms/Heading.tsx';
-import { AmqMarkdownPage } from '../../templates/AmqMarkdownPage.tsx';
 import {
   MarkdownPageMetadata,
   Translatable,

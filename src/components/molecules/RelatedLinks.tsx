@@ -1,6 +1,6 @@
 import React from 'react';
 import { FlaskIcon, GithubIcon, PlayIcon, VideoIcon } from '../atoms/icons.tsx';
-import { css } from '../deps/emotion.ts';
+import { css } from '../../deps/emotion.ts';
 
 export interface RelatedLinksProps {
   className?: string;

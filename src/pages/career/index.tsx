@@ -1,12 +1,12 @@
 import React from 'react';
-import { Container } from '../../atoms/Container.tsx';
-import { Heading3 } from '../../atoms/Heading.tsx';
-import { Time } from '../../atoms/Time.tsx';
+import { Container } from '../../components/atoms/Container.tsx';
+import { Heading3 } from '../../components/atoms/Heading.tsx';
+import { Time } from '../../components/atoms/Time.tsx';
+import { TagList } from '../../components/molecules/TagList.tsx';
+import { AmqHeader } from '../../components/organisms/AmqHeader.tsx';
+import { AmqDocument } from '../../components/templates/AmqDocument.tsx';
 import { css } from '../../deps/emotion.ts';
 import { usePageUtils, Lang, RawHtml } from '../../generate/mod.ts';
-import { TagList } from '../../molecules/TagList.tsx';
-import { AmqHeader } from '../../organisms/AmqHeader.tsx';
-import { AmqDocument } from '../../templates/AmqDocument.tsx';
 import { getAllPagesBySection } from '../../util/getAllPagesBySection.ts';
 
 const { career } = await getAllPagesBySection();

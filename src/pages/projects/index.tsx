@@ -1,11 +1,11 @@
 import React from 'react';
-import { Container } from '../../atoms/Container.tsx';
-import { Heading3 } from '../../atoms/Heading.tsx';
 import { css } from '../../deps/emotion.ts';
 import { usePageUtils, useLang, RawHtml } from '../../generate/mod.ts';
-import { RelatedLinks } from '../../molecules/RelatedLinks.tsx';
-import { AmqHeader } from '../../organisms/AmqHeader.tsx';
-import { AmqDocument } from '../../templates/AmqDocument.tsx';
+import { Container } from '../../components/atoms/Container.tsx';
+import { Heading3 } from '../../components/atoms/Heading.tsx';
+import { RelatedLinks } from '../../components/molecules/RelatedLinks.tsx';
+import { AmqHeader } from '../../components/organisms/AmqHeader.tsx';
+import { AmqDocument } from '../../components/templates/AmqDocument.tsx';
 import { getAllPagesBySection } from '../../util/getAllPagesBySection.ts';
 
 const { projects, experiments } = await getAllPagesBySection();

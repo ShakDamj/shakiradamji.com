@@ -2,7 +2,7 @@ import { parse } from 'std/encoding/yaml.ts';
 import { dirname } from 'std/path/mod.ts';
 import { parseMarkdown } from '../../deps/markdown.ts';
 
-const templatesDir = '../../templates';
+const templatesDir = '../../components/templates';
 
 export async function readMarkdown(file: string) {
   const fileContent = await Deno.readTextFile(file);

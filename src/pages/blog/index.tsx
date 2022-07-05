@@ -1,13 +1,13 @@
 import React from 'react';
-import { Container } from '../../atoms/Container.tsx';
-import { Heading3 } from '../../atoms/Heading.tsx';
-import { Time } from '../../atoms/Time.tsx';
+import { Container } from '../../components/atoms/Container.tsx';
+import { Heading3 } from '../../components/atoms/Heading.tsx';
+import { Time } from '../../components/atoms/Time.tsx';
 import { css } from '../../deps/emotion.ts';
 import { usePageUtils, Lang, RawHtml } from '../../generate/mod.ts';
-import { ExpandableList } from '../../molecules/ExpandableList.tsx';
-import { AmqHeader } from '../../organisms/AmqHeader.tsx';
-import { AmqDocument } from '../../templates/AmqDocument.tsx';
-import { highlightTheme } from '../../templates/AmqMarkdownPage.tsx';
+import { ExpandableList } from '../../components/molecules/ExpandableList.tsx';
+import { AmqHeader } from '../../components/organisms/AmqHeader.tsx';
+import { AmqDocument } from '../../components/templates/AmqDocument.tsx';
+import { highlightTheme } from '../../components/templates/AmqMarkdownPage.tsx';
 import { cssColor } from '../../theme.ts';
 import { getAllPagesBySection } from '../../util/getAllPagesBySection.ts';
 

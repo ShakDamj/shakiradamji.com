@@ -1,5 +1,5 @@
 import React, { PropsWithChildren } from 'react';
-import { css } from '../deps/emotion.ts';
+import { css } from '../../deps/emotion.ts';
 
 export function HiddenContent({ children }: PropsWithChildren<{}>) {
   const styles = css`

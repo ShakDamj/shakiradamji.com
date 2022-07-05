@@ -1,6 +1,6 @@
 import React from 'react';
-import { Translatable, useLang, Lang, RawHtml } from '../generate/mod.ts';
-import { cssGlobal, cssReset } from '../theme.ts';
+import { Translatable, useLang, Lang, RawHtml } from '../../generate/mod.ts';
+import { cssGlobal, cssReset } from '../../theme.ts';
 
 export interface AmqDocumentProps {
   className?: string;

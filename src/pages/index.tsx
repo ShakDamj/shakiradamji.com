@@ -1,8 +1,8 @@
 import React from 'react';
-import { AmqDocument } from '../templates/AmqDocument.tsx';
-import { AmqHeader } from '../organisms/AmqHeader.tsx';
-import { AmqPageList } from '../organisms/AmqPageList.tsx';
-import { Container } from '../atoms/Container.tsx';
+import { AmqDocument } from '../components/templates/AmqDocument.tsx';
+import { AmqHeader } from '../components/organisms/AmqHeader.tsx';
+import { AmqPageList } from '../components/organisms/AmqPageList.tsx';
+import { Container } from '../components/atoms/Container.tsx';
 import { getAllPagesBySection } from '../util/getAllPagesBySection.ts';
 
 const sections = await getAllPagesBySection();

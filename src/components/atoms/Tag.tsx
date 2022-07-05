@@ -1,7 +1,7 @@
 import React from 'react';
-import { css } from '../deps/emotion.ts';
-import { Lang, Translatable } from '../generate/mod.ts';
-import { cssColor } from '../theme.ts';
+import { css } from '../../deps/emotion.ts';
+import { Lang, Translatable } from '../../generate/mod.ts';
+import { cssColor } from '../../theme.ts';
 
 export interface TagProps {
   className?: string;

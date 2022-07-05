@@ -1,6 +1,6 @@
 import React, { PropsWithChildren } from 'react';
-import { css } from '../deps/emotion.ts';
-import { cssBreakpoint } from '../theme.ts';
+import { css } from '../../deps/emotion.ts';
+import { cssBreakpoint } from '../../theme.ts';
 
 export interface ContainerProps {
   className?: string;
