@@ -7,10 +7,13 @@ const templatesDir = '../../components/templates';
 export async function readMarkdown(file: string) {
   const fileContent = await Deno.readTextFile(file);
 
-  const [head, ...body] = fileContent
+  const references = getReferences(fileContent);
+  const [head, ...parts] = fileContent
     .split(/---/g)
     .filter(Boolean)
     .map((x) => x.trim());
+
+  const body = parts.map((x) => `${x}\n\n${references}`);
 
   const data = parse(head) as Record<string, unknown>;
 
@@ -81,8 +84,10 @@ function getExtract(value: string | null | undefined) {
   return `${chunk}\n\n${getReferences(value)}`;
 }
 
+const uniq = <T>(arr: T[]) => Array.from(new Set(arr));
+
 function getReferences(markdown: string) {
   const matches = markdown.matchAll(/^\[\d+\]: .*$/gm);
   const references = Array.from(matches).map((x) => x[0]);
-  return references.join('\n');
+  return uniq(references).join('\n');
 }

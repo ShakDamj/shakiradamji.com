@@ -34,6 +34,11 @@ export const cssSpace = {
   xl: '40px',
 };
 
+export const cssAnimationSpeed = {
+  fast: '0.15s',
+  slow: '1s',
+};
+
 export const cssFontFamily = {
   default: 'Lato, sans-serif',
   header: 'Montserrat, sans-serif',
@@ -48,6 +53,7 @@ export const cssGlobal = `
     color: ${cssColor.foreground};
     font-family: ${cssFontFamily.default};
     font-size: 18px;
+    --border-color: ${cssColor.border};
   }
 
   header, h1, h2, h3, h4, h5, h6 {

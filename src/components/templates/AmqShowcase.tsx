@@ -13,8 +13,8 @@ import {
 import { Translatable, Lang, useLang, tr } from '../../generate/mod.ts';
 
 export interface AmqShowcaseProps extends AmqMarkdownPageProps {
-  links: RelatedLinksProps['links'];
-  iframe?: IframeHTMLAttributes<unknown> & { src: Translatable };
+  links?: RelatedLinksProps['links'];
+  iframe?: (IframeHTMLAttributes<unknown> & { src: Translatable }) | true;
 }
 
 export default ({
@@ -30,13 +30,56 @@ export default ({
   `;
 
   return (
-    <AmqMarkdownPage title={title} labels={labels} content={content}>
+    <AmqMarkdownPage
+      title={title}
+      labels={labels}
+      content={content}
+      footer={getFooter(iframe, links?.live)}
+    >
       <Heading2>
         <Lang tr={title} />
         <RelatedLinks className={iconsNav} links={links} />
       </Heading2>
-
-      {iframe && <iframe {...iframe} src={tr(iframe.src, useLang())} />}
     </AmqMarkdownPage>
   );
 };
+
+function getFooter(
+  iframe: AmqShowcaseProps['iframe'],
+  fallback: string | undefined
+) {
+  if (!iframe) {
+    return null;
+  }
+
+  if (iframe === true) {
+    return (
+      <iframe
+        src={fallback}
+        className={css`
+          width: var(--available-width);
+          border: none;
+        `}
+      />
+    );
+  }
+
+  const src = iframe.src ? tr(iframe.src, useLang()) : fallback;
+
+  if (!src) {
+    return null;
+  }
+
+  return (
+    <iframe
+      {...iframe}
+      src={src}
+      style={undefined}
+      className={css`
+        width: var(--available-width);
+        border: 2px solid var(--border-color);
+        ${(iframe.style as string) || ''}
+      `}
+    />
+  );
+}

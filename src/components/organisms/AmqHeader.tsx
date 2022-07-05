@@ -7,7 +7,13 @@ import {
   Lang,
   getPagesRoot,
 } from '../../generate/mod.ts';
-import { cssBreakpoint, cssColor, cssFontSize, cssSpace } from '../../theme.ts';
+import {
+  cssAnimationSpeed,
+  cssBreakpoint,
+  cssColor,
+  cssFontSize,
+  cssSpace,
+} from '../../theme.ts';
 
 const root = getPagesRoot();
 
@@ -55,6 +61,7 @@ export function AmqHeader({
       text-decoration: none;
       margin-left: ${cssSpace.md};
       border-bottom: 1px solid transparent;
+      transform: translate(0px, 0px);
     }
 
     a.parent {
@@ -63,6 +70,8 @@ export function AmqHeader({
 
     a:hover {
       border-bottom: 1px solid ${cssColor.link};
+      transition: transform ${cssAnimationSpeed.slow} ease;
+      transform: translate(0px, -3px);
     }
   `;
 

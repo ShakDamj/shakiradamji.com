@@ -3,11 +3,7 @@ import { css } from '../../deps/emotion.ts';
 import { Time } from '../../components/atoms/Time.tsx';
 import { Heading2 } from '../../components/atoms/Heading.tsx';
 import { AmqMarkdownPage } from '../../components/templates/AmqMarkdownPage.tsx';
-import {
-  MarkdownPageMetadata,
-  Translatable,
-  YearMonthDay,
-} from '../../generate/mod.ts';
+import { MarkdownPageMetadata, YearMonthDay } from '../../generate/mod.ts';
 
 export interface BlogPostProps extends MarkdownPageMetadata {
   published: YearMonthDay;

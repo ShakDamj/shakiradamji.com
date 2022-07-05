@@ -38,11 +38,13 @@ console.log('Done');
 
 async function generate(sources: SitePage[], lang: Language, path = '') {
   const props: PageProps = { lang, path };
-  const perf = [];
+  const perf: PagePerf[] = [];
 
   for (const file of sources) {
     const start = performance.now();
-    const dist = getPageDestinationOnDisk(file, path);
+    const dest = getPageDestinationOnDisk(file, path);
+
+    // console.log(`Processing ${relative(file)} => ${relative(dest)}`);
 
     let html: string;
 
@@ -56,34 +58,33 @@ async function generate(sources: SitePage[], lang: Language, path = '') {
 
     const generated = performance.now();
 
-    await Deno.mkdir(dirname(dist), { recursive: true });
-    await Deno.writeTextFile(dist, html);
+    await Deno.mkdir(dirname(dest), { recursive: true });
+    await Deno.writeTextFile(dest, html);
 
     const end = performance.now();
 
-    perf.push({ start, generated, end });
+    perf.push({ start, generated, end, size: html.length });
   }
 
   report(sources, perf);
 }
 
 function report(sources: SitePage[], perf: PagePerf[]) {
-  const sum =
-    (from: keyof PagePerf, to: keyof PagePerf) =>
-    (acc: number, curr: PagePerf) =>
-      acc + curr[to] - curr[from];
+  const sum = (iterator: (x: PagePerf) => number) =>
+    perf.reduce((acc: number, curr: PagePerf) => acc + iterator(curr), 0);
 
-  const print = (x: number) =>
-    `${x}ms (${Math.round(x / sources.length)}ms avg)`;
+  const print = (x: number, unit = 'ms') =>
+    `${x}${unit} (${Math.round(x / sources.length)}${unit}/page)`;
 
-  const total = perf.reduce(sum('start', 'end'), 0);
-  const generated = perf.reduce(sum('start', 'generated'), 0);
-  const write = perf.reduce(sum('generated', 'end'), 0);
+  const total = sum((x) => x.end - x.start);
+  // const generated = sum((x) => x.generated - x.start);
+  // const write = sum((x) => x.end - x.generated);
+  const size = sum((x) => x.size);
+  const kb = print(Math.round(size / 1000), 'Kb');
 
   console.log(
-    `Processed ${sources.length} pages in ${print(
-      total
-    )} | Generation in ${print(generated)} | Disk write in ${print(write)}`
+    `Processed ${sources.length} pages of ${kb} in ${print(total)}`
+    // | G ${print(generated)} | W ${print(write)}`
   );
 }
 
@@ -91,4 +92,5 @@ interface PagePerf {
   start: number;
   generated: number;
   end: number;
+  size: number;
 }

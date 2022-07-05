@@ -10,7 +10,7 @@ import { css } from '../../deps/emotion.ts';
 
 export interface RelatedLinksProps {
   className?: string;
-  links: {
+  links?: {
     github?: string;
     live?: string;
     tests?: string;
@@ -20,6 +20,10 @@ export interface RelatedLinksProps {
 }
 
 export function RelatedLinks({ className = '', links }: RelatedLinksProps) {
+  if (!links) {
+    return null;
+  }
+
   const styles = css`
     display: inline-flex;
   `;

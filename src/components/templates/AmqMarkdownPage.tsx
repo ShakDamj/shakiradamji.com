@@ -11,6 +11,7 @@ export interface AmqMarkdownPageProps extends PropsWithChildren<{}> {
   title: Translatable;
   labels?: Translatable[];
   content: Translatable;
+  footer?: JSX.Element | null;
 }
 
 export function AmqMarkdownPage({
@@ -18,6 +19,7 @@ export function AmqMarkdownPage({
   labels,
   content,
   children,
+  footer = null,
 }: AmqMarkdownPageProps) {
   const body = css`
     display: grid;
@@ -28,8 +30,6 @@ export function AmqMarkdownPage({
   const lang = useLang();
   const localContent = tr(content, lang);
   const styles = localContent.includes(`shj`) ? highlightTheme() : '';
-
-  return null;
 
   return (
     <AmqDocument title={title} styles={styles}>
@@ -42,6 +42,8 @@ export function AmqMarkdownPage({
         <article>
           <RawHtml html={localContent} />
         </article>
+
+        {footer}
       </Container>
     </AmqDocument>
   );

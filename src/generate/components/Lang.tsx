@@ -54,7 +54,7 @@ export function tr(value: Translatable | null | undefined, lang: Language) {
   }
 
   if (Array.isArray(value)) {
-    return value[arrayMap[lang]] || value[0];
+    return value[arrayMap[lang]] || value[0] || 'MISSING TRANSLATION';
   }
 
   return value[lang] || value.en || 'MISSING TRANSLATION';

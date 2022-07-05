@@ -1,6 +1,6 @@
 import React from 'react';
 import { css } from '../../deps/emotion.ts';
-import { cssFontSize, cssSpace } from '../../theme.ts';
+import { cssAnimationSpeed, cssFontSize, cssSpace } from '../../theme.ts';
 import { HiddenContent } from '../atoms/HiddenContent.tsx';
 import { Heading2 } from '../atoms/Heading.tsx';
 import { Translatable, useTr, Lang } from '../../generate/mod.ts';
@@ -26,24 +26,31 @@ export function ExpandableList<T>({
   const styles = css`
     position: relative;
 
-    details summary {
-      list-style: none;
-    }
+    details {
+      summary {
+        list-style: none;
+      }
 
-    details summary::after {
-      content: '${viewMore}';
-      display: block;
-      white-space: nowrap;
-      position: absolute;
-      list-style: none;
-      font-size: ${cssFontSize.sm};
-      top: ${cssSpace.md};
-      right: 0;
-      cursor: pointer;
-    }
+      summary::after {
+        content: '${viewMore}';
+        display: block;
+        white-space: nowrap;
+        position: absolute;
+        list-style: none;
+        font-size: ${cssFontSize.sm};
+        top: ${cssSpace.md};
+        right: 0;
+        cursor: pointer;
+        animation: none;
+      }
 
-    details[open] summary::after {
-      content: '${viewLess}';
+      &[open] {
+        summary::after {
+          content: '${viewLess}';
+        }
+
+        ${animateList('li')}
+      }
     }
   `;
 
@@ -74,4 +81,40 @@ export function ExpandableList<T>({
       ) : null}
     </div>
   );
+}
+
+function animateList(selector: string) {
+  const DELAY = 0.03;
+  const NTHS = 20;
+
+  const nths = array(NTHS).map(
+    (x) => `${selector}:nth-child(${x + 1}) { animation-delay: ${x * DELAY}s; }`
+  );
+
+  return `
+    ${selector} {
+      animation: slide-in ${cssAnimationSpeed.fast} ease-in-out;
+      animation-fill-mode: both;
+      animation-delay: ${DELAY * NTHS}s;
+    }
+
+    ${nths.join('\n')}
+
+    @keyframes slide-in {
+      0% {
+        opacity: 0;
+        transform: translate(-100px, 0);
+      }
+      100% {
+        opacity: 1;
+        transform: translate(0, 0);
+      }
+    }
+  `;
+}
+
+function array(length: number) {
+  return Array(length)
+    .fill(null)
+    .map((_, i) => i);
 }
