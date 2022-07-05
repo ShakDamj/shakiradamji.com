@@ -21,7 +21,6 @@ export interface CareerProps extends MarkdownPageMetadata {
   from: YearMonthDay;
   to: YearMonthDay;
   labels: Translatable[];
-  content: Translatable;
 }
 
 export function meta({ org, role }: CareerProps, file: string) {

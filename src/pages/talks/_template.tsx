@@ -10,19 +10,16 @@ import {
 import {
   MarkdownPageMetadata,
   Translatable,
-  YearMonthDay,
   Lang,
 } from '../../generate/mod.ts';
 
-export interface ProjectProps extends MarkdownPageMetadata {
+export interface TalkProps extends MarkdownPageMetadata {
   title: Translatable;
   links: RelatedLinksProps['links'];
-  labels: Translatable[];
-  from?: YearMonthDay;
-  to?: YearMonthDay;
+  iframe?: boolean;
 }
 
-export default ({ title, links, labels, content }: ProjectProps) => {
+export default ({ title, links, labels, content }: TalkProps) => {
   const iconsNav = css`
     gap: ${cssSpace.lg};
     margin-left: ${cssSpace.lg};
@@ -34,12 +31,6 @@ export default ({ title, links, labels, content }: ProjectProps) => {
         <Lang tr={title} />
         <RelatedLinks className={iconsNav} links={links} />
       </Heading2>
-
-      {/*
-        <div className={timeSpanStyles}>
-          <Time value={from} omitDay /> - <Time value={to} omitDay />
-        </div>
-        */}
     </AmqMarkdownPage>
   );
 };

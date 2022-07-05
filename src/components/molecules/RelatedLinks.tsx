@@ -1,5 +1,11 @@
 import React from 'react';
-import { FlaskIcon, GithubIcon, PlayIcon, VideoIcon } from '../atoms/icons.tsx';
+import {
+  FlaskIcon,
+  GithubIcon,
+  PlayIcon,
+  SlidesIcon,
+  VideoIcon,
+} from '../atoms/icons.tsx';
 import { css } from '../../deps/emotion.ts';
 
 export interface RelatedLinksProps {
@@ -9,6 +15,7 @@ export interface RelatedLinksProps {
     live?: string;
     tests?: string;
     video?: string;
+    slides?: string;
   };
 }
 
@@ -35,6 +42,10 @@ export function RelatedLinks({ className = '', links }: RelatedLinksProps) {
 
       {links.video ? (
         <a href={links.video} children={<VideoIcon title="View video" />} />
+      ) : null}
+
+      {links.slides ? (
+        <a href={links.slides} children={<SlidesIcon title="View slides" />} />
       ) : null}
 
       {links.live ? (

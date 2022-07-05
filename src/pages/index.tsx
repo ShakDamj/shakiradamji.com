@@ -30,13 +30,13 @@ export default (props: any) => {
         />
 
         <AmqPageList
-          name={{ en: 'Experiments', es: 'Experimentos' }}
-          list={sections.experiments}
+          name={{ en: 'Projects', es: 'Proyectos' }}
+          list={sections.projects}
         />
 
         <AmqPageList
-          name={{ en: 'Projects', es: 'Proyectos' }}
-          list={sections.projects}
+          name={{ en: 'Experiments', es: 'Experimentos' }}
+          list={sections.experiments}
         />
 
         <AmqPageList
