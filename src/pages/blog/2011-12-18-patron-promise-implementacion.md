@@ -1,6 +1,8 @@
 ---
-title: 'Patrón Promise: Implementación'
 published: 2011-12-18
+title:
+  en: 'Patrón Promise: Implementación (🇪🇸 only)'
+  es: 'Patrón Promise: Implementación'
 ---
 
 Lo prometido es deuda (bien lo saben las funciones) y he encontrado un momento para empezar a explicar la forma en la que he implementado el patrón Promise en mi caso, no tiene porqué ser la mejor, pero cumple con su cometido.

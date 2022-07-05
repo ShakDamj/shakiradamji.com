@@ -1,6 +1,8 @@
 ---
-title: GIT Workflow (Parte 2)
 published: 2012-12-04
+title:
+  en: GIT Workflow (Parte 2) (🇪🇸 only)
+  es: GIT Workflow (Parte 2)
 ---
 
 Continuando con [mi último artículo][1], llegó la hora de hablar del gran _Github Flow_:

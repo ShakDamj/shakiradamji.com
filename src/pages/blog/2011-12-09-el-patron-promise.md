@@ -1,6 +1,8 @@
 ---
-title: El patrón Promise
 published: 2011-12-09
+title:
+  en: El patrón Promise (🇪🇸 only)
+  es: El patrón Promise
 ---
 
 > Actualización 19/3/2014: Finalmente los promises se han confirmado [para el estándar ECMAScript 6][1], dentro de poco serán nativos en Javascript :D

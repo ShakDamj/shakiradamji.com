@@ -1,6 +1,8 @@
 ---
-title: ECMAScript 5 _.extend
 published: 2013-04-30
+title:
+  en: ECMAScript 5 _.extend (🇪🇸 only)
+  es: ECMAScript 5 _.extend
 ---
 
 A algunos ya os he comentado los problemas que [NC Zakas comenta][1] con el `_.extend` de underscore y los getters:

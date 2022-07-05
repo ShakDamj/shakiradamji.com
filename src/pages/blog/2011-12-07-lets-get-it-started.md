@@ -1,6 +1,8 @@
 ---
-title: Let's get it started!
 published: 2011-12-07
+title:
+  en: Let's get it started! (🇪🇸 only)
+  es: Let's get it started!
 ---
 
 Bueno, ha llegado la hora de dar el siguiente paso como programador: comenzar un blog para que todos puedan criticarme por poner las llaves `{` a la derecha :D

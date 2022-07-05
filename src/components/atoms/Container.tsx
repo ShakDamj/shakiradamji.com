@@ -28,7 +28,7 @@ export function Container({
 
     ${cssBreakpoint.medium} {
       --container-width: 50rem;
-      --container-side-gap: 5rem;
+      --container-side-gap: 3rem;
     }
 
     ${cssBreakpoint.wide} {

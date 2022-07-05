@@ -11,7 +11,8 @@ labels:
   - Backbone
   - Django
   - RequireJS
-  - Agile methodologies
+  - en: Agile methodologies
+    es: Metodologías Ágiles
 ---
 
 Manage technical team and frontend layer development for an already started project for accommodation sharing based on Backbone, RequireJS, Django and Tastypie.

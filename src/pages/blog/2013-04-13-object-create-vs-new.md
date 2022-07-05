@@ -1,6 +1,8 @@
 ---
-title: Object.create vs new
 published: 2013-04-13
+title:
+  en: Object.create vs new (🇪🇸 only)
+  es: Object.create vs new
 ---
 
 > Actualización 19/3/2014: Finalmente he entendido la utilidad de reemplazar `new`, se puede ver [aquí][1]

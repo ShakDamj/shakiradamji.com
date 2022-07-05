@@ -14,7 +14,8 @@ labels:
   - .NET
   - Django
   - jQuery
-  - Agile methodologies
+  - en: Agile methodologies
+    es: Metodologías Ágiles
 ---
 
 IberPricing application development implemented in C#.NET with a team of 3 people.
