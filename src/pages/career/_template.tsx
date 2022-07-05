@@ -14,7 +14,6 @@ import {
 } from '../../generate/mod.ts';
 
 export interface CareerProps extends MarkdownPageMetadata {
-  title: Translatable;
   org: Translatable;
   link: string;
   role: Translatable;

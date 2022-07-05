@@ -1,7 +1,7 @@
 import React from 'react';
 import { Tag } from '../atoms/Tag.tsx';
 import { css } from '../../deps/emotion.ts';
-import { Translatable } from '../../generate/mod.ts';
+import { tr, Translatable, useLang } from '../../generate/mod.ts';
 import { cssSpace } from '../../theme.ts';
 
 interface TagListProps {
@@ -20,7 +20,7 @@ export function TagList({ className = '', list }: TagListProps) {
   return (
     <div className={`${labelsContainer} ${className}`}>
       {list.map((x) => (
-        <Tag>{x}</Tag>
+        <Tag key={tr(x, useLang())}>{x}</Tag>
       ))}
     </div>
   );

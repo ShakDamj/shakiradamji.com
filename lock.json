@@ -105,8 +105,8 @@
   "https://deno.land/x/speed_highlight_js@1.1.7/src/languages/todo.js": "4d2d88419d0a21a9327bb4bc6bb10ee2ab13181fcb6f2d1caf89abdb56c0db19",
   "https://deno.land/x/speed_highlight_js@1.1.7/src/languages/xml.js": "9197dfc84096722dab98b620852a183cd408ef33ab68a41ba0396ed8f237c3d2",
   "https://esm.sh/@emotion/css@11.9.0": "8f475c64b298b6b20fbe3f207a61c3481616cf4af8c7a375767ea491562cd1e4",
-  "https://esm.sh/react-dom@18.2.0/server": "87c8d386c37052db47202713b53bb2ce4ba2bbf39a94762592d79458de92d82b",
-  "https://esm.sh/react@18.2.0": "454268b00f4f1ef6f25a01b9c9b4bd39c3ae651c7e4ef164667a94b432f8085b",
+  "https://esm.sh/react-dom@18.2.0/server?dev": "c73cd1094103d25846e95833ed07b7133516ee425024592148ac5292c474bd2a",
+  "https://esm.sh/react@18.2.0?dev": "132e6b01ca689f544152f412970e8990436b23a0222f73096a3ae79aebe52c65",
   "https://esm.sh/v86/@emotion/cache@11.7.1/deno/cache.js": "cf7dd0118ee3e0a99389e07f501072c28aa11d930f7005b0c848e61b64371dda",
   "https://esm.sh/v86/@emotion/cache@11.7.1/types/index.d.ts": "825c25c1878bc94f802ebaedb4d0c131918ccaddaf445b7e7c81efafdc700f8b",
   "https://esm.sh/v86/@emotion/css@11.9.0/deno/css.js": "3fa9df186225522f2f847272baae467c937fd13af7d8df212c3f3ba419796ad4",
@@ -128,7 +128,7 @@
   "https://esm.sh/v86/@types/react@18.0.14/index.d.ts": "521457b553c4a5485b1f8dfbabf065a5ed94c6853f6c0944b402e53668f3118e",
   "https://esm.sh/v86/@types/scheduler@0.16.2/tracing.d.ts": "f5a8b384f182b3851cec3596ccc96cb7464f8d3469f48c74bf2befb782a19de5",
   "https://esm.sh/v86/csstype@3.1.0/index.d.ts": "ba7617784f6b9aeac5e20c5eea869bbc3ef31b905f59c796b0fd401dae17c111",
-  "https://esm.sh/v86/react-dom@18.2.0/deno/server.js": "496bc0e597378cba7cabff1d79a933c15c2c4a507d58492ac78eaced7f307401",
-  "https://esm.sh/v86/react@18.2.0/deno/react.js": "1027273d943fcd8d247344d810d5b487155ff27734faceaf19beb7d7e8ac92bd",
+  "https://esm.sh/v86/react-dom@18.2.0/deno/server.development.js": "599ae7a6b8228bf6389c3e092968162b1c661219ac64c8d068568b0e1afdcffd",
+  "https://esm.sh/v86/react@18.2.0/deno/react.development.js": "aac8198b7885d8a4efe2f1cfcb328116f59f6df5f91276938c7943ed5672165f",
   "https://esm.sh/v86/stylis@4.0.13/deno/stylis.js": "7e3c4b01941754a8ba5de9b0669ba4fbf09c51d701a19a08371aedc282192840"
 }

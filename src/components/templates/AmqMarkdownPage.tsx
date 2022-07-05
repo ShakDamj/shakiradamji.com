@@ -29,6 +29,8 @@ export function AmqMarkdownPage({
   const localContent = tr(content, lang);
   const styles = localContent.includes(`shj`) ? highlightTheme() : '';
 
+  return null;
+
   return (
     <AmqDocument title={title} styles={styles}>
       <AmqHeader />

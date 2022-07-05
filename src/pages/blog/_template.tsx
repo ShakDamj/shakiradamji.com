@@ -10,9 +10,7 @@ import {
 } from '../../generate/mod.ts';
 
 export interface BlogPostProps extends MarkdownPageMetadata {
-  title: Translatable;
   published: YearMonthDay;
-  content: Translatable;
 }
 
 export default ({ title, published, content }: BlogPostProps) => {
