@@ -1,19 +1,21 @@
 import React from 'react';
 import { Container } from '../../atoms/Container.tsx';
 import { Heading3 } from '../../atoms/Heading.tsx';
-import { Lang, tr, useLang } from '../../atoms/Lang.tsx';
-import { RawHtml } from '../../atoms/RawHtml.tsx';
 import { Time } from '../../atoms/Time.tsx';
 import { css } from '../../deps/emotion.ts';
-import { getAllPages, getPagesBySection } from '../../generate/pages.ts';
-import { usePageUtils } from '../../generate/PageUtils.tsx';
+import {
+  getAllPagesBySection,
+  usePageUtils,
+  Lang,
+  RawHtml,
+} from '../../generate/mod.ts';
 import { ExpandableList } from '../../molecules/ExpandableList.tsx';
 import { AmqHeader } from '../../organisms/AmqHeader.tsx';
 import { AmqDocument } from '../../templates/AmqDocument.tsx';
 import { highlightTheme } from '../../templates/AmqMarkdownPage.tsx';
 import { cssColor } from '../../theme.ts';
 
-const posts = getPagesBySection(await getAllPages()).blog.reverse();
+const posts = (await getAllPagesBySection()).blog.reverse();
 
 // deno-lint-ignore no-explicit-any
 export default (props: any) => {

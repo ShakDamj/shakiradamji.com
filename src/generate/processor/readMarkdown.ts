@@ -1,45 +1,8 @@
-import { Marked } from 'markdown';
-import { dirname, extname } from 'std/path/mod.ts';
 import { parse } from 'std/encoding/yaml.ts';
-import { renderTsx } from './render-tsx.tsx';
-import type { PageProps } from './main.ts';
+import { dirname } from 'std/path/mod.ts';
+import { parseMarkdown } from '../../deps/markdown.ts';
 
-import { highlightText } from 'https://deno.land/x/speed_highlight_js@1.1.7/src/index.js';
-
-const cacheHightlight = new Map<string, string>();
-const promises = [] as Array<Promise<string>>;
-
-export function isMarkedReady() {
-  return Promise.all(promises).then(() => null);
-}
-
-Marked.setOptions({
-  langPrefix: 'code-block shj-lang-',
-
-  highlight(code, lang) {
-    if (cacheHightlight.has(code)) {
-      return cacheHightlight.get(code)!;
-    }
-
-    const processing = highlightText(
-      code,
-      lang || 'js'
-    ) as unknown as Promise<string>;
-
-    promises.push(processing);
-
-    processing.then((x) => cacheHightlight.set(code, x));
-
-    return 'LOADING...';
-  },
-});
-
-const templatesDir = '../templates';
-
-export function isMarkdown(file: string) {
-  const extension = extname(file);
-  return extension === '.md';
-}
+const templatesDir = '../../templates';
 
 export async function readMarkdown(file: string) {
   const fileContent = await Deno.readTextFile(file);
@@ -91,19 +54,6 @@ export async function readMarkdown(file: string) {
       return content.map((x, i) => x.replace(extract[i], ''));
     },
   };
-}
-
-export async function renderMd<P extends PageProps>(file: string, props: P) {
-  const { data, template, content } = await readMarkdown(file);
-  return renderTsx(template, { ...props, ...data, content }, file);
-}
-
-function parseMarkdown(md: string) {
-  const { content } = Marked.parse(md);
-
-  const contentWithFixes = content.replace(/<\/?pre>/g, '');
-
-  return `<div class="md">${contentWithFixes}</div>`;
 }
 
 const CROP_IF_LONGER_THAN = 150;

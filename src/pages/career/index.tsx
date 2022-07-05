@@ -1,17 +1,19 @@
 import React from 'react';
 import { Container } from '../../atoms/Container.tsx';
 import { Heading3 } from '../../atoms/Heading.tsx';
-import { Lang } from '../../atoms/Lang.tsx';
-import { RawHtml } from '../../atoms/RawHtml.tsx';
 import { Time } from '../../atoms/Time.tsx';
 import { css } from '../../deps/emotion.ts';
-import { getAllPages, getPagesBySection } from '../../generate/pages.ts';
-import { usePageUtils } from '../../generate/PageUtils.tsx';
+import {
+  getAllPagesBySection,
+  usePageUtils,
+  Lang,
+  RawHtml,
+} from '../../generate/mod.ts';
 import { TagList } from '../../molecules/TagList.tsx';
 import { AmqHeader } from '../../organisms/AmqHeader.tsx';
 import { AmqDocument } from '../../templates/AmqDocument.tsx';
 
-const experience = getPagesBySection(await getAllPages()).career.reverse();
+const experience = (await getAllPagesBySection()).career.reverse();
 const SHOW_OPEN_ONLY_TOP = 3;
 
 // deno-lint-ignore no-explicit-any

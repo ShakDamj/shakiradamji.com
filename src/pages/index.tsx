@@ -1,11 +1,11 @@
 import React from 'react';
 import { AmqDocument } from '../templates/AmqDocument.tsx';
 import { AmqHeader } from '../organisms/AmqHeader.tsx';
-import { getAllPages, getPagesBySection } from '../generate/pages.ts';
 import { AmqPageList } from '../organisms/AmqPageList.tsx';
 import { Container } from '../atoms/Container.tsx';
+import { getAllPagesBySection } from '../generate/mod.ts';
 
-const sections = getPagesBySection(await getAllPages());
+const sections = await getAllPagesBySection();
 
 // deno-lint-ignore no-explicit-any
 export default (props: any) => {

@@ -1,13 +1,11 @@
 import React, { isValidElement } from 'react';
+import { usePageUtils } from './PageUtils.tsx';
 import { RawHtml } from './RawHtml.tsx';
 
-export type Language = 'en' | 'es';
-
+const uniq = <T,>(x: T[]) => Array.from(new Set(x));
 const arrayMap: Record<Language, number> = { en: 0, es: 1 };
 
-const LangContext = React.createContext<Language>('en');
-
-export const LangProvider = LangContext.Provider;
+export type Language = 'en' | 'es';
 
 export type Translatable = Record<Language, string> | string[] | string;
 
@@ -19,13 +17,29 @@ export type ValidTr =
 export type LangProps = { tr: ValidTr } | { en: string; es: string };
 
 export function useLang() {
-  return React.useContext(LangContext);
+  return usePageUtils().lang;
 }
 
 export function useTr(en: string, es: string) {
   const lang = useLang();
   const values = { en, es };
   return values[lang] || 'MISSING TRANSLATION';
+}
+
+export function Lang(props: LangProps) {
+  const value = 'tr' in props ? props.tr : props;
+  const lang = useLang();
+
+  if (!value) {
+    return null;
+  }
+
+  if (isJsxElement(value)) {
+    return value as JSX.Element;
+  }
+
+  const html = tr(value, lang);
+  return <RawHtml html={html} />;
 }
 
 export function tr(value: null | undefined, lang: Language): null;
@@ -46,22 +60,6 @@ export function tr(value: Translatable | null | undefined, lang: Language) {
   return value[lang] || value.en || 'MISSING TRANSLATION';
 }
 
-export function Lang(props: LangProps) {
-  const value = 'tr' in props ? props.tr : props;
-  const lang = useLang();
-
-  if (!value) {
-    return null;
-  }
-
-  if (isJsxElement(value)) {
-    return value as JSX.Element;
-  }
-
-  const html = tr(value, lang);
-  return <RawHtml html={html} />;
-}
-
 export function i18n(parts: TemplateStringsArray, ...params: Translatable[]) {
   const requireTr = params.filter((x) => typeof x !== 'string');
 
@@ -69,13 +67,14 @@ export function i18n(parts: TemplateStringsArray, ...params: Translatable[]) {
     return String.raw(parts, ...params);
   }
 
-  const langs = Array.from(new Set(requireTr.flatMap((x) => Object.keys(x))));
-  const values = langs.map((lang) => {
-    const langParams = params.map((x) =>
-      typeof x === 'string' ? x : (x as any)[lang]
-    );
-    return [lang, String.raw(parts, ...langParams)];
-  });
+  const languages = uniq(
+    requireTr.flatMap((x) => Object.keys(x))
+  ) as Language[];
+
+  const values = languages.map((lang) => [
+    lang,
+    String.raw(parts, ...params.map((x) => tr(x, lang))),
+  ]);
 
   return Object.fromEntries(values);
 }

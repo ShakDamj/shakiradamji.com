@@ -1,5 +1,5 @@
 import React from 'react';
-import { Lang, Translatable } from '../atoms/Lang.tsx';
+import { Translatable, Lang } from '../generate/mod.ts';
 import { AmqDocument } from './AmqDocument.tsx';
 
 export function meta(data: unknown, file: string) {

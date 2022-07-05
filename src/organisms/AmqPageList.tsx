@@ -1,11 +1,9 @@
 import React, { useMemo } from 'react';
-import { usePageUtils } from '../generate/PageUtils.tsx';
 import { Time } from '../atoms/Time.tsx';
 import { css } from '../deps/emotion.ts';
-import { PageMetadata } from '../generate/pages.ts';
 import { cssBreakpoint, cssColor, cssSpace } from '../theme.ts';
-import { Translatable } from '../atoms/Lang.tsx';
 import { ExpandableList } from '../molecules/ExpandableList.tsx';
+import { Translatable, PageMetadata, usePageUtils } from '../generate/mod.ts';
 
 export interface AmqPageListProps {
   className?: string;

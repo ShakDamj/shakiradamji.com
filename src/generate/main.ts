@@ -1,13 +1,15 @@
 import { dirname } from 'std/path/mod.ts';
-import { Language } from '../atoms/Lang.tsx';
-import { path } from '../util/path.ts';
-import {
-  getPageDestinationOnDisk,
-  getPagesFromDisk,
-  SitePage,
-} from './pages.ts';
-import { isMarkdown, isMarkedReady, renderMd } from './render-md.tsx';
-import { isTsx, renderTsx } from './render-tsx.tsx';
+import { isMarkedReady } from '../deps/markdown.ts';
+import { Language } from './components/Lang.tsx';
+import { getPageDestinationOnDisk } from './pages.ts';
+import { isMarkdown } from './processor/isMarkdown.ts';
+import { isTsx } from './processor/isTsx.ts';
+import { renderMd } from './processor/renderMd.ts';
+import { renderTsx } from './processor/renderTsx.tsx';
+import { PageProps } from './types/PageProps.ts';
+import { SitePage } from './types/SitePage.ts';
+import { getPagesFromDisk } from './util/getPagesFromDisk.ts';
+import { path } from './util/path.ts';
 // import { emptyDirectory } from './emptyDirectory.ts';
 
 const { relative } = path('../..', import.meta.url);
@@ -83,11 +85,6 @@ function report(sources: SitePage[], perf: PagePerf[]) {
       total
     )} | Generation in ${print(generated)} | Disk write in ${print(write)}`
   );
-}
-
-export interface PageProps {
-  lang: Language;
-  path: string;
 }
 
 interface PagePerf {

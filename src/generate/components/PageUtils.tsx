@@ -1,29 +1,50 @@
-import React, { createContext, useContext } from 'react';
+import React, { createContext, PropsWithChildren, useContext } from 'react';
 import { relative } from 'std/path/mod.ts';
-import { getPagePath, SitePage } from '../generate/pages.ts';
-import { Lang, Translatable } from '../atoms/Lang.tsx';
+import { getPagePath } from '../util/getPagePath.ts';
+import { SitePage } from '../types/SitePage.ts';
+import { Lang, Language, Translatable } from './Lang.tsx';
 
 // deno-lint-ignore no-explicit-any
 const Context = createContext<PageUtils>(null as any);
+const urlToSitePage = (url: string) => url.replace('file://', '') as SitePage;
 
 export function usePageUtils() {
   return useContext(Context);
 }
 
-export interface PageUtilProps {
-  url: SitePage;
+export type PageUtils = ReturnType<typeof createPageUtils>;
+
+export interface UtilsProviderProps extends PropsWithChildren<{}> {
+  page: string;
+  root: string;
+  lang: Language;
 }
 
-export const UtilsProvider = Context.Provider;
+export function UtilsProvider({
+  page,
+  root,
+  lang,
+  children,
+}: UtilsProviderProps) {
+  const utils = createPageUtils(page, root, lang);
+  return <Context.Provider value={utils}>{children}</Context.Provider>;
+}
 
-const urlToSitePage = (url: string) => url.replace('file://', '') as SitePage;
-
-export function createPageUtils(page: string, root: string) {
+function createPageUtils(page: string, root: string, lang: Language) {
   const pagePath = getPagePath(urlToSitePage(page));
   const basePath = `${root.startsWith('/') ? '' : '/'}${root}`;
   const path = `${basePath}/${pagePath}`;
 
-  function Link({
+  return {
+    Link: createPageLinkComponent(path),
+    basePath,
+    path: pagePath,
+    lang,
+  };
+}
+
+function createPageLinkComponent(path: string) {
+  return function Link({
     className,
     href,
     page,
@@ -53,9 +74,5 @@ export function createPageUtils(page: string, root: string) {
         <Lang tr={children} />
       </a>
     );
-  }
-
-  return { Link, basePath, path: pagePath };
+  };
 }
-
-export type PageUtils = ReturnType<typeof createPageUtils>;

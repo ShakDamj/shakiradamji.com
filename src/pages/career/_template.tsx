@@ -1,12 +1,17 @@
 import React from 'react';
-import { Translatable, Lang, i18n } from '../../atoms/Lang.tsx';
 import { css } from '../../deps/emotion.ts';
 import { meta as defaultMeta } from '../../templates/default.tsx';
-import { Time, YearMonthDay } from '../../atoms/Time.tsx';
+import { Time } from '../../atoms/Time.tsx';
 import { cssFontSize, cssSpace } from '../../theme.ts';
 import { Heading2 } from '../../atoms/Heading.tsx';
 import { AmqMarkdownPage } from '../../templates/AmqMarkdownPage.tsx';
-import { MarkdownPageMetadata } from '../../generate/pages.ts';
+import {
+  MarkdownPageMetadata,
+  Translatable,
+  YearMonthDay,
+  i18n,
+  Lang,
+} from '../../generate/mod.ts';
 
 export interface CareerProps extends MarkdownPageMetadata {
   title: Translatable;

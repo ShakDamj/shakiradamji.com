@@ -1,6 +1,5 @@
 import React from 'react';
-import { Lang, Translatable, useLang } from '../atoms/Lang.tsx';
-import { RawHtml } from '../atoms/RawHtml.tsx';
+import { Translatable, useLang, Lang, RawHtml } from '../generate/mod.ts';
 import { cssGlobal, cssReset } from '../theme.ts';
 
 export interface AmqDocumentProps {
@@ -26,14 +25,22 @@ export function AmqDocument({
         <title>
           <Lang tr={title} /> | A. Matías Quezada
         </title>
-        <style>
-          {cssReset}
-          {cssGlobal}
-        </style>
-        {styles ? <style children={<RawHtml html={styles} />} /> : null}
-        <style>STYLES_PLACEHOLDER</style>
+        {injectStyle(cssReset)}
+        {injectStyle(cssGlobal)}
+        {injectStyle(styles)}
+        {injectStyle('STYLES_PLACEHOLDER')}
       </head>
       <body className={className}>{children}</body>
     </html>
+  );
+}
+
+function injectStyle(styles: string | null | undefined) {
+  if (!styles) return null;
+
+  return (
+    <style>
+      <RawHtml html={styles.replace(/\s+/g, ' ')} />
+    </style>
   );
 }

@@ -1,15 +1,18 @@
 import React from 'react';
-import { Translatable, Lang } from '../../atoms/Lang.tsx';
 import { css } from '../../deps/emotion.ts';
-import { YearMonthDay } from '../../atoms/Time.tsx';
 import { cssSpace } from '../../theme.ts';
 import { Heading2 } from '../../atoms/Heading.tsx';
 import { AmqMarkdownPage } from '../../templates/AmqMarkdownPage.tsx';
-import { MarkdownPageMetadata } from '../../generate/pages.ts';
 import {
   RelatedLinks,
   RelatedLinksProps,
 } from '../../molecules/RelatedLinks.tsx';
+import {
+  MarkdownPageMetadata,
+  Translatable,
+  YearMonthDay,
+  Lang,
+} from '../../generate/mod.ts';
 
 export interface ProjectProps extends MarkdownPageMetadata {
   title: Translatable;

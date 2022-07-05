@@ -1,10 +1,7 @@
 import React from 'react';
 import { css } from '../deps/emotion.ts';
-import { cssColor, cssFontFamily, cssFontSize } from '../theme.ts';
-import { useLang } from './Lang.tsx';
-
-type FourDigits = `${number}${number}${number}${number}`;
-type TwoDigits = `${number}${number}`;
+import { useLang, YearMonthDay } from '../generate/mod.ts';
+import { cssColor, cssFontFamily } from '../theme.ts';
 
 function useLocale() {
   const lang = useLang();
@@ -14,11 +11,6 @@ function useLocale() {
   };
   return locales[lang] || 'default';
 }
-
-export type YearMonthDay =
-  | `${FourDigits}`
-  | `${FourDigits}-${TwoDigits}`
-  | `${FourDigits}-${TwoDigits}-${TwoDigits}`;
 
 export interface TimeProps {
   className?: string;

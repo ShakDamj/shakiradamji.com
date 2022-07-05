@@ -1,9 +1,9 @@
 import React from 'react';
 import { css } from '../deps/emotion.ts';
 import { cssFontSize, cssSpace } from '../theme.ts';
-import { Lang, Translatable, useTr } from '../atoms/Lang.tsx';
 import { HiddenContent } from '../atoms/HiddenContent.tsx';
 import { Heading2 } from '../atoms/Heading.tsx';
+import { Translatable, useTr, Lang } from '../generate/mod.ts';
 
 export interface ExpandableListProps<T> {
   className?: string;

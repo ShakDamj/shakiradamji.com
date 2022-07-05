@@ -1,10 +1,9 @@
 import React from 'react';
 import { Container } from '../atoms/Container.tsx';
-import { usePageUtils } from '../generate/PageUtils.tsx';
 import { css } from '../deps/emotion.ts';
+import { usePageUtils, useLang, Lang } from '../generate/mod.ts';
 import { getPagesRoot } from '../generate/pages.ts';
 import { cssBreakpoint, cssColor, cssFontSize, cssSpace } from '../theme.ts';
-import { Lang, useLang } from '../atoms/Lang.tsx';
 
 const root = getPagesRoot();
 

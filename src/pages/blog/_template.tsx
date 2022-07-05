@@ -1,10 +1,13 @@
 import React from 'react';
-import { Translatable } from '../../atoms/Lang.tsx';
 import { css } from '../../deps/emotion.ts';
-import { Time, YearMonthDay } from '../../atoms/Time.tsx';
+import { Time } from '../../atoms/Time.tsx';
 import { Heading2 } from '../../atoms/Heading.tsx';
 import { AmqMarkdownPage } from '../../templates/AmqMarkdownPage.tsx';
-import { MarkdownPageMetadata } from '../../generate/pages.ts';
+import {
+  MarkdownPageMetadata,
+  Translatable,
+  YearMonthDay,
+} from '../../generate/mod.ts';
 
 export interface BlogPostProps extends MarkdownPageMetadata {
   title: Translatable;

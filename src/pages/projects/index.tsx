@@ -1,16 +1,18 @@
 import React from 'react';
 import { Container } from '../../atoms/Container.tsx';
 import { Heading3 } from '../../atoms/Heading.tsx';
-import { Lang, tr, useLang } from '../../atoms/Lang.tsx';
-import { RawHtml } from '../../atoms/RawHtml.tsx';
 import { css } from '../../deps/emotion.ts';
-import { getAllPages, getPagesBySection } from '../../generate/pages.ts';
-import { usePageUtils } from '../../generate/PageUtils.tsx';
+import {
+  getAllPagesBySection,
+  usePageUtils,
+  useLang,
+  RawHtml,
+} from '../../generate/mod.ts';
 import { RelatedLinks } from '../../molecules/RelatedLinks.tsx';
 import { AmqHeader } from '../../organisms/AmqHeader.tsx';
 import { AmqDocument } from '../../templates/AmqDocument.tsx';
 
-const { projects, experiments } = getPagesBySection(await getAllPages());
+const { projects, experiments } = await getAllPagesBySection();
 
 projects.reverse();
 experiments.reverse();

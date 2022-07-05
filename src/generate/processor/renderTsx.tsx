@@ -1,19 +1,12 @@
-import { extname } from 'std/path/mod.ts';
 import React, { FunctionComponent } from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
-import { LangProvider } from '../atoms/Lang.tsx';
-import { cache, flush } from '../deps/emotion.ts';
-import { createPageUtils, UtilsProvider } from './PageUtils.tsx';
-import type { PageProps } from './main.ts';
+import { cache, flush } from '../../deps/emotion.ts';
+import { UtilsProvider } from '../components/PageUtils.tsx';
+import { PageProps } from '../types/PageProps.ts';
 
 // HACK: this is necessary for emotion to work
 // deno-lint-ignore no-explicit-any
 (globalThis as any).document = undefined;
-
-export function isTsx(file: string) {
-  const extension = extname(file);
-  return extension === '.ts' || extension === '.tsx';
-}
 
 export async function renderTsx<P extends PageProps>(
   file: string,
@@ -22,19 +15,16 @@ export async function renderTsx<P extends PageProps>(
 ) {
   const mod = await import(file);
   const Page = validateModule(file, mod);
-  const utils = createPageUtils(filePath || file, path);
 
   const html = renderToStaticMarkup(
-    <UtilsProvider value={utils}>
-      <LangProvider value={lang}>
-        <Page {...props} />
-      </LangProvider>
+    <UtilsProvider page={filePath || file} root={path} lang={lang}>
+      <Page {...props} />
     </UtilsProvider>
   ).replace(/<script><\/script>/g, '');
 
+  // Extract CSS classes created by emotion and inject them in the HTML
   const css = Object.values(cache.inserted);
   const htmlWithStyles = html.replace('STYLES_PLACEHOLDER', css.join('\n'));
-
   flush();
 
   return `<!DOCTYPE html>${htmlWithStyles}`;

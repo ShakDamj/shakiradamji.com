@@ -1,7 +1,7 @@
 import React from 'react';
-import { Translatable } from '../atoms/Lang.tsx';
 import { Tag } from '../atoms/Tag.tsx';
 import { css } from '../deps/emotion.ts';
+import { Translatable } from '../generate/mod.ts';
 import { cssSpace } from '../theme.ts';
 
 interface TagListProps {
