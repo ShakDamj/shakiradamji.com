@@ -9,7 +9,7 @@ import { css } from '../../deps/emotion.ts';
 import { usePageUtils, Lang, RawHtml } from '../../generate/mod.ts';
 import { getAllPagesBySection } from '../../util/getAllPagesBySection.ts';
 
-const { career } = await getAllPagesBySection();
+const { career, talks } = await getAllPagesBySection();
 const SHOW_OPEN_ONLY_TOP = 3;
 
 // deno-lint-ignore no-explicit-any
