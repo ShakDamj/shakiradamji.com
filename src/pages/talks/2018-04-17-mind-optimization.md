@@ -21,7 +21,7 @@ Reading code is more important than writing code, so let's write code that's eas
     width: var(--available-width);
     margin: 3rem 0;
     border: none;
-    height: calc(var(--available-width) * 0.6);
+    height: calc(calc(var(--available-width) * 0.563) + 36px);
   "
 ></iframe>
 
