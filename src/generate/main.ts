@@ -36,11 +36,11 @@ console.log('Done');
 
 async function generate(sources: SitePage[], lang: Language, path = '') {
   const props: PageProps = { lang, path };
+  const perf = [];
 
   for (const file of sources) {
+    const start = performance.now();
     const dist = getPageDestinationOnDisk(file, path);
-
-    // console.log(`Generating ${relative(file)} -> ${relative(dist)}`);
 
     let html: string;
 
@@ -52,12 +52,46 @@ async function generate(sources: SitePage[], lang: Language, path = '') {
       throw new Error(`Unkown handler for ${relative(file)}`);
     }
 
+    const generated = performance.now();
+
     await Deno.mkdir(dirname(dist), { recursive: true });
     await Deno.writeTextFile(dist, html);
+
+    const end = performance.now();
+
+    perf.push({ start, generated, end });
   }
+
+  report(sources, perf);
+}
+
+function report(sources: SitePage[], perf: PagePerf[]) {
+  const sum =
+    (from: keyof PagePerf, to: keyof PagePerf) =>
+    (acc: number, curr: PagePerf) =>
+      acc + curr[to] - curr[from];
+
+  const print = (x: number) =>
+    `${x}ms (${Math.round(x / sources.length)}ms avg)`;
+
+  const total = perf.reduce(sum('start', 'end'), 0);
+  const generated = perf.reduce(sum('start', 'generated'), 0);
+  const write = perf.reduce(sum('generated', 'end'), 0);
+
+  console.log(
+    `Processed ${sources.length} pages in ${print(
+      total
+    )} | Generation in ${print(generated)} | Disk write in ${print(write)}`
+  );
 }
 
 export interface PageProps {
   lang: Language;
   path: string;
+}
+
+interface PagePerf {
+  start: number;
+  generated: number;
+  end: number;
 }

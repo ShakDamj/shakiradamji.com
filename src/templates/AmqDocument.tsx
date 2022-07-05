@@ -1,5 +1,5 @@
 import React from 'react';
-import { Lang, Translatable } from '../atoms/Lang.tsx';
+import { Lang, Translatable, useLang } from '../atoms/Lang.tsx';
 import { RawHtml } from '../atoms/RawHtml.tsx';
 import { cssGlobal, cssReset } from '../theme.ts';
 
@@ -15,8 +15,10 @@ export function AmqDocument({
   title,
   children,
 }: React.PropsWithChildren<AmqDocumentProps>) {
+  const lang = useLang();
+
   return (
-    <html lang="en">
+    <html lang={lang}>
       <head>
         <meta charSet="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
