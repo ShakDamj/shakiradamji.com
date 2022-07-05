@@ -36,7 +36,7 @@ export function ExpandableList<T>({
       white-space: nowrap;
       position: absolute;
       list-style: none;
-      font-size: ${cssFontSize.xs};
+      font-size: ${cssFontSize.sm};
       top: ${cssSpace.md};
       right: 0;
       cursor: pointer;
