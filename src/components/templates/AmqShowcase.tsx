@@ -24,6 +24,12 @@ export default ({
   iframe,
   content,
 }: AmqShowcaseProps) => {
+  const headingStyles = css`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  `;
+
   const iconsNav = css`
     gap: ${cssSpace.lg};
     margin-left: ${cssSpace.lg};
@@ -36,7 +42,7 @@ export default ({
       content={content}
       footer={getFooter(iframe, links?.live)}
     >
-      <Heading2>
+      <Heading2 className={headingStyles}>
         <Lang tr={title} />
         <RelatedLinks className={iconsNav} links={links} />
       </Heading2>

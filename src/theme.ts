@@ -81,6 +81,11 @@ export const cssGlobal = `
     padding-bottom: 10px;
   }
 
+  .md h3 {
+    margin-top: ${cssSpace.lg};
+    margin-bottom: ${cssSpace.lg};
+  }
+
   svg {
     fill: ${cssColor.foreground};
   }
