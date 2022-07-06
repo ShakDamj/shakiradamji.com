@@ -9,7 +9,7 @@ build:
 		--allow-read \
 		--allow-write=./dist \
 		--lock=lock.json \
-		--allow-net=esm.sh,cdn.esm.sh,deno.land \
+		--allow-net=esm.sh,cdn.esm.sh,deno.land,fonts.googleapis.com \
 		src/generate/main.ts
 
 
@@ -32,7 +32,7 @@ lock:
 		--reload \
 		--lock=lock.json \
 		--lock-write \
-		--allow-net=esm.sh,cdn.esm.sh,deno.land \
+		--allow-net=esm.sh,cdn.esm.sh,deno.land,fonts.googleapis.com \
 		src/generate/main.ts
 
 

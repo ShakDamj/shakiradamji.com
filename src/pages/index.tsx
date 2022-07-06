@@ -23,25 +23,25 @@ export default (props: any) => {
       */}
 
       <Container>
-        <AmqPageList name="Blog" list={sections.blog} />
+        <AmqPageList name="✍️  Blog" list={sections.blog} />
 
         <AmqPageList
-          name={{ en: 'Career', es: 'Experiencia' }}
+          name={{ en: '👨‍💻  Career', es: '👨‍💻  Experiencia' }}
           list={sections.career}
         />
 
         <AmqPageList
-          name={{ en: 'Projects', es: 'Proyectos' }}
+          name={{ en: '🐹  Projects', es: '🐹  Proyectos' }}
           list={sections.projects}
         />
 
         <AmqPageList
-          name={{ en: 'Experiments', es: 'Experimentos' }}
+          name={{ en: '🧪  Experiments', es: '🧪  Experimentos' }}
           list={sections.experiments}
         />
 
         <AmqPageList
-          name={{ en: 'Talks', es: 'Charlas' }}
+          name={{ en: '🪧  Talks', es: '🪧  Charlas' }}
           list={sections.talks}
         />
       </Container>

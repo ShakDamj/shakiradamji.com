@@ -138,7 +138,9 @@ function AMatiasQuezada() {
   return (
     <h2>
       <Link className={nameStyles} page={root}>
-        <abbr>Adrian</abbr> Matías Quezada
+        <>
+          <abbr>Adrian</abbr> Matías Quezada
+        </>
       </Link>
     </h2>
   );

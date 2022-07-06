@@ -1,4 +1,4 @@
-import React, { isValidElement } from 'react';
+import React, { isValidElement, ReactFragment } from 'react';
 import { usePageUtils } from './PageUtils.tsx';
 import { RawHtml } from './RawHtml.tsx';
 

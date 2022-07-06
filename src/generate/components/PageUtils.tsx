@@ -1,8 +1,15 @@
-import React, { createContext, PropsWithChildren, useContext } from 'react';
+import React, {
+  createContext,
+  PropsWithChildren,
+  ReactElement,
+  ReactPortal,
+  useContext,
+} from 'react';
 import { relative } from 'std/path/mod.ts';
 import { getPagePath } from '../util/getPagePath.ts';
 import { SitePage } from '../types/SitePage.ts';
 import { Lang, Language, Translatable } from './Lang.tsx';
+import { cleanPath } from '../util/cleanPath.ts';
 
 // deno-lint-ignore no-explicit-any
 const Context = createContext<PageUtils>(null as any);
@@ -33,17 +40,17 @@ export function UtilsProvider({
 function createPageUtils(page: string, root: string, lang: Language) {
   const pagePath = getPagePath(urlToSitePage(page));
   const basePath = `${root.startsWith('/') ? '' : '/'}${root}`;
-  const path = `${basePath}/${pagePath}`;
+  const path = cleanPath(`${basePath}/${pagePath}`);
 
   return {
-    Link: createPageLinkComponent(path),
+    Link: createPageLinkComponent(path, root),
     basePath,
     path: pagePath,
     lang,
   };
 }
 
-function createPageLinkComponent(path: string) {
+function createPageLinkComponent(path: string, root: string) {
   return function Link({
     className,
     href,
@@ -55,9 +62,11 @@ function createPageLinkComponent(path: string) {
     href?: string;
     page?: string;
     isParent?: boolean;
-    children: Translatable | React.ReactNode;
+    children: Translatable | ReactElement | string | ReactPortal;
   }) {
-    const target = href || getPagePath(urlToSitePage(page!));
+    const target = href
+      ? cleanPath(href)
+      : getPagePath(urlToSitePage(page!), root);
 
     const isActive = target === path;
     const isContained = isParent && !isActive && path.startsWith(target);
@@ -70,7 +79,7 @@ function createPageLinkComponent(path: string) {
       .join(' ');
 
     return (
-      <a href={relative(path, target)} className={classes}>
+      <a href={relative(path, target) || '.'} className={classes}>
         <Lang tr={children} />
       </a>
     );

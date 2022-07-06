@@ -3,7 +3,9 @@ from: 2013-11
 to: 2014-08
 org: UppTalk
 link: https://upptalk.com/
-role: Senior Javascript Developer
+role:
+  en: Senior Javascript Developer
+  es: Desarrollador Javascript Senior
 
 labels:
   - Javascript

@@ -3,7 +3,9 @@ from: 2021-11
 to: 2022-06
 org: Heydoc
 link: https://heydoc.co.uk/
-role: Senior Software Engineer
+role:
+  en: Senior Software Engineer
+  es: Ingeniero de Software Senior
 
 labels:
   - Typescript
@@ -24,7 +26,7 @@ labels:
   - Slack bot
 ---
 
-Development and maintenance of a product for clinics and doctors to communicate with patients and track their data, with an emphasis into automation and displaying only the most relevant information at any given moment.
+Development and maintenance of a SaaS product for clinics and doctors to communicate with patients and track their data, with an emphasis into automation and displaying only the most relevant information at any given moment.
 
 I found myself without a manager to report to shortly after joining, which led me to pull my sleeves and find how to help the company as part of my daily job.
 
@@ -32,7 +34,7 @@ I found myself without a manager to report to shortly after joining, which led m
 
 Saw the need and took the leadership of the development along the transformation from a single unit to a handful of teams, facilitated most cross-team technical meetings, mentored junior developers and created by own initiative an Slack bot to assist other departments into their tasks.
 
-Mentored the team in specific technologies as ESLint and Typescript in order to improve code quality and product stability.
+I mentored the team in specific technologies as ESLint and Typescript in order to improve code quality and product stability.
 
 Lead the work side by side with Product and Design teams to define and implement a unified user interface with a consistent Design Language, with particular attention to make it accessible to people with disabilities. Leading every step from brainstorming, planning, decision making, prototyping, actual implementation of a UI Component Library and knowledge sharing and mentoring to the rest of the company about it's usage and benefits. This new approach helped reduce the code by 50% and resulted in a more understandable codebase.
 
@@ -40,7 +42,7 @@ We created an outstanding team of great individuals with the most efficient dyna
 
 ---
 
-Desarrollo y mantenimiento de un producto para que clinicas y doctores puedan comunicarse con sus pacientes y registrar sus datos, con particular énfasis en automatización y mostrar sólo la información relevate en cada momento.
+Desarrollo y mantenimiento de un producto SaaS para que clinicas y doctores puedan comunicarse con sus pacientes y registrar sus datos, con particular énfasis en automatización y mostrar sólo la información relevate en cada momento.
 
 Me encontré sin superior al que reportar al poco tiempo de unirme, lo que me llevó a arremangarme y encontrar cómo ayudar a la compañía como parte de mi trabajo diario.
 

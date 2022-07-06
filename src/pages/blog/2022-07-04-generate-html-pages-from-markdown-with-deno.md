@@ -56,7 +56,7 @@ console.log(html);
 
 "But Matias! want this to read from / written to the disk! not from the code itself!"
 
-```ts
+```tsx
 // main.tsx
 import React from 'https://esm.sh/react@18.2.0'
 import { renderToStaticMarkup } from 'https://esm.sh/react-dom@18.2.0/';
@@ -79,7 +79,7 @@ const html = renderToStaticMarkup(<Page randomProp="yay" />);
 await Deno.writeTextFile(output_fullpath, html);
 ```
 
-```ts
+```tsx
 // MyPage.tsx
 import React from 'https://esm.sh/react@18.2.0'
 
@@ -120,7 +120,7 @@ export async function getFilesRecursively(currentPath: string) {
 
 I'm sure that's part of `esm.sh/std` somewhere. Now let's update the `main.tsx` we created above:
 
-```ts
+```tsx
 // main.tsx
 import React from 'https://esm.sh/react@18.2.0'
 import { renderToStaticMarkup } from 'https://esm.sh/react-dom@18.2.0/';
@@ -170,7 +170,7 @@ try {
 
 From this you can start creating your site with JS knowing no JS will be rendered in the browser.
 
-```ts
+```tsx
 // input/index.tsx
 import React from 'https://esm.sh/react@18.2.0'
 
