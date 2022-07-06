@@ -1,18 +1,18 @@
 import React from 'react';
 import { Container } from '../../components/atoms/Container.tsx';
-import { Heading2, Heading3 } from '../../components/atoms/Heading.tsx';
+import { Heading3 } from '../../components/atoms/Heading.tsx';
 import { Time } from '../../components/atoms/Time.tsx';
 import { TagList } from '../../components/molecules/TagList.tsx';
 import { AmqHeader } from '../../components/organisms/AmqHeader.tsx';
 import { AmqPageList } from '../../components/organisms/AmqPageList.tsx';
 import { AmqDocument } from '../../components/templates/AmqDocument.tsx';
 import { css } from '../../deps/emotion.ts';
-import { usePageUtils, Lang, RawHtml } from '../../generate/mod.ts';
-import { cssFontSize, cssSpace } from '../../theme.ts';
+import { Lang, RawHtml } from '../../generate/mod.ts';
+import { cssAnimationSpeed, cssSpace } from '../../theme.ts';
 import { getAllPagesBySection } from '../../util/getAllPagesBySection.ts';
 
 const { career, talks } = await getAllPagesBySection();
-const SHOW_OPEN_ONLY_TOP = 3;
+const SHOW_OPEN_ONLY_TOP = 1;
 
 // deno-lint-ignore no-explicit-any
 export default (props: any) => {
@@ -35,42 +35,39 @@ export default (props: any) => {
     font-size: 0.9rem;
   `;
 
-  const summaryStyle = css`
-    margin-top: 1rem;
-    cursor: pointer;
-    position: relative;
+  const detailStyles = css`
+    summary {
+      margin-top: 1rem;
+      cursor: pointer;
+      list-style: none;
 
-    &::before {
-      position: absolute;
-      top: 0.3em;
-      left: 3.7em;
+      &::before {
+        content: '';
+        display: inline-block;
+        border-width: 0.4rem;
+        border-style: solid;
+        border-color: transparent transparent transparent #fff;
+        margin-right: ${cssSpace.md};
+        transform-origin: 0.2rem 50%;
+        transition: transform ${cssAnimationSpeed.medium} ease,
+          opacity ${cssAnimationSpeed.medium} ease;
+        transform: rotate(0deg);
+        opacity: 0;
+
+        position: absolute;
+        margin-top: 0.35em;
+        margin-left: -1.3em;
+      }
+
+      &:hover::before {
+        opacity: 1;
+      }
     }
 
-    & time {
-      margin-right: 1.3em;
+    &[open] summary::before {
+      transform: rotate(90deg);
     }
   `;
-
-  const items = career.map(
-    (item) =>
-      [
-        item.file,
-        <Heading3 className={headerStyles}>
-          <Time className={timeStyles} value={item.date} />
-          <Lang tr={item.title} />
-        </Heading3>,
-        <>
-          {item.labels ? (
-            <TagList className={tagsStyles} list={item.labels} />
-          ) : null}
-
-          <RawHtml html={item.content} />
-        </>,
-      ] as const
-  );
-
-  const top = items.slice(0, SHOW_OPEN_ONLY_TOP);
-  const rest = items.slice(SHOW_OPEN_ONLY_TOP);
 
   return (
     <AmqDocument title="A. Matías Quezada" {...props}>
@@ -78,17 +75,24 @@ export default (props: any) => {
 
       <Container>
         <ol>
-          {top.map(([file, header, content]) => (
-            <li key={file} className={itemStyles}>
-              {header}
-              {content}
-            </li>
-          ))}
-          {rest.map(([file, header, content]) => (
-            <li key={file} className={itemStyles}>
-              <details>
-                <summary className={summaryStyle}>{header}</summary>
-                {content}
+          {career.map((item, index) => (
+            <li key={item.file} className={itemStyles}>
+              <details
+                open={index < SHOW_OPEN_ONLY_TOP}
+                className={detailStyles}
+              >
+                <summary>
+                  <Heading3 className={headerStyles}>
+                    <Time className={timeStyles} value={item.date} />
+                    <Lang tr={item.title} />
+                  </Heading3>
+                  ,
+                </summary>
+                {item.labels ? (
+                  <TagList className={tagsStyles} list={item.labels} />
+                ) : null}
+
+                <RawHtml html={item.content} />
               </details>
             </li>
           ))}

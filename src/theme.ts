@@ -67,30 +67,6 @@ export const cssGlobal = `
     color: ${cssColor.link};
   }
 
-  summary {
-    list-style:none
-  }
-
-  summary::before {
-    content: '';
-    display: inline-block;
-    border-width: .4rem;
-    border-style: solid;
-    border-color: transparent transparent transparent #fff;
-    margin-right: ${cssSpace.md};
-    transform: rotate(0deg);
-    transform-origin: .2rem 50%;
-    transition: transform ${cssAnimationSpeed.fast} ease;
-  }
-
-  details summary:hover::before {
-    transform: rotate(30deg);
-  }
-
-  details[open] summary::before {
-    transform: rotate(90deg);
-  }
-
   .md p {
     margin: ${cssSpace.lg} 0;
     text-align: justify;
