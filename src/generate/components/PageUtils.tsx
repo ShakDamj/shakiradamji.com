@@ -55,7 +55,7 @@ function createPageLinkComponent(path: string) {
     href?: string;
     page?: string;
     isParent?: boolean;
-    children: Translatable | JSX.Element;
+    children: Translatable | React.ReactNode;
   }) {
     const target = href || getPagePath(urlToSitePage(page!));
 

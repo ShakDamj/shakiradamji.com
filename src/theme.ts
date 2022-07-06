@@ -36,6 +36,7 @@ export const cssSpace = {
 
 export const cssAnimationSpeed = {
   fast: '0.15s',
+  medium: '0.3s',
   slow: '1s',
 };
 

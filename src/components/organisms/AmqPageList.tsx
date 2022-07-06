@@ -21,6 +21,7 @@ export function AmqPageList({ className = '', name, list }: AmqPageListProps) {
   const styles = css`
     // margin: 32px 0;
     padding: 32px 0;
+    user-select: none;
 
     & + & {
       border-top: 1px solid ${cssColor.border};

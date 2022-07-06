@@ -25,12 +25,30 @@ Marked.setOptions({
   },
 });
 
+const blockRules = [
+  {
+    regex: /^<details>\n((?:\n|.)*)\n<\/details>/m,
+    handler: ([, content]: string[]) =>
+      content && `<details open>${Marked.parse(content).content}</details>`,
+  },
+];
+
 export function isMarkedReady() {
   return Promise.all(promises).then(() => null);
 }
 
 export function parseMarkdown(markdown: string) {
-  const { content } = Marked.parse(markdown);
+  let modified = markdown;
+
+  for (const { regex, handler } of blockRules) {
+    const match = modified.match(regex);
+
+    if (match) {
+      modified = modified.replace(match[0], handler(match));
+    }
+  }
+
+  const { content } = Marked.parse(modified);
 
   const contentWithFixes = content.replace(/<\/?pre>/g, '');
 

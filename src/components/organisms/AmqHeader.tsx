@@ -24,8 +24,7 @@ export interface AmqHeaderProps {
 export function AmqHeader({
   className = '',
 }: React.PropsWithChildren<AmqHeaderProps>) {
-  const { Link, path } = usePageUtils();
-  const lang = useLang();
+  const { Link } = usePageUtils();
 
   const styles = css`
     padding: ${cssSpace.lg} 0;
@@ -75,20 +74,12 @@ export function AmqHeader({
     }
   `;
 
-  const nameStyles = css`
-    font-size: ${cssFontSize.md};
-    text-decoration: none;
-    color: ${cssColor.foreground};
-  `;
-
   return (
     <header className={`${styles} ${className}`}>
       <Container className={containerStyles}>
-        <h2>
-          <Link className={nameStyles} page={root}>
-            A. Matías Quezada
-          </Link>
-        </h2>
+        <AMatiasQuezada />
+
+        <Eyes />
 
         <nav className={navStyles}>
           <Link page={`${root}/blog`} isParent>
@@ -100,12 +91,59 @@ export function AmqHeader({
           <Link page={`${root}/projects`} isParent>
             <Lang en="Projects" es="Proyectos" />
           </Link>
-
-          {lang !== 'en' ? <Link href={`/${path}`}>🇬🇧</Link> : null}
-          {lang !== 'es' ? <Link href={`/es/${path}`}>🇪🇸</Link> : null}
-          {/* {lang !== 'cat' ? <Link href={`/cat/${path}`}>CAT</Link> : null} */}
+          <LangSelector />
         </nav>
       </Container>
     </header>
   );
+}
+
+function LangSelector() {
+  const { Link, path } = usePageUtils();
+  const lang = useLang();
+
+  return (
+    <>
+      {lang !== 'en' ? <Link href={`/${path}`}>🇬🇧</Link> : null}
+      {lang !== 'es' ? <Link href={`/es/${path}`}>🇪🇸</Link> : null}
+      {/* {lang !== 'cat' ? <Link href={`/cat/${path}`}>CAT</Link> : null} */}
+    </>
+  );
+}
+
+function AMatiasQuezada() {
+  const { Link } = usePageUtils();
+
+  const nameStyles = css`
+    font-size: ${cssFontSize.md};
+    text-decoration: none;
+    color: ${cssColor.primaryContrast};
+    display: flex;
+    align-items: baseline;
+    letter-spacing: 1px;
+
+    abbr {
+      display: inline-block;
+      width: 0.8em;
+      margin-right: 0.35em;
+      overflow: hidden;
+      transition: width ${cssAnimationSpeed.medium} ease;
+    }
+
+    &:hover abbr {
+      width: 3.75em;
+    }
+  `;
+
+  return (
+    <h2>
+      <Link className={nameStyles} page={root}>
+        <abbr>Adrian</abbr> Matías Quezada
+      </Link>
+    </h2>
+  );
+}
+
+function Eyes() {
+  return null;
 }
