@@ -102,6 +102,8 @@
   "https://deno.land/x/speed_highlight_js@1.1.7/src/languages/css.js": "65a91b7cda233edfc21585281478900a39c77668380477aae5e37b2cf71c3c6a",
   "https://deno.land/x/speed_highlight_js@1.1.7/src/languages/html.js": "52da9350ac2b1f37c54321d4d3f5e3772378914e24d40895deea3d871457a942",
   "https://deno.land/x/speed_highlight_js@1.1.7/src/languages/js.js": "4b9af41d919c7cf15bbde1c72d8616085a773323d50f3ca68e4f2f6902e604a5",
+  "https://deno.land/x/speed_highlight_js@1.1.7/src/languages/js_template_literals.js": "a2710325d7ebe22cc02198cfc2fc75ba63c18c6c9fdcc4a5187d53d73143151a",
+  "https://deno.land/x/speed_highlight_js@1.1.7/src/languages/regex.js": "9f1a5a85ba6dc73fd610fd7999025db7625582edf5881526706ada29b84e7155",
   "https://deno.land/x/speed_highlight_js@1.1.7/src/languages/todo.js": "4d2d88419d0a21a9327bb4bc6bb10ee2ab13181fcb6f2d1caf89abdb56c0db19",
   "https://deno.land/x/speed_highlight_js@1.1.7/src/languages/ts.js": "1edb009de19af5bfe2203b0178b3452ee1bf839bb1a8ee0f67751e2ecb1e0825",
   "https://deno.land/x/speed_highlight_js@1.1.7/src/languages/xml.js": "9197dfc84096722dab98b620852a183cd408ef33ab68a41ba0396ed8f237c3d2",
