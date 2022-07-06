@@ -4,6 +4,7 @@ import { Heading2, Heading3 } from '../../components/atoms/Heading.tsx';
 import { Time } from '../../components/atoms/Time.tsx';
 import { TagList } from '../../components/molecules/TagList.tsx';
 import { AmqHeader } from '../../components/organisms/AmqHeader.tsx';
+import { AmqPageList } from '../../components/organisms/AmqPageList.tsx';
 import { AmqDocument } from '../../components/templates/AmqDocument.tsx';
 import { css } from '../../deps/emotion.ts';
 import { usePageUtils, Lang, RawHtml } from '../../generate/mod.ts';
@@ -15,14 +16,12 @@ const SHOW_OPEN_ONLY_TOP = 3;
 
 // deno-lint-ignore no-explicit-any
 export default (props: any) => {
-  const { Link } = usePageUtils();
-
   const itemStyles = css`
     margin: 3rem 0;
   `;
 
   const headerStyles = css`
-    display: flex;
+    display: inline-flex;
     flex-direction: row;
     align-items: center;
     gap: ${cssSpace.lg};
@@ -36,20 +35,42 @@ export default (props: any) => {
     font-size: 0.9rem;
   `;
 
-  const showDetailsStyle = css`
+  const summaryStyle = css`
     margin-top: 1rem;
     cursor: pointer;
-  `;
+    position: relative;
 
-  const talkStyles = css`
-    ${headerStyles}
-    font-size: ${cssFontSize.md};
-    margin: 1rem 0;
+    &::before {
+      position: absolute;
+      top: 0.3em;
+      left: 3.7em;
+    }
 
-    &:last-child {
-      margin-bottom: 3rem;
+    & time {
+      margin-right: 1.3em;
     }
   `;
+
+  const items = career.map(
+    (item) =>
+      [
+        item.file,
+        <Heading3 className={headerStyles}>
+          <Time className={timeStyles} value={item.date} />
+          <Lang tr={item.title} />
+        </Heading3>,
+        <>
+          {item.labels ? (
+            <TagList className={tagsStyles} list={item.labels} />
+          ) : null}
+
+          <RawHtml html={item.content} />
+        </>,
+      ] as const
+  );
+
+  const top = items.slice(0, SHOW_OPEN_ONLY_TOP);
+  const rest = items.slice(SHOW_OPEN_ONLY_TOP);
 
   return (
     <AmqDocument title="A. Matías Quezada" {...props}>
@@ -57,52 +78,26 @@ export default (props: any) => {
 
       <Container>
         <ol>
-          {career.map((item, index) => {
-            const content = (
-              <>
-                {item.labels ? (
-                  <TagList className={tagsStyles} list={item.labels} />
-                ) : null}
-
-                <RawHtml html={item.content} />
-              </>
-            );
-
-            return (
-              <li key={item.file} className={itemStyles}>
-                <Heading3 className={headerStyles}>
-                  <Time className={timeStyles} value={item.date} />
-                  <Lang tr={item.title} />
-                </Heading3>
-
-                {index < SHOW_OPEN_ONLY_TOP ? (
-                  content
-                ) : (
-                  <details>
-                    <summary className={showDetailsStyle}>Show details</summary>
-                    {content}
-                  </details>
-                )}
-              </li>
-            );
-          })}
-        </ol>
-
-        <Heading2>
-          <Lang en="Talks" es="Charlas" />
-        </Heading2>
-
-        <ol>
-          {talks.map((item) => (
-            <li key={item.file} className={talkStyles}>
-              <Time className={timeStyles} value={item.date} omitDay />
-              <Link page={item.file}>
-                <Lang tr={item.title} />
-              </Link>
-              {/* </Heading3> */}
+          {top.map(([file, header, content]) => (
+            <li key={file} className={itemStyles}>
+              {header}
+              {content}
+            </li>
+          ))}
+          {rest.map(([file, header, content]) => (
+            <li key={file} className={itemStyles}>
+              <details>
+                <summary className={summaryStyle}>{header}</summary>
+                {content}
+              </details>
             </li>
           ))}
         </ol>
+
+        <AmqPageList
+          name={{ en: '🪧  Talks', es: '🪧  Charlas' }}
+          list={talks}
+        />
       </Container>
     </AmqDocument>
   );

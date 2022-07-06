@@ -14,6 +14,7 @@ import {
   cssFontSize,
   cssSpace,
 } from '../../theme.ts';
+import { BracketsIcon } from '../atoms/icons.tsx';
 
 const root = getPagesRoot();
 
@@ -114,18 +115,24 @@ function LangSelector() {
 function AMatiasQuezada() {
   const { Link } = usePageUtils();
 
+  const styles = css`
+    display: flex;
+    gap: ${cssSpace.md};
+    align-items: center;
+  `;
+
   const nameStyles = css`
     font-size: ${cssFontSize.md};
     text-decoration: none;
     color: ${cssColor.primaryContrast};
     display: flex;
     align-items: baseline;
+    gap: ${cssSpace.md};
     letter-spacing: 1px;
 
     abbr {
       display: inline-block;
       width: 0.8em;
-      margin-right: 0.35em;
       overflow: hidden;
       transition: width ${cssAnimationSpeed.medium} ease;
     }
@@ -136,10 +143,12 @@ function AMatiasQuezada() {
   `;
 
   return (
-    <h2>
+    <h2 className={styles}>
+      {/* <BracketsIcon title="Coder" /> */}
       <Link className={nameStyles} page={root}>
         <>
-          <abbr>Adrian</abbr> Matías Quezada
+          {'{ '}
+          <abbr>Adrian</abbr> Matías Quezada{' }'}
         </>
       </Link>
     </h2>

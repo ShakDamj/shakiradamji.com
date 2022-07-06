@@ -1,7 +1,12 @@
 import React, { useMemo } from 'react';
 import { Time } from '../atoms/Time.tsx';
 import { css } from '../../deps/emotion.ts';
-import { cssBreakpoint, cssColor, cssSpace } from '../../theme.ts';
+import {
+  cssAnimationSpeed,
+  cssBreakpoint,
+  cssColor,
+  cssSpace,
+} from '../../theme.ts';
 import { ExpandableList } from '../molecules/ExpandableList.tsx';
 import {
   Translatable,
@@ -42,6 +47,10 @@ export function AmqPageList({ className = '', name, list }: AmqPageListProps) {
     a {
       text-decoration: none;
     }
+
+    &:hover a {
+      transform: translateX(10px);
+    }
   `;
 
   const timeStyles = css`
@@ -50,6 +59,8 @@ export function AmqPageList({ className = '', name, list }: AmqPageListProps) {
 
   const linkStyles = css`
     letter-spacing: 1px;
+    transition: transform ${cssAnimationSpeed.fast} ease-in-out;
+    transform: translateX(0px);
   `;
 
   return (
