@@ -45,7 +45,10 @@ export function AmqDocument({
         {injectStyle(styles)}
         {injectStyle('STYLES_PLACEHOLDER')}
       </head>
-      <body className={`${className} ${bodyStyles}`}>{children}</body>
+      <body className={`${className} ${bodyStyles}`}>
+        {children}
+        <ColorPicker />
+      </body>
     </html>
   );
 }
@@ -57,5 +60,35 @@ function injectStyle(styles: string | null | undefined) {
     <style>
       <RawHtml html={styles.replace(/\s+/g, ' ')} />
     </style>
+  );
+}
+
+function ColorPicker() {
+  const styles = css`
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    background-color: black;
+
+    input {
+      border: none;
+      width: 3rem;
+      height: 3rem;
+    }
+  `;
+
+  return (
+    <div className={styles}>
+      <input type="color" id="color-picker" defaultValue="#EFE751" />
+      <RawHtml
+        html={`
+          <script>
+            document.querySelector('#color-picker').addEventListener('input', (e) => {
+              document.body.style.setProperty('--color-primary', e.target.value);
+            });
+          </script>
+        `}
+      />
+    </div>
   );
 }

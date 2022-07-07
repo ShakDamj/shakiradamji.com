@@ -29,7 +29,7 @@ export function AmqHeader({
 
   const styles = css`
     padding: ${cssSpace.lg} 0;
-    margin-bottom: ${cssSpace.lg};
+    // margin-bottom: ${cssSpace.lg};
     background-color: ${cssColor.backgroundDark};
     color: ${cssColor.foreground};
     border-bottom: 2px solid ${cssColor.border};

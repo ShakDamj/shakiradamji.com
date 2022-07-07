@@ -1,18 +1,12 @@
 export const cssColor = {
-  primary: '#EFE751',
+  primary: 'var(--color-primary)',
   foreground: '#FDFBF8',
   background: '#263238',
   backgroundDark: '#161b22',
-  // primary: '#8BB9F8', // azul
-  // primary: '#8BA9FF', // French Sky Blue
-  // primary: '#70ACFF', // French Sky Blue 2
-  // primary: '#FC9173', // Dark Salmom
-  link: '',
+  link: 'var(--color-primary)',
   primaryContrast: '#FFFFFF',
   border: '#586369',
 };
-
-cssColor.link = cssColor.primary;
 
 export const cssFontSize = {
   xs: '14px',
@@ -68,6 +62,13 @@ export const cssGlobal = `
     font-family: ${cssFontFamily.default};
     font-size: 18px;
     --border-color: ${cssColor.border};
+
+    --color-primary: #8BB9F8; /* azul */
+    --color-primary: #8BA9FF; /* French Sky Blue */
+    --color-primary: #70ACFF; /* French Sky Blue 2 */
+    --color-primary: #FC9173; /* Dark Salmom   */
+
+    --color-primary: #EFE751;
   }
 
   header, h1, h2, h3, h4, h5, h6 {
