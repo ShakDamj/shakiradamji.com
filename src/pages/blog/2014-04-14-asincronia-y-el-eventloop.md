@@ -1,7 +1,7 @@
 ---
 published: 2014-04-14
 title:
-  en: Asincronía y el EventLoop (🇪🇸 only)
+  en: Asincronía y el EventLoop 🇪🇸
   es: Asincronía y el EventLoop
 ---
 

@@ -114,7 +114,5 @@ function animateList(selector: string) {
 }
 
 function array(length: number) {
-  return Array(length)
-    .fill(null)
-    .map((_, i) => i);
+  return Array.from({ length }, (_, i) => i);
 }

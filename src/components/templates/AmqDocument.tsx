@@ -25,7 +25,7 @@ export function AmqDocument({
   const lang = useLang();
 
   const bodyStyles = css`
-    padding-bottom: 5rem;
+    padding-bottom: 4rem;
   `;
 
   return (

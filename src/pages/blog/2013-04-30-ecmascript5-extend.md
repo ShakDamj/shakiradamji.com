@@ -1,7 +1,7 @@
 ---
 published: 2013-04-30
 title:
-  en: ECMAScript 5 _.extend (🇪🇸 only)
+  en: ECMAScript 5 _.extend 🇪🇸
   es: ECMAScript 5 _.extend
 ---
 

@@ -1,7 +1,7 @@
 ---
 published: 2012-03-03
 title:
-  en: 'Experimento: Privacidad por instancias (🇪🇸 only)'
+  en: 'Experimento: Privacidad por instancias 🇪🇸'
   es: 'Experimento: Privacidad por instancias'
 ---
 

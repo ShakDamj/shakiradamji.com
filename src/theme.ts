@@ -2,7 +2,7 @@ export const cssColor = {
   primary: '#EFE751',
   foreground: '#FDFBF8',
   background: '#263238',
-  backgroundDark: '#1B2225',
+  backgroundDark: '#161b22',
   // primary: '#8BB9F8', // azul
   // primary: '#8BA9FF', // French Sky Blue
   // primary: '#70ACFF', // French Sky Blue 2
@@ -78,6 +78,10 @@ export const cssGlobal = `
     color: ${cssColor.link};
   }
 
+  ol {
+    padding: 0;
+  }
+
   .md p {
     margin: ${cssSpace.lg} 0;
     text-align: justify;
@@ -96,9 +100,7 @@ export const cssGlobal = `
   .md .code-block {
     display: block;
     font-family: ${cssFontFamily.code};
-    margin-left: -1em;
-    margin-right: -1em;
-    width: calc(var(--available-width) + 2em);
+    width: var(--available-width);
     padding-bottom: 10px;
   }
 
@@ -112,69 +114,62 @@ export const cssGlobal = `
   }
 `;
 
+// Imported from https://github.com/jensimmons/cssremedy/blob/master/css/remedy.css
 export const cssReset = `
-  *, *::before, *::after {
-    box-sizing: border-box;
+  *, ::before, ::after { box-sizing: border-box; }
+
+  html { line-sizing: normal; }
+
+  body { margin: 0; }
+
+  [hidden] { display: none; }
+
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.5rem; }
+  h3 { font-size: 1.17rem; }
+  h4 { font-size: 1.00rem; }
+  h5 { font-size: 0.83rem; }
+  h6 { font-size: 0.67rem; }
+
+  h1 { margin: 0.67em 0; }
+
+  pre { white-space: pre-wrap; }
+
+  hr {
+    border-style: solid;
+    border-width: 1px 0 0;
+    color: inherit;
+    height: 0;
+    overflow: visible;
   }
 
-  ul, ol {
-    padding: 0;
-  }
-
-  body, h1, h2, h3, h4, p, ul, ol, li, figure, figcaption, blockquote, dl, dd {
-    margin: 0;
-  }
-
-  body {
-    min-height: 100vh;
-    scroll-behavior: smooth;
-    text-rendering: optimizeSpeed;
-    line-height: 1.5;
-  }
-
-  ul, ol {
-    list-style: none;
-  }
-  .md ul, .md ol {
-    list-style: initial;
-    padding: revert;
-  }
-
-  a:not([class]) {
-    text-decoration-skip-ink: auto;
-  }
-
-  img {
+  img, svg, video, canvas, audio, iframe, embed, object {
+    display: block;
+    vertical-align: middle;
     max-width: 100%;
+  }
+  audio:not([controls]) { display:none; }
+
+  picture { display: contents; }
+  source { display: none; }
+
+  img, svg, video, canvas {
+    height: auto;
+  }
+
+  audio { width: 100%; }
+
+  img { border-style: none; }
+
+  svg { overflow: hidden; }
+
+  article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, section {
     display: block;
   }
 
-  article > * + * {
-    margin-top: 1em;
-  }
-
-  input, button, textarea, select {
-    font: inherit;
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    * {
-      animation-duration: 0.01ms !important;
-      animation-iteration-count: 1 !important;
-      transition-duration: 0.01ms !important;
-      scroll-behavior: auto !important;
-    }
+  [type='checkbox'],
+  [type='radio'] {
+    box-sizing: border-box;
+    padding: 0;
   }
 `;
-
-function hideScrollbar(selector: string) {
-  return `
-    ${selector}::-webkit-scrollbar {
-      display: none;
-    }
-    ${selector} {
-      -ms-overflow-style: none;  /* IE and Edge */
-      scrollbar-width: none;  /* Firefox */
-    }
-  `;
-}

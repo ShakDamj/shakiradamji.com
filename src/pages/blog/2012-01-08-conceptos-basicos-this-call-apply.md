@@ -1,7 +1,7 @@
 ---
 published: 2012-01-08
 title:
-  en: 'Conceptos Básicos Javascript: this, .call() y .apply() (🇪🇸 only)'
+  en: 'Conceptos Básicos Javascript: this, .call() y .apply() 🇪🇸'
   es: 'Conceptos Básicos Javascript: this, .call() y .apply()'
 ---
 

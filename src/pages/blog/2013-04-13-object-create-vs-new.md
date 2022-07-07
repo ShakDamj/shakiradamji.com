@@ -1,7 +1,7 @@
 ---
 published: 2013-04-13
 title:
-  en: Object.create vs new (🇪🇸 only)
+  en: Object.create vs new 🇪🇸
   es: Object.create vs new
 ---
 

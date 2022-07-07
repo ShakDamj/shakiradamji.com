@@ -1,7 +1,7 @@
 ---
 published: 2012-12-04
 title:
-  en: GIT Workflow (Parte 1) (🇪🇸 only)
+  en: GIT Workflow (Parte 1) 🇪🇸
   es: GIT Workflow (Parte 1)
 ---
 

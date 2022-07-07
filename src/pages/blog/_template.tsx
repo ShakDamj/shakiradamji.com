@@ -4,6 +4,7 @@ import { Time } from '../../components/atoms/Time.tsx';
 import { Heading2 } from '../../components/atoms/Heading.tsx';
 import { AmqMarkdownPage } from '../../components/templates/AmqMarkdownPage.tsx';
 import { MarkdownPageMetadata, YearMonthDay } from '../../generate/mod.ts';
+import { cssBreakpoint } from '../../theme.ts';
 
 export interface BlogPostProps extends MarkdownPageMetadata {
   published: YearMonthDay;
@@ -12,9 +13,13 @@ export interface BlogPostProps extends MarkdownPageMetadata {
 export default ({ title, published, content }: BlogPostProps) => {
   const headerStyles = css`
     display: flex;
-    flex-direction: row;
-    align-items: center;
     justify-content: space-between;
+    flex-direction: column;
+
+    ${cssBreakpoint.medium} {
+      flex-direction: row;
+      align-items: center;
+    }
   `;
 
   return (

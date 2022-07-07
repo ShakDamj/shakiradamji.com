@@ -1,7 +1,7 @@
 ---
 published: 2012-02-26
 title:
-  en: 'Conceptos Básicos Javascript: Privacidad (🇪🇸 only)'
+  en: 'Conceptos Básicos Javascript: Privacidad 🇪🇸'
   es: 'Conceptos Básicos Javascript: Privacidad'
 ---
 
