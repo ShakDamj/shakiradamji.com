@@ -7,6 +7,8 @@ export interface IconProps {
 export function GithubIcon({ title }: IconProps) {
   return (
     <svg
+      aria-hidden
+      aria-label={title}
       xmlns="http://www.w3.org/2000/svg"
       width="24"
       height="24"
@@ -21,6 +23,8 @@ export function GithubIcon({ title }: IconProps) {
 export function PlayIcon({ title }: IconProps) {
   return (
     <svg
+      aria-hidden
+      aria-label={title}
       xmlns="http://www.w3.org/2000/svg"
       width="24"
       height="24"
@@ -35,6 +39,8 @@ export function PlayIcon({ title }: IconProps) {
 export function VideoIcon({ title }: IconProps) {
   return (
     <svg
+      aria-hidden
+      aria-label={title}
       width="24"
       height="24"
       xmlns="http://www.w3.org/2000/svg"
@@ -50,6 +56,8 @@ export function VideoIcon({ title }: IconProps) {
 export function FlaskIcon({ title }: IconProps) {
   return (
     <svg
+      aria-hidden
+      aria-label={title}
       xmlns="http://www.w3.org/2000/svg"
       width="24"
       height="24"
@@ -64,6 +72,8 @@ export function FlaskIcon({ title }: IconProps) {
 export function SlidesIcon({ title }: IconProps) {
   return (
     <svg
+      aria-hidden
+      aria-label={title}
       xmlns="http://www.w3.org/2000/svg"
       width="24"
       height="24"
@@ -78,6 +88,8 @@ export function SlidesIcon({ title }: IconProps) {
 export function BracketsIcon({ title }: IconProps) {
   return (
     <svg
+      aria-hidden
+      aria-label={title}
       xmlns="http://www.w3.org/2000/svg"
       width="24"
       height="24"

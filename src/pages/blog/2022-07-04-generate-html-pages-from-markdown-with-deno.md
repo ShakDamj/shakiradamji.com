@@ -1,8 +1,8 @@
 ---
 published: 2022-07-04
 title:
-  en: Generate HTML pages from Markdown with Deno
-  es: Generar páginas HTML desde Markdown con Deno
+  en: Generate HTML pages from TSX with Deno
+  es: Generar páginas HTML desde TSX con Deno
 ---
 
 I've been working on a new version of this site with a clear idea:
@@ -11,7 +11,7 @@ I've been working on a new version of this site with a clear idea:
 - I want it to be the fastest site ever (negotiable)
 - Bilingual (N-lingual in fact)
 
-And after some months of work I found myself taking the same unspoken assuption that I recently wrote for my friend @Shakira who helped me with this beautiful design 🙌:
+And after some months of work I found myself taking the same unspoken assuption that I recently wrote for my friend @Shakira who helped me with this beautiful design 🙌
 
 > I will animate the header somehow but with CSS only, no room for JS in the site of JS guy. That's the message 🤣
 
@@ -40,7 +40,7 @@ Here's the trip to generate HTML pages from TSX with Deno:
 ```ts
 // Versions included for important reasons! 🥲
 import React from 'https://esm.sh/react@18.2.0'
-import { renderToStaticMarkup } from 'https://esm.sh/react-dom@18.2.0/';
+import { renderToStaticMarkup } from 'https://esm.sh/react-dom@18.2.0/server';
 
 // This is our only component
 function MyComponent() {
@@ -59,7 +59,7 @@ console.log(html);
 ```tsx
 // main.tsx
 import React from 'https://esm.sh/react@18.2.0'
-import { renderToStaticMarkup } from 'https://esm.sh/react-dom@18.2.0/';
+import { renderToStaticMarkup } from 'https://esm.sh/react-dom@18.2.0/server';
 
 // we read arguments
 const [input, output] = Deno.args;
@@ -86,8 +86,13 @@ import React from 'https://esm.sh/react@18.2.0'
 export default () => <p>This is my page!<p>
 ```
 
-```shell
-$ deno run --allow-read=. --allow-write=. --allow-net=https://esm.sh ./main.tsx ./MyPage.tsx ./MyPage.html
+```bash
+deno run \
+  --allow-read=. \
+  --allow-write=. \
+  --allow-net=https://esm.sh \
+  ./main.tsx \
+  ./MyPage.tsx ./MyPage.html
 ```
 
 Permissions explained:
@@ -123,7 +128,7 @@ I'm sure that's part of `esm.sh/std` somewhere. Now let's update the `main.tsx` 
 ```tsx
 // main.tsx
 import React from 'https://esm.sh/react@18.2.0'
-import { renderToStaticMarkup } from 'https://esm.sh/react-dom@18.2.0/';
+import { renderToStaticMarkup } from 'https://esm.sh/react-dom@18.2.0/server';
 
 // Import function to get the name of the directory of a file
 import { dirname } from 'https://deno.land/std@0.143.0/path/mod.ts';
@@ -195,8 +200,13 @@ export default () => (
 )
 ```
 
-```shell
-$ deno run --allow-read=. --allow-write=. --allow-net=https://esm.sh ./main.tsx ./input ./output
+```bash
+deno run \
+  --allow-read=. \
+  --allow-write=. \
+  --allow-net=https://esm.sh \
+  ./main.tsx \
+  ./input ./output
 ```
 
 And that would generate a file like this:
@@ -265,7 +275,7 @@ Aquí está el camino para generar páginas HTML desde TSX con Deno:
 ```ts
 // Las versiones se incluyen por importantes razones! 🥲
 import React from 'https://esm.sh/react@18.2.0'
-import { renderToStaticMarkup } from 'https://esm.sh/react-dom@18.2.0/';
+import { renderToStaticMarkup } from 'https://esm.sh/react-dom@18.2.0/server';
 
 // Este es nuestro único componente
 function MyComponent() {
@@ -284,7 +294,7 @@ console.log(html);
 ```ts
 // main.tsx
 import React from 'https://esm.sh/react@18.2.0'
-import { renderToStaticMarkup } from 'https://esm.sh/react-dom@18.2.0/';
+import { renderToStaticMarkup } from 'https://esm.sh/react-dom@18.2.0/server';
 
 // leemos los argumentos
 const [input, output] = Deno.args;
@@ -311,8 +321,13 @@ import React from 'https://esm.sh/react@18.2.0'
 export default () => <p>Ésta es mi página!<p>
 ```
 
-```shell
-$ deno run --allow-read=. --allow-write=. --allow-net=https://esm.sh ./main.tsx ./MyPage.tsx ./MyPage.html
+```bash
+deno run \
+  --allow-read=. \
+  --allow-write=. \
+  --allow-net=https://esm.sh \
+  ./main.tsx \
+  ./MyPage.tsx ./MyPage.html
 ```
 
 Permisos explicados:
@@ -349,7 +364,7 @@ Estoy seguro que algo así es parte de `esm.sh/std` por algún lado. Ahora vamos
 ```ts
 // main.tsx
 import React from 'https://esm.sh/react@18.2.0'
-import { renderToStaticMarkup } from 'https://esm.sh/react-dom@18.2.0/';
+import { renderToStaticMarkup } from 'https://esm.sh/react-dom@18.2.0/server';
 
 // Importamos una función para obtener el nombre del directorio de un archivo
 import { dirname } from 'https://deno.land/std@0.143.0/path/mod.ts';
@@ -421,8 +436,13 @@ export default () => (
 )
 ```
 
-```shell
-$ deno run --allow-read=. --allow-write=. --allow-net=https://esm.sh ./main.tsx ./input ./output
+```bash
+deno run \
+  --allow-read=. \
+  --allow-write=. \
+  --allow-net=https://esm.sh \
+  ./main.tsx \
+  ./input ./output
 ```
 
 Y generaría un archivo como este:

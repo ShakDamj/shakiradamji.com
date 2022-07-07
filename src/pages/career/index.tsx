@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container } from '../../components/atoms/Container.tsx';
-import { Heading3 } from '../../components/atoms/Heading.tsx';
+import { Heading2, Heading3 } from '../../components/atoms/Heading.tsx';
 import { Time } from '../../components/atoms/Time.tsx';
 import { TagList } from '../../components/molecules/TagList.tsx';
 import { AmqHeader } from '../../components/organisms/AmqHeader.tsx';
@@ -74,6 +74,8 @@ export default (props: any) => {
       <AmqHeader />
 
       <Container>
+        <Heading2>Career</Heading2>
+
         <ol>
           {career.map((item, index) => (
             <li key={item.file} className={itemStyles}>

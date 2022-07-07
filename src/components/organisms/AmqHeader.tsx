@@ -124,7 +124,7 @@ function AMatiasQuezada() {
   const nameStyles = css`
     font-size: ${cssFontSize.md};
     text-decoration: none;
-    color: ${cssColor.primaryContrast};
+    color: white;
     display: flex;
     align-items: baseline;
     gap: ${cssSpace.md};

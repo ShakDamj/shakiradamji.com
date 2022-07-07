@@ -14,7 +14,8 @@ Marked.setOptions({
 
     const processing = highlightText(
       code,
-      lang || 'js'
+      // FIXME: Support TSX highlighting
+      lang === 'tsx' ? 'ts' : lang || 'js'
     ) as unknown as Promise<string>;
 
     promises.push(processing);

@@ -1,12 +1,18 @@
 export const cssColor = {
-  link: '#EFE751',
-  primary: '#0732A0',
-  primaryContrast: '#FFFFFF',
+  primary: '#EFE751',
   foreground: '#FDFBF8',
   background: '#263238',
   backgroundDark: '#1B2225',
+  // primary: '#8BB9F8', // azul
+  // primary: '#8BA9FF', // French Sky Blue
+  // primary: '#70ACFF', // French Sky Blue 2
+  // primary: '#FC9173', // Dark Salmom
+  link: '',
+  primaryContrast: '#FFFFFF',
   border: '#586369',
 };
+
+cssColor.link = cssColor.primary;
 
 export const cssFontSize = {
   xs: '14px',
@@ -28,6 +34,7 @@ export const cssBreakpoint = {
 };
 
 export const cssSpace = {
+  xs: '4px',
   sm: '8px',
   md: '12px',
   lg: '20px',
@@ -40,14 +47,18 @@ export const cssAnimationSpeed = {
   slow: '1s',
 };
 
+const fonts = ['Nunito Sans', 'Nunito', 'Inconsolata'];
+
 export const cssFontFamily = {
-  default: 'Lato, sans-serif',
-  header: 'Montserrat, sans-serif',
-  code: 'Fira Code, monospace',
+  default: `${fonts[0]}, sans-serif`,
+  header: `${fonts[1]}, sans-serif`,
+  code: `${fonts[2]}, monospace`,
 };
 
 export const cssDeps = [
-  'https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&family=Lato:ital,wght@1,400;1,700&family=Montserrat:wght@400;700&display=swap',
+  `https://fonts.googleapis.com/css2?display=swap&${fonts
+    .map((x) => `family=${x.replace(/\s/g, '+')}:wght@400;700`)
+    .join('&')}`,
 ];
 
 export const cssGlobal = `
@@ -76,10 +87,18 @@ export const cssGlobal = `
     font-family: ${cssFontFamily.code};
   }
 
+  code:not(.code-block) {
+    background-color: ${cssColor.backgroundDark};
+    padding: ${cssSpace.xs};
+    border-radius: ${cssSpace.xs};
+  }
+
   .md .code-block {
     display: block;
     font-family: ${cssFontFamily.code};
-    width: var(--available-width);
+    margin-left: -1em;
+    margin-right: -1em;
+    width: calc(var(--available-width) + 2em);
     padding-bottom: 10px;
   }
 

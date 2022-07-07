@@ -9,7 +9,6 @@ const sections = await getAllPagesBySection();
 
 // deno-lint-ignore no-explicit-any
 export default (props: any) => {
-  // throw new Error('patata');
   return (
     <AmqDocument title="A. Matías Quezada" {...props}>
       <AmqHeader />

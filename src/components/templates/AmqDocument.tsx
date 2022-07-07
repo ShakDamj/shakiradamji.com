@@ -1,4 +1,5 @@
 import React from 'react';
+import { css } from '../../deps/emotion.ts';
 import { Translatable, useLang, RawHtml, tr } from '../../generate/mod.ts';
 import { cssDeps, cssGlobal, cssReset } from '../../theme.ts';
 
@@ -21,8 +22,11 @@ export function AmqDocument({
   title,
   children,
 }: React.PropsWithChildren<AmqDocumentProps>) {
-  // throw new Error('polla');
   const lang = useLang();
+
+  const bodyStyles = css`
+    padding-bottom: 5rem;
+  `;
 
   return (
     <html lang={lang}>
@@ -41,7 +45,7 @@ export function AmqDocument({
         {injectStyle(styles)}
         {injectStyle('STYLES_PLACEHOLDER')}
       </head>
-      <body className={className}>{children}</body>
+      <body className={`${className} ${bodyStyles}`}>{children}</body>
     </html>
   );
 }
