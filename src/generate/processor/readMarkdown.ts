@@ -9,13 +9,12 @@ export async function readMarkdown(file: string) {
 
   const references = getMarkdownReferences(fileContent);
   const [head, ...parts] = fileContent
-    .split(/---/g)
+    .split(/^---$/gm)
     .filter(Boolean)
     .map((x) => x.trim());
 
-  const body = parts.map((x) => `${x}\n\n${references}`);
-
   const data = parse(head) as Record<string, unknown>;
+  const body = parts.map((x) => `${x}\n\n${references}`);
 
   let template = `${templatesDir}/default.tsx`;
 

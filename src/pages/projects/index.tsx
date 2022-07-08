@@ -27,6 +27,12 @@ export default (props: PageMetadata) => {
         display: none;
       }
     }
+
+    ${cssBreakpoint.medium} {
+      nav {
+        display: none;
+      }
+    }
   `;
 
   const listStyles = css`
