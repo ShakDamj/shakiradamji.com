@@ -1,7 +1,7 @@
 ---
 published: 2011-12-07
 title:
-  en: Let's get it started! 🇪🇸
+  en: Let's get it started! (spanish)
   es: Let's get it started!
 ---
 

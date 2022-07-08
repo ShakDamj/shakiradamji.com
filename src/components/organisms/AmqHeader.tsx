@@ -14,7 +14,6 @@ import {
   cssFontSize,
   cssSpace,
 } from '../../theme.ts';
-import { BracketsIcon } from '../atoms/icons.tsx';
 
 const root = getPagesRoot();
 
@@ -58,7 +57,6 @@ export function AmqHeader({
 
     a {
       color: ${cssColor.link};
-      text-decoration: none;
       margin-left: ${cssSpace.md};
       border-bottom: 1px solid transparent;
       transform: translate(0px, 0px);
@@ -86,11 +84,11 @@ export function AmqHeader({
           <Link page={`${root}/blog`} isParent>
             Blog
           </Link>
-          <Link page={`${root}/career`} isParent>
-            <Lang en="Career" es="Experiencia" />
-          </Link>
           <Link page={`${root}/projects`} isParent>
             <Lang en="Projects" es="Proyectos" />
+          </Link>
+          <Link page={`${root}/career`} isParent>
+            CV
           </Link>
           <LangSelector />
         </nav>
@@ -123,7 +121,6 @@ function AMatiasQuezada() {
 
   const nameStyles = css`
     font-size: ${cssFontSize.md};
-    text-decoration: none;
     color: white;
     display: flex;
     align-items: baseline;
@@ -138,14 +135,14 @@ function AMatiasQuezada() {
     }
 
     &:hover abbr {
-      width: 3.75em;
+      width: 3.3em;
     }
   `;
 
   return (
     <h2 className={styles}>
       {/* <BracketsIcon title="Coder" /> */}
-      <Link className={nameStyles} page={root}>
+      <Link className={`${nameStyles} inactive`} page={root}>
         <>
           {'{ '}
           <abbr>Adrian</abbr> Matías Quezada{' }'}

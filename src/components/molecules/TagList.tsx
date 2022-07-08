@@ -13,16 +13,16 @@ export function TagList({ className = '', list }: TagListProps) {
     display: flex;
     flex-wrap: wrap;
     gap: ${cssSpace.sm};
-    margin: ${cssSpace.md} 0;
+    margin: ${cssSpace.lg} 0 ${cssSpace.xl};
   `;
 
   const tagStyles = css`
     background-color: ${cssColor.backgroundDark};
+    border-radius: 8px;
+    padding: 3px 8px;
     color: ${cssColor.primary};
-    border: 2px solid ${cssColor.border};
-    border-radius: 1em;
-    padding: 0.1em 1em 0.2em;
     display: inline-block;
+    font-family: var(--monospace-font) !important;
   `;
 
   return (

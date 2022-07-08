@@ -3,18 +3,22 @@ import { Container } from '../../components/atoms/Container.tsx';
 import { Heading3 } from '../../components/atoms/Heading.tsx';
 import { Time } from '../../components/atoms/Time.tsx';
 import { css } from '../../deps/emotion.ts';
-import { usePageUtils, Lang, RawHtml } from '../../generate/mod.ts';
+import {
+  usePageUtils,
+  Lang,
+  PageMetadata,
+  Markdown,
+} from '../../generate/mod.ts';
 import { ExpandableList } from '../../components/molecules/ExpandableList.tsx';
 import { AmqHeader } from '../../components/organisms/AmqHeader.tsx';
 import { AmqDocument } from '../../components/templates/AmqDocument.tsx';
-import { highlightTheme } from '../../components/templates/AmqMarkdownPage.tsx';
-import { cssColor } from '../../theme.ts';
+import { cssAnimationSpeed, cssBreakpoint, cssColor } from '../../theme.ts';
 import { getAllPagesBySection } from '../../util/getAllPagesBySection.ts';
+import { ResponsiveHeader } from '../../components/molecules/ResponsiveHeader.tsx';
 
 const { blog: posts } = await getAllPagesBySection();
 
-// deno-lint-ignore no-explicit-any
-export default (props: any) => {
+export default (props: PageMetadata) => {
   const { Link } = usePageUtils();
 
   const itemStyles = css`
@@ -26,10 +30,17 @@ export default (props: any) => {
   `;
 
   const headerStyles = css`
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
+    ${cssBreakpoint.medium} {
+      a {
+        letter-spacing: 1px;
+        transition: transform ${cssAnimationSpeed.fast} ease-in-out;
+        transform: translateX(0px);
+      }
+
+      &:hover a:not(:active) {
+        transform: translateX(10px);
+      }
+    }
   `;
 
   const timeStyles = css`
@@ -37,23 +48,19 @@ export default (props: any) => {
   `;
 
   return (
-    <AmqDocument title="Blog" styles={highlightTheme()} {...props}>
+    <AmqDocument {...props} title="Blog">
       <AmqHeader />
 
       <Container>
         <ExpandableList list={posts}>
           {(item) => (
             <li key={item.file} className={itemStyles}>
-              <Heading3 className={headerStyles}>
-                <Lang tr={item.title} />
+              <ResponsiveHeader className={headerStyles}>
+                <Link page={item.file}>{item.title}</Link>
                 <Time className={timeStyles} value={item.published} />
-              </Heading3>
+              </ResponsiveHeader>
 
-              <RawHtml html={item.extract} />
-
-              <Link page={item.file}>
-                <Lang en="Read more" es="Leer más" />
-              </Link>
+              <Markdown readMore={item.file}>{item.content}</Markdown>
             </li>
           )}
         </ExpandableList>

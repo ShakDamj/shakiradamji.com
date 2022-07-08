@@ -1,33 +1,25 @@
 import React from 'react';
-import { css } from '../../deps/emotion.ts';
 import { Time } from '../../components/atoms/Time.tsx';
 import { Heading2 } from '../../components/atoms/Heading.tsx';
 import { AmqMarkdownPage } from '../../components/templates/AmqMarkdownPage.tsx';
-import { MarkdownPageMetadata, YearMonthDay } from '../../generate/mod.ts';
-import { cssBreakpoint } from '../../theme.ts';
+import {
+  Lang,
+  MarkdownPageMetadata,
+  YearMonthDay,
+} from '../../generate/mod.ts';
+import { ResponsiveHeader } from '../../components/molecules/ResponsiveHeader.tsx';
 
 export interface BlogPostProps extends MarkdownPageMetadata {
   published: YearMonthDay;
 }
 
 export default ({ title, published, content }: BlogPostProps) => {
-  const headerStyles = css`
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
-
-    ${cssBreakpoint.medium} {
-      flex-direction: row;
-      align-items: center;
-    }
-  `;
-
   return (
     <AmqMarkdownPage title={title} content={content}>
-      <div className={headerStyles}>
-        <Heading2>{title}</Heading2>
+      <ResponsiveHeader as={Heading2}>
+        <Lang tr={title} />
         <Time value={published} />
-      </div>
+      </ResponsiveHeader>
     </AmqMarkdownPage>
   );
 };

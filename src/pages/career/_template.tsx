@@ -12,6 +12,7 @@ import {
   i18n,
   Lang,
 } from '../../generate/mod.ts';
+import { bouncyLinkClass } from '../../util/bouncyLinkTransition.ts';
 
 export interface CareerProps extends MarkdownPageMetadata {
   org: Translatable;
@@ -61,7 +62,7 @@ export default ({
           <Lang en="at" es="en" />
         </small>{' '}
         {link ? (
-          <a href={link} target="_blank">
+          <a href={link} className={bouncyLinkClass} target="_blank">
             <Lang tr={org} />
           </a>
         ) : (

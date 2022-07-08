@@ -1,7 +1,7 @@
 ---
 published: 2011-12-18
 title:
-  en: 'Patrón Promise: Implementación 🇪🇸'
+  en: 'Promise pattern: Implementation (spanish)'
   es: 'Patrón Promise: Implementación'
 ---
 

@@ -1,7 +1,7 @@
 ---
 published: 2012-01-18
 title:
-  en: 'Conceptos Básicos Javascript: Herencia por prototipos 🇪🇸'
+  en: 'Basic Javascript Concepts: Prototypal inheritance (spanish)'
   es: 'Conceptos Básicos Javascript: Herencia por prototipos'
 ---
 

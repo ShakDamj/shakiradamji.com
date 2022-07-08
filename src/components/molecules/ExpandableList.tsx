@@ -63,11 +63,7 @@ export function ExpandableList<T>({
 
   return (
     <div className={`${styles} ${className}`}>
-      {title ? (
-        <Heading2 className={headerStyles}>
-          <Lang tr={title} />
-        </Heading2>
-      ) : null}
+      {title ? <Heading2 className={headerStyles}>{title}</Heading2> : null}
 
       <ol>{top.map(children)}</ol>
 

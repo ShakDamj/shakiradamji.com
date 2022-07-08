@@ -23,8 +23,8 @@ export async function renderTsx<P extends PageProps>(
   ).replace(/<script><\/script>/g, '');
 
   // Extract CSS classes created by emotion and inject them in the HTML
-  const css = Object.values(cache.inserted);
-  const htmlWithStyles = html.replace('STYLES_PLACEHOLDER', css.join('\n'));
+  const css = Object.values(cache.inserted).reverse().join('\n');
+  const htmlWithStyles = html.replace('STYLES_PLACEHOLDER', css);
   flush();
 
   return `<!DOCTYPE html>${htmlWithStyles}`;

@@ -1,13 +1,13 @@
 import { parse } from 'std/encoding/yaml.ts';
 import { dirname } from 'std/path/mod.ts';
-import { parseMarkdown } from '../../deps/markdown.ts';
+import { getMarkdownReferences } from '../util/getMarkdownReferences.ts';
 
 const templatesDir = '../../components/templates';
 
 export async function readMarkdown(file: string) {
   const fileContent = await Deno.readTextFile(file);
 
-  const references = getReferences(fileContent);
+  const references = getMarkdownReferences(fileContent);
   const [head, ...parts] = fileContent
     .split(/---/g)
     .filter(Boolean)
@@ -40,9 +40,6 @@ export async function readMarkdown(file: string) {
   const base = await import(templateRelative);
   const meta = base?.meta || (() => ({}));
 
-  const content = body.map(parseMarkdown);
-  const extract = body.map(getExtract).map(parseMarkdown);
-
   return {
     data: {
       ...meta(data, file),
@@ -50,44 +47,6 @@ export async function readMarkdown(file: string) {
     },
 
     template: templateRelative,
-    content,
-    extract,
-
-    get rest() {
-      return content.map((x, i) => x.replace(extract[i], ''));
-    },
+    content: body,
   };
-}
-
-const CROP_IF_LONGER_THAN = 150;
-const CROP_AFTER = 150;
-const EXTRACT_TOKEN = '<!-- end extract -->';
-
-function getExtract(value: null | undefined): null;
-function getExtract(value: string): string;
-function getExtract(value: string | null | undefined) {
-  if (!value) {
-    return null;
-  }
-
-  if (value.includes(EXTRACT_TOKEN)) {
-    const extract = value.split(EXTRACT_TOKEN)[0];
-    return `${extract}\n\n${getReferences(value)}`;
-  }
-
-  if (value.length < CROP_IF_LONGER_THAN) {
-    return value;
-  }
-
-  const cropAt = value.indexOf('\n', CROP_AFTER);
-  const chunk = value.slice(0, cropAt).trim();
-  return `${chunk}\n\n${getReferences(value)}`;
-}
-
-const uniq = <T>(arr: T[]) => Array.from(new Set(arr));
-
-function getReferences(markdown: string) {
-  const matches = markdown.matchAll(/^\[\d+\]: .*$/gm);
-  const references = Array.from(matches).map((x) => x[0]);
-  return uniq(references).join('\n');
 }

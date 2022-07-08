@@ -23,6 +23,7 @@ export function Time({ className = '', value, omitDay = false }: TimeProps) {
 
   const dateStyles = css`
     opacity: 0.8;
+    font-size: 0.8em;
     font-family: ${cssFontFamily.code};
     color: ${cssColor.foreground};
     white-space: nowrap;

@@ -1,4 +1,5 @@
 export * from './components/Lang.tsx';
+export { Markdown } from './components/Markdown.tsx';
 export { usePageUtils } from './components/PageUtils.tsx';
 export type { PageUtils } from './components/PageUtils.tsx';
 export { RawHtml } from './components/RawHtml.tsx';

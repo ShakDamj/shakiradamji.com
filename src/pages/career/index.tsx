@@ -7,7 +7,7 @@ import { AmqHeader } from '../../components/organisms/AmqHeader.tsx';
 import { AmqPageList } from '../../components/organisms/AmqPageList.tsx';
 import { AmqDocument } from '../../components/templates/AmqDocument.tsx';
 import { css } from '../../deps/emotion.ts';
-import { Lang, RawHtml } from '../../generate/mod.ts';
+import { Lang, Markdown } from '../../generate/mod.ts';
 import { cssAnimationSpeed, cssSpace } from '../../theme.ts';
 import { getAllPagesBySection } from '../../util/getAllPagesBySection.ts';
 
@@ -74,7 +74,9 @@ export default (props: any) => {
       <AmqHeader />
 
       <Container>
-        <Heading2>Career</Heading2>
+        <Heading2>
+          <Lang en="Career" es="Currículum" />
+        </Heading2>
 
         <ol>
           {career.map((item, index) => (
@@ -88,13 +90,13 @@ export default (props: any) => {
                     <Time className={timeStyles} value={item.date} />
                     <Lang tr={item.title} />
                   </Heading3>
-                  ,
                 </summary>
+
                 {item.labels ? (
                   <TagList className={tagsStyles} list={item.labels} />
                 ) : null}
 
-                <RawHtml html={item.content} />
+                <Markdown>{item.content}</Markdown>
               </details>
             </li>
           ))}

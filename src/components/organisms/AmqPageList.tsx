@@ -24,7 +24,6 @@ export function AmqPageList({ className = '', name, list }: AmqPageListProps) {
   const { Link } = usePageUtils();
 
   const styles = css`
-    // margin: 32px 0;
     padding: 32px 0;
     user-select: none;
 
@@ -42,14 +41,10 @@ export function AmqPageList({ className = '', name, list }: AmqPageListProps) {
       align-items: center;
       flex-direction: row;
       gap: 1rem;
-    }
 
-    a {
-      text-decoration: none;
-    }
-
-    &:hover a {
-      transform: translateX(10px);
+      &:hover a:not(:active) {
+        transform: translateX(10px);
+      }
     }
   `;
 

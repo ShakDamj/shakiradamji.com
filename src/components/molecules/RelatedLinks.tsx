@@ -7,6 +7,7 @@ import {
   VideoIcon,
 } from '../atoms/icons.tsx';
 import { css } from '../../deps/emotion.ts';
+import { IconLink } from '../atoms/IconLink.tsx';
 
 export interface RelatedLinksProps {
   className?: string;
@@ -30,31 +31,19 @@ export function RelatedLinks({ className = '', links }: RelatedLinksProps) {
 
   return (
     <nav className={`${className} ${styles}`}>
-      {links.github ? (
-        <a
-          href={links.github}
-          children={<GithubIcon title="View source code" />}
-        />
-      ) : null}
+      <IconLink
+        href={links.github}
+        icon={<GithubIcon title="View source code" />}
+      />
 
-      {links.tests ? (
-        <a
-          href={links.tests}
-          children={<FlaskIcon title="View unit tests" />}
-        />
-      ) : null}
+      <IconLink
+        href={links.tests}
+        icon={<FlaskIcon title="View unit tests" />}
+      />
 
-      {links.video ? (
-        <a href={links.video} children={<VideoIcon title="View video" />} />
-      ) : null}
-
-      {links.slides ? (
-        <a href={links.slides} children={<SlidesIcon title="View slides" />} />
-      ) : null}
-
-      {links.live ? (
-        <a href={links.live} children={<PlayIcon title="Open demo" />} />
-      ) : null}
+      <IconLink href={links.video} icon={<VideoIcon title="View video" />} />
+      <IconLink href={links.slides} icon={<SlidesIcon title="View slides" />} />
+      <IconLink href={links.live} icon={<PlayIcon title="Open demo" />} />
     </nav>
   );
 }

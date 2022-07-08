@@ -1,7 +1,7 @@
 ---
 published: 2014-03-12
 title:
-  en: Construcción de objetos 🇪🇸
+  en: Object construction (spanish)
   es: Construcción de objetos
 ---
 

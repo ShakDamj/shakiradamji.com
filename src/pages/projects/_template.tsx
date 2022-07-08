@@ -1,3 +1,4 @@
+import { RelatedLinksProps } from '../../components/molecules/RelatedLinks.tsx';
 import {
   MarkdownPageMetadata,
   Translatable,
@@ -6,6 +7,7 @@ import {
 
 export interface ProjectProps extends MarkdownPageMetadata {
   labels: Translatable[];
+  links?: RelatedLinksProps['links'];
   from?: YearMonthDay;
   to?: YearMonthDay;
 }

@@ -1,3 +1,7 @@
+import { bouncyLinkStyles } from './util/bouncyLinkTransition.ts';
+
+const primaryColor = '#EFE751';
+
 export const cssColor = {
   primary: 'var(--color-primary)',
   foreground: '#FDFBF8',
@@ -36,9 +40,15 @@ export const cssSpace = {
 };
 
 export const cssAnimationSpeed = {
+  fastest: '0.05s',
   fast: '0.15s',
   medium: '0.3s',
   slow: '1s',
+};
+
+export const cssAnimationFunction = {
+  startquick: 'cubic-bezier(0,.5,0,1)',
+  bouncy: 'cubic-bezier(0.25, 0.1, 0, 2.05)',
 };
 
 const fonts = ['Nunito Sans', 'Nunito', 'Inconsolata'];
@@ -68,7 +78,7 @@ export const cssGlobal = `
     --color-primary: #70ACFF; /* French Sky Blue 2 */
     --color-primary: #FC9173; /* Dark Salmom   */
 
-    --color-primary: #EFE751;
+    --color-primary: ${primaryColor};
   }
 
   header, h1, h2, h3, h4, h5, h6 {
@@ -77,16 +87,23 @@ export const cssGlobal = `
 
   a {
     color: ${cssColor.link};
+    text-decoration: none;
   }
+  a[href^="http"]:not(.no-external)::after {
+    content: '';
+    margin-left: 0.5em;
+    width: 0.8em;
+    height: 0.8em;
+    display: inline-block;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='%23EFE751' stroke='%23EFE751'%3E%3Cpath d='M6 17c2.269-9.881 11-11.667 11-11.667v-3.333l7 6.637-7 6.696v-3.333s-6.17-.171-11 5zm12 .145v2.855h-16v-12h6.598c.768-.787 1.561-1.449 2.339-2h-10.937v16h20v-6.769l-2 1.914z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+  }
+  ${bouncyLinkStyles()}
 
-  ol {
-    padding: 0;
-  }
-
-  .md p {
-    margin: ${cssSpace.lg} 0;
-    text-align: justify;
-  }
+  ol { padding: 0; }
+  li { list-style: none; }
 
   code {
     font-family: ${cssFontFamily.code};
@@ -96,18 +113,6 @@ export const cssGlobal = `
     background-color: ${cssColor.backgroundDark};
     padding: ${cssSpace.xs};
     border-radius: ${cssSpace.xs};
-  }
-
-  .md .code-block {
-    display: block;
-    font-family: ${cssFontFamily.code};
-    width: var(--available-width);
-    padding-bottom: 10px;
-  }
-
-  .md h3 {
-    margin-top: ${cssSpace.lg};
-    margin-bottom: ${cssSpace.lg};
   }
 
   svg {
@@ -172,5 +177,12 @@ export const cssReset = `
   [type='radio'] {
     box-sizing: border-box;
     padding: 0;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, ::before, ::after {
+      animation-name: none !important;
+      transition: none !important;
+    }
   }
 `;

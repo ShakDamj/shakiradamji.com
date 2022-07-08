@@ -1,7 +1,7 @@
 ---
 published: 2013-08-23
 title:
-  en: Componentes HTML 🇪🇸
+  en: HTML Components (spanish)
   es: Componentes HTML
 ---
 

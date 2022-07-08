@@ -1,8 +1,8 @@
 ---
 published: 2012-12-04
 title:
-  en: GIT Workflow (Parte 1) 🇪🇸
-  es: GIT Workflow (Parte 1)
+  en: GIT Workflow 1 (spanish)
+  es: GIT Workflow 1
 ---
 
 Acabo de leer [un artículo][1] creado por los trabajadores de [Github][2] que han dado una vuelta de tuerca a lo que sabía de GIT y creo que será muy útil compartirlo, pero primero vamos por partes:

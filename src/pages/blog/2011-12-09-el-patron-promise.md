@@ -1,7 +1,7 @@
 ---
 published: 2011-12-09
 title:
-  en: El patrón Promise 🇪🇸
+  en: Promise pattern (spanish)
   es: El patrón Promise
 ---
 
