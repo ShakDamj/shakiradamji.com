@@ -11,7 +11,7 @@ export function Container({
   children,
 }: PropsWithChildren<ContainerProps>) {
   const styles = css`
-    --container-side-gap: 1rem;
+    --container-side-gap: 2rem;
     --container-width: 40rem;
 
     --container-sides-gap: calc(var(--container-side-gap) * 2);
