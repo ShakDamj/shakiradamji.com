@@ -79,8 +79,8 @@ export const cssGlobal = `
     --color-primary: #FC9173; /* Dark Salmom */
     --color-primary: #00ff01; /* Verde familia */
     --color-primary: #00ffe1; /* Cyan Romi */
-
-    // --color-primary: #00ffe1;
+    --color-primary: #00ffe1;
+    --color-primary: #00FBFF;
   }
 
   header, h1, h2, h3, h4, h5, h6 {
