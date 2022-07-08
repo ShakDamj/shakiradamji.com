@@ -23,8 +23,8 @@ const [sources] = await Promise.all([
 // HACK: We need to wait for async markdown parsing to finish
 await Promise.all([
   // multiline
-  generate(sources, 'en'),
-  generate(sources, 'es'),
+  generate(sources, 'en', '/en'),
+  generate(sources, 'es', '/es'),
 ]);
 await isMarkedReady();
 // end HACK

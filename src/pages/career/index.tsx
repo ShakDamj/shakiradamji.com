@@ -7,15 +7,14 @@ import { AmqHeader } from '../../components/organisms/AmqHeader.tsx';
 import { AmqPageList } from '../../components/organisms/AmqPageList.tsx';
 import { AmqDocument } from '../../components/templates/AmqDocument.tsx';
 import { css } from '../../deps/emotion.ts';
-import { Lang, Markdown } from '../../generate/mod.ts';
+import { Lang, Markdown, PageMetadata } from '../../generate/mod.ts';
 import { cssAnimationSpeed, cssSpace } from '../../theme.ts';
 import { getAllPagesBySection } from '../../util/getAllPagesBySection.ts';
 
 const { career, talks } = await getAllPagesBySection();
 const SHOW_OPEN_ONLY_TOP = 1;
 
-// deno-lint-ignore no-explicit-any
-export default (props: any) => {
+export default (props: PageMetadata) => {
   const itemStyles = css`
     margin: 3rem 0;
   `;
@@ -25,10 +24,7 @@ export default (props: any) => {
     flex-direction: row;
     align-items: center;
     gap: ${cssSpace.lg};
-  `;
-
-  const timeStyles = css`
-    font-size: 0.8em;
+    margin: 0;
   `;
 
   const tagsStyles = css`
@@ -70,7 +66,7 @@ export default (props: any) => {
   `;
 
   return (
-    <AmqDocument title="A. Matías Quezada" {...props}>
+    <AmqDocument {...props} title="CV">
       <AmqHeader />
 
       <Container>
@@ -87,7 +83,7 @@ export default (props: any) => {
               >
                 <summary>
                   <Heading3 className={headerStyles}>
-                    <Time className={timeStyles} value={item.date} />
+                    <Time value={item.date} />
                     <Lang tr={item.title} />
                   </Heading3>
                 </summary>

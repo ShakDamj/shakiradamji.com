@@ -79,7 +79,7 @@ function ColorPicker() {
 
   return (
     <div className={styles}>
-      <input type="color" id="color-picker" defaultValue="#EFE751" />
+      <input type="color" id="color-picker" defaultValue="#00ffe1" />
       <RawHtml
         html={`
           <script>
