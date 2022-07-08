@@ -1,10 +1,7 @@
 import { bouncyLinkStyles } from './util/bouncyLinkTransition.ts';
 
-const primaryColor = '239, 231, 81';
-
 export const cssColor = {
   primary: 'var(--color-primary)',
-  primaryDark: 'var(--color-primary-soft)',
   foreground: '#FDFBF8',
   background: '#263238',
   backgroundDark: '#161b22',
@@ -27,8 +24,8 @@ export const cssFontWeight = {
 };
 
 export const cssBreakpoint = {
-  onlyNarrow: '@media (max-width: 375px)',
   narrow: '@media (min-width: 375px)',
+  onlyNarrow: '@media (max-width: 375px)',
   medium: '@media (min-width: 769px)',
   wide: '@media (min-width: 1200px)',
 };
@@ -84,7 +81,6 @@ export const cssGlobal = `
     --color-primary: #00ffe1; /* Cyan Romi */
 
     --color-primary: #EFE751;
-    --color-primary-soft: var(--color-primary)88;
   }
 
   header, h1, h2, h3, h4, h5, h6 {

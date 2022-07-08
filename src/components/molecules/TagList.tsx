@@ -1,7 +1,7 @@
 import React from 'react';
 import { css } from '../../deps/emotion.ts';
 import { Lang, tr, Translatable } from '../../generate/mod.ts';
-import { cssColor, cssSpace } from '../../theme.ts';
+import { cssColor, cssFontFamily, cssSpace } from '../../theme.ts';
 
 interface TagListProps {
   className?: string;
@@ -17,13 +17,23 @@ export function TagList({ className = '', list }: TagListProps) {
   `;
 
   const tagStyles = css`
-    background-color: ${cssColor.primaryDark};
     border: 2px solid ${cssColor.primary};
     border-radius: 8px;
     padding: 3px 10px;
     color: ${cssColor.backgroundDark};
     display: inline-block;
-    font-family: var(--monospace-font) !important;
+    font-family: ${cssFontFamily.code} !important;
+    position: relative;
+    overlfow: hidden;
+
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: ${cssColor.primary};
+      z-index: -1;
+      opacity: 0.75;
+    }
   `;
 
   return (
