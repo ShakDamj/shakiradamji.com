@@ -5,19 +5,22 @@ const cacheHightlight = new Map<string, string>();
 const promises = [] as Array<Promise<string>>;
 
 function highlight(code: string, lang?: string) {
-  if (cacheHightlight.has(code)) {
-    return cacheHightlight.get(code)!;
+  const clean = code.trim();
+
+  if (cacheHightlight.has(clean)) {
+    return cacheHightlight.get(clean)!;
   }
 
   const processing = highlightText(
-    code,
+    clean,
     // FIXME: Support TSX highlighting
-    lang === 'tsx' ? 'ts' : lang || 'js'
+    lang === 'tsx' ? 'ts' : lang || 'js',
+    false
   ) as unknown as Promise<string>;
 
   promises.push(processing);
 
-  processing.then((x) => cacheHightlight.set(code, x));
+  processing.then((x) => cacheHightlight.set(clean, x));
 
   return 'LOADING...';
 }

@@ -7,7 +7,6 @@ export function bouncyLinkStyles() {
 
   return `
     ${selector} {
-      z-index: 1;
       position: relative;
       display: inline-block;
 
@@ -41,7 +40,7 @@ export function bouncyLinkStyles() {
     ${selector}:hover:before {
       inset: calc(var(--padding) * -1px) calc(var(--padding) * -2px);
       background: black;
-      opacity: 0.9;
+      opacity: 0.8;
       height: calc(100% + calc(var(--padding) * 2px));
     }
   `;

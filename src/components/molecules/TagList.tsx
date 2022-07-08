@@ -17,10 +17,11 @@ export function TagList({ className = '', list }: TagListProps) {
   `;
 
   const tagStyles = css`
-    background-color: ${cssColor.backgroundDark};
+    background-color: ${cssColor.primaryDark};
+    border: 2px solid ${cssColor.primary};
     border-radius: 8px;
-    padding: 3px 8px;
-    color: ${cssColor.primary};
+    padding: 3px 10px;
+    color: ${cssColor.backgroundDark};
     display: inline-block;
     font-family: var(--monospace-font) !important;
   `;

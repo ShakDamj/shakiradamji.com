@@ -1,9 +1,10 @@
 import { bouncyLinkStyles } from './util/bouncyLinkTransition.ts';
 
-const primaryColor = '#EFE751';
+const primaryColor = '239, 231, 81';
 
 export const cssColor = {
   primary: 'var(--color-primary)',
+  primaryDark: 'var(--color-primary-soft)',
   foreground: '#FDFBF8',
   background: '#263238',
   backgroundDark: '#161b22',
@@ -71,14 +72,18 @@ export const cssGlobal = `
     color: ${cssColor.foreground};
     font-family: ${cssFontFamily.default};
     font-size: 18px;
-    --border-color: ${cssColor.border};
+    line-height: 1.5;
+    letter-spacing: 0.5px;
 
     --color-primary: #8BB9F8; /* azul */
     --color-primary: #8BA9FF; /* French Sky Blue */
     --color-primary: #70ACFF; /* French Sky Blue 2 */
-    --color-primary: #FC9173; /* Dark Salmom   */
+    --color-primary: #FC9173; /* Dark Salmom */
+    --color-primary: #00ff01; /* Verde familia */
+    --color-primary: #00ffe1; /* Cyan Romi */
 
-    --color-primary: ${primaryColor};
+    --color-primary: #EFE751;
+    --color-primary-soft: var(--color-primary)88;
   }
 
   header, h1, h2, h3, h4, h5, h6 {
@@ -107,12 +112,6 @@ export const cssGlobal = `
 
   code {
     font-family: ${cssFontFamily.code};
-  }
-
-  code:not(.code-block) {
-    background-color: ${cssColor.backgroundDark};
-    padding: ${cssSpace.xs};
-    border-radius: ${cssSpace.xs};
   }
 
   svg {

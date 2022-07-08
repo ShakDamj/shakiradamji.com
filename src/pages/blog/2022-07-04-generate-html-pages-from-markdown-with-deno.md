@@ -404,7 +404,7 @@ A veces encontrás necesario borrar la carpeta de salida antes de empezar a escr
 
 ```ts
 try {
-  // Eesta función tira un error incluso con `{ recursive: true }` lo cuál tiene sentido
+  // Esta función tira un error incluso con `{ recursive: true }` lo cuál tiene sentido
   await Deno.remove(output, { recursive: true });
 } catch {}
 ```

@@ -1,7 +1,7 @@
 import React from 'react';
 import { css } from '../../deps/emotion.ts';
 import { parseMarkdown } from '../../deps/markdown.ts';
-import { cssFontFamily, cssSpace } from '../../theme.ts';
+import { cssColor, cssFontFamily, cssSpace } from '../../theme.ts';
 import { getMarkdownReferences } from '../util/getMarkdownReferences.ts';
 import { highlightTheme } from '../util/highlightTheme.ts';
 import { Lang, tr, Translatable, useLang } from './Lang.tsx';
@@ -41,6 +41,9 @@ export function Markdown({
   const contentWithFixes = clearMarkdownResult(content);
 
   const styles = css`
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial,
+      sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
+
     li {
       list-style: initial;
     }
@@ -55,11 +58,52 @@ export function Markdown({
       text-align: justify;
     }
 
-    .code-block {
-      display: block;
-      font-family: ${cssFontFamily.code};
-      width: var(--available-width);
-      padding-bottom: 10px;
+    blockquote {
+      border-left: 5px solid ${cssColor.border};
+      margin-left: 0;
+      padding-left: 1em;
+    }
+
+    code:not(.code-block) {
+      background-color: ${cssColor.backgroundDark};
+      padding: ${cssSpace.xs};
+      border-radius: ${cssSpace.xs};
+    }
+
+    pre {
+      --code-block-margin: 3em;
+      --code-block-padding: 1em;
+      --code-inline-padding: min(3em, var(--container-side-gap));
+
+      margin: var(--code-block-margin) 0;
+      padding: var(--code-block-padding) 0;
+      position: relative;
+      white-space: pre;
+
+      .code-block {
+        display: block;
+        width: var(--available-width);
+        white-space: pre;
+        text-shadow: none;
+        font-size: 18px;
+        line-height: 24px;
+        box-sizing: border-box;
+        max-width: var(--available-width);
+        overflow-x: auto;
+        color: #abb2bf;
+      }
+
+      &::before {
+        content: '';
+        inset: calc(var(--code-block-padding) * -1)
+          calc(var(--code-inline-padding) * -1);
+        background: #161b22;
+        border-radius: 10px;
+        box-shadow: 0 0 5px #0001;
+        position: absolute;
+        z-index: -1;
+        max-width: 100vw;
+      }
     }
   `;
 
@@ -93,9 +137,8 @@ function applyBlockRules(markdown: string) {
 }
 
 function clearMarkdownResult(content: string) {
-  return content
-    .replace(/<p>\[\d+\]: (.|\n)*<\/p>/g, '')
-    .replace(/<\/?pre>/g, '');
+  return content.replace(/<p>\[\d+\]: (.|\n)*<\/p>/g, '');
+  // .replace(/<\/?pre>/g, '');
 }
 
 function getMarkdownExtract(value: null | undefined): null;

@@ -1,14 +1,10 @@
 export function highlightTheme() {
   return `
-    [class*=shj-lang-]{white-space:pre;margin:10px 0;border-radius:10px;padding:30px 20px;background:white;color:#112;box-shadow:0 0 5px #0001;text-shadow:none;font: 18px Consolas,Courier New,Monaco,Andale Mono,Ubuntu Mono,monospace;line-height:24px;box-sizing:border-box;max-width:min(100%,100vw)}
     .shj-inline{margin:0;padding:2px 5px;display:inline-block;border-radius:5px}
     [class*=shj-lang-]::selection,
     [class*=shj-lang-] ::selection{background:#bdf5}
     [class*=shj-lang-]>div{display:flex;overflow:auto}
     [class*=shj-lang-]>div :last-child{flex:1;outline:none}
-    .shj-numbers{padding-left:5px;counter-reset:line}
-    .shj-numbers div{padding-right:5px}
-    .shj-numbers div:before{color:#999;display:block;content:counter(line);opacity:.5;text-align:right;margin-right:5px;counter-increment:line}
     .shj-syn-cmnt{font-style:italic}
     .shj-syn-err,
     .shj-syn-kwd{color:#e16}
@@ -29,7 +25,6 @@ export function highlightTheme() {
     .shj-lang-http.shj-oneline .shj-syn-kwd{background:#25f;color:#fff;padding:5px 7px;border-radius:5px}
     .shj-multiline.shj-mode-header{padding:20px}
     .shj-multiline.shj-mode-header:before{content:attr(data-lang);color:#58f;display:block;padding:10px 20px;background:#58f3;border-radius:5px;margin-bottom:20px}
-    [class*=shj-lang-]{color:#abb2bf;background:#161b22}
     [class*=shj-lang-]:before{color:#6f9aff}
     .shj-syn-deleted,
     .shj-syn-err,
@@ -48,3 +43,9 @@ export function highlightTheme() {
     .shj-syn-func{color:#61afef}
   `;
 }
+
+/*
+    .shj-numbers{padding-left:5px;counter-reset:line}
+    .shj-numbers div{padding-right:5px}
+    .shj-numbers div:before{color:#999;display:block;content:counter(line);opacity:.5;text-align:right;margin-right:5px;counter-increment:line}
+    */

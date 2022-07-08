@@ -1,6 +1,6 @@
 import React, { IframeHTMLAttributes } from 'react';
 import { css } from '../../deps/emotion.ts';
-import { cssSpace } from '../../theme.ts';
+import { cssColor, cssSpace } from '../../theme.ts';
 import { Heading2 } from '../../components/atoms/Heading.tsx';
 import {
   AmqMarkdownPage,
@@ -83,7 +83,7 @@ function getFooter(
       style={undefined}
       className={css`
         width: var(--available-width);
-        border: 2px solid var(--border-color);
+        border: 2px solid ${cssColor.border};
         ${(iframe.style as string) || ''}
       `}
     />
