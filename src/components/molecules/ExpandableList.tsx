@@ -7,6 +7,7 @@ import { Translatable, useTr, Lang } from '../../generate/mod.ts';
 
 export interface ExpandableListProps<T> {
   className?: string;
+  listClassName?: string;
   hideAfter?: number;
   title?: Translatable;
   list: T[];
@@ -15,6 +16,7 @@ export interface ExpandableListProps<T> {
 
 export function ExpandableList<T>({
   className = '',
+  listClassName,
   title,
   list,
   hideAfter = 0,
@@ -65,14 +67,14 @@ export function ExpandableList<T>({
     <div className={`${styles} ${className}`}>
       {title ? <Heading2 className={headerStyles}>{title}</Heading2> : null}
 
-      <ol>{top.map(children)}</ol>
+      <ol className={listClassName}>{top.map(children)}</ol>
 
       {bottom.length ? (
         <details>
           <summary>
             <HiddenContent>{viewMore}</HiddenContent>
           </summary>
-          <ol>{bottom.map(children)}</ol>
+          <ol className={listClassName}>{bottom.map(children)}</ol>
         </details>
       ) : null}
     </div>

@@ -27,6 +27,7 @@ export const cssFontWeight = {
 };
 
 export const cssBreakpoint = {
+  onlyNarrow: '@media (max-width: 375px)',
   narrow: '@media (min-width: 375px)',
   medium: '@media (min-width: 769px)',
   wide: '@media (min-width: 1200px)',
