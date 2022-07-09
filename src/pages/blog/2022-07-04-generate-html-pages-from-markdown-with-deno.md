@@ -163,7 +163,7 @@ for (const file of await getFilesRecursively(input_dir)) {
 }
 ```
 
-At times you may need useful to remove the output directory before you start writing to it... I do this which is not beautiful but does the job 🤷‍♀️
+At times you may find it useful to remove the output directory before you start writing to it... I do this which is not beautiful but does the job 🤷‍♀️
 
 ```ts
 try {
