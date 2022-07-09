@@ -1,5 +1,8 @@
 import { bouncyLinkStyles } from './util/bouncyLinkTransition.ts';
 
+const primaryColor = '#00FBFF';
+export const externalLink = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='COLOR' stroke='COLOR'%3E%3Cpath d='M6 17c2.269-9.881 11-11.667 11-11.667v-3.333l7 6.637-7 6.696v-3.333s-6.17-.171-11 5zm12 .145v2.855h-16v-12h6.598c.768-.787 1.561-1.449 2.339-2h-10.937v16h20v-6.769l-2 1.914z'/%3E%3C/svg%3E")`;
+
 export const cssColor = {
   primary: 'var(--color-primary)',
   foreground: '#FDFBF8',
@@ -73,14 +76,11 @@ export const cssGlobal = `
     line-height: 1.5;
     letter-spacing: 0.5px;
 
-    --color-primary: #8BB9F8; /* azul */
-    --color-primary: #8BA9FF; /* French Sky Blue */
-    --color-primary: #70ACFF; /* French Sky Blue 2 */
-    --color-primary: #FC9173; /* Dark Salmom */
-    --color-primary: #00ff01; /* Verde familia */
-    --color-primary: #00ffe1; /* Cyan Romi */
-    --color-primary: #00ffe1;
-    --color-primary: #00FBFF;
+    --color-primary: ${primaryColor};
+    --external-link: ${externalLink.replace(
+      /COLOR/g,
+      primaryColor.replace('#', '%23')
+    )};
   }
 
   header, h1, h2, h3, h4, h5, h6 {
@@ -97,7 +97,7 @@ export const cssGlobal = `
     width: 0.8em;
     height: 0.8em;
     display: inline-block;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='%2300ffe1' stroke='%2300ffe1'%3E%3Cpath d='M6 17c2.269-9.881 11-11.667 11-11.667v-3.333l7 6.637-7 6.696v-3.333s-6.17-.171-11 5zm12 .145v2.855h-16v-12h6.598c.768-.787 1.561-1.449 2.339-2h-10.937v16h20v-6.769l-2 1.914z'/%3E%3C/svg%3E");
+    background-image: var(--external-link);
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;

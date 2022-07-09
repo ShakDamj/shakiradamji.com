@@ -6,6 +6,7 @@ import {
   cssAnimationSpeed,
   cssBreakpoint,
   cssColor,
+  externalLink,
 } from '../../theme.ts';
 
 const STORAGE_KEY = 'amatiasq.com|color-primary';
@@ -59,7 +60,7 @@ export function PrimaryColorPicker() {
         transform: rotate(90deg);
         transform-origin: 100% 1000%;
         transition: transform ${cssAnimationSpeed.medium},
-          opacity ${cssAnimationSpeed.medium};
+          opacity ${cssAnimationSpeed.slow};
       }
     }
   `;
@@ -70,21 +71,38 @@ export function PrimaryColorPicker() {
       <label htmlFor="color-picker">
         <Lang en="Change the main color!" es="Cambia el color principal!" />
       </label>
-      <Script once immediate>
+      <Script once asap>
         {`
-          const storage = localStorage.getItem('${STORAGE_KEY}');
-          if (storage) {
-            document.body.style.setProperty('--color-primary', storage);
-            document.querySelector('#color-picker').value = storage
+          function changePrimaryColor(newColor) {
+            const root = document.documentElement.style;
+            const $ = x => document.querySelector(x);
+
+            root.setProperty('--color-primary', newColor);
+            root.setProperty('--external-link', \`${externalLink}\`.replace(
+              /COLOR/g,
+              newColor.replace('#', '%23')
+            ));
+
+            const picker = $('#color-picker');
+
+            if (picker) {
+              picker.value = newColor;
+            } else {
+              addEventListener('DOMContentLoaded', () =>
+                $('#color-picker').value = newColor
+              );
+            }
           }
+
+          const storage = localStorage.getItem('${STORAGE_KEY}');
+          if (storage) changePrimaryColor(storage);
         `}
       </Script>
       <Script once>
         {`
-          document.querySelector('#color-picker').addEventListener('input', (e) => {
-            document.body.style.setProperty('--color-primary', e.target.value);
-            localStorage.setItem('${STORAGE_KEY}', e.target.value);
-          });
+          document.querySelector('#color-picker').addEventListener('input', (e) =>
+            changePrimaryColor(e.target.value)
+          );
         `}
       </Script>
     </div>
