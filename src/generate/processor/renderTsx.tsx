@@ -1,7 +1,8 @@
 import React, { FunctionComponent } from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
-import { cache, flush } from '../../deps/emotion.ts';
+import { flushCss } from '../../deps/emotion.ts';
 import { UtilsProvider } from '../components/PageUtils.tsx';
+import { flushScripts } from '../components/Script.tsx';
 import { PageProps } from '../types/PageProps.ts';
 
 // HACK: this is necessary for emotion to work
@@ -23,11 +24,14 @@ export async function renderTsx<P extends PageProps>(
   ).replace(/<script><\/script>/g, '');
 
   // Extract CSS classes created by emotion and inject them in the HTML
-  const css = Object.values(cache.inserted).reverse().join('\n');
-  const htmlWithStyles = html.replace('STYLES_PLACEHOLDER', css);
-  flush();
+  const css = flushCss();
+  const scripts = flushScripts();
 
-  return `<!DOCTYPE html>${htmlWithStyles}`;
+  const htmlWithAssets = html
+    .replace('STYLES_PLACEHOLDER', css.join('\n'))
+    .replace('SCRIPTS_PLACEHOLDER', `<script>${scripts.join('\n')}</script>`);
+
+  return `<!DOCTYPE html>${htmlWithAssets}`;
 }
 
 // deno-lint-ignore no-explicit-any

@@ -2,6 +2,7 @@ import React from 'react';
 import { css } from '../../deps/emotion.ts';
 import { Translatable, useLang, RawHtml, tr } from '../../generate/mod.ts';
 import { cssDeps, cssGlobal, cssReset } from '../../theme.ts';
+import { PrimaryColorPicker } from '../molecules/PrimaryColorPicker.tsx';
 
 export interface AmqDocumentProps {
   className?: string;
@@ -44,10 +45,11 @@ export function AmqDocument({
         {injectStyle(cssGlobal)}
         {injectStyle(styles)}
         {injectStyle('STYLES_PLACEHOLDER')}
+        SCRIPTS_PLACEHOLDER
       </head>
       <body className={`${className} ${bodyStyles}`}>
         {children}
-        <ColorPicker />
+        <PrimaryColorPicker />
       </body>
     </html>
   );
@@ -60,35 +62,5 @@ function injectStyle(styles: string | null | undefined) {
     <style>
       <RawHtml html={styles.replace(/\s+/g, ' ')} />
     </style>
-  );
-}
-
-function ColorPicker() {
-  const styles = css`
-    position: fixed;
-    bottom: 1rem;
-    right: 1rem;
-    background-color: black;
-
-    input {
-      border: none;
-      width: 3rem;
-      height: 3rem;
-    }
-  `;
-
-  return (
-    <div className={styles}>
-      <input type="color" id="color-picker" defaultValue="#00ffe1" />
-      <RawHtml
-        html={`
-          <script>
-            document.querySelector('#color-picker').addEventListener('input', (e) => {
-              document.body.style.setProperty('--color-primary', e.target.value);
-            });
-          </script>
-        `}
-      />
-    </div>
   );
 }

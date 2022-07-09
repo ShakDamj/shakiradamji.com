@@ -3,6 +3,7 @@ export { Markdown } from './components/Markdown.tsx';
 export { usePageUtils } from './components/PageUtils.tsx';
 export type { PageUtils } from './components/PageUtils.tsx';
 export { RawHtml } from './components/RawHtml.tsx';
+export { Script } from './components/Script.tsx';
 export { getPagesRoot } from './pages.ts';
 export type { MarkdownPageMetadata } from './types/MarkdownPageMetadata.ts';
 export type { PageMetadata } from './types/PageMetadata.ts';

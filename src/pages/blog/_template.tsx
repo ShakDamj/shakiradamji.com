@@ -8,6 +8,7 @@ import {
   YearMonthDay,
 } from '../../generate/mod.ts';
 import { ResponsiveHeader } from '../../components/molecules/ResponsiveHeader.tsx';
+import { AmqComments } from '../../components/organisms/AmqComments.tsx';
 
 export interface BlogPostProps extends MarkdownPageMetadata {
   published: YearMonthDay;
@@ -15,7 +16,7 @@ export interface BlogPostProps extends MarkdownPageMetadata {
 
 export default ({ title, published, content }: BlogPostProps) => {
   return (
-    <AmqMarkdownPage title={title} content={content}>
+    <AmqMarkdownPage title={title} content={content} footer={<AmqComments />}>
       <ResponsiveHeader as={Heading2}>
         <Lang tr={title} />
         <Time value={published} />
