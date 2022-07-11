@@ -5,11 +5,11 @@ import {
   cssAnimationFunction,
   cssAnimationSpeed,
   cssBreakpoint,
-  cssColor,
-  externalLink,
 } from '../../theme.ts';
+import { externalLink } from '../../util/externalLinkStyles.ts';
+import { frontendScript, ScriptWithUtils } from '../atoms/ScriptWithUtils.tsx';
 
-const STORAGE_KEY = 'amatiasq.com|color-primary';
+const loadPrimaryColor = await frontendScript('primaryColor.js');
 
 export function PrimaryColorPicker() {
   const styles = css`
@@ -71,33 +71,11 @@ export function PrimaryColorPicker() {
       <label htmlFor="color-picker">
         <Lang en="Change the main color!" es="Cambia el color principal!" />
       </label>
-      <Script once asap>
-        {`
-          function changePrimaryColor(newColor) {
-            const root = document.documentElement.style;
-            const $ = x => document.querySelector(x);
 
-            root.setProperty('--color-primary', newColor);
-            root.setProperty('--external-link', \`${externalLink}\`.replace(
-              /COLOR/g,
-              newColor.replace('#', '%23')
-            ));
+      <ScriptWithUtils once asap>
+        {loadPrimaryColor.replace(/EXTERNAL_LINK/, externalLink)}
+      </ScriptWithUtils>
 
-            const picker = $('#color-picker');
-
-            if (picker) {
-              picker.value = newColor;
-            } else {
-              addEventListener('DOMContentLoaded', () =>
-                $('#color-picker').value = newColor
-              );
-            }
-          }
-
-          const storage = localStorage.getItem('${STORAGE_KEY}');
-          if (storage) changePrimaryColor(storage);
-        `}
-      </Script>
       <Script once>
         {`
           document.querySelector('#color-picker').addEventListener('input', (e) =>
@@ -108,3 +86,5 @@ export function PrimaryColorPicker() {
     </div>
   );
 }
+
+// frontend code
