@@ -3,16 +3,22 @@ import { css } from '../../deps/emotion.ts';
 import { cssAnimationFunction, cssAnimationSpeed } from '../../theme.ts';
 
 export interface IconLinkProps {
+  className?: string;
   href: string | null | undefined;
   icon: JSX.Element;
 }
 
-export function IconLink({ href, icon }: IconLinkProps) {
+export function IconLink({ className, href, icon }: IconLinkProps) {
   if (!href) {
     return null;
   }
 
   const styles = css`
+    --icon-size: 2rem;
+
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
     background: rgba(0, 0, 0, 0);
     padding: 10px;
     border-radius: 8px;
@@ -21,20 +27,33 @@ export function IconLink({ href, icon }: IconLinkProps) {
         ${cssAnimationFunction.bouncy},
       transform ${cssAnimationSpeed.medium} ${cssAnimationFunction.bouncy};
 
-    &:hover {
+    :hover {
       background: rgba(0, 0, 0, 0.9);
       transform: scale(1.5);
     }
+
+    ::after {
+      // margin-left: 0 !important;
+    }
+
+    span {
+      font-size: 1rem;
+    }
+
+    svg {
+      width: var(--icon-size);
+      height: var(--icon-size);
+    }
   `;
 
-  // const {
-  //   props: { title },
-  // } = icon;
+  const {
+    props: { title },
+  } = icon;
 
   return (
-    <a href={href} className={`no-external ${styles}`}>
+    <a href={href} className={`${styles} ${className}`}>
       {icon}
-      {/* {title ? <span>{title}</span> : null} */}
+      <span>{title}</span>
     </a>
   );
 }

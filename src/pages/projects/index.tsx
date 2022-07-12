@@ -21,18 +21,6 @@ export default (props: PageMetadata) => {
     justify-content: space-between;
     flex-direction: row;
     align-items: center;
-
-    ${cssBreakpoint.onlyNarrow} {
-      nav {
-        display: none;
-      }
-    }
-
-    ${cssBreakpoint.medium} {
-      nav {
-        display: none;
-      }
-    }
   `;
 
   const listStyles = css`
@@ -42,10 +30,6 @@ export default (props: PageMetadata) => {
     ${cssBreakpoint.medium} {
       grid-template-columns: repeat(2, 1fr);
     }
-  `;
-
-  const iconStyles = css`
-    gap: 1rem;
   `;
 
   const articleStyles = css`
@@ -64,7 +48,6 @@ export default (props: PageMetadata) => {
             <li key={item.file}>
               <Heading3 className={headerStyles}>
                 <Link page={item.file}>{item.title}</Link>
-                <RelatedLinks className={iconStyles} links={item.links} />
               </Heading3>
 
               <Markdown className={articleStyles} readMore={item.file}>

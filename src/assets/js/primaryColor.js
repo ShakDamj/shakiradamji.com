@@ -6,10 +6,7 @@ function changePrimaryColor(newColor) {
   const root = document.documentElement.style;
 
   root.setProperty('--color-primary', newColor);
-  root.setProperty(
-    '--external-link',
-    `EXTERNAL_LINK`.replace(/COLOR/g, newColor.replace('#', '%23'))
-  );
+  root.setProperty(exteranLinkVariable, getExternalLinkBackground(newColor));
 
   localStorage.setItem(PRIMARY_COLOR_KEY, newColor);
 

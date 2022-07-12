@@ -6,7 +6,10 @@ import {
   cssAnimationSpeed,
   cssBreakpoint,
 } from '../../theme.ts';
-import { externalLink } from '../../util/externalLinkStyles.ts';
+import {
+  exteranLinkVariable,
+  getExternalLinkBackground,
+} from '../../util/externalLinkStyles.ts';
 import { frontendScript, ScriptWithUtils } from '../atoms/ScriptWithUtils.tsx';
 
 const loadPrimaryColor = await frontendScript('primaryColor.js');
@@ -73,7 +76,11 @@ export function PrimaryColorPicker() {
       </label>
 
       <ScriptWithUtils once asap>
-        {loadPrimaryColor.replace(/EXTERNAL_LINK/, externalLink)}
+        {`
+          const exteranLinkVariable = '${exteranLinkVariable}';
+          const getExternalLinkBackground = ${getExternalLinkBackground};
+          ${loadPrimaryColor}
+        `}
       </ScriptWithUtils>
 
       <Script once>

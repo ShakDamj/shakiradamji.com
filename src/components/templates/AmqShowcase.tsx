@@ -1,6 +1,6 @@
 import React, { IframeHTMLAttributes } from 'react';
 import { css } from '../../deps/emotion.ts';
-import { cssColor, cssSpace } from '../../theme.ts';
+import { cssBreakpoint, cssColor, cssSpace } from '../../theme.ts';
 import { Heading2 } from '../../components/atoms/Heading.tsx';
 import {
   AmqMarkdownPage,
@@ -28,11 +28,15 @@ export default ({
     display: flex;
     align-items: center;
     justify-content: space-between;
+    flex-direction: column;
+
+    ${cssBreakpoint.medium} {
+      flex-direction: row;
+    }
   `;
 
   const iconsNav = css`
     gap: ${cssSpace.lg};
-    margin-left: ${cssSpace.lg};
   `;
 
   return (
@@ -44,8 +48,8 @@ export default ({
     >
       <Heading2 className={headingStyles}>
         <Lang tr={title} />
-        <RelatedLinks className={iconsNav} links={links} />
       </Heading2>
+      <RelatedLinks className={iconsNav} links={links} />
     </AmqMarkdownPage>
   );
 };

@@ -23,26 +23,45 @@ export function GithubIcon({ title }: IconProps) {
 export function PlayIcon({ title }: IconProps) {
   return (
     <svg
-      aria-hidden
-      aria-label={title}
-      xmlns="http://www.w3.org/2000/svg"
       width="24"
       height="24"
       viewBox="0 0 24 24"
+      aria-hidden
+      aria-label={title}
+      clipRule="evenodd"
+      fillRule="evenodd"
+      strokeLinejoin="round"
+      strokeMiterlimit="2"
+      xmlns="http://www.w3.org/2000/svg"
     >
       <title>{title}</title>
-      <path d="M3 22v-20l18 10-18 10z" />
+      <path
+        d="m21 4c0-.478-.379-1-1-1h-16c-.62 0-1 .519-1 1v16c0 .621.52 1 1 1h16c.478 0 1-.379 1-1zm-13.678 6.365c-.207-.146-.318-.378-.318-.614 0-.603.684-.962 1.182-.612l3.505 2.235c.199.141.318.369.318.613 0 .245-.119.473-.318.614l-3.511 2.257c-.5.353-1.182-.012-1.182-.613 0-.235.111-.467.318-.613l2.641-1.645zm9.678 3.873c0 .414-.336.75-.75.75h-3.5c-.413 0-.75-.336-.75-.75s.337-.75.75-.75h3.5c.414 0 .75.336.75.75z"
+        fillRule="nonzero"
+      />
     </svg>
+    // <svg
+    //   aria-hidden
+    //   aria-label={title}
+    //   xmlns="http://www.w3.org/2000/svg"
+    //   width="24"
+    //   height="24"
+    //   viewBox="0 0 24 24"
+    // >
+    //   <title>{title}</title>
+    //   <path d="M3 22v-20l18 10-18 10z" />
+    // </svg>
   );
 }
 
 export function VideoIcon({ title }: IconProps) {
   return (
     <svg
-      aria-hidden
-      aria-label={title}
       width="24"
       height="24"
+      viewBox="0 0 24 24"
+      aria-hidden
+      aria-label={title}
       xmlns="http://www.w3.org/2000/svg"
       fillRule="evenodd"
       clipRule="evenodd"
@@ -55,14 +74,8 @@ export function VideoIcon({ title }: IconProps) {
 
 export function FlaskIcon({ title }: IconProps) {
   return (
-    <svg
-      aria-hidden
-      aria-label={title}
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-    >
+    <svg aria-hidden aria-label={title} xmlns="http://www.w3.org/2000/svg">
+      width="24" height="24" viewBox="0 0 24 24"
       <title>{title}</title>
       <path d="M20.759 20.498l-3.743-7.856c-1.041-2.186-2.016-4.581-2.016-7.007v-2.635h-2c0 3.391-.083 5.188 2.21 10.502l3.743 7.854c.143.302-.068.644-.377.644h-1.246l-4.88-10h-2.984c1.795-4.183 1.528-5.963 1.534-9h-2v2.635c0 2.426-.975 4.82-2.016 7.006l-3.743 7.856c-.165.348-.241.708-.241 1.058 0 1.283 1.023 2.445 2.423 2.445h13.153c1.4 0 2.424-1.162 2.424-2.446 0-.35-.076-.709-.241-1.056zm-13.259 1.502c-.829 0-1.5-.671-1.5-1.5s.671-1.5 1.5-1.5 1.5.671 1.5 1.5-.671 1.5-1.5 1.5zm2.5-4c-.553 0-1-.447-1-1 0-.553.447-1 1-1 .552 0 1 .447 1 1 0 .553-.448 1-1 1zm3 3c-.552 0-1-.448-1-1s.448-1 1-1 1 .448 1 1-.448 1-1 1zm-5-20c0-.552.448-1 1-1h6c.553 0 1 .448 1 1s-.447 1-1 1h-6c-.552 0-1-.448-1-1z" />
     </svg>
@@ -71,14 +84,8 @@ export function FlaskIcon({ title }: IconProps) {
 
 export function SlidesIcon({ title }: IconProps) {
   return (
-    <svg
-      aria-hidden
-      aria-label={title}
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-    >
+    <svg aria-hidden aria-label={title} xmlns="http://www.w3.org/2000/svg">
+      width="24" height="24" viewBox="0 0 24 24"
       <title>{title}</title>
       <path d="M7.496 20h2.633l-3.42 4h-2.627l3.414-4zm9.504-14h-8v1h8v-1zm-6 18h2v-4h-2v4zm2.855-4l3.42 4h2.627l-3.414-4h-2.633zm.145-8h-5v1h5v-1zm3-2h-8v1h8v-1zm0-2h-8v1h8v-1zm6-5h-1v8c0 1.625-5 7-7 7h-13v-15h-1v-3h22v3zm-3 0h-16v13h10.682c2.077 0 1.318-4 1.318-4s4 .825 4-1.229v-7.771zm-12 3h-1v1h1v-1zm0 2h-1v1h1v-1zm0 2h-1v1h1v-1zm0 2h-1v1h1v-1z" />
     </svg>
