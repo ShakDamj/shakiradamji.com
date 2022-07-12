@@ -27,8 +27,7 @@ export function AmqHeader({
   const { Link } = usePageUtils();
 
   const styles = css`
-    padding: ${cssSpace.lg} 0;
-    // margin-bottom: ${cssSpace.lg};
+    padding: ${cssSpace.md} 0;
     background-color: ${cssColor.backgroundDark};
     color: ${cssColor.foreground};
     border-bottom: 2px solid ${cssColor.border};
@@ -37,6 +36,10 @@ export function AmqHeader({
       position: sticky;
       top: 0;
       z-index: 1;
+    }
+
+    ${cssBreakpoint.wide} {
+      padding: ${cssSpace.lg} 0;
     }
   `;
 

@@ -8,7 +8,7 @@ import {
 } from '../atoms/icons.tsx';
 import { css } from '../../deps/emotion.ts';
 import { IconLink } from '../atoms/IconLink.tsx';
-import { cssBreakpoint, cssColor } from '../../theme.ts';
+import { cssSpace } from '../../theme.ts';
 
 export interface RelatedLinksProps {
   className?: string;
@@ -28,6 +28,7 @@ export function RelatedLinks({ className = '', links }: RelatedLinksProps) {
 
   const styles = css`
     display: inline-flex;
+    gap: ${cssSpace.lg};
   `;
 
   return (

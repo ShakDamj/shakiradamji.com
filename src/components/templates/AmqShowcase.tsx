@@ -35,10 +35,6 @@ export default ({
     }
   `;
 
-  const iconsNav = css`
-    gap: ${cssSpace.lg};
-  `;
-
   return (
     <AmqMarkdownPage
       title={title}
@@ -49,7 +45,7 @@ export default ({
       <Heading2 className={headingStyles}>
         <Lang tr={title} />
       </Heading2>
-      <RelatedLinks className={iconsNav} links={links} />
+      <RelatedLinks links={links} />
     </AmqMarkdownPage>
   );
 };

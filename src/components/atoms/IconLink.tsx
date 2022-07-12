@@ -33,7 +33,7 @@ export function IconLink({ className, href, icon }: IconLinkProps) {
     }
 
     ::after {
-      // margin-left: 0 !important;
+      margin-left: 0 !important;
     }
 
     span {
