@@ -7,9 +7,10 @@ import {
   cssBreakpoint,
 } from '../../theme.ts';
 import {
-  exteranLinkVariable,
+  externalLinkVariable,
   getExternalLinkBackground,
 } from '../../util/externalLinkStyles.ts';
+import { noindent } from '../../util/noindent.ts';
 import { frontendScript, ScriptWithUtils } from '../atoms/ScriptWithUtils.tsx';
 
 const loadPrimaryColor = await frontendScript('primaryColor.js');
@@ -76,8 +77,8 @@ export function PrimaryColorPicker() {
       </label>
 
       <ScriptWithUtils once asap>
-        {`
-          const exteranLinkVariable = '${exteranLinkVariable}';
+        {noindent`
+          const externalLinkVariable = '${externalLinkVariable}';
           const getExternalLinkBackground = ${getExternalLinkBackground};
           ${loadPrimaryColor}
         `}
@@ -93,5 +94,3 @@ export function PrimaryColorPicker() {
     </div>
   );
 }
-
-// frontend code

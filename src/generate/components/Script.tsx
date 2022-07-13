@@ -1,7 +1,7 @@
 import React from 'react';
 
-const alreadyIncluded = new Set();
-const headScripts = new Set();
+const alreadyIncluded = new Set<string>();
+const headScripts = new Set<string>();
 
 export function flushScripts() {
   alreadyIncluded.clear();
@@ -28,14 +28,21 @@ export function Script({ asap, immediate, once, children }: ScriptProps) {
     }
   }
 
+  const html = children;
+
+  // minification toggle
+  // .replace(/(\s|\n)+/g, ' ');
+
   if (asap) {
-    headScripts.add(children);
+    headScripts.add(html);
     return null;
   }
 
-  const html = children.replace(/(\s|\n)+/g, ' ');
-
   return (
-    <script defer={!immediate} dangerouslySetInnerHTML={{ __html: html }} />
+    <script
+      type="module"
+      defer={!immediate}
+      dangerouslySetInnerHTML={{ __html: html }}
+    />
   );
 }

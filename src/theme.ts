@@ -9,7 +9,6 @@ export const cssColor = {
   background: '#263238',
   backgroundDark: '#161b22',
   link: 'var(--color-primary)',
-  primaryContrast: '#FFFFFF',
   border: '#586369',
 };
 

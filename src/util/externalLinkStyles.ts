@@ -13,7 +13,7 @@ const svg = `
   </svg>
 `;
 
-export const exteranLinkVariable = '--external-link';
+export const externalLinkVariable = '--external-link';
 
 // This function will be also injected in the frontend
 // it should include all it's dependendcies in it's body
@@ -37,7 +37,7 @@ export function externalLinkStyles(color: string) {
 
   return `
     :root {
-      ${exteranLinkVariable}: ${getExternalLinkBackground(color)};
+      ${externalLinkVariable}: ${getExternalLinkBackground(color)};
     }
 
     ${selector}::after {
@@ -46,7 +46,7 @@ export function externalLinkStyles(color: string) {
       width: 0.8em;
       height: 0.8em;
       display: inline-block;
-      background-image: var(${exteranLinkVariable});
+      background-image: var(${externalLinkVariable});
       background-repeat: no-repeat;
       background-position: center;
       background-size: contain;

@@ -14,6 +14,7 @@ import {
   cssFontSize,
   cssSpace,
 } from '../../theme.ts';
+import { ScrollWisle } from '../atoms/ScrollWisle.tsx';
 
 const root = getPagesRoot();
 
@@ -27,10 +28,10 @@ export function AmqHeader({
   const { Link } = usePageUtils();
 
   const styles = css`
-    padding: ${cssSpace.md} 0;
     background-color: ${cssColor.backgroundDark};
     color: ${cssColor.foreground};
     border-bottom: 2px solid ${cssColor.border};
+    padding: ${cssSpace.lg} 0;
 
     ${cssBreakpoint.medium} {
       position: sticky;
@@ -38,8 +39,8 @@ export function AmqHeader({
       z-index: 1;
     }
 
-    ${cssBreakpoint.wide} {
-      padding: ${cssSpace.lg} 0;
+    &.scrolled {
+      padding: 0;
     }
   `;
 
@@ -77,7 +78,12 @@ export function AmqHeader({
   `;
 
   return (
-    <header className={`${styles} ${className}`}>
+    <ScrollWisle
+      as="header"
+      className={`${styles} ${className}`}
+      scrollClass="scrolled"
+      scrollOffset={50}
+    >
       <Container className={containerStyles}>
         <AMatiasQuezada />
 
@@ -96,7 +102,7 @@ export function AmqHeader({
           <LangSelector />
         </nav>
       </Container>
-    </header>
+    </ScrollWisle>
   );
 }
 

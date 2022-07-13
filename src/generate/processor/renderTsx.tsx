@@ -27,9 +27,19 @@ export async function renderTsx<P extends PageProps>(
   const css = flushCss();
   const scripts = flushScripts();
 
+  const source = scripts
+    .join('\n')
+    // because this string will be a string.replace() argument
+    // $ can be used to replace
+    //
+    //     'a'.replace('a', '$$') === '$'
+    //
+    // and we have to inject for because this "$$" escaped
+    .replace(/\$/g, '$$$$');
+
   const htmlWithAssets = html
     .replace('STYLES_PLACEHOLDER', css.join('\n'))
-    .replace('SCRIPTS_PLACEHOLDER', `<script>${scripts.join('\n')}</script>`);
+    .replace('SCRIPTS_PLACEHOLDER', `<script>${source}</script>`);
 
   return `<!DOCTYPE html>${htmlWithAssets}`;
 }
