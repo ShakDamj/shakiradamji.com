@@ -99,6 +99,20 @@ export const cssGlobal = `
   svg {
     fill: ${cssColor.foreground};
   }
+
+  summary {
+    cursor: pointer;
+    list-style: none;
+  }
+  summary::-webkit-details-marker {
+    display: none;
+  }
+  .md summary {
+    list-style: unset;
+  }
+  .md summary::-webkit-details-marker {
+    display: unset;
+  }
 `;
 
 // Imported from https://github.com/jensimmons/cssremedy/blob/master/css/remedy.css

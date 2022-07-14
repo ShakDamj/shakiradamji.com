@@ -28,11 +28,11 @@ export function ExpandableList<T>({
   const styles = css`
     position: relative;
 
-    details {
-      summary {
-        list-style: none;
-      }
+    ol:not(:last-child) {
+      margin-bottom: 0;
+    }
 
+    details {
       summary::after {
         content: '${viewMore}';
         display: block;
