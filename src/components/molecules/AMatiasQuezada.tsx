@@ -13,6 +13,7 @@ export function AMatiasQuezada() {
     gap: ${cssSpace.md};
     align-items: center;
     margin: 0;
+    font-size: 1.3em;
 
     ${cssBreakpoint.medium} {
       font-size: 1.5em;

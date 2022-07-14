@@ -31,7 +31,6 @@ export function AmqHeader({
     background-color: ${cssColor.backgroundDark};
     color: ${cssColor.foreground};
     border-bottom: 2px solid ${cssColor.border};
-    // font-size: 1em;
     padding: ${cssSpace.md} 0;
     transition: padding ${cssAnimationSpeed.fast} ease-in-out,
       font-size ${cssAnimationSpeed.fast} ease-in-out;
@@ -53,6 +52,7 @@ export function AmqHeader({
     justify-content: space-between;
     align-items: center;
     flex-direction: column;
+    gap: ${cssSpace.lg};
 
     ${cssBreakpoint.medium} {
       flex-direction: row;
