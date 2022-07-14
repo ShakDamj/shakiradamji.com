@@ -13,7 +13,7 @@ jobs:
       - uses: denoland/setup-deno@v1
 
       - name: Build app
-        run: make build
+        run: make ci
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3

@@ -1,3 +1,5 @@
+TEMP_FILE := $(shell mktemp)
+
 all: build
 	make -j 2 watch start-server
 
@@ -35,6 +37,21 @@ lock:
 		--allow-net=esm.sh,cdn.esm.sh,deno.land,fonts.googleapis.com \
 		src/generate/main.ts
 
+
+ci:
+	if make build 2>$(TEMP_FILE); then \
+		echo "Build successful"; \
+	else \
+		if grep 'does not match the expected hash' '$(TEMP_FILE)'; then \
+			make lock; \
+		else \
+			echo "Build failed with unknown error"; \
+			cat '$(TEMP_FILE)'; \
+			rm '$(TEMP_FILE)'; \
+			exit 1; \
+		fi \
+	fi
+	rm '$(TEMP_FILE)'
 
 install-deps:
 	npm i -g live-server
