@@ -1,7 +1,7 @@
 import React from 'react';
 import { css } from '../../deps/emotion.ts';
 import { getPagesRoot, usePageUtils } from '../../generate/mod.ts';
-import { cssAnimationSpeed, cssSpace } from '../../theme.ts';
+import { cssAnimationSpeed, cssBreakpoint, cssSpace } from '../../theme.ts';
 
 export const root = getPagesRoot();
 
@@ -13,7 +13,10 @@ export function AMatiasQuezada() {
     gap: ${cssSpace.md};
     align-items: center;
     margin: 0;
-    font-size: 1.5em;
+
+    ${cssBreakpoint.medium} {
+      font-size: 1.5em;
+    }
   `;
 
   const nameStyles = css`
@@ -21,6 +24,7 @@ export function AMatiasQuezada() {
     display: flex;
     align-items: baseline;
     letter-spacing: 1px;
+    white-space: nowrap;
 
     abbr {
       display: inline-flex;
