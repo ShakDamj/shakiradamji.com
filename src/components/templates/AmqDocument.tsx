@@ -23,6 +23,7 @@ export function AmqDocument({
   title,
   children,
 }: React.PropsWithChildren<AmqDocumentProps>) {
+  const titleSufix = 'A. Matías Quezada';
   const lang = useLang();
 
   const bodyStyles = css`
@@ -39,7 +40,9 @@ export function AmqDocument({
         />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>{`${tr(title, lang)} | A. Matías Quezada`}</title>
+        <title>
+          {title ? `${tr(title, lang)} | ${titleSufix}` : titleSufix}
+        </title>
         {injectStyle(cssReset)}
         {injectStyle(thirdPartyCss.join('\n'))}
         {injectStyle(cssGlobal)}

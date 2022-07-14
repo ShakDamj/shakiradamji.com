@@ -3,15 +3,20 @@ import { frontendScript, ScriptWithUtils } from './ScriptWithUtils.tsx';
 
 const scrollWisle = await frontendScript('scroll-wisle.js');
 
+export interface ScrollWisleProps {
+  as: string;
+  scrollClass: string;
+  scrollOffset?: number;
+  scrollTolerance?: number;
+}
+
 export function ScrollWisle({
   as: _as,
   scrollClass,
   scrollOffset,
+  scrollTolerance,
   ...props
-}: { as: string; scrollClass: string; scrollOffset?: number } & Record<
-  string,
-  unknown
->) {
+}: ScrollWisleProps & Record<string, unknown>) {
   return (
     <>
       <ScriptWithUtils once>{scrollWisle}</ScriptWithUtils>
@@ -19,6 +24,7 @@ export function ScrollWisle({
         ...props,
         'data-scrollclass': scrollClass,
         'data-scrolloffset': scrollOffset,
+        'data-scrolltolerance': scrollTolerance,
       })}
     </>
   );

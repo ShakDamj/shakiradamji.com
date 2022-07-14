@@ -11,12 +11,12 @@ import {
   cssAnimationSpeed,
   cssBreakpoint,
   cssColor,
-  cssFontSize,
   cssSpace,
 } from '../../theme.ts';
 import { ScrollWisle } from '../atoms/ScrollWisle.tsx';
+import { AMatiasQuezada } from '../molecules/AMatiasQuezada.tsx';
 
-const root = getPagesRoot();
+export const root = getPagesRoot();
 
 export interface AmqHeaderProps {
   className?: string;
@@ -31,7 +31,10 @@ export function AmqHeader({
     background-color: ${cssColor.backgroundDark};
     color: ${cssColor.foreground};
     border-bottom: 2px solid ${cssColor.border};
-    padding: ${cssSpace.lg} 0;
+    // font-size: 1em;
+    padding: ${cssSpace.md} 0;
+    transition: padding ${cssAnimationSpeed.fast} ease-in-out,
+      font-size ${cssAnimationSpeed.fast} ease-in-out;
 
     ${cssBreakpoint.medium} {
       position: sticky;
@@ -39,8 +42,9 @@ export function AmqHeader({
       z-index: 1;
     }
 
-    &.scrolled {
-      padding: 0;
+    &:not(.scrolled) {
+      padding: ${cssSpace.xl} 0;
+      font-size: 1.2em;
     }
   `;
 
@@ -83,6 +87,7 @@ export function AmqHeader({
       className={`${styles} ${className}`}
       scrollClass="scrolled"
       scrollOffset={50}
+      scrollTolerance={50}
     >
       <Container className={containerStyles}>
         <AMatiasQuezada />
@@ -116,48 +121,6 @@ function LangSelector() {
       {lang !== 'es' ? <Link href={`/es/${path}`}>🇪🇸</Link> : null}
       {/* {lang !== 'cat' ? <Link href={`/cat/${path}`}>CAT</Link> : null} */}
     </>
-  );
-}
-
-function AMatiasQuezada() {
-  const { Link } = usePageUtils();
-
-  const styles = css`
-    display: flex;
-    gap: ${cssSpace.md};
-    align-items: center;
-  `;
-
-  const nameStyles = css`
-    font-size: ${cssFontSize.md};
-    color: white;
-    display: flex;
-    align-items: baseline;
-    gap: ${cssSpace.md};
-    letter-spacing: 1px;
-
-    abbr {
-      display: inline-block;
-      width: 0.8em;
-      overflow: hidden;
-      transition: width ${cssAnimationSpeed.medium} ease;
-    }
-
-    &:hover abbr {
-      width: 3.3em;
-    }
-  `;
-
-  return (
-    <h2 className={styles}>
-      {/* <BracketsIcon title="Coder" /> */}
-      <Link className={`${nameStyles} inactive`} page={root}>
-        <>
-          {'{ '}
-          <abbr>Adrian</abbr> Matías Quezada{' }'}
-        </>
-      </Link>
-    </h2>
   );
 }
 
