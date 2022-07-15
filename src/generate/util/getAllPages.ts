@@ -1,7 +1,18 @@
+import { PageMetadata } from '../mod.ts';
 import { getPageMetadata } from './getPageMetadata.ts';
 import { getPagesFromDisk } from './getPagesFromDisk.ts';
 
-export async function getAllPages() {
+let cache: Promise<PageMetadata[]> | null = null;
+
+export function getAllPages() {
+  if (!cache) {
+    cache = getAllPagesInternal();
+  }
+
+  return cache;
+}
+
+async function getAllPagesInternal() {
   const pages = await getPagesFromDisk();
   const promises = pages.map(getPageMetadata);
   return Promise.all(promises);

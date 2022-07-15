@@ -10,3 +10,4 @@ export type { MarkdownPageMetadata } from './types/MarkdownPageMetadata.ts';
 export type { PageMetadata } from './types/PageMetadata.ts';
 export type { YearMonthDay } from './types/YearMonthDay.ts';
 export { getAllPages } from './util/getAllPages.ts';
+export { getMarkdownExtract } from './util/getMarkdownExtract.ts';

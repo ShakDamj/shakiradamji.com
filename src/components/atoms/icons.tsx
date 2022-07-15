@@ -4,6 +4,8 @@ export interface IconProps {
   title: string;
 }
 
+// TODO: const GithubIcon = icon(title => <svg... />)
+
 export function GithubIcon({ title }: IconProps) {
   return (
     <svg
@@ -77,6 +79,20 @@ export function SlidesIcon({ title }: IconProps) {
       width="24" height="24" viewBox="0 0 24 24"
       <title>{title}</title>
       <path d="M7.496 20h2.633l-3.42 4h-2.627l3.414-4zm9.504-14h-8v1h8v-1zm-6 18h2v-4h-2v4zm2.855-4l3.42 4h2.627l-3.414-4h-2.633zm.145-8h-5v1h5v-1zm3-2h-8v1h8v-1zm0-2h-8v1h8v-1zm6-5h-1v8c0 1.625-5 7-7 7h-13v-15h-1v-3h22v3zm-3 0h-16v13h10.682c2.077 0 1.318-4 1.318-4s4 .825 4-1.229v-7.771zm-12 3h-1v1h1v-1zm0 2h-1v1h1v-1zm0 2h-1v1h1v-1zm0 2h-1v1h1v-1z" />
+    </svg>
+  );
+}
+
+export function PdfIcon({ title }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+    >
+      <title>{title}</title>
+      <path d="M11.363 2c4.155 0 2.637 6 2.637 6s6-1.65 6 2.457v11.543h-16v-20h7.363zm.826-2h-10.189v24h20v-14.386c0-2.391-6.648-9.614-9.811-9.614zm4.811 13h-2.628v3.686h.907v-1.472h1.49v-.732h-1.49v-.698h1.721v-.784zm-4.9 0h-1.599v3.686h1.599c.537 0 .961-.181 1.262-.535.555-.658.587-2.034-.062-2.692-.298-.3-.712-.459-1.2-.459zm-.692.783h.496c.473 0 .802.173.915.644.064.267.077.679-.021.948-.128.351-.381.528-.754.528h-.637v-2.12zm-2.74-.783h-1.668v3.686h.907v-1.277h.761c.619 0 1.064-.277 1.224-.763.095-.291.095-.597 0-.885-.16-.484-.606-.761-1.224-.761zm-.761.732h.546c.235 0 .467.028.576.228.067.123.067.366 0 .489-.109.199-.341.227-.576.227h-.546v-.944z" />
     </svg>
   );
 }

@@ -44,6 +44,7 @@ function createPageUtils(page: string, root: string, lang: Language) {
 
   return {
     Link: createPageLinkComponent(path, root),
+    getUrl: (page: SitePage) => getPagePath(urlToSitePage(page!)),
     basePath,
     path: pagePath,
     lang,

@@ -1,16 +1,12 @@
 import React from 'react';
 import { css } from '../../deps/emotion.ts';
 import { parseMarkdown } from '../../deps/markdown.ts';
-import { cssColor, cssFontFamily, cssSpace } from '../../theme.ts';
-import { getMarkdownReferences } from '../util/getMarkdownReferences.ts';
+import { cssColor, cssSpace } from '../../theme.ts';
+import { getMarkdownExtract } from '../util/getMarkdownExtract.ts';
 import { highlightTheme } from '../util/highlightTheme.ts';
 import { Lang, tr, Translatable, useLang } from './Lang.tsx';
 import { usePageUtils } from './PageUtils.tsx';
 import { RawHtml } from './RawHtml.tsx';
-
-const EXTRACT_TOKEN = '<!-- end extract -->';
-const CROP_IF_LONGER_THAN = 150;
-const CROP_AFTER = 150;
 
 const blockRules = [
   {
@@ -139,25 +135,4 @@ function applyBlockRules(markdown: string) {
 function clearMarkdownResult(content: string) {
   return content.replace(/<p>\[\d+\]: (.|\n)*<\/p>/g, '');
   // .replace(/<\/?pre>/g, '');
-}
-
-function getMarkdownExtract(value: null | undefined): null;
-function getMarkdownExtract(value: string): string;
-function getMarkdownExtract(value: string | null | undefined) {
-  if (!value) {
-    return null;
-  }
-
-  if (value.includes(EXTRACT_TOKEN)) {
-    const extract = value.split(EXTRACT_TOKEN)[0];
-    return `${extract}\n\n${getMarkdownReferences(value)}`;
-  }
-
-  if (value.length < CROP_IF_LONGER_THAN) {
-    return value;
-  }
-
-  const cropAt = value.indexOf('\n', CROP_AFTER);
-  const chunk = value.slice(0, cropAt).trim();
-  return `${chunk}\n\n${getMarkdownReferences(value)}`;
 }

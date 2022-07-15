@@ -24,7 +24,7 @@ export function TagList({ className = '', list }: TagListProps) {
     display: inline-block;
     font-family: ${cssFontFamily.code} !important;
     position: relative;
-    overlfow: hidden;
+    overflow: hidden;
 
     &::before {
       content: '';
@@ -39,7 +39,7 @@ export function TagList({ className = '', list }: TagListProps) {
   return (
     <div className={`${containerStyles} ${className}`}>
       {list.map((x) => (
-        <span key={tr(x, 'en')} className={tagStyles}>
+        <span key={tr(x, 'en')} className={`tag ${tagStyles}`}>
           <Lang tr={x} />
         </span>
       ))}

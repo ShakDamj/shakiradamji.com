@@ -5,7 +5,7 @@ import { cssBreakpoint } from '../../theme.ts';
 import { Heading2, Heading3 } from '../atoms/Heading.tsx';
 
 export interface ResponsiveHeaderProps {
-  as?: typeof Heading2 | typeof Heading3;
+  as?: typeof Heading2 | typeof Heading3 | 'h1' | 'h2' | 'h3';
   className?: string;
   children: ValidTr;
 }

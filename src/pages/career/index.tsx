@@ -1,13 +1,22 @@
 import React from 'react';
 import { Container } from '../../components/atoms/Container.tsx';
 import { Heading2, Heading3 } from '../../components/atoms/Heading.tsx';
+import { IconLink } from '../../components/atoms/IconLink.tsx';
+import { PdfIcon } from '../../components/atoms/icons.tsx';
 import { Time } from '../../components/atoms/Time.tsx';
+import { ResponsiveHeader } from '../../components/molecules/ResponsiveHeader.tsx';
 import { TagList } from '../../components/molecules/TagList.tsx';
 import { AmqHeader } from '../../components/organisms/AmqHeader.tsx';
 import { AmqPageList } from '../../components/organisms/AmqPageList.tsx';
 import { AmqDocument } from '../../components/templates/AmqDocument.tsx';
 import { css } from '../../deps/emotion.ts';
-import { Lang, Markdown, PageMetadata } from '../../generate/mod.ts';
+import {
+  Lang,
+  Markdown,
+  PageMetadata,
+  tr,
+  useLang,
+} from '../../generate/mod.ts';
 import { cssAnimationSpeed, cssSpace } from '../../theme.ts';
 import { getAllPagesBySection } from '../../util/getAllPagesBySection.ts';
 
@@ -70,9 +79,17 @@ export default (props: PageMetadata) => {
       <AmqHeader />
 
       <Container>
-        <Heading2>
+        <ResponsiveHeader as={Heading2}>
           <Lang en="Career" es="Currículum" />
-        </Heading2>
+          <IconLink
+            href="../cv/"
+            icon={
+              <PdfIcon
+                title={tr(['Download PDF', 'Descargar PDF'], useLang())}
+              />
+            }
+          />
+        </ResponsiveHeader>
 
         <ol>
           {career.map((item, index) => (
