@@ -39,9 +39,9 @@ export default (props: PageMetadata) => {
     --color-primary: #00e;
     --color-foreground: #111;
     --color-foregroundStrong: #000;
-    --color-background: #fff;
-    --color-backgroundStrong: #eee;
-    --color-border: gray;
+    // --color-background: #fff;
+    // --color-backgroundStrong: #eee;
+    // --color-border: gray;
 
     font-size: 14px;
 
