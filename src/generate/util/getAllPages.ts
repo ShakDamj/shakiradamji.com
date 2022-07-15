@@ -9,7 +9,7 @@ export function getAllPages() {
     cache = getAllPagesInternal();
   }
 
-  return cache;
+  return cache.then((x) => [...x]);
 }
 
 async function getAllPagesInternal() {
