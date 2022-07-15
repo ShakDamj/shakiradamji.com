@@ -1,7 +1,12 @@
 import React from 'react';
 import { css } from '../../deps/emotion.ts';
 import { getPagesRoot, usePageUtils } from '../../generate/mod.ts';
-import { cssAnimationSpeed, cssBreakpoint, cssSpace } from '../../theme.ts';
+import {
+  cssAnimationSpeed,
+  cssBreakpoint,
+  cssColor,
+  cssSpace,
+} from '../../theme.ts';
 
 export const root = getPagesRoot();
 
@@ -21,7 +26,7 @@ export function AMatiasQuezada() {
   `;
 
   const nameStyles = css`
-    color: white;
+    color: ${cssColor.foregroundStrong};
     display: flex;
     align-items: baseline;
     letter-spacing: 1px;

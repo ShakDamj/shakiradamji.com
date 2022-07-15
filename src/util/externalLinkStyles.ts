@@ -13,7 +13,7 @@ const svg = `
   </svg>
 `;
 
-export const externalLinkVariable = '--external-link';
+const externalLinkVariable = '--external-link';
 
 // This function will be also injected in the frontend
 // it should include all it's dependendcies in it's body

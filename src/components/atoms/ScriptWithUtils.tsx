@@ -9,8 +9,6 @@ export const frontendScript = (x: string) =>
 const utils = await frontendScript('utils.js');
 
 export function ScriptWithUtils(props: ScriptProps) {
-  // console.log(props.children);
-
   return (
     <>
       <Script once asap>

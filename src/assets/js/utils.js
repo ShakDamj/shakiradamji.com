@@ -1,3 +1,5 @@
+const doc = document.documentElement;
+
 const onDomLoaded = new Promise((resolve) =>
   addEventListener('DOMContentLoaded', resolve)
 );
@@ -16,3 +18,5 @@ onDomLoaded.then(() => {
   $ = (selector) => Promise.resolve(document.querySelector(selector));
   $$ = (selector) => Promise.resolve([...document.querySelectorAll(selector)]);
 });
+
+Object.assign(window, { $, $$, doc });

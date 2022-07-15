@@ -65,7 +65,7 @@ export function Markdown({
     }
 
     code:not(.code-block) {
-      background-color: ${cssColor.backgroundDark};
+      background-color: ${cssColor.backgroundStrong};
       padding: ${cssSpace.xs};
       border-radius: ${cssSpace.xs};
     }

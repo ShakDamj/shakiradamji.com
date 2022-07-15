@@ -1,15 +1,35 @@
+import { colorScheme } from './components/molecules/ColorSchemeToggle.tsx';
 import { bouncyLinkStyles } from './util/bouncyLinkTransition.ts';
 import { externalLinkStyles } from './util/externalLinkStyles.ts';
 
 const primaryColor = '#00FBFF';
 
+const dark = `
+  --color-primary: ${primaryColor};
+  --color-foreground: #FDFBF8;
+  --color-foregroundStrong: #FFFFFF;
+  --color-background: #263238;
+  --color-backgroundStrong: #161b22;
+  --color-border: #586369;
+`;
+
+const light = `
+  --color-primary: #0006B0;
+  --color-foreground: #3a3a3a;
+  --color-foregroundStrong: #000000;
+  --color-background: #E5FFEE;
+  --color-backgroundStrong: #D6F7E4;
+  --color-border: gray;
+`;
+
 export const cssColor = {
-  primary: 'var(--color-primary)',
-  foreground: '#FDFBF8',
-  background: '#263238',
-  backgroundDark: '#161b22',
   link: 'var(--color-primary)',
-  border: '#586369',
+  primary: 'var(--color-primary)',
+  foreground: 'var(--color-foreground)',
+  foregroundStrong: 'var(--color-foregroundStrong)',
+  background: 'var(--color-background)',
+  backgroundStrong: 'var(--color-backgroundStrong)',
+  border: 'var(--color-border)',
 };
 
 export const cssFontSize = {
@@ -26,8 +46,8 @@ export const cssFontWeight = {
 };
 
 export const cssBreakpoint = {
-  narrow: '@media (min-width: 375px)',
-  onlyNarrow: '@media (max-width: 375px)',
+  narrow: '@media (min-width: 610px)',
+  onlyNarrow: '@media (max-width: 610px)',
   medium: '@media (min-width: 769px)',
   wide: '@media (min-width: 1200px)',
 };
@@ -74,9 +94,9 @@ export const cssGlobal = `
     font-size: 18px;
     line-height: 1.5;
     letter-spacing: 0.5px;
-
-    --color-primary: ${primaryColor};
   }
+
+  ${colorScheme(':root', dark, light)}
 
   header, h1, h2, h3, h4, h5, h6 {
     font-family: ${cssFontFamily.header};

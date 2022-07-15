@@ -28,7 +28,7 @@ export function Script({ asap, immediate, once, children }: ScriptProps) {
     }
   }
 
-  const html = children;
+  const html = `;(async () => {${children}})();`;
 
   // minification toggle
   // .replace(/(\s|\n)+/g, ' ');

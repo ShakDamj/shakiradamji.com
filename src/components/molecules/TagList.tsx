@@ -20,7 +20,7 @@ export function TagList({ className = '', list }: TagListProps) {
     border: 2px solid ${cssColor.primary};
     border-radius: 8px;
     padding: 3px 10px;
-    color: ${cssColor.backgroundDark};
+    color: ${cssColor.backgroundStrong};
     display: inline-block;
     font-family: ${cssFontFamily.code} !important;
     position: relative;

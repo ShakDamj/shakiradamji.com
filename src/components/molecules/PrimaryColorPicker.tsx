@@ -6,10 +6,7 @@ import {
   cssAnimationSpeed,
   cssBreakpoint,
 } from '../../theme.ts';
-import {
-  externalLinkVariable,
-  getExternalLinkBackground,
-} from '../../util/externalLinkStyles.ts';
+import { getExternalLinkBackground } from '../../util/externalLinkStyles.ts';
 import { noindent } from '../../util/noindent.ts';
 import { frontendScript, ScriptWithUtils } from '../atoms/ScriptWithUtils.tsx';
 
@@ -78,19 +75,10 @@ export function PrimaryColorPicker() {
 
       <ScriptWithUtils once asap>
         {noindent`
-          const externalLinkVariable = '${externalLinkVariable}';
           const getExternalLinkBackground = ${getExternalLinkBackground};
           ${loadPrimaryColor}
         `}
       </ScriptWithUtils>
-
-      <Script once>
-        {`
-          document.querySelector('#color-picker').addEventListener('input', (e) =>
-            changePrimaryColor(e.target.value)
-          );
-        `}
-      </Script>
     </div>
   );
 }

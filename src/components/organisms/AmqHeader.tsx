@@ -1,12 +1,7 @@
 import React from 'react';
 import { Container } from '../atoms/Container.tsx';
 import { css } from '../../deps/emotion.ts';
-import {
-  usePageUtils,
-  useLang,
-  Lang,
-  getPagesRoot,
-} from '../../generate/mod.ts';
+import { usePageUtils, getPagesRoot } from '../../generate/mod.ts';
 import {
   cssAnimationSpeed,
   cssBreakpoint,
@@ -15,6 +10,8 @@ import {
 } from '../../theme.ts';
 import { ScrollWisle } from '../atoms/ScrollWisle.tsx';
 import { AMatiasQuezada } from '../molecules/AMatiasQuezada.tsx';
+import { ColorSchemeToggle } from '../molecules/ColorSchemeToggle.tsx';
+import { LangSelector } from '../molecules/LangSelector.tsx';
 
 export const root = getPagesRoot();
 
@@ -28,22 +25,24 @@ export function AmqHeader({
   const { Link } = usePageUtils();
 
   const styles = css`
-    background-color: ${cssColor.backgroundDark};
+    background-color: ${cssColor.backgroundStrong};
     color: ${cssColor.foreground};
     border-bottom: 2px solid ${cssColor.border};
-    padding: ${cssSpace.md} 0;
-    transition: padding ${cssAnimationSpeed.fast} ease-in-out,
-      font-size ${cssAnimationSpeed.fast} ease-in-out;
+    padding: ${cssSpace.xl} 0;
+    font-size: 1.2em;
 
     ${cssBreakpoint.medium} {
       position: sticky;
       top: 0;
       z-index: 1;
-    }
 
-    &:not(.scrolled) {
-      padding: ${cssSpace.xl} 0;
-      font-size: 1.2em;
+      transition: padding ${cssAnimationSpeed.fast} ease-in-out,
+        font-size ${cssAnimationSpeed.fast} ease-in-out;
+
+      &.scrolled {
+        padding: ${cssSpace.md} 0;
+        font-size: inherit;
+      }
     }
   `;
 
@@ -51,17 +50,19 @@ export function AmqHeader({
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-direction: column;
+    flex-flow: column wrap;
     gap: ${cssSpace.lg};
 
-    ${cssBreakpoint.medium} {
+    ${cssBreakpoint.narrow} {
       flex-direction: row;
     }
   `;
 
   const navStyles = css`
     display: flex;
+    align-items: center;
     gap: ${cssSpace.md};
+    white-space: nowrap;
 
     a {
       color: ${cssColor.link};
@@ -78,6 +79,19 @@ export function AmqHeader({
       border-bottom: 1px solid ${cssColor.link};
       transition: transform ${cssAnimationSpeed.slow} ease;
       transform: translate(0px, -3px);
+    }
+  `;
+
+  const emojiButtonStyles = css`
+    button,
+    a {
+      font-size: inherit;
+    }
+
+    font-size: 1.5rem;
+
+    ${cssBreakpoint.medium} {
+      font-size: 2rem;
     }
   `;
 
@@ -98,29 +112,20 @@ export function AmqHeader({
           <Link page={`${root}/blog`} isParent>
             Blog
           </Link>
-          <Link page={`${root}/projects`} isParent>
+          {/* <Link page={`${root}/projects`} isParent>
             <Lang en="Projects" es="Proyectos" />
-          </Link>
+          </Link> */}
           <Link page={`${root}/career`} isParent>
             CV
           </Link>
-          <LangSelector />
+
+          <div className={emojiButtonStyles}>
+            <ColorSchemeToggle />
+            <LangSelector />
+          </div>
         </nav>
       </Container>
     </ScrollWisle>
-  );
-}
-
-function LangSelector() {
-  const { Link, path } = usePageUtils();
-  const lang = useLang();
-
-  return (
-    <>
-      {lang !== 'en' ? <Link href={`/${path}`}>🇬🇧</Link> : null}
-      {lang !== 'es' ? <Link href={`/es/${path}`}>🇪🇸</Link> : null}
-      {/* {lang !== 'cat' ? <Link href={`/cat/${path}`}>CAT</Link> : null} */}
-    </>
   );
 }
 
