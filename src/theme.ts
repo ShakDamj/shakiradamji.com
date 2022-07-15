@@ -17,8 +17,8 @@ const light = `
   --color-primary: #0006B0;
   --color-foreground: #3a3a3a;
   --color-foregroundStrong: #000000;
-  --color-background: #E5FFEE;
-  --color-backgroundStrong: #D6F7E4;
+  --color-background: #dae2e7;
+  --color-backgroundStrong: #e3e7ed;
   --color-border: gray;
 `;
 

@@ -2,12 +2,10 @@ import React from 'react';
 import { css } from '../../deps/emotion.ts';
 import { Markdown, PageMetadata, usePageUtils } from '../../generate/mod.ts';
 import { Container } from '../../components/atoms/Container.tsx';
-import { RelatedLinks } from '../../components/molecules/RelatedLinks.tsx';
 import { AmqDocument } from '../../components/templates/AmqDocument.tsx';
 import { getAllPagesBySection } from '../../util/getAllPagesBySection.ts';
-import { ResponsiveHeader } from '../../components/molecules/ResponsiveHeader.tsx';
 import { cssBreakpoint } from '../../theme.ts';
-import { ExpandableList } from '../../components/molecules/ExpandableList.tsx';
+import { ExpandableList } from '../../components/organisms/ExpandableList.tsx';
 import { AmqHeader } from '../../components/organisms/AmqHeader.tsx';
 import { Heading3 } from '../../components/atoms/Heading.tsx';
 

@@ -5,7 +5,11 @@ import { frontendScript, ScriptWithUtils } from '../atoms/ScriptWithUtils.tsx';
 const lightThemeClass = 'light-scheme';
 const loadColorScheme = await frontendScript('colorScheme.js');
 
-export function ColorSchemeToggle() {
+export interface ColorSchemeToggleProps {
+  className?: string;
+}
+
+export function ColorSchemeToggle({ className = '' }: ColorSchemeToggleProps) {
   const dark = `
     span:first-child {
       display: none;
@@ -23,12 +27,13 @@ export function ColorSchemeToggle() {
     appearance: none;
     background: none;
     border: none;
+    font-size: inherit;
   `;
 
   return (
     <>
-      <button className={styles} data-togglecolorscheme>
-        <span>🌑</span>
+      <button className={`${styles} ${className}`} data-togglecolorscheme>
+        <span>🌒</span>
         <span>☀️</span>
       </button>
 
@@ -47,10 +52,6 @@ export function colorScheme(selector: string, dark: string, light: string) {
 
     @media (prefers-color-scheme: light) {
       html ${nonRootSelector} { ${light} }
-    }
-
-    @media (prefers-color-scheme: dark) {
-      html:not(.${lightThemeClass}) ${nonRootSelector} { ${dark} }
     }
 
     html.${lightThemeClass} ${nonRootSelector} { ${light} }

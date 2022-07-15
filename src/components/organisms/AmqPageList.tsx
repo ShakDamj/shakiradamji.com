@@ -7,7 +7,7 @@ import {
   cssColor,
   cssSpace,
 } from '../../theme.ts';
-import { ExpandableList } from '../molecules/ExpandableList.tsx';
+import { ExpandableList } from '../organisms/ExpandableList.tsx';
 import {
   Translatable,
   PageMetadata,

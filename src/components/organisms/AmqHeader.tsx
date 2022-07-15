@@ -61,21 +61,20 @@ export function AmqHeader({
   const navStyles = css`
     display: flex;
     align-items: center;
-    gap: ${cssSpace.md};
     white-space: nowrap;
+  `;
 
-    a {
-      color: ${cssColor.link};
-      margin-left: ${cssSpace.md};
-      border-bottom: 1px solid transparent;
-      transform: translate(0px, 0px);
-    }
+  const pageLinkStyles = css`
+    color: ${cssColor.link};
+    margin-right: ${cssSpace.lg};
+    border-bottom: 1px solid transparent;
+    transform: translate(0px, 0px);
 
-    a.parent {
+    &.parent {
       border-bottom: 1px solid ${cssColor.border};
     }
 
-    a:hover {
+    &:hover {
       border-bottom: 1px solid ${cssColor.link};
       transition: transform ${cssAnimationSpeed.slow} ease;
       transform: translate(0px, -3px);
@@ -83,16 +82,15 @@ export function AmqHeader({
   `;
 
   const emojiButtonStyles = css`
-    button,
-    a {
-      font-size: inherit;
-    }
-
     font-size: 1.5rem;
-
     ${cssBreakpoint.medium} {
       font-size: 2rem;
     }
+  `;
+
+  const colorSchemeStyles = css`
+    ${emojiButtonStyles};
+    margin-top: -5px;
   `;
 
   return (
@@ -105,24 +103,17 @@ export function AmqHeader({
     >
       <Container className={containerStyles}>
         <AMatiasQuezada />
-
         <Eyes />
 
         <nav className={navStyles}>
-          <Link page={`${root}/blog`} isParent>
+          <Link className={pageLinkStyles} page={`${root}/blog`} isParent>
             Blog
           </Link>
-          {/* <Link page={`${root}/projects`} isParent>
-            <Lang en="Projects" es="Proyectos" />
-          </Link> */}
-          <Link page={`${root}/career`} isParent>
+          <Link className={pageLinkStyles} page={`${root}/career`} isParent>
             CV
           </Link>
-
-          <div className={emojiButtonStyles}>
-            <ColorSchemeToggle />
-            <LangSelector />
-          </div>
+          <LangSelector className={emojiButtonStyles} />
+          <ColorSchemeToggle className={colorSchemeStyles} />
         </nav>
       </Container>
     </ScrollWisle>

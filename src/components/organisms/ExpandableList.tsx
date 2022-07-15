@@ -3,7 +3,7 @@ import { css } from '../../deps/emotion.ts';
 import { cssAnimationSpeed, cssFontSize, cssSpace } from '../../theme.ts';
 import { HiddenContent } from '../atoms/HiddenContent.tsx';
 import { Heading2 } from '../atoms/Heading.tsx';
-import { Translatable, useTr, Lang } from '../../generate/mod.ts';
+import { Translatable, useTr } from '../../generate/mod.ts';
 
 export interface ExpandableListProps<T> {
   className?: string;
@@ -46,6 +46,10 @@ export function ExpandableList<T>({
         animation: none;
       }
 
+      ol {
+        margin-top: 0;
+      }
+
       &[open] {
         summary::after {
           content: '${viewLess}';
@@ -83,7 +87,7 @@ export function ExpandableList<T>({
 
 function animateList(selector: string) {
   const DELAY = 0.03;
-  const NTHS = 20;
+  const NTHS = 12;
 
   const nths = array(NTHS).map(
     (x) => `${selector}:nth-child(${x + 1}) { animation-delay: ${x * DELAY}s; }`
