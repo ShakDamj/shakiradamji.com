@@ -25,6 +25,8 @@ export function AmqHeader({
   const { Link } = usePageUtils();
 
   const styles = css`
+    --emoji-size: 1.5rem;
+
     background-color: ${cssColor.backgroundStrong};
     color: ${cssColor.foreground};
     border-bottom: 2px solid ${cssColor.border};
@@ -32,6 +34,8 @@ export function AmqHeader({
     font-size: 1.2em;
 
     ${cssBreakpoint.medium} {
+      --emoji-size: 2rem;
+
       position: sticky;
       top: 0;
       z-index: 1;
@@ -40,6 +44,7 @@ export function AmqHeader({
         font-size ${cssAnimationSpeed.fast} ease-in-out;
 
       &.scrolled {
+        --emoji-size: 1.5rem;
         padding: ${cssSpace.md} 0;
         font-size: inherit;
       }
@@ -83,10 +88,9 @@ export function AmqHeader({
   `;
 
   const emojiButtonStyles = css`
-    font-size: 1.5rem;
-    ${cssBreakpoint.medium} {
-      font-size: 2rem;
-    }
+    cursor: pointer;
+    font-size: var(--emoji-size);
+    transition: font-size ${cssAnimationSpeed.fast} ease-in-out;
   `;
 
   const colorSchemeStyles = css`
