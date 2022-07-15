@@ -9,7 +9,7 @@ import { ExpandableList } from '../../components/organisms/ExpandableList.tsx';
 import { AmqHeader } from '../../components/organisms/AmqHeader.tsx';
 import { Heading3 } from '../../components/atoms/Heading.tsx';
 
-const { projects, experiments } = await getAllPagesBySection();
+const { projects } = await getAllPagesBySection();
 
 export default (props: PageMetadata) => {
   const { Link } = usePageUtils();

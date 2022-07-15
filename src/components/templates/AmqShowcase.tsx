@@ -64,6 +64,7 @@ function getFooter(
         src={fallback}
         className={css`
           width: var(--available-width);
+          height: var(--available-width);
           border: none;
         `}
       />

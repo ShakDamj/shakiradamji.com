@@ -1,5 +1,4 @@
 ---
-key: spanish-constitution
 title:
   en: Spanish Constitution
   es: Constitución Española

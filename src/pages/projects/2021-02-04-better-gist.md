@@ -1,5 +1,4 @@
 ---
-key: better-gist
 title: Better Gist
 
 links:

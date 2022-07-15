@@ -8,4 +8,5 @@ export interface PageMetadata {
   path: string;
   title: Translatable;
   date: YearMonthDay | null;
+  pinned?: boolean;
 }

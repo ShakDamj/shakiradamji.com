@@ -87,7 +87,9 @@ export const cssDeps = [
 ];
 
 export const cssGlobal = `
-  :root {
+  ${colorScheme(':root', dark, light)}
+
+  body {
     background-color: ${cssColor.background};
     color: ${cssColor.foreground};
     font-family: ${cssFontFamily.default};
@@ -95,8 +97,6 @@ export const cssGlobal = `
     line-height: 1.5;
     letter-spacing: 0.5px;
   }
-
-  ${colorScheme(':root', dark, light)}
 
   header, h1, h2, h3, h4, h5, h6 {
     font-family: ${cssFontFamily.header};
