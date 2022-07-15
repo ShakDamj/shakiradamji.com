@@ -58,8 +58,18 @@ export function AmqHeader({
     flex-flow: column wrap;
     gap: ${cssSpace.lg};
 
+    .not-priority {
+      display: none;
+    }
+
     ${cssBreakpoint.medium} {
       flex-direction: row;
+    }
+
+    ${cssBreakpoint.wide} {
+      .not-priority {
+        display: block;
+      }
     }
   `;
 
@@ -114,7 +124,11 @@ export function AmqHeader({
           <Link className={pageLinkStyles} page={`${root}/blog`} isParent>
             Blog
           </Link>
-          <Link className={pageLinkStyles} page={`${root}/projects`} isParent>
+          <Link
+            className={`${pageLinkStyles} not-priority`}
+            page={`${root}/projects`}
+            isParent
+          >
             <Lang en="Projects" es="Proyectos" />
           </Link>
           <Link className={pageLinkStyles} page={`${root}/career`} isParent>

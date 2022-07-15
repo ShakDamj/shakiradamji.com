@@ -13,17 +13,18 @@ import { frontendScript, ScriptWithUtils } from '../atoms/ScriptWithUtils.tsx';
 
 const loadPrimaryColor = await frontendScript('primaryColor.js');
 
+// Some day...
+// https://caniuse.com/mdn-css_at-rules_property
+// @property --size {
+//   syntax: '<length>';
+//   inherits: false;
+//   initial-value: 1rem;
+// }
+// transition: --size ${cssAnimationSpeed.medium} ${cssAnimationFunction.bouncy};
+
 export function PrimaryColorPicker() {
   const styles = css`
     display: none;
-
-    // Some day
-    // https://caniuse.com/mdn-css_at-rules_property
-    // @property --size {
-    //   syntax: '<length>';
-    //   inherits: false;
-    //   initial-value: 1rem;
-    // }
 
     ${cssBreakpoint.medium} {
       display: block;
