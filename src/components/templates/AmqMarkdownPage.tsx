@@ -8,6 +8,7 @@ import { cssSpace } from '../../theme.ts';
 import { AmqDocument } from './AmqDocument.tsx';
 
 export interface AmqMarkdownPageProps extends PropsWithChildren<{}> {
+  className?: string;
   title: Translatable;
   labels?: Translatable[];
   content: Translatable;
@@ -15,6 +16,7 @@ export interface AmqMarkdownPageProps extends PropsWithChildren<{}> {
 }
 
 export function AmqMarkdownPage({
+  className = '',
   title,
   labels,
   content,
@@ -30,7 +32,7 @@ export function AmqMarkdownPage({
   return (
     <AmqDocument title={title}>
       <AmqHeader />
-      <Container className={body}>
+      <Container className={`${body} ${className}`}>
         {children}
         {labels ? <TagList list={labels} /> : null}
         <Markdown>{content}</Markdown>

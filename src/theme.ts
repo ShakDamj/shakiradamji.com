@@ -120,6 +120,12 @@ export const cssGlobal = `
     fill: ${cssColor.foreground};
   }
 
+  iframe {
+    width: var(--available-width);
+    height: var(--available-width);
+    border: 2px solid ${cssColor.border};
+  }
+
   summary {
     cursor: pointer;
     list-style: none;

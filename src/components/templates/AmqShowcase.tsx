@@ -59,16 +59,7 @@ function getFooter(
   }
 
   if (iframe === true) {
-    return (
-      <iframe
-        src={fallback}
-        className={css`
-          width: var(--available-width);
-          height: var(--available-width);
-          border: none;
-        `}
-      />
-    );
+    return <iframe src={fallback} />;
   }
 
   const src = iframe.src ? tr(iframe.src, useLang()) : fallback;
@@ -83,8 +74,6 @@ function getFooter(
       src={src}
       style={undefined}
       className={css`
-        width: var(--available-width);
-        border: 2px solid ${cssColor.border};
         ${(iframe.style as string) || ''}
       `}
     />
