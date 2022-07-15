@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container } from '../atoms/Container.tsx';
 import { css } from '../../deps/emotion.ts';
-import { usePageUtils, getPagesRoot } from '../../generate/mod.ts';
+import { usePageUtils, getPagesRoot, Lang } from '../../generate/mod.ts';
 import {
   cssAnimationSpeed,
   cssBreakpoint,
@@ -53,7 +53,7 @@ export function AmqHeader({
     flex-flow: column wrap;
     gap: ${cssSpace.lg};
 
-    ${cssBreakpoint.narrow} {
+    ${cssBreakpoint.medium} {
       flex-direction: row;
     }
   `;
@@ -62,11 +62,12 @@ export function AmqHeader({
     display: flex;
     align-items: center;
     white-space: nowrap;
+    gap: ${cssSpace.md};
   `;
 
   const pageLinkStyles = css`
     color: ${cssColor.link};
-    margin-right: ${cssSpace.lg};
+    margin-right: ${cssSpace.md};
     border-bottom: 1px solid transparent;
     transform: translate(0px, 0px);
 
@@ -108,6 +109,9 @@ export function AmqHeader({
         <nav className={navStyles}>
           <Link className={pageLinkStyles} page={`${root}/blog`} isParent>
             Blog
+          </Link>
+          <Link className={pageLinkStyles} page={`${root}/projects`} isParent>
+            <Lang en="Projects" es="Proyectos" />
           </Link>
           <Link className={pageLinkStyles} page={`${root}/career`} isParent>
             CV
