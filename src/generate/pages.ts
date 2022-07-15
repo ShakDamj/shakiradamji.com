@@ -1,6 +1,7 @@
 import { basename, extname } from 'std/path/mod.ts';
 import { SitePage } from './types/SitePage.ts';
 import { path } from './util/path.ts';
+import { removeDate } from './util/removeDate.ts';
 
 const { fromRoot } = path('../..', import.meta.url);
 const source = fromRoot('./src/pages');
@@ -16,7 +17,7 @@ export function getPageDestinationOnDisk(page: SitePage, path = '') {
   const isIndex = filename.replace(extension, '') === 'index';
   const newExtension = isIndex ? '.html' : '/index.html';
 
-  return page
+  return removeDate(page)
     .replace(getPagesRoot(), `${target}${path}`)
     .replace(extension, newExtension);
 }
