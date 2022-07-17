@@ -76,5 +76,5 @@ var obj = new Bar();
 
 Realmente hay es una ventaja abandonar `new`? estamos seguros que no se trata de una herramienta de alto nivel que simplifica algo que igualmente tendremos que hacer nosotros a mano? Que pros y contras tienen `new` y `Object.create`?
 
-[1]: http://blog.amatiasq.com/2014/03/type-new/
+[1]: ../type-new/
 [2]: http://jsperf.com/object-create-vs-constructor-vs-object-literal/49

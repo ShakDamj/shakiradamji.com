@@ -410,9 +410,9 @@ arr.length == 2;
 
 Por otro lado el paradigma de crear objetos con un método `.new()` es un sistema muy agradable que facilita muchas cosas, me ha dado buenas experiencias y permite tener un código más legible (no más `Constructor.prototype.method` por todos lados) más conciso y más controlable. Creo que es algo muy recomendable.
 
-[1]: http://blog.amatiasq.com/2014/03/type-new/
-[2]: http://blog.amatiasq.com/2014/03/construccion-de-objetos#paradigma
-[3]: http://blog.amatiasq.com/2012/01/javascript-conceptos-basicos-this-call-y-apply/
+[1]: ../type-new/
+[2]: ../construccion-de-objetos#paradigma
+[3]: ../conceptos-basicos-this-call-apply/
 [4]: http://jsfiddle.net/amatiasq/p8Red/
 [5]: https://en.wikipedia.org/wiki/Factory_object
 [6]: http://jsfiddle.net/amatiasq/D6cJY/
