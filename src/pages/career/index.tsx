@@ -116,7 +116,7 @@ export default (props: PageMetadata) => {
         </ol>
 
         <AmqPageList
-          name={{ en: '🪧  Talks', es: '🪧  Charlas' }}
+          name={{ en: '💬  Talks', es: '💬  Charlas' }}
           list={talks}
         />
       </Container>

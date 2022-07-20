@@ -13,15 +13,9 @@ export default (props: any) => {
     <AmqDocument {...props}>
       <AmqHeader />
 
-      {/*
-      <main>
-        <Container>
-          Hi, I'm <span className="is-abbreviated">Adrián</span> Matías Quezada
-        </Container>
-      </main>
-      */}
-
       <Container>
+        {/* <p>Welcome to my corner of the internet.</p> */}
+
         <AmqPageList name="✍️  Blog" list={sections.blog} />
 
         <AmqPageList
@@ -40,7 +34,7 @@ export default (props: any) => {
         />
 
         <AmqPageList
-          name={{ en: '🪧  Talks', es: '🪧  Charlas' }}
+          name={{ en: '💬  Talks', es: '💬  Charlas' }}
           list={sections.talks}
         />
       </Container>
