@@ -11,6 +11,7 @@ iframe:
     background: rgba(255 255 255 / 10%);
     height: 50vh;
 
+pinned: true
 ---
 
 This project was created using mostly code provided by [Github Copilot][1]'s Artificial Inteligence.

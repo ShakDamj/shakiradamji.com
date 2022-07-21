@@ -31,6 +31,7 @@ export function externalLinkStyles(color: string) {
   const selector = [
     'a',
     '[href^="http"]',
+    ':not([href^="https://amatiasq.com"])',
     ':not([href^="https://repos.amatiasq.com"])',
     ':not(.no-external)',
   ].join('');
