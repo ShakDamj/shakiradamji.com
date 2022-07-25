@@ -94,7 +94,7 @@ export default (props: PageMetadata) => {
     <AmqDocument {...props} className={styles}>
       <header>
         <h1>A. Matías Quezada</h1>
-        <h2>Senior Software Engineer</h2>
+        <h2>Software Engineer</h2>
       </header>
 
       <ol>
