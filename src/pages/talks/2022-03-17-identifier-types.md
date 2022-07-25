@@ -41,6 +41,8 @@ getProduct(userId); // error
 getProduct(userId as ProductId); // error
 ```
 
+> Update July 2022: [Zack](https://zackoverflow.dev/) took this one step further by creating a libray that hides the ugliness of this approach https://github.com/modfy/nominal
+
 ---
 
 Aquí explico un concepto que encontré usando Typescript donde uno puede usar un tipo "string literal" con "union types" para crear nuevos tipos únicos.
@@ -70,6 +72,8 @@ getProduct(userId as ProductId); // error
 ```
 
 Este fue el enfoque que tomé en una herramenta para crear bots de Discord en deno llamada [`Denord`][1], que usa distintos tipos de identificadores como [`GuildId`][2] (gremio), [`ChannelId`][3] y [`MessageId`][4].
+
+> Actualización Julio 2022: [Zack](https://zackoverflow.dev/) llevó esto un paso más allá creando una librería que esconde la parte desagradable de esta técnica https://github.com/modfy/nominal
 
 (solo disponible en inglés 🇬🇧)
 
