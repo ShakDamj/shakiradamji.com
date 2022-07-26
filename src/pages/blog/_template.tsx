@@ -1,7 +1,7 @@
 import React from 'react';
 import { Time } from '../../components/atoms/Time.tsx';
 import { Heading2 } from '../../components/atoms/Heading.tsx';
-import { AmqMarkdownPage } from '../../components/templates/AmqMarkdownPage.tsx';
+import { MarkdownPage } from '../../components/templates/MarkdownPage.tsx';
 import {
   Lang,
   MarkdownPageMetadata,
@@ -16,11 +16,11 @@ export interface BlogPostProps extends MarkdownPageMetadata {
 
 export default ({ title, published, content }: BlogPostProps) => {
   return (
-    <AmqMarkdownPage title={title} content={content} footer={<AmqComments />}>
+    <MarkdownPage title={title} content={content} footer={<AmqComments />}>
       <ResponsiveHeader as={Heading2}>
         <Lang tr={title} />
         <Time value={published} />
       </ResponsiveHeader>
-    </AmqMarkdownPage>
+    </MarkdownPage>
   );
 };

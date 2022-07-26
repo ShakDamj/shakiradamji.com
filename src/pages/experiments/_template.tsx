@@ -1,1 +1,1 @@
-export { default } from '../../components/templates/AmqShowcase.tsx';
+export { default } from '../../components/templates/Showcase.tsx';

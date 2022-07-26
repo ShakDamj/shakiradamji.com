@@ -7,7 +7,7 @@ import { AmqHeader } from '../organisms/AmqHeader.tsx';
 import { cssSpace } from '../../theme.ts';
 import { AmqDocument } from './AmqDocument.tsx';
 
-export interface AmqMarkdownPageProps extends PropsWithChildren<{}> {
+export interface MarkdownPageProps extends PropsWithChildren<{}> {
   className?: string;
   title: Translatable;
   labels?: Translatable[];
@@ -15,14 +15,14 @@ export interface AmqMarkdownPageProps extends PropsWithChildren<{}> {
   footer?: JSX.Element | null;
 }
 
-export function AmqMarkdownPage({
+export function MarkdownPage({
   className = '',
   title,
   labels,
   content,
   children,
   footer = null,
-}: AmqMarkdownPageProps) {
+}: MarkdownPageProps) {
   const body = css`
     display: grid;
     padding-top: ${cssSpace.lg};

@@ -3,7 +3,7 @@ import { css } from '../../deps/emotion.ts';
 import { meta as defaultMeta } from '../../components/templates/default.tsx';
 import { Time } from '../../components/atoms/Time.tsx';
 import { Heading2 } from '../../components/atoms/Heading.tsx';
-import { AmqMarkdownPage } from '../../components/templates/AmqMarkdownPage.tsx';
+import { MarkdownPage } from '../../components/templates/MarkdownPage.tsx';
 import { cssFontSize, cssSpace } from '../../theme.ts';
 import {
   MarkdownPageMetadata,
@@ -55,7 +55,7 @@ export default ({
   `;
 
   return (
-    <AmqMarkdownPage title={title} labels={labels} content={content}>
+    <MarkdownPage title={title} labels={labels} content={content}>
       <Heading2>
         <Lang tr={role} />{' '}
         <small className={atStyles}>
@@ -73,6 +73,6 @@ export default ({
       <div className={timeSpanStyles}>
         <Time value={from} omitDay /> - <Time value={to} omitDay />
       </div>
-    </AmqMarkdownPage>
+    </MarkdownPage>
   );
 };

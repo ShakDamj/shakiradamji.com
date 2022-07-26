@@ -12,4 +12,4 @@ export interface ProjectProps extends MarkdownPageMetadata {
   to?: YearMonthDay;
 }
 
-export { default } from '../../components/templates/AmqShowcase.tsx';
+export { default } from '../../components/templates/Showcase.tsx';

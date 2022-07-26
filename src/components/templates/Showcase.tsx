@@ -1,29 +1,23 @@
 import React, { IframeHTMLAttributes } from 'react';
 import { css } from '../../deps/emotion.ts';
-import { cssBreakpoint, cssColor, cssSpace } from '../../theme.ts';
+import { cssBreakpoint } from '../../theme.ts';
 import { Heading2 } from '../../components/atoms/Heading.tsx';
 import {
-  AmqMarkdownPage,
-  AmqMarkdownPageProps,
-} from '../../components/templates/AmqMarkdownPage.tsx';
+  MarkdownPage,
+  MarkdownPageProps,
+} from '../../components/templates/MarkdownPage.tsx';
 import {
   RelatedLinks,
   RelatedLinksProps,
 } from '../../components/molecules/RelatedLinks.tsx';
 import { Translatable, Lang, useLang, tr } from '../../generate/mod.ts';
 
-export interface AmqShowcaseProps extends AmqMarkdownPageProps {
+export interface ShowcaseProps extends MarkdownPageProps {
   links?: RelatedLinksProps['links'];
   iframe?: (IframeHTMLAttributes<unknown> & { src: Translatable }) | true;
 }
 
-export default ({
-  title,
-  links,
-  labels,
-  iframe,
-  content,
-}: AmqShowcaseProps) => {
+export default ({ title, links, labels, iframe, content }: ShowcaseProps) => {
   const headingStyles = css`
     display: flex;
     align-items: center;
@@ -36,7 +30,7 @@ export default ({
   `;
 
   return (
-    <AmqMarkdownPage
+    <MarkdownPage
       title={title}
       labels={labels}
       content={content}
@@ -46,12 +40,12 @@ export default ({
         <Lang tr={title} />
       </Heading2>
       <RelatedLinks links={links} />
-    </AmqMarkdownPage>
+    </MarkdownPage>
   );
 };
 
 function getFooter(
-  iframe: AmqShowcaseProps['iframe'],
+  iframe: ShowcaseProps['iframe'],
   fallback: string | undefined
 ) {
   if (!iframe) {
