@@ -4,7 +4,7 @@
     "markdown": "https://deno.land/x/markdown@v2.0.0/mod.ts",
     "react-dom/server": "https://esm.sh/react-dom@18.2.0/server?dev",
     "react": "https://esm.sh/react@18.2.0?dev",
-    "std/": "https://deno.land/std@0.143.0/",
+    "std/": "https://deno.land/std@0.149.0/",
     "speed_highlight_js": "https://deno.land/x/speed_highlight_js@1.1.7/src/index.js",
     "https://esm.sh/v86/@types/react@18.0.12/index.d.ts": "https://esm.sh/v86/@types/react@18.0.14/index.d.ts"
   }
