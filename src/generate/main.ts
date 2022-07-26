@@ -15,14 +15,12 @@ import { path } from './util/path.ts';
 const { relative } = path('../..', import.meta.url);
 
 const [sources] = await Promise.all([
-  // multiline
   getPagesFromDisk(),
   // emptyDirectory(target),
 ]);
 
 // HACK: We need to wait for async markdown parsing to finish
 await Promise.all([
-  // multiline
   generate(sources, 'en', '/en'),
   generate(sources, 'es', '/es'),
 ]);
@@ -30,7 +28,6 @@ await isMarkedReady();
 // end HACK
 
 await Promise.all([
-  // multiline
   generate(sources, 'en', '/en'),
   generate(sources, 'es', '/es'),
   generate(sources, 'en'),
@@ -41,29 +38,19 @@ console.log('Done');
 // EXECUTION END
 
 async function generate(sources: SitePage[], lang: Language, path = '') {
-  const props: PageProps = { lang, path };
+  const props = { lang, path } as PageProps;
   const perf: PagePerf[] = [];
 
   for (const file of sources) {
-    const start = performance.now();
-    const dest = getPageDestinationOnDisk(file, path);
-
     // console.log(`Processing ${relative(file)} => ${relative(dest)}`);
 
-    let html: string;
-
-    if (isTsx(file)) {
-      html = await renderTsx(file, props);
-    } else if (isMarkdown(file)) {
-      html = await renderMd(file, props);
-    } else {
-      throw new Error(`Unkown handler for ${relative(file)}`);
-    }
-
+    const start = performance.now();
+    const html = await processInputFile(file, props);
+    const dest = getPageDestinationOnDisk(file, path);
     const generated = performance.now();
 
-    await Deno.mkdir(dirname(dest), { recursive: true });
-    await Deno.writeTextFile(dest, html);
+    await generateDirectoryStructure(dest);
+    await writeResultToDisk(dest, html);
 
     const end = performance.now();
 
@@ -71,6 +58,26 @@ async function generate(sources: SitePage[], lang: Language, path = '') {
   }
 
   report(sources, perf);
+}
+
+function processInputFile(file: string, props: PageProps) {
+  if (isTsx(file)) {
+    return renderTsx(file, props);
+  }
+
+  if (isMarkdown(file)) {
+    return renderMd(file, props);
+  }
+
+  throw new Error(`Unkown handler for ${relative(file)}`);
+}
+
+function generateDirectoryStructure(dest: string) {
+  return Deno.mkdir(dirname(dest), { recursive: true });
+}
+
+function writeResultToDisk(dest: string, html: string) {
+  return Deno.writeTextFile(dest, html);
 }
 
 function report(sources: SitePage[], perf: PagePerf[]) {
