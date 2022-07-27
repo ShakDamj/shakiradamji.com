@@ -11,9 +11,7 @@ const utils = await frontendScript('utils.js');
 export function ScriptWithUtils(props: ScriptProps) {
   return (
     <>
-      <Script once asap>
-        {utils}
-      </Script>
+      <Script asap>{utils}</Script>
       <Script {...props} />
     </>
   );

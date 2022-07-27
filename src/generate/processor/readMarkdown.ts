@@ -16,28 +16,11 @@ export async function readMarkdown(file: string) {
   const data = parse(head) as Record<string, unknown>;
   const body = parts.map((x) => `${x}\n\n${references}`);
 
-  let template = `${templatesDir}/default.tsx`;
-
-  if (data.template) {
-    template = `${templatesDir}/${data.template}`;
-  } else {
-    const folderTemplate = `${dirname(file)}/_template.tsx`;
-
-    try {
-      const stat = await Deno.stat(folderTemplate);
-
-      if (stat.isFile) {
-        template = folderTemplate;
-      }
-
-      // deno-lint-ignore no-empty
-    } catch {}
-  }
-
+  const template = await getTemplatePath(data, file);
   const templateRelative = new URL(template, import.meta.url).pathname;
 
   const base = await import(templateRelative);
-  const meta = base?.meta || (() => ({}));
+  const meta = base?.meta || (() => undefined);
 
   return {
     data: {
@@ -48,4 +31,19 @@ export async function readMarkdown(file: string) {
     template: templateRelative,
     content: body,
   };
+}
+
+async function getTemplatePath(data: Record<string, unknown>, file: string) {
+  if (data.template) {
+    return `${templatesDir}/${data.template}`;
+  }
+
+  const folderTemplate = `${dirname(file)}/_template.tsx`;
+  const stat = await Deno.stat(folderTemplate).catch(() => null);
+
+  if (stat?.isFile) {
+    return folderTemplate;
+  }
+
+  return `${templatesDir}/default.tsx`;
 }

@@ -6,21 +6,23 @@ const headScripts = new Set<string>();
 export function flushScripts() {
   alreadyIncluded.clear();
 
-  const scripts = Array.from(headScripts);
+  const scripts = [...headScripts];
   headScripts.clear();
 
   return scripts;
 }
 
 export interface ScriptProps {
+  /** Include the script in the header, before any dom element */
   asap?: boolean;
-  immediate?: boolean;
-  once?: boolean;
+  /** Scripts are only included once by default, use this flag to allow */
+  repeatable?: boolean;
+  /** Script source as string */
   children: string;
 }
 
-export function Script({ asap, immediate, once, children }: ScriptProps) {
-  if (once) {
+export function Script({ asap, repeatable, children }: ScriptProps) {
+  if (!repeatable) {
     if (alreadyIncluded.has(children)) {
       return null;
     } else {
@@ -28,10 +30,9 @@ export function Script({ asap, immediate, once, children }: ScriptProps) {
     }
   }
 
-  const html = `;(async () => {${children}})();`;
-
-  // minification toggle
-  // .replace(/(\s|\n)+/g, ' ');
+  const html = `;(async () => {${children}})();`
+    // minification toggle
+    .replace(/(\s|\n)+/g, ' ');
 
   if (asap) {
     headScripts.add(html);
@@ -39,10 +40,6 @@ export function Script({ asap, immediate, once, children }: ScriptProps) {
   }
 
   return (
-    <script
-      type="module"
-      defer={!immediate}
-      dangerouslySetInnerHTML={{ __html: html }}
-    />
+    <script type="module" defer dangerouslySetInnerHTML={{ __html: html }} />
   );
 }

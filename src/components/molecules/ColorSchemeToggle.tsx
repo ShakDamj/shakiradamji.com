@@ -37,9 +37,7 @@ export function ColorSchemeToggle({ className = '' }: ColorSchemeToggleProps) {
         <span>☀️</span>
       </button>
 
-      <ScriptWithUtils once asap>
-        {loadColorScheme}
-      </ScriptWithUtils>
+      <ScriptWithUtils asap>{loadColorScheme}</ScriptWithUtils>
     </>
   );
 }

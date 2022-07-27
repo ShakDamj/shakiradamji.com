@@ -22,7 +22,7 @@ export const getExternalLinkBackground = new Function(
   'color',
   `
     ${svgToUrl}
-    const svg = \`${svg}\`
+    const svg = \`${svg}\`;
     return svgToUrl(svg.replace('COLOR', color));
   `
 );

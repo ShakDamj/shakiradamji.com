@@ -18,7 +18,7 @@ export function AmqComments() {
   return (
     <section className={styles}>
       <div id="disqus_thread"></div>
-      <Script once>
+      <Script>
         {`
           var disqus_config=function(){
             this.page.url = \`\${location.origin}\${location.pathname}\`;
