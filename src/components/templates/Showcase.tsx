@@ -13,11 +13,19 @@ import {
 import { Translatable, Lang, useLang, tr } from '../../generate/mod.ts';
 
 export interface ShowcaseProps extends MarkdownPageProps {
+  image?: string;
   links?: RelatedLinksProps['links'];
   iframe?: (IframeHTMLAttributes<unknown> & { src: Translatable }) | true;
 }
 
-export default ({ title, links, labels, iframe, content }: ShowcaseProps) => {
+export default ({
+  title,
+  image,
+  links,
+  labels,
+  iframe,
+  content,
+}: ShowcaseProps) => {
   const headingStyles = css`
     display: flex;
     align-items: center;
@@ -40,6 +48,8 @@ export default ({ title, links, labels, iframe, content }: ShowcaseProps) => {
         <Lang tr={title} />
       </Heading2>
       <RelatedLinks links={links} />
+
+      {/* {image ? <Image src={image} /> : null} */}
     </MarkdownPage>
   );
 };

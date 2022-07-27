@@ -1,7 +1,7 @@
 import React from 'react';
-import { Script, ScriptProps } from '../../generate/mod.ts';
+import { assetsDir, Script, ScriptProps } from '../../generate/mod.ts';
 
-const scriptsDir = new URL('../../assets/js/', import.meta.url);
+const scriptsDir = new URL('js/', `file://${assetsDir}/`);
 
 export const frontendScript = (x: string) =>
   Deno.readTextFile(new URL(x, scriptsDir));

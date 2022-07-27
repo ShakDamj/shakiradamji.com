@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container } from '../atoms/Container.tsx';
 import { css } from '../../deps/emotion.ts';
-import { usePageUtils, getPagesRoot, Lang } from '../../generate/mod.ts';
+import { usePageUtils, pagesDir, Lang } from '../../generate/mod.ts';
 import {
   cssAnimationSpeed,
   cssBreakpoint,
@@ -12,8 +12,6 @@ import { ScrollWisle } from '../atoms/ScrollWisle.tsx';
 import { AMatiasQuezada } from '../molecules/AMatiasQuezada.tsx';
 import { ColorSchemeToggle } from '../molecules/ColorSchemeToggle.tsx';
 import { LangSelector } from '../molecules/LangSelector.tsx';
-
-export const root = getPagesRoot();
 
 export interface AmqHeaderProps {
   className?: string;
@@ -121,17 +119,17 @@ export function AmqHeader({
         <Eyes />
 
         <nav className={navStyles}>
-          <Link className={pageLinkStyles} page={`${root}/blog`} isParent>
+          <Link className={pageLinkStyles} page={`${pagesDir}/blog`} isParent>
             Blog
           </Link>
           <Link
             className={`${pageLinkStyles} not-priority`}
-            page={`${root}/projects`}
+            page={`${pagesDir}/projects`}
             isParent
           >
             <Lang en="Projects" es="Proyectos" />
           </Link>
-          <Link className={pageLinkStyles} page={`${root}/career`} isParent>
+          <Link className={pageLinkStyles} page={`${pagesDir}/career`} isParent>
             CV
           </Link>
           <LangSelector className={emojiButtonStyles} />

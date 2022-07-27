@@ -1,14 +1,12 @@
 import React from 'react';
 import { css } from '../../deps/emotion.ts';
-import { getPagesRoot, usePageUtils } from '../../generate/mod.ts';
+import { pagesDir, usePageUtils } from '../../generate/mod.ts';
 import {
   cssAnimationSpeed,
   cssBreakpoint,
   cssColor,
   cssSpace,
 } from '../../theme.ts';
-
-export const root = getPagesRoot();
 
 export function AMatiasQuezada() {
   const { Link } = usePageUtils();
@@ -55,7 +53,7 @@ export function AMatiasQuezada() {
 
   return (
     <h2 className={styles}>
-      <Link className={`${nameStyles} inactive`} page={root}>
+      <Link className={`${nameStyles} inactive`} page={pagesDir}>
         <>
           <span>{'{ '}</span>
           <abbr>Adrian</abbr>

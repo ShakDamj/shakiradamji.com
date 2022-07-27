@@ -5,7 +5,7 @@ export type { PageUtils } from './components/PageUtils.tsx';
 export { RawHtml } from './components/RawHtml.tsx';
 export { Script } from './components/Script.tsx';
 export type { ScriptProps } from './components/Script.tsx';
-export { getPagesRoot } from './pages.ts';
+export { assetsDir, pagesDir } from './paths.ts';
 export type { MarkdownPageMetadata } from './types/MarkdownPageMetadata.ts';
 export type { PageMetadata } from './types/PageMetadata.ts';
 export type { YearMonthDay } from './types/YearMonthDay.ts';

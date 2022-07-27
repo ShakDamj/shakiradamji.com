@@ -38,7 +38,7 @@ Marked.setOptions({
   // renderer: new AMQRenderer(options),
 });
 
-export function isMarkedReady() {
+export function whenMarkedReady() {
   return Promise.all(promises).then(() => null);
 }
 

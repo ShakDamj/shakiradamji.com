@@ -1,18 +1,18 @@
 import { dirname } from 'std/path/mod.ts';
-import { isMarkedReady } from '../deps/markdown.ts';
+import { whenMarkedReady } from '../deps/markdown.ts';
 import { Language } from './components/Lang.tsx';
-import { getPageDestinationOnDisk } from './pages.ts';
 import { isMarkdown } from './processor/isMarkdown.ts';
 import { isTsx } from './processor/isTsx.ts';
 import { renderMd } from './processor/renderMd.ts';
 import { renderTsx } from './processor/renderTsx.tsx';
 import { PageProps } from './types/PageProps.ts';
 import { SitePage } from './types/SitePage.ts';
+import { getPageDestinationOnDisk } from './util/getPageDestinationOnDisk.ts';
 import { getPagesFromDisk } from './util/getPagesFromDisk.ts';
-import { path } from './util/path.ts';
+import { pathRelativeTo } from './util/pathRelativeTo.ts';
 // import { emptyDirectory } from './emptyDirectory.ts';
 
-const { relative } = path('../..', import.meta.url);
+const relative = pathRelativeTo('../..', import.meta.url);
 
 const [sources] = await Promise.all([
   getPagesFromDisk(),
@@ -24,7 +24,7 @@ await Promise.all([
   generate(sources, 'en', '/en'),
   generate(sources, 'es', '/es'),
 ]);
-await isMarkedReady();
+await whenMarkedReady();
 // end HACK
 
 await Promise.all([
