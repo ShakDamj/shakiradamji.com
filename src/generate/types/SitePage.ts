@@ -35,6 +35,6 @@ export class SitePage extends Path {
   }
 
   removeDate() {
-    return new Path(this.toString().replace(/\d{4}-\d{2}-\d{2}/, ''));
+    return new Path(this.toString().replace(/\d{4}-\d{2}-\d{2}-/, ''));
   }
 }
