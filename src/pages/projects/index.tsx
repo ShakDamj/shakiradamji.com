@@ -1,6 +1,10 @@
 import React from 'react';
-import { css } from '../../deps/emotion.ts';
-import { Markdown, PageMetadata, usePageUtils } from '../../generate/mod.ts';
+import {
+  css,
+  Markdown,
+  PageMetadata,
+  usePageUtils,
+} from '../../generate/mod.ts';
 import { Container } from '../../components/atoms/Container.tsx';
 import { AmqDocument } from '../../components/templates/AmqDocument.tsx';
 import { getAllPagesBySection } from '../../util/getAllPagesBySection.ts';

@@ -2,8 +2,12 @@ import React from 'react';
 import { Container } from '../../components/atoms/Container.tsx';
 import { Heading2 } from '../../components/atoms/Heading.tsx';
 import { Time } from '../../components/atoms/Time.tsx';
-import { css } from '../../deps/emotion.ts';
-import { usePageUtils, PageMetadata, Markdown } from '../../generate/mod.ts';
+import {
+  css,
+  usePageUtils,
+  PageMetadata,
+  Markdown,
+} from '../../generate/mod.ts';
 import { ExpandableList } from '../../components/organisms/ExpandableList.tsx';
 import { AmqHeader } from '../../components/organisms/AmqHeader.tsx';
 import { AmqDocument } from '../../components/templates/AmqDocument.tsx';

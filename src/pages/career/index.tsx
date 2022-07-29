@@ -9,8 +9,8 @@ import { TagList } from '../../components/molecules/TagList.tsx';
 import { AmqHeader } from '../../components/organisms/AmqHeader.tsx';
 import { AmqPageList } from '../../components/organisms/AmqPageList.tsx';
 import { AmqDocument } from '../../components/templates/AmqDocument.tsx';
-import { css } from '../../deps/emotion.ts';
 import {
+  css,
   Lang,
   Markdown,
   PageMetadata,

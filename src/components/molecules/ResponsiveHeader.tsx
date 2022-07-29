@@ -1,6 +1,5 @@
 import React from 'react';
-import { css } from '../../deps/emotion.ts';
-import { ValidTr } from '../../generate/mod.ts';
+import { css, ValidTr } from '../../generate/mod.ts';
 import { cssBreakpoint } from '../../theme.ts';
 import { Heading2, Heading3 } from '../atoms/Heading.tsx';
 

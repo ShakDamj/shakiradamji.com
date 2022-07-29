@@ -1,6 +1,5 @@
 import React from 'react';
-import { css } from '../../deps/emotion.ts';
-import { Script, usePageUtils } from '../../generate/mod.ts';
+import { css, Script, usePageUtils } from '../../generate/mod.ts';
 
 export function AmqComments() {
   const { path } = usePageUtils();

@@ -6,7 +6,7 @@ import {
   SlidesIcon,
   VideoIcon,
 } from '../atoms/icons.tsx';
-import { css } from '../../deps/emotion.ts';
+import { css } from '../../generate/mod.ts';
 import { IconLink } from '../atoms/IconLink.tsx';
 import { cssSpace } from '../../theme.ts';
 

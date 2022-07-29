@@ -14,7 +14,7 @@ build:
 		--allow-write=./dist \
 		--lock=lock.json \
 		--allow-net=$(NET_ACCESS) \
-		src/generate/main.ts
+		src/main.ts
 
 
 watch:
@@ -37,7 +37,7 @@ lock:
 		--allow-net=$(NET_ACCESS) \
 		--reload \
 		--lock-write \
-		src/generate/main.ts
+		src/main.ts
 
 
 ci:

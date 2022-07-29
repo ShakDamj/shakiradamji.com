@@ -1,5 +1,5 @@
 import React from 'react';
-import { css } from '../../deps/emotion.ts';
+import { css } from '../../generate/mod.ts';
 import { frontendScript, ScriptWithUtils } from '../atoms/ScriptWithUtils.tsx';
 
 const lightThemeClass = 'light-scheme';

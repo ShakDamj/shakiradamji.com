@@ -3,8 +3,8 @@ import { Heading3 } from '../components/atoms/Heading.tsx';
 import { Time } from '../components/atoms/Time.tsx';
 import { TagList } from '../components/molecules/TagList.tsx';
 import { AmqDocument } from '../components/templates/AmqDocument.tsx';
-import { css } from '../deps/emotion.ts';
 import {
+  css,
   getMarkdownExtract,
   Lang,
   Markdown,

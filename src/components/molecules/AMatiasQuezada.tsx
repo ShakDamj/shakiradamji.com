@@ -1,6 +1,5 @@
 import React from 'react';
-import { css } from '../../deps/emotion.ts';
-import { pagesDir, usePageUtils } from '../../generate/mod.ts';
+import { css, pagesDir, usePageUtils } from '../../generate/mod.ts';
 import {
   cssAnimationSpeed,
   cssBreakpoint,

@@ -1,5 +1,5 @@
 import React from 'react';
-import { css } from '../../deps/emotion.ts';
+import { css } from '../../generate/mod.ts';
 import { cssAnimationFunction, cssAnimationSpeed } from '../../theme.ts';
 
 export interface IconLinkProps {

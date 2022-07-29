@@ -1,4 +1,4 @@
-import { pagesDir, targetDir } from '../paths.ts';
+import { pagesDir, targetDir } from '../config.ts';
 import { Path } from './Path.ts';
 import { SitePath } from './SitePath.ts';
 

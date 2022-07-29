@@ -1,7 +1,6 @@
 import React from 'react';
 import { Container } from '../atoms/Container.tsx';
-import { css } from '../../deps/emotion.ts';
-import { usePageUtils, pagesDir, Lang } from '../../generate/mod.ts';
+import { css, usePageUtils, pagesDir, Lang } from '../../generate/mod.ts';
 import {
   cssAnimationSpeed,
   cssBreakpoint,

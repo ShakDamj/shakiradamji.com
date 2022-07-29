@@ -1,6 +1,5 @@
 import React from 'react';
-import { css } from '../../deps/emotion.ts';
-import { Lang, ValidTr } from '../../generate/mod.ts';
+import { css, Lang, ValidTr } from '../../generate/mod.ts';
 import { cssFontFamily, cssFontSize, cssFontWeight } from '../../theme.ts';
 
 export interface HeadingProps {

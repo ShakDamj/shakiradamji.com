@@ -1,4 +1,4 @@
-import { PageMetadata } from '../mod.ts';
+import { PageMetadata } from '../types/PageMetadata.ts';
 import { getPageMetadata } from './getPageMetadata.ts';
 import { getPagesFromDisk } from './getPagesFromDisk.ts';
 

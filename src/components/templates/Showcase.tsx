@@ -1,5 +1,4 @@
 import React, { IframeHTMLAttributes } from 'react';
-import { css } from '../../deps/emotion.ts';
 import { cssBreakpoint } from '../../theme.ts';
 import { Heading2 } from '../../components/atoms/Heading.tsx';
 import {
@@ -10,7 +9,7 @@ import {
   RelatedLinks,
   RelatedLinksProps,
 } from '../../components/molecules/RelatedLinks.tsx';
-import { Translatable, Lang, useLang, tr } from '../../generate/mod.ts';
+import { css, Translatable, Lang, useLang, tr } from '../../generate/mod.ts';
 
 export interface ShowcaseProps extends MarkdownPageProps {
   image?: string;

@@ -1,6 +1,5 @@
 import React from 'react';
-import { css } from '../../deps/emotion.ts';
-import { Lang, tr, Translatable } from '../../generate/mod.ts';
+import { css, Lang, tr, Translatable } from '../../generate/mod.ts';
 import { cssColor, cssFontFamily, cssSpace } from '../../theme.ts';
 
 interface TagListProps {

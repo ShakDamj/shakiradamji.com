@@ -1,5 +1,5 @@
 import React, { PropsWithChildren } from 'react';
-import { css } from '../../deps/emotion.ts';
+import { css } from '../../generate/mod.ts';
 import { cssBreakpoint } from '../../theme.ts';
 
 export interface ContainerProps {

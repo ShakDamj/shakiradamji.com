@@ -1,6 +1,5 @@
 import React from 'react';
-import { css } from '../../deps/emotion.ts';
-import { Lang, Script } from '../../generate/mod.ts';
+import { css, Lang } from '../../generate/mod.ts';
 import {
   cssAnimationFunction,
   cssAnimationSpeed,

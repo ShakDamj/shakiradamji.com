@@ -1,5 +1,8 @@
 import React from 'react';
-import { assetsDir, Script, ScriptProps } from '../../generate/mod.ts';
+import { Script, ScriptProps } from '../../generate/mod.ts';
+
+// if this is imported from '../../generate/mod.ts' everything breaks
+import { assetsDir } from '../../generate/config.ts';
 
 const scriptsDir = assetsDir.resolve('js/');
 

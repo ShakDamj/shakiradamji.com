@@ -1,4 +1,4 @@
-import { pagesDir } from '../paths.ts';
+import { pagesDir } from '../config.ts';
 import { SitePage } from '../types/SitePage.ts';
 import { getFilesRecursively } from './getFilesRecursively.ts';
 

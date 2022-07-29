@@ -1,6 +1,5 @@
-import React, { useMemo } from 'react';
+import React from 'react';
 import { Time } from '../atoms/Time.tsx';
-import { css } from '../../deps/emotion.ts';
 import {
   cssAnimationSpeed,
   cssBreakpoint,
@@ -9,6 +8,7 @@ import {
 } from '../../theme.ts';
 import { ExpandableList } from '../organisms/ExpandableList.tsx';
 import {
+  css,
   Translatable,
   PageMetadata,
   usePageUtils,

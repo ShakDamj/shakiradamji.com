@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
-import { flushCss } from '../../deps/emotion.ts';
+import { flushCss } from '../deps/emotion.ts';
 import { UtilsProvider } from '../components/PageUtils.tsx';
 import { flushScripts } from '../components/Script.tsx';
 import { PageProps } from '../types/PageProps.ts';

@@ -1,11 +1,11 @@
 import React from 'react';
-import { css } from '../../deps/emotion.ts';
 import { meta as defaultMeta } from '../../components/templates/default.tsx';
 import { Time } from '../../components/atoms/Time.tsx';
 import { Heading2 } from '../../components/atoms/Heading.tsx';
 import { MarkdownPage } from '../../components/templates/MarkdownPage.tsx';
 import { cssFontSize, cssSpace } from '../../theme.ts';
 import {
+  css,
   MarkdownPageMetadata,
   Translatable,
   YearMonthDay,

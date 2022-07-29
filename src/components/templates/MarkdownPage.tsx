@@ -1,7 +1,6 @@
 import React, { PropsWithChildren } from 'react';
 import { Container } from '../atoms/Container.tsx';
-import { css } from '../../deps/emotion.ts';
-import { Translatable, Markdown } from '../../generate/mod.ts';
+import { css, Translatable, Markdown } from '../../generate/mod.ts';
 import { TagList } from '../molecules/TagList.tsx';
 import { AmqHeader } from '../organisms/AmqHeader.tsx';
 import { cssSpace } from '../../theme.ts';

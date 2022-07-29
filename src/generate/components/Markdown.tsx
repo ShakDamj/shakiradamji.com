@@ -1,6 +1,6 @@
 import React from 'react';
-import { css } from '../../deps/emotion.ts';
-import { parseMarkdown } from '../../deps/markdown.ts';
+import { css } from '../deps/emotion.ts';
+import { parseMarkdown } from '../deps/markdown.ts';
 import { cssColor, cssSpace } from '../../theme.ts';
 import { SitePage } from '../types/SitePage.ts';
 import { getMarkdownExtract } from '../util/getMarkdownExtract.ts';

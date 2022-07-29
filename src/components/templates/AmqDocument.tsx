@@ -1,6 +1,5 @@
 import React from 'react';
-import { css } from '../../deps/emotion.ts';
-import { Translatable, useLang, RawHtml, tr } from '../../generate/mod.ts';
+import { css, Translatable, useLang, RawHtml, tr } from '../../generate/mod.ts';
 import { cssDeps, cssGlobal, cssReset } from '../../theme.ts';
 import { PrimaryColorPicker } from '../molecules/PrimaryColorPicker.tsx';
 
