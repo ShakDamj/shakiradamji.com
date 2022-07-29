@@ -1,11 +1,11 @@
 import { parse } from 'std/encoding/yaml.ts';
-import { dirname } from 'std/path/mod.ts';
+import { Path } from '../types/Path.ts';
 import { getMarkdownReferences } from '../util/getMarkdownReferences.ts';
 
-const templatesDir = '../../components/templates';
+const templatesDir = new Path('../../components/templates/', import.meta.url);
 
-export async function readMarkdown(file: string) {
-  const fileContent = await Deno.readTextFile(file);
+export async function readMarkdown(file: Path) {
+  const fileContent = await Deno.readTextFile(`${file}`);
 
   const references = getMarkdownReferences(fileContent);
   const [head, ...parts] = fileContent
@@ -17,9 +17,7 @@ export async function readMarkdown(file: string) {
   const body = parts.map((x) => `${x}\n\n${references}`);
 
   const template = await getTemplatePath(data, file);
-  const templateRelative = new URL(template, import.meta.url).pathname;
-
-  const base = await import(templateRelative);
+  const base = await import(`${template}`);
   const meta = base?.meta || (() => undefined);
 
   return {
@@ -28,22 +26,22 @@ export async function readMarkdown(file: string) {
       ...data,
     },
 
-    template: templateRelative,
+    template,
     content: body,
   };
 }
 
-async function getTemplatePath(data: Record<string, unknown>, file: string) {
-  if (data.template) {
-    return `${templatesDir}/${data.template}`;
+async function getTemplatePath(data: Record<string, unknown>, file: Path) {
+  if (typeof data.template === 'string') {
+    return templatesDir.resolve(data.template);
   }
 
-  const folderTemplate = `${dirname(file)}/_template.tsx`;
-  const stat = await Deno.stat(folderTemplate).catch(() => null);
+  const folderTemplate = file.sibling('_template.tsx');
+  const stat = await Deno.stat(`${folderTemplate}`).catch(() => null);
 
   if (stat?.isFile) {
     return folderTemplate;
   }
 
-  return `${templatesDir}/default.tsx`;
+  return templatesDir.resolve('default.tsx');
 }

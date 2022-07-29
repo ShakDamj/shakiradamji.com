@@ -43,7 +43,7 @@ export default (props: PageMetadata) => {
       <Container>
         <ExpandableList list={projects} listClassName={listStyles}>
           {(item) => (
-            <li key={item.file}>
+            <li key={item.id}>
               <Heading3 className={headerStyles}>
                 <Link page={item.file}>{item.title}</Link>
               </Heading3>

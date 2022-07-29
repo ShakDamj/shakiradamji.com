@@ -4,21 +4,36 @@ import { flushCss } from '../../deps/emotion.ts';
 import { UtilsProvider } from '../components/PageUtils.tsx';
 import { flushScripts } from '../components/Script.tsx';
 import { PageProps } from '../types/PageProps.ts';
+import { Path } from '../types/Path.ts';
+import { SitePage } from '../types/SitePage.ts';
 
 // HACK: this is necessary for emotion to work
 // deno-lint-ignore no-explicit-any
 (globalThis as any).document = undefined;
 
 export async function renderTsx<P extends PageProps>(
-  file: string,
+  source: SitePage,
+  props: P
+): Promise<string>;
+export async function renderTsx<P extends PageProps>(
+  source: Path,
+  props: P,
+  pageOverride: SitePage
+): Promise<string>;
+export async function renderTsx<P extends PageProps>(
+  source: Path | SitePage,
   { lang, path, ...props }: P,
-  filePath?: string
+  pageOverride?: SitePage
 ) {
-  const mod = await import(file);
-  const Page = validateModule(file, mod);
+  const mod = await import(`${source}`);
+  const Page = validateModule(source, mod);
 
   const html = renderToStaticMarkup(
-    <UtilsProvider page={filePath || file} root={path} lang={lang}>
+    <UtilsProvider
+      page={(pageOverride || source) as SitePage}
+      root={path}
+      lang={lang}
+    >
       <Page {...props} />
     </UtilsProvider>
   );
@@ -28,7 +43,7 @@ export async function renderTsx<P extends PageProps>(
 
 // deno-lint-ignore no-explicit-any
 function validateModule<T extends { default: FunctionComponent<any> }>(
-  file: string,
+  file: Path,
   module: T
 ) {
   const Page = module.default;

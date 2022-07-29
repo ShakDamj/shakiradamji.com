@@ -83,7 +83,7 @@ export function PrimaryColorPicker() {
         <Lang en="Change the main color!" es="Cambia el color principal!" />
       </p>
 
-      <ScriptWithUtils once asap>
+      <ScriptWithUtils asap>
         {noindent`
           const getExternalLinkBackground = ${getExternalLinkBackground};
           ${loadPrimaryColor}

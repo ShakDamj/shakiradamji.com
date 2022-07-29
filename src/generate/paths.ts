@@ -1,7 +1,8 @@
-import { pathAbsoluteFrom } from './util/pathAbsoluteFrom.ts';
+import { Path } from './types/Path.ts';
+import { SitePage } from './types/SitePage.ts';
 
-const root = pathAbsoluteFrom('../..', import.meta.url);
+export const rootDir = new Path('../..', import.meta.url);
 
-export const assetsDir = root('./assets');
-export const pagesDir = root('./src/pages');
-export const targetDir = root('./dist');
+export const assetsDir = rootDir.resolve('./assets/');
+export const pagesDir = SitePage.from(rootDir.resolve('./src/pages/'));
+export const targetDir = rootDir.resolve('./dist/');

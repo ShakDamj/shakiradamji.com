@@ -1,6 +1,5 @@
-import { extname } from 'std/path/mod.ts';
+import { Path } from '../types/Path.ts';
 
-export function isMarkdown(file: string) {
-  const extension = extname(file);
+export function isMarkdown({ extension }: Path) {
   return extension === '.md';
 }

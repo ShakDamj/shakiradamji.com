@@ -2,6 +2,7 @@ import React from 'react';
 import { css } from '../../deps/emotion.ts';
 import { parseMarkdown } from '../../deps/markdown.ts';
 import { cssColor, cssSpace } from '../../theme.ts';
+import { SitePage } from '../types/SitePage.ts';
 import { getMarkdownExtract } from '../util/getMarkdownExtract.ts';
 import { highlightTheme } from '../util/highlightTheme.ts';
 import { Lang, tr, Translatable, useLang } from './Lang.tsx';
@@ -18,7 +19,7 @@ const blockRules = [
 
 export interface MarkdownProps {
   className?: string;
-  readMore?: string;
+  readMore?: SitePage;
   children: Translatable;
 }
 

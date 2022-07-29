@@ -93,7 +93,7 @@ export default (props: PageMetadata) => {
 
         <ol>
           {career.map((item, index) => (
-            <li key={item.file} className={itemStyles}>
+            <li key={item.id} className={itemStyles}>
               <details
                 open={index < SHOW_OPEN_ONLY_TOP}
                 className={detailStyles}

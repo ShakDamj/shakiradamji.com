@@ -45,7 +45,7 @@ export function highlightTheme() {
 }
 
 /*
-    .shj-numbers{padding-left:5px;counter-reset:line}
-    .shj-numbers div{padding-right:5px}
-    .shj-numbers div:before{color:#999;display:block;content:counter(line);opacity:.5;text-align:right;margin-right:5px;counter-increment:line}
-    */
+.shj-numbers{padding-left:5px;counter-reset:line}
+.shj-numbers div{padding-right:5px}
+.shj-numbers div:before{color:#999;display:block;content:counter(line);opacity:.5;text-align:right;margin-right:5px;counter-increment:line}
+*/

@@ -1,5 +1,6 @@
 export * from './components/Lang.tsx';
 export { Markdown } from './components/Markdown.tsx';
+export type { MarkdownProps } from './components/Markdown.tsx';
 export { usePageUtils } from './components/PageUtils.tsx';
 export type { PageUtils } from './components/PageUtils.tsx';
 export { RawHtml } from './components/RawHtml.tsx';
@@ -8,6 +9,7 @@ export type { ScriptProps } from './components/Script.tsx';
 export { assetsDir, pagesDir } from './paths.ts';
 export type { MarkdownPageMetadata } from './types/MarkdownPageMetadata.ts';
 export type { PageMetadata } from './types/PageMetadata.ts';
+export { SitePage } from './types/SitePage.ts';
 export type { YearMonthDay } from './types/YearMonthDay.ts';
 export { getAllPages } from './util/getAllPages.ts';
 export { getMarkdownExtract } from './util/getMarkdownExtract.ts';

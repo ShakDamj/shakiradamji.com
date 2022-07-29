@@ -119,17 +119,25 @@ export function AmqHeader({
         <Eyes />
 
         <nav className={navStyles}>
-          <Link className={pageLinkStyles} page={`${pagesDir}/blog`} isParent>
+          <Link
+            className={pageLinkStyles}
+            page={pagesDir.resolve('blog')}
+            isParent
+          >
             Blog
           </Link>
           <Link
             className={`${pageLinkStyles} not-priority`}
-            page={`${pagesDir}/projects`}
+            page={pagesDir.resolve('projects')}
             isParent
           >
             <Lang en="Projects" es="Proyectos" />
           </Link>
-          <Link className={pageLinkStyles} page={`${pagesDir}/career`} isParent>
+          <Link
+            className={pageLinkStyles}
+            page={pagesDir.resolve('career')}
+            isParent
+          >
             CV
           </Link>
           <LangSelector className={emojiButtonStyles} />

@@ -1,18 +1,15 @@
-import { dirname } from 'std/path/mod.ts';
 import { whenMarkedReady } from '../deps/markdown.ts';
 import { Language } from './components/Lang.tsx';
+import { rootDir } from './paths.ts';
 import { isMarkdown } from './processor/isMarkdown.ts';
 import { isTsx } from './processor/isTsx.ts';
 import { renderMd } from './processor/renderMd.ts';
 import { renderTsx } from './processor/renderTsx.tsx';
 import { PageProps } from './types/PageProps.ts';
+import { Path } from './types/Path.ts';
 import { SitePage } from './types/SitePage.ts';
-import { getPageDestinationOnDisk } from './util/getPageDestinationOnDisk.ts';
 import { getPagesFromDisk } from './util/getPagesFromDisk.ts';
-import { pathRelativeTo } from './util/pathRelativeTo.ts';
 // import { emptyDirectory } from './emptyDirectory.ts';
-
-const relative = pathRelativeTo('../..', import.meta.url);
 
 const [sources] = await Promise.all([
   getPagesFromDisk(),
@@ -37,16 +34,20 @@ console.log('Done');
 
 // EXECUTION END
 
-async function generate(sources: SitePage[], lang: Language, path = '') {
+async function generate(sources: SitePage[], lang: Language, root = '/') {
+  const path = new Path(root);
   const props = { lang, path } as PageProps;
   const perf: PagePerf[] = [];
 
   for (const file of sources) {
-    // console.log(`Processing ${relative(file)} => ${relative(dest)}`);
+    const dest = file.getDestinationOnDisk(path);
+
+    // console.log(
+    //   `Processing ${file.relativeTo(rootDir)} => ${dest.relativeTo(rootDir)}`
+    // );
 
     const start = performance.now();
     const html = await processInputFile(file, props);
-    const dest = getPageDestinationOnDisk(file, path);
     const generated = performance.now();
 
     await generateDirectoryStructure(dest);
@@ -60,7 +61,7 @@ async function generate(sources: SitePage[], lang: Language, path = '') {
   report(sources, perf);
 }
 
-function processInputFile(file: string, props: PageProps) {
+function processInputFile(file: SitePage, props: PageProps) {
   if (isTsx(file)) {
     return renderTsx(file, props);
   }
@@ -69,15 +70,15 @@ function processInputFile(file: string, props: PageProps) {
     return renderMd(file, props);
   }
 
-  throw new Error(`Unkown handler for ${relative(file)}`);
+  throw new Error(`Unkown handler for ${file.relativeTo(rootDir)}`);
 }
 
-function generateDirectoryStructure(dest: string) {
-  return Deno.mkdir(dirname(dest), { recursive: true });
+function generateDirectoryStructure(dest: Path) {
+  return Deno.mkdir(`${dest.parent}`, { recursive: true });
 }
 
-function writeResultToDisk(dest: string, html: string) {
-  return Deno.writeTextFile(dest, html);
+function writeResultToDisk(dest: Path, html: string) {
+  return Deno.writeTextFile(`${dest}`, html);
 }
 
 function report(sources: SitePage[], perf: PagePerf[]) {
@@ -88,15 +89,10 @@ function report(sources: SitePage[], perf: PagePerf[]) {
     `${x}${unit} (${Math.round(x / sources.length)}${unit}/page)`;
 
   const total = sum((x) => x.end - x.start);
-  // const generated = sum((x) => x.generated - x.start);
-  // const write = sum((x) => x.end - x.generated);
   const size = sum((x) => x.size);
   const kb = print(Math.round(size / 1000), 'Kb');
 
-  console.log(
-    `Processed ${sources.length} pages of ${kb} in ${print(total)}`
-    // | G ${print(generated)} | W ${print(write)}`
-  );
+  console.log(`Processed ${sources.length} pages of ${kb} in ${print(total)}`);
 }
 
 interface PagePerf {

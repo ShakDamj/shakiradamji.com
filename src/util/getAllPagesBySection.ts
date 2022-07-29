@@ -24,7 +24,7 @@ function groupPagesBySection(pages: PageMetadata[]): {
   const unpinned = pages.filter((x) => !x.pinned);
 
   for (const page of [...pinned, ...unpinned]) {
-    const [, section] = page.path.split('/');
+    const [, section] = `${page.path}`.split('/');
 
     if (page.file.endsWith('index.tsx')) {
       continue;

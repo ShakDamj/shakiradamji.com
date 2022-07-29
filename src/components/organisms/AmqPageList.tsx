@@ -62,7 +62,7 @@ export function AmqPageList({ className = '', name, list }: AmqPageListProps) {
     <div className={`${styles} ${className}`}>
       <ExpandableList title={name} list={list} hideAfter={5}>
         {(item) => (
-          <li key={item.file} className={listItemStyles}>
+          <li key={item.id} className={listItemStyles}>
             <Time className={timeStyles} value={item.date} omitDay />
             <Link className={linkStyles} page={item.file}>
               {item.title}

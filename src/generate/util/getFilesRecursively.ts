@@ -1,9 +1,11 @@
-export async function getFilesRecursively(currentPath: string, base?: string) {
-  const root = base ? new URL(currentPath, base).pathname : currentPath;
-  const names: string[] = [];
+import { Path } from '../types/Path.ts';
 
-  for await (const dirEntry of Deno.readDir(root)) {
-    const entryPath = `${root}/${dirEntry.name}`;
+export async function getFilesRecursively(path: Path) {
+  const names: Path[] = [];
+  const dir = path.asDirectory();
+
+  for await (const dirEntry of Deno.readDir(`${path}`)) {
+    const entryPath = dir.resolve(dirEntry.name);
 
     if (dirEntry.isDirectory) {
       names.push(...(await getFilesRecursively(entryPath)).sort());

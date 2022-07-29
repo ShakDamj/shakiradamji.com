@@ -4,18 +4,17 @@ import { Time } from '../components/atoms/Time.tsx';
 import { TagList } from '../components/molecules/TagList.tsx';
 import { AmqDocument } from '../components/templates/AmqDocument.tsx';
 import { css } from '../deps/emotion.ts';
-import { MarkdownProps } from '../generate/components/Markdown.tsx';
 import {
   getMarkdownExtract,
   Lang,
   Markdown,
   MarkdownPageMetadata,
+  MarkdownProps,
   PageMetadata,
   Script,
   tr,
   Translatable,
   useLang,
-  usePageUtils,
 } from '../generate/mod.ts';
 import { findPageByTitle } from '../util/findPageByTitle.ts';
 import { getAllPagesBySection } from '../util/getAllPagesBySection.ts';
@@ -33,8 +32,6 @@ const quadtree = await findPageByTitle<MarkdownPageMetadata>('quadtree');
 const pensieve = await findPageByTitle<MarkdownPageMetadata>('pensieve');
 
 export default (props: PageMetadata) => {
-  const { getUrl } = usePageUtils();
-
   const styles = css`
     --color-primary: #00e;
     --color-foreground: #111;
@@ -99,7 +96,7 @@ export default (props: PageMetadata) => {
 
       <ol>
         {career.map((item, index) => (
-          <li key={item.file} data-block>
+          <li key={item.id} data-block>
             <details
               open
               data-relevant={index < RELEVANT_FIRST ? true : undefined}
@@ -130,12 +127,12 @@ export default (props: PageMetadata) => {
           # Personal projects
 
           ### Quadtree
-          https://amatiasq.com${getUrl(quadtree.file)}
+          https://amatiasq.com${quadtree.file.getPublishedPath()}
 
           ${getMarkdownExtract(tr(quadtree.content, 'en'))}
 
           ### Pensieve
-          https://amatiasq.com${getUrl(pensieve.file)}
+          https://amatiasq.com${pensieve.file.getPublishedPath()}
 
           ${getMarkdownExtract(tr(pensieve.content, 'en'))}
 
@@ -146,12 +143,12 @@ export default (props: PageMetadata) => {
           # Proyectos personales
 
           ### Quadtree
-          https://amatiasq.com/es${getUrl(quadtree.file)}
+          https://amatiasq.com/es${quadtree.file.getPublishedPath()}
 
           ${getMarkdownExtract(tr(quadtree.content, 'es'))}
 
           ### Pensieve
-          https://amatiasq.com/es${getUrl(pensieve.file)}
+          https://amatiasq.com/es${pensieve.file.getPublishedPath()}
 
           ${getMarkdownExtract(tr(pensieve.content, 'es'))}
 

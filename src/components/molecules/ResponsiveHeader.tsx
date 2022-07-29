@@ -1,4 +1,4 @@
-import React, { PropsWithChildren, ReactNode } from 'react';
+import React from 'react';
 import { css } from '../../deps/emotion.ts';
 import { ValidTr } from '../../generate/mod.ts';
 import { cssBreakpoint } from '../../theme.ts';

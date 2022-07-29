@@ -19,7 +19,7 @@ export function ScrollWisle({
 }: ScrollWisleProps & Record<string, unknown>) {
   return (
     <>
-      <ScriptWithUtils once>{scrollWisle}</ScriptWithUtils>
+      <ScriptWithUtils>{scrollWisle}</ScriptWithUtils>
       {React.createElement(_as, {
         ...props,
         'data-scrollclass': scrollClass,

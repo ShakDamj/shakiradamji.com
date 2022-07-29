@@ -1,6 +1,5 @@
-import { extname } from 'std/path/mod.ts';
+import { Path } from '../types/Path.ts';
 
-export function isTsx(file: string) {
-  const extension = extname(file);
+export function isTsx({ extension }: Path) {
   return extension === '.ts' || extension === '.tsx';
 }

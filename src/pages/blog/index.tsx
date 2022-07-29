@@ -57,7 +57,7 @@ export default (props: PageMetadata) => {
       <Container>
         <ExpandableList list={posts}>
           {(item) => (
-            <li key={item.file} className={itemStyles}>
+            <li key={item.id} className={itemStyles}>
               <ResponsiveHeader as={Heading2} className={headerStyles}>
                 <Link page={item.file}>{item.title}</Link>
                 <Time value={item.published} />

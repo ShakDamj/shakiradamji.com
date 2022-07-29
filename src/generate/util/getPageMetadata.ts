@@ -1,18 +1,17 @@
-import { basename } from 'std/path/mod.ts';
 import { isMarkdown } from '../processor/isMarkdown.ts';
 import { readMarkdown } from '../processor/readMarkdown.ts';
 import { PageMetadata } from '../types/PageMetadata.ts';
 import { SitePage } from '../types/SitePage.ts';
 import { YearMonthDay } from '../types/YearMonthDay.ts';
-import { getPagePath } from './getPagePath.ts';
 import { getPageTitle } from './getPageTitle.ts';
 
 export async function getPageMetadata(page: SitePage): Promise<PageMetadata> {
   const base: Omit<PageMetadata, 'type'> = {
+    id: `${page}`,
     file: page,
-    path: getPagePath(page),
+    path: page.getPublishedPath(),
     title: getPageTitle(page),
-    date: getDateFrom(basename(page)),
+    date: getDateFrom(page.basename),
   };
 
   if (isMarkdown(page)) {
@@ -29,7 +28,7 @@ export async function getPageMetadata(page: SitePage): Promise<PageMetadata> {
   return { type: 'tsx', ...base };
 }
 
-export function getDateFrom(text: string) {
+function getDateFrom(text: string) {
   const match = text.match(/^\d{4}(-\d{2}){0,2}/);
   return match && (match[0] as YearMonthDay);
 }
