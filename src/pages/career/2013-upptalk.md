@@ -16,9 +16,9 @@ labels:
   - VOIP
 ---
 
-Solo Development of a VOIP client with video call using latest technologies as WebSockets for communication with the server, WebRTC for communication between clients, AngularJS for the frontend layer and NodeJS as backend.
+Solo Development of a VOIP client with video call using the latest technologies such as WebSockets for communication with the server, WebRTC for communication between clients, AngularJS for the frontend layer and NodeJS as backend.
 
-Work close to UX team and NodeJS team to manage the project with Scrum.
+Work closely with the UX team and NodeJS team to manage the project with Scrum.
 
 ---
 
