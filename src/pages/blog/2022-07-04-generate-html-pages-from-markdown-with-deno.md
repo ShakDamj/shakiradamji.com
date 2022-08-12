@@ -58,7 +58,7 @@ console.log(html);
 
 ```tsx
 // main.tsx
-import React from 'https://esm.sh/react@18.2.0'
+import React from 'https://esm.sh/react@18.2.0';
 import { renderToStaticMarkup } from 'https://esm.sh/react-dom@18.2.0/server';
 
 // we read arguments
@@ -67,8 +67,8 @@ const [input, output] = Deno.args;
 // input/output may be relative to current working directory
 const cwd = `file://${Deno.cwd()}/`;
 
-const input_fullpath = new URL(input, cwd).pathname
-const output_fullpath = new URL(output, cwd).pathname
+const input_fullpath = new URL(input, cwd).pathname;
+const output_fullpath = new URL(output, cwd).pathname;
 
 // Import .tsx file containing the page
 const inputModule = await import(input_fullpath);
@@ -76,6 +76,7 @@ const Page = inputModule.default;
 
 const html = renderToStaticMarkup(<Page randomProp="yay" />);
 
+// Write generated HTML to disk
 await Deno.writeTextFile(output_fullpath, html);
 ```
 
@@ -97,7 +98,7 @@ deno run \
 
 Permissions explained:
 
-- `--allow-read=.` allows the script to read the folder I'm currenly at: `.`
+- `--allow-read=.` Deno allows the script to read the folder I'm currenly at: `.`
 - `--allow-write=.` same as above, it only needs input/output access each but `.` is enough most of the time
 - `--allow-net=https://esm.sh` requires access to esm.sh to download dependencies: `react` and `react-dom`
 - `./main.tsx` that's not a permission, that's the name of the file we created above!
@@ -123,11 +124,13 @@ export async function getFilesRecursively(currentPath: string) {
 }
 ```
 
-I'm sure that's part of `esm.sh/std` somewhere. Now let's update the `main.tsx` we created above:
+I'm sure that's part of `esm.sh/std` somewhere...
+
+Now let's update the `main.tsx` we created above:
 
 ```tsx
 // main.tsx
-import React from 'https://esm.sh/react@18.2.0'
+import React from 'https://esm.sh/react@18.2.0';
 import { renderToStaticMarkup } from 'https://esm.sh/react-dom@18.2.0/server';
 
 // Import function to get the name of the directory of a file
@@ -136,14 +139,15 @@ import { dirname } from 'https://deno.land/std@0.143.0/path/mod.ts';
 const [input, output] = Deno.args;
 
 // quick helper function is there something in the deno.land/std like this?
-const relativeToCwd = (target: string) => new URL(target, `file://${Deno.cwd()}/`);
+const relativeToCwd = (target: string) =>
+  new URL(target, `file://${Deno.cwd()}/`);
 
-const input_dir = relativeToCwd(Deno.args[0]);
-const output_dir = relativeToCwd(Deno.args[1]);
+const input_dir = relativeToCwd(input);
+const output_dir = relativeToCwd(output);
 
 for (const file of await getFilesRecursively(input_dir)) {
   // Import .tsx file containing the page
-  const inputModule = await import(input_fullpath);
+  const inputModule = await import(file);
   const Page = inputModule.default;
 
   const html = renderToStaticMarkup(<Page randomProp="yay" />);
@@ -169,11 +173,11 @@ At times you may find it useful to remove the output directory before you start 
 try {
   // This fuction does throw an error even with `{ recursive: true }` which kind of makes sense
   await Deno.remove(output, { recursive: true });
-// deno-lint-ignore no-empty
+  // deno-lint-ignore no-empty
 } catch {}
 ```
 
-From this you can start creating your site with JS knowing no JS will be rendered in the browser.
+From this you can start creating your site with JS knowing no JS will be executed in the browser.
 
 ```tsx
 // input/index.tsx
@@ -219,11 +223,14 @@ And that would generate a file like this:
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My website!</title>
     <style>
-      .body { margin: 0 }
+      .body {
+        margin: 0;
+      }
     </style>
   </head>
   <body>
-    <p>This is my index!<p>
+    <p>This is my index!</p>
+    <p></p>
   </body>
 </html>
 ```
@@ -293,7 +300,7 @@ console.log(html);
 
 ```ts
 // main.tsx
-import React from 'https://esm.sh/react@18.2.0'
+import React from 'https://esm.sh/react@18.2.0';
 import { renderToStaticMarkup } from 'https://esm.sh/react-dom@18.2.0/server';
 
 // leemos los argumentos
@@ -302,8 +309,8 @@ const [input, output] = Deno.args;
 // input/output pueden ser relativos al directorio de trabajo del usuario
 const cwd = `file://${Deno.cwd()}/`;
 
-const input_fullpath = new URL(input, cwd).pathname
-const output_fullpath = new URL(output, cwd).pathname
+const input_fullpath = new URL(input, cwd).pathname;
+const output_fullpath = new URL(output, cwd).pathname;
 
 // Importar el archivo .tsx que contiene la página
 const inputModule = await import(input_fullpath);
@@ -311,6 +318,7 @@ const Page = inputModule.default;
 
 const html = renderToStaticMarkup(<Page randomProp="yay" />);
 
+// Escribimos el HTML generado a disco
 await Deno.writeTextFile(output_fullpath, html);
 ```
 
@@ -332,7 +340,7 @@ deno run \
 
 Permisos explicados:
 
-- `--allow-read=.` permite que el script lea la carpeta en la que estamos: `.`
+- `--allow-read=.` Deno permite que el script lea la carpeta en la que estamos: `.`
 - `--allow-write=.` lo mismo que arriba, solo se necesita acceso a `input`/`output` pero `.` es suficiente la mayoría de las veces
 - `--allow-net=https://esm.sh` requiere acceso a esm.sh para descargar las dependencias: `react` and `react-dom`
 - `./main.tsx` esto no es un permiso, es el nombre del archivo que creamos allá arriba!
@@ -359,11 +367,13 @@ export async function getFilesRecursively(currentPath: string) {
 }
 ```
 
-Estoy seguro que algo así es parte de `esm.sh/std` por algún lado. Ahora vamos a actualizar el `main.tsx` que creamos arriba:
+Estoy seguro que algo así es parte de `esm.sh/std` por algún lado...
+
+Ahora vamos a actualizar el `main.tsx` que creamos arriba:
 
 ```ts
 // main.tsx
-import React from 'https://esm.sh/react@18.2.0'
+import React from 'https://esm.sh/react@18.2.0';
 import { renderToStaticMarkup } from 'https://esm.sh/react-dom@18.2.0/server';
 
 // Importamos una función para obtener el nombre del directorio de un archivo
@@ -372,14 +382,15 @@ import { dirname } from 'https://deno.land/std@0.143.0/path/mod.ts';
 const [input, output] = Deno.args;
 
 // función auxiliar, hay algo en deno.land/std como esto?
-const relativeToCwd = (target: string) => new URL(target, `file://${Deno.cwd()}/`);
+const relativeToCwd = (target: string) =>
+  new URL(target, `file://${Deno.cwd()}/`);
 
-const input_dir = relativeToCwd(Deno.args[0]);
-const output_dir = relativeToCwd(Deno.args[1]);
+const input_dir = relativeToCwd(input);
+const output_dir = relativeToCwd(output);
 
 for (const file of await getFilesRecursively(input_dir)) {
   // Importar el archivo .tsx que contiene la página
-  const inputModule = await import(input_fullpath);
+  const inputModule = await import(file);
   const Page = inputModule.default;
 
   const html = renderToStaticMarkup(<Page randomProp="yay" />);
@@ -409,7 +420,7 @@ try {
 } catch {}
 ```
 
-From this you can start creating your site with JS knowing no JS will be rendered in the browser.
+A partir de aquí puedes empezar a crear tu sitio con JS sabiendo que nada de JS se ejecutará en el navegador
 
 ```ts
 // input/index.tsx
@@ -455,11 +466,14 @@ Y generaría un archivo como este:
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mi sitio web!</title>
     <style>
-      .body { margin: 0 }
+      .body {
+        margin: 0;
+      }
     </style>
   </head>
   <body>
-    <p>Este es mi índice!<p>
+    <p>Este es mi índice!</p>
+    <p></p>
   </body>
 </html>
 ```
@@ -470,6 +484,6 @@ Si, exacto, gracias por darte cuenta. Ahora tenemos componentes y podemos crear 
 
 Otras cosas que aprendí sobre la marcha y me encantaría escribir al respecto:
 
-- Import maps (con o sin barra? AMBOS! y verión completa!)
+- Import maps (con o sin barra? AMBOS! y con versión completa!)
   - `/deps/some-dependency.ts` porqué aún lo encuentro útil
   - El infierno del archivo `lock.json` de Deno (y porqué existe)
