@@ -27,11 +27,11 @@ That means...
 - CSS / JS embeded directly into HTML
 - only necessary CSS / JS is included
 
-And... I need to try [Deno], it looks amazing, it sounds amazing and you know you'll find issues when you start using it but what may those be?
+And... I need to try [Deno][1], it looks amazing, it sounds amazing and you know you'll find issues when you start using it but what may those be?
 
 Here's the trip to generate HTML pages from TSX with Deno:
 
-- You have [Deno] installed
+- You have [Deno][2] installed
 - Create .tsx file
 - import `React` from `https://esm.sh/react`
 - import `{ renderToStaticMarkup }` from `https://esm.sh/react-dom/server`;
@@ -269,11 +269,11 @@ Eso significa...
 - CSS / JS embebido directamente en el HTML
 - solo el CSS / JS necesario se incluye
 
-Y... necesito probar [Deno], parece genial, suena genial y sabes que encontrarás problemas cuando empieces a usarlo pero cuáles podrán ser?
+Y... necesito probar [Deno][1], parece genial, suena genial y sabes que encontrarás problemas cuando empieces a usarlo pero cuáles podrán ser?
 
 Aquí está el camino para generar páginas HTML desde TSX con Deno:
 
-- Tienes [Deno] instalado
+- Tienes [Deno][2] instalado
 - Crea un archivo `.tsx`
 - importar `React` de `https://esm.sh/react`
 - importar `{ renderToStaticMarkup }` de `https://esm.sh/react-dom/server`;
@@ -487,3 +487,6 @@ Otras cosas que aprendí sobre la marcha y me encantaría escribir al respecto:
 - Import maps (con o sin barra? AMBOS! y con versión completa!)
   - `/deps/some-dependency.ts` porqué aún lo encuentro útil
   - El infierno del archivo `lock.json` de Deno (y porqué existe)
+
+[1]: https://deno.land/
+[2]: https://deno.land/#installation

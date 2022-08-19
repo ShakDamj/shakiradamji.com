@@ -5,6 +5,8 @@ title:
 
 links:
   live: https://repos.amatiasq.com/pose-video
+
+pinned: true
 ---
 
 Flacky pose detection via webcam. Requires camera permissions.
