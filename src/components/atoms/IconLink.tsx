@@ -4,15 +4,11 @@ import { cssAnimationFunction, cssAnimationSpeed } from '../../theme.ts';
 
 export interface IconLinkProps {
   className?: string;
-  href: string | null | undefined;
+  href: string;
   icon: JSX.Element;
 }
 
 export function IconLink({ className, href, icon }: IconLinkProps) {
-  if (!href) {
-    return null;
-  }
-
   const styles = css`
     --icon-size: 2rem;
 

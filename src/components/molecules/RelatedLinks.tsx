@@ -13,11 +13,11 @@ import { cssSpace } from '../../theme.ts';
 export interface RelatedLinksProps {
   className?: string;
   links?: {
-    github?: string;
-    live?: string;
-    tests?: string;
-    video?: string;
-    slides?: string;
+    github?: string | string[];
+    live?: string | string[];
+    tests?: string | string[];
+    video?: string | string[];
+    slides?: string | string[];
   };
 }
 
@@ -33,11 +33,24 @@ export function RelatedLinks({ className = '', links }: RelatedLinksProps) {
 
   return (
     <nav className={`${className} ${styles}`}>
-      <IconLink href={links.github} icon={<GithubIcon title="Code" />} />
-      <IconLink href={links.tests} icon={<FlaskIcon title="Tests" />} />
-      <IconLink href={links.video} icon={<VideoIcon title="Video" />} />
-      <IconLink href={links.slides} icon={<SlidesIcon title="Slides" />} />
-      <IconLink href={links.live} icon={<PlayIcon title="Demo" />} />
+      {printLinks(links.live, <PlayIcon title="Open" />)}
+      {printLinks(links.github, <GithubIcon title="Code" />)}
+      {printLinks(links.tests, <FlaskIcon title="Tests" />)}
+      {printLinks(links.video, <VideoIcon title="Video" />)}
+      {printLinks(links.slides, <SlidesIcon title="Slides" />)}
     </nav>
   );
+}
+
+function printLinks(
+  value: null | undefined | string | string[],
+  icon: JSX.Element
+) {
+  if (!value) return null;
+
+  if (!Array.isArray(value)) {
+    return <IconLink href={value} icon={icon} />;
+  }
+
+  return value.map((x) => <IconLink key={x} href={x} icon={icon} />);
 }
