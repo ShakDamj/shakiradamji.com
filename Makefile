@@ -6,7 +6,12 @@ all: build
 	make -j 2 watch start-server
 
 
-build:
+copy-assets:
+	@echo "Copying assets..."
+	@cp -r ./assets/img ./dist
+
+
+build: copy-assets
 	@echo "Building..."
 	deno run \
 		--import-map=import-map.json \

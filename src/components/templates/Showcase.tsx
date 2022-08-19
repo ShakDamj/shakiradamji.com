@@ -9,22 +9,21 @@ import {
   RelatedLinks,
   RelatedLinksProps,
 } from '../../components/molecules/RelatedLinks.tsx';
-import { css, Translatable, Lang, useLang, tr } from '../../generate/mod.ts';
+import {
+  css,
+  Translatable,
+  Lang,
+  useLang,
+  tr,
+  Img,
+} from '../../generate/mod.ts';
 
 export interface ShowcaseProps extends MarkdownPageProps {
-  image?: string;
   links?: RelatedLinksProps['links'];
   iframe?: (IframeHTMLAttributes<unknown> & { src: Translatable }) | true;
 }
 
-export default ({
-  title,
-  image,
-  links,
-  labels,
-  iframe,
-  content,
-}: ShowcaseProps) => {
+export default ({ title, links, iframe, ...mdProps }: ShowcaseProps) => {
   const headingStyles = css`
     display: flex;
     align-items: center;
@@ -36,19 +35,18 @@ export default ({
     }
   `;
 
+  const live = links?.live;
+
   return (
     <MarkdownPage
       title={title}
-      labels={labels}
-      content={content}
-      footer={getFooter(iframe, links?.live)}
+      footer={getFooter(iframe, Array.isArray(live) ? live[0] : live)}
+      {...mdProps}
     >
       <Heading2 className={headingStyles}>
         <Lang tr={title} />
       </Heading2>
       <RelatedLinks links={links} />
-
-      {/* {image ? <Image src={image} /> : null} */}
     </MarkdownPage>
   );
 };

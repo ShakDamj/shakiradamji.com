@@ -1,3 +1,5 @@
+export { Img, setImgRoot } from './components/Img.tsx';
+export type { ImgProps } from './components/Img.tsx';
 export * from './components/Lang.tsx';
 export { Markdown } from './components/Markdown.tsx';
 export type { MarkdownProps } from './components/Markdown.tsx';
