@@ -4,6 +4,7 @@ import { AmqHeader } from '../components/organisms/AmqHeader.tsx';
 import { AmqPageList } from '../components/organisms/AmqPageList.tsx';
 import { Container } from '../components/atoms/Container.tsx';
 import { getAllPagesBySection } from '../util/getAllPagesBySection.ts';
+import { Img } from "../generate/mod.ts";
 
 const sections = await getAllPagesBySection();
 
@@ -11,33 +12,11 @@ const sections = await getAllPagesBySection();
 export default (props: any) => {
   return (
     <AmqDocument {...props}>
-      <AmqHeader />
 
-      <Container>
-        {/* <p>Welcome to my corner of the internet.</p> */}
+<AmqHeader></AmqHeader>
 
-        <AmqPageList name="✍️  Blog" list={sections.blog} />
-
-        <AmqPageList
-          name={{ en: '👨‍💻  CV', es: '👨‍💻  Experiencia' }}
-          list={sections.career}
-        />
-
-        <AmqPageList
-          name={{ en: '🐹  Projects', es: '🐹  Proyectos' }}
-          list={sections.projects}
-        />
-
-        <AmqPageList
-          name={{ en: '🧪  Experiments', es: '🧪  Experimentos' }}
-          list={sections.experiments}
-        />
-
-        <AmqPageList
-          name={{ en: '💬  Talks', es: '💬  Charlas' }}
-          list={sections.talks}
-        />
-      </Container>
+ <p>A description about Shakira goes here...</p>
+ <Img src="pensieve.png" alt={""}/>
     </AmqDocument>
   );
 };
