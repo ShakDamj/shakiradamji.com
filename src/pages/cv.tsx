@@ -28,9 +28,6 @@ const { career } = pages;
 
 const RELEVANT_FIRST = 3;
 
-const quadtree = await findPageByTitle<MarkdownPageMetadata>('quadtree');
-const pensieve = await findPageByTitle<MarkdownPageMetadata>('pensieve');
-
 export default (props: PageMetadata) => {
   const styles = css`
     --color-primary: #00e;
@@ -121,41 +118,6 @@ export default (props: PageMetadata) => {
           </li>
         ))}
       </ol>
-
-      <Section>
-        {noindent`
-          # Personal projects
-
-          ### Quadtree
-          https://amatiasq.com${quadtree.file.getPublishedPath()}
-
-          ${getMarkdownExtract(tr(quadtree.content, 'en'))}
-
-          ### Pensieve
-          https://amatiasq.com${pensieve.file.getPublishedPath()}
-
-          ${getMarkdownExtract(tr(pensieve.content, 'en'))}
-
-          ### And many others…
-          I like to create projects to experiment with ideas and concepts, it’s possible to see many of them at my Github repository https://github.com/amatiasq
-        `}
-        {noindent`
-          # Proyectos personales
-
-          ### Quadtree
-          https://amatiasq.com/es${quadtree.file.getPublishedPath()}
-
-          ${getMarkdownExtract(tr(quadtree.content, 'es'))}
-
-          ### Pensieve
-          https://amatiasq.com/es${pensieve.file.getPublishedPath()}
-
-          ${getMarkdownExtract(tr(pensieve.content, 'es'))}
-
-          ### Y muchos otros…
-          Suelo crear proyectos para experimentar con ideas y conceptos, es posible consultar algunos de ellos en mi repositorio de Github https://github.com/amatiasq
-        `}
-      </Section>
 
       <Section>
         {noindent`
