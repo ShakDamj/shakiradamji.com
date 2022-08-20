@@ -2,7 +2,7 @@ import React from 'react';
 import { css, Translatable, useLang, RawHtml, tr } from '../generate/mod.ts';
 import { cssDeps, cssGlobal, cssReset } from '../theme.ts';
 
-export interface AmqDocumentProps {
+export interface ShakDocumentProps {
   className?: string;
   styles?: string;
   title: Translatable;
@@ -15,12 +15,12 @@ const thirdPartyCss = await Promise.all(
   })
 );
 
-export function AmqDocument({
+export function ShakDocument({
   className = '',
   styles,
   title,
   children,
-}: React.PropsWithChildren<AmqDocumentProps>) {
+}: React.PropsWithChildren<ShakDocumentProps>) {
   const titleSufix = 'A. Matías Quezada';
   const lang = useLang();
 

@@ -3,13 +3,13 @@ import { css, usePageUtils, pagesDir, Lang } from '../generate/mod.ts';
 import { cssBreakpoint } from '../theme.ts';
 import { ScrollWisle } from './ScrollWisle.tsx';
 
-export interface AmqHeaderProps {
+export interface ShakHeaderProps {
   className?: string;
 }
 
-export function AmqHeader({
+export function ShakHeader({
   className = '',
-}: React.PropsWithChildren<AmqHeaderProps>) {
+}: React.PropsWithChildren<ShakHeaderProps>) {
   const { Link } = usePageUtils();
 
   const styles = css`

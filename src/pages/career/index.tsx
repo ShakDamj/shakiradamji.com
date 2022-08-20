@@ -1,6 +1,6 @@
 import React from 'react';
-import { AmqDocument } from '../../components/AmqDocument.tsx';
-import { AmqHeader } from '../../components/AmqHeader.tsx';
+import { ShakDocument } from '../../components/ShakDocument.tsx';
+import { ShakHeader } from '../../components/ShakHeader.tsx';
 import { usePageUtils, PageMetadata, Markdown } from '../../generate/mod.ts';
 import { getAllPagesBySection } from '../../util/getAllPagesBySection.ts';
 
@@ -10,8 +10,8 @@ export default (props: PageMetadata) => {
   const { Link } = usePageUtils();
 
   return (
-    <AmqDocument {...props} title="Blog">
-      <AmqHeader />
+    <ShakDocument {...props} title="Blog">
+      <ShakHeader />
 
       {career.map((post) => (
         <article key={post.title}>
@@ -21,6 +21,6 @@ export default (props: PageMetadata) => {
           <Markdown>{post.content}</Markdown>
         </article>
       ))}
-    </AmqDocument>
+    </ShakDocument>
   );
 };
