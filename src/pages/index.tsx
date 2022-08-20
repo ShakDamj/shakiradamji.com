@@ -19,7 +19,7 @@ export default (props: any) => {
         <AmqPageList name="✍️  Blog" list={sections.blog} />
 
         <AmqPageList
-          name={{ en: '👨‍💻  Career', es: '👨‍💻  Experiencia' }}
+          name={{ en: '👨‍💻  CV', es: '👨‍💻  Experiencia' }}
           list={sections.career}
         />
 

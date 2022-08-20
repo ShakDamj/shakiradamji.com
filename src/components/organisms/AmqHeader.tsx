@@ -114,8 +114,8 @@ export function AmqHeader({
       scrollTolerance={50}
     >
       <Container className={containerStyles}>
-        <AMatiasQuezada />
-        <Eyes />
+
+        <h1> Shakira Damji</h1>
 
         <nav className={navStyles}>
           <Link
