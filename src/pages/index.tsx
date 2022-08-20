@@ -12,8 +12,8 @@ export default (props: any) => {
     <ShakDocument {...props}>
       <ShakHeader></ShakHeader>
 
-      <p>A description about Shakira goes here...</p>
-      <Img src="pensieve.png" alt={''} />
+      <h1>Hello, I'm a Senior Product Designer looking for projects I'm passionate about.</h1>
+      <p>8 years experience working as a product designer on a variety of different projects.</p>
     </ShakDocument>
   );
 };

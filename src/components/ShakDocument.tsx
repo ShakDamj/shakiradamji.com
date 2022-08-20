@@ -21,7 +21,7 @@ export function ShakDocument({
   title,
   children,
 }: React.PropsWithChildren<ShakDocumentProps>) {
-  const titleSufix = 'A. Matías Quezada';
+  const titleSufix = 'Shakira Damji';
   const lang = useLang();
 
   const bodyStyles = css`

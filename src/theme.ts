@@ -26,13 +26,12 @@ export const cssReset = `
     font-size: 1rem;
     line-height: 1.5;
     letter-spacing: 0.5px;
-    Margin: 50px;
+    margin: 50px;
   }
 
   H1 {
     font-size: 2.5rem;
-    font-family: "Marcellus SC";
-    font-weight: 900;
+    font-family: "Marcellus";
   }
 
   H2 {
