@@ -6,30 +6,15 @@ export const cssBreakpoint = {
 };
 
 // These fonts are automatically downloaded from google fonts
-const fonts = ['Nunito Sans', 'Nunito', 'Inconsolata'];
+const fonts = ['Marcellus', 'Marcellus SC', 'Mulish'];
 
 export const cssDeps = [
   `https://fonts.googleapis.com/css2?display=swap&${fonts
-    .map((x) => `family=${x.replace(/\s/g, '+')}:wght@400;700`)
+    .map((x) => `family=${x.replace(/\s/g, '+')}:wght@400;700;800;900`)
     .join('&')}`,
 ];
 
-export const cssGlobal = `
-  :root {
-    --color-primary: #00FBFF;
-    --color-foreground: #FDFBF8;
-    --color-foregroundStrong: #FFFFFF;
-    --color-background: #263238;
-    --color-backgroundStrong: #161b22;
-    --color-border: #586369;
-  }
-
-  body {
-    font-size: 18px;
-    line-height: 1.5;
-    letter-spacing: 0.5px;
-  }
-`;
+export const cssGlobal = newFunction();
 
 // Imported from https://github.com/jensimmons/cssremedy/blob/master/css/remedy.css
 export const cssReset = `
@@ -37,18 +22,34 @@ export const cssReset = `
 
   html { line-sizing: normal; }
 
-  body { margin: 0; }
+  body {
+    font-size: 1rem;
+    line-height: 1.5;
+    letter-spacing: 0.5px;
+    Margin: 50px;
+  }
+
+  H1 {
+    font-size: 2.5rem;
+    font-family: "Marcellus SC";
+    font-weight: 900;
+  }
+
+  H2 {
+    font-size: 1.5rem;
+    font-family: "Marcellus";
+  }
+
+  H3 {
+    font-family: "Marcellus";
+  }
+
+  p {
+    font-size: 16px;
+    font-family: "Mulish";
+  }
 
   [hidden] { display: none; }
-
-  h1 { font-size: 2rem; }
-  h2 { font-size: 1.5rem; }
-  h3 { font-size: 1.17rem; }
-  h4 { font-size: 1.00rem; }
-  h5 { font-size: 0.83rem; }
-  h6 { font-size: 0.67rem; }
-
-  h1 { margin: 0.67em 0; }
 
   pre { white-space: pre-wrap; }
 
@@ -97,3 +98,16 @@ export const cssReset = `
     }
   }
 `;
+
+function newFunction() {
+  return `
+  :root {
+    --color-primary: #00FBFF;
+    --color-foreground: #FDFBF8;
+    --color-foregroundStrong: #FFFFFF;
+    --color-background: #263238;
+    --color-backgroundStrong: #161b22;
+    --color-border: #586369;
+  }
+`;
+}
