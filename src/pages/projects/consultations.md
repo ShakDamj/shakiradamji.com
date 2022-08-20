@@ -35,5 +35,3 @@ This is the process I went through
 ### Outcomes
 
 The outcomes are...
-
-***
