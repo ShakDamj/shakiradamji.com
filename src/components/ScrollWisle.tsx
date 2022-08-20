@@ -1,7 +1,9 @@
 import React from 'react';
-import { frontendScript, ScriptWithUtils } from './ScriptWithUtils.tsx';
+import { assetsDir, Script } from '../generate/mod.ts';
 
-const scrollWisle = await frontendScript('scroll-wisle.js');
+const scrollWisle = await Deno.readTextFile(
+  `${assetsDir.resolve('js/scroll-wisle.js')}`
+);
 
 export interface ScrollWisleProps {
   as: string;
@@ -19,7 +21,7 @@ export function ScrollWisle({
 }: ScrollWisleProps & Record<string, unknown>) {
   return (
     <>
-      <ScriptWithUtils>{scrollWisle}</ScriptWithUtils>
+      <Script>{scrollWisle}</Script>
       {React.createElement(_as, {
         ...props,
         'data-scrollclass': scrollClass,

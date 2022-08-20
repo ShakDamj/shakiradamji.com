@@ -1,7 +1,6 @@
 import React from 'react';
 import { css } from '../deps/emotion.ts';
 import { parseMarkdown } from '../deps/markdown.ts';
-import { cssColor, cssSpace } from '../../theme.ts';
 import { SitePage } from '../types/SitePage.ts';
 import { getMarkdownExtract } from '../util/getMarkdownExtract.ts';
 import { highlightTheme } from '../util/highlightTheme.ts';
@@ -51,56 +50,14 @@ export function Markdown({
     }
 
     p {
-      margin: ${cssSpace.lg} 0;
+      margin: 32px 0;
       text-align: justify;
     }
 
     blockquote {
-      border-left: 5px solid ${cssColor.border};
+      border-left: 5px solid var(--color-border);
       margin-left: 0;
       padding-left: 1em;
-    }
-
-    code:not(.code-block) {
-      background-color: ${cssColor.backgroundStrong};
-      padding: ${cssSpace.xs};
-      border-radius: ${cssSpace.xs};
-    }
-
-    pre {
-      --code-block-margin: 3em;
-      --code-block-padding: 1em;
-      --code-inline-padding: min(3em, var(--container-side-gap));
-
-      margin: var(--code-block-margin) 0;
-      padding: var(--code-block-padding) 0;
-      position: relative;
-      white-space: pre;
-
-      .code-block {
-        display: block;
-        width: var(--available-width);
-        white-space: pre;
-        text-shadow: none;
-        font-size: 18px;
-        line-height: 24px;
-        box-sizing: border-box;
-        max-width: var(--available-width);
-        overflow-x: auto;
-        color: #abb2bf;
-      }
-
-      &::before {
-        content: '';
-        inset: calc(var(--code-block-padding) * -1)
-          calc(var(--code-inline-padding) * -1);
-        background: #161b22;
-        border-radius: 10px;
-        box-shadow: 0 0 5px #0001;
-        position: absolute;
-        z-index: -1;
-        max-width: 100vw;
-      }
     }
   `;
 

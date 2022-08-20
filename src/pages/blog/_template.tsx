@@ -1,26 +1,18 @@
 import React from 'react';
-import { Time } from '../../components/atoms/Time.tsx';
-import { Heading2 } from '../../components/atoms/Heading.tsx';
-import { MarkdownPage } from '../../components/templates/MarkdownPage.tsx';
-import {
-  Lang,
-  MarkdownPageMetadata,
-  YearMonthDay,
-} from '../../generate/mod.ts';
-import { ResponsiveHeader } from '../../components/molecules/ResponsiveHeader.tsx';
-import { AmqComments } from '../../components/organisms/AmqComments.tsx';
+import { AmqDocument } from '../../components/AmqDocument.tsx';
+import { AmqHeader } from '../../components/AmqHeader.tsx';
+import { Img, Lang, Markdown } from '../../generate/mod.ts';
 
-export interface BlogPostProps extends MarkdownPageMetadata {
-  published: YearMonthDay;
-}
-
-export default ({ title, published, content }: BlogPostProps) => {
+export default ({ title, published, myImagePath, content }: any) => {
   return (
-    <MarkdownPage title={title} content={content} footer={<AmqComments />}>
-      <ResponsiveHeader as={Heading2}>
-        <Lang tr={title} />
-        <Time value={published} />
-      </ResponsiveHeader>
-    </MarkdownPage>
+    <AmqDocument title={title}>
+      <AmqHeader />
+      <h2>
+        {title}
+        {published.toString()}
+      </h2>
+      <Img src={myImagePath} alt={'My image'} />
+      <Markdown>{content}</Markdown>
+    </AmqDocument>
   );
 };

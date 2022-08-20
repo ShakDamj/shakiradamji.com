@@ -1,4 +1,4 @@
-const scrollers = (await $$('[data-scrollclass]'))
+const scrollers = [...document.querySelectorAll(selector)]
   .map((x) => ({
     el: x,
     className: x.dataset.scrollclass,

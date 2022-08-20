@@ -1,7 +1,6 @@
 import React from 'react';
-import { css, Translatable, useLang, RawHtml, tr } from '../../generate/mod.ts';
-import { cssDeps, cssGlobal, cssReset } from '../../theme.ts';
-import { PrimaryColorPicker } from '../molecules/PrimaryColorPicker.tsx';
+import { css, Translatable, useLang, RawHtml, tr } from '../generate/mod.ts';
+import { cssDeps, cssGlobal, cssReset } from '../theme.ts';
 
 export interface AmqDocumentProps {
   className?: string;
@@ -49,10 +48,7 @@ export function AmqDocument({
         {injectStyle('STYLES_PLACEHOLDER')}
         SCRIPTS_PLACEHOLDER
       </head>
-      <body className={`${className} ${bodyStyles}`}>
-        {children}
-        <PrimaryColorPicker />
-      </body>
+      <body className={`${className} ${bodyStyles}`}>{children}</body>
     </html>
   );
 }

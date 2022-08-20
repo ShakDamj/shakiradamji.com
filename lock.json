@@ -100,8 +100,6 @@
   "https://deno.land/x/speed_highlight_js@1.1.7/src/common.js": "c4dc3904994ebe0fce83c87dad2f3a25ef03995a56cb4ea71659ad04bdab43bf",
   "https://deno.land/x/speed_highlight_js@1.1.7/src/index.js": "dfcf442976a1a847c1de3470b3fb165f06394faa0f2f740b37871e9bf9f11026",
   "https://deno.land/x/speed_highlight_js@1.1.7/src/languages/c.js": "1042cbd355444fb1ea9fc39a80d37186d18853c5e86b435310b3ec33ab753c3a",
-  "https://deno.land/x/speed_highlight_js@1.1.7/src/languages/js.js": "4b9af41d919c7cf15bbde1c72d8616085a773323d50f3ca68e4f2f6902e604a5",
-  "https://deno.land/x/speed_highlight_js@1.1.7/src/languages/todo.js": "4d2d88419d0a21a9327bb4bc6bb10ee2ab13181fcb6f2d1caf89abdb56c0db19",
   "https://esm.sh/@emotion/css@11.9.0": "45f5351605ab829801c97bc481555acd45b8ff6f64763e5556d5cb2993fb84aa",
   "https://esm.sh/react-dom@18.2.0/server?dev": "1f931a299bcbc6a4586aafb465f33e7be6a604a31babcc9b4b87b994357da093",
   "https://esm.sh/react@18.2.0?dev": "9c936d2dda2d8492b2950acab288beba19ec095585e5161ea0d16ab0b499d5e9",
