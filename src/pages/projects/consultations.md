@@ -24,8 +24,6 @@ Short description about the project which will show on the summary
 
 <!-- end extract -->
 
-***
-
 ### Overview and aims
 
 These are the outcomes of the project.  
@@ -37,3 +35,5 @@ This is the process I went through
 ### Outcomes
 
 The outcomes are...
+
+***
