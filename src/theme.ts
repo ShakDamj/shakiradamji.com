@@ -30,6 +30,7 @@ export const cssReset = `
   }
 
   H1 {
+    margin: 2.5rem 0 1rem 0;
     font-size: 2.5rem;
     font-family: "Marcellus";
   }

@@ -13,7 +13,7 @@ export default (props: any) => {
       <ShakHeader></ShakHeader>
 
       <h1>Hello, I'm a Senior Product Designer looking for projects I'm passionate about.</h1>
-      <p>8 years experience working as a product designer on a variety of different projects.</p>
+      <p>I love solving complex design problems and creating beautiful interfaces that have a focus on inclusive design and accessibility. </p>
     </ShakDocument>
   );
 };

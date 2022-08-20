@@ -15,18 +15,18 @@ export function ShakHeader({
   const styles = css`
 
   div{
-    border-bottom: 1px solid #7FEFBD;
     font-size: 2rem;
     font-family: "Marcellus SC";
-    margin: 0rem 0.5rem 1rem 0.5rem;
+    margin: 0 0 1rem 0;
     }
 
     a {
-      font-size: 1.5rem;
-      margin-right: 1rem;
-      padding: 0.5rem;
-      border-radius: 4px;
-      border: 1px solid #ffffff;
+      font-size: 1.25rem;
+      margin-right: 1.5rem;
+      padding: 0 0 0.5rem 0;
+      border-bottom: 4px solid #7FEFBD;
+      text-decoration: none;
+      font-family: "Marcellus";
     }
 
     a:visited {
@@ -34,7 +34,7 @@ export function ShakHeader({
     }
 
     a:hover {
-      border: 1px solid #7FEFBD;
+      border-bottom: 8px solid #7FEFBD;
     }
 
     ${cssBreakpoint.medium} {
@@ -62,14 +62,14 @@ export function ShakHeader({
       <Link page={pagesDir.resolve('index')} >
           Home
         </Link>
-        <Link page={pagesDir.resolve('blog')} isParent>
-          Blog
-        </Link>
         <Link page={pagesDir.resolve('projects')} isParent>
           Projects
         </Link>
         <Link page={pagesDir.resolve('career')} isParent>
           CV
+        </Link>
+        <Link page={pagesDir.resolve('blog')} isParent>
+          Blog
         </Link>
       </nav>
     </ScrollWisle>
