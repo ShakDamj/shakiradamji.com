@@ -20,6 +20,7 @@ export default (props: any) => {
       </div>
       <div id="homeImg">
       <Img src="plants.jpg" alt="" />
+      <span>Illustration by <a className="TextLink" href="https://www.instagram.com/zoe.ann.lee/">Zoe Ann Lee</a></span>
       </div>
     </ShakDocument>
   );

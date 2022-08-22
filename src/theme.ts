@@ -78,6 +78,12 @@ export const cssReset = `
     display: inline-block;
   }
 
+  a.TextLink {
+    padding: 0;
+    margin: 0;
+    font-family: inherit;
+  }
+
   a.primary {
     background-color: #A5F4D1;
   }
@@ -132,7 +138,22 @@ export const cssReset = `
       transition: none !important;
     }
   }
+
+  ${cssBreakpoint.onlyNarrow} {
+    #homeText{
+      width: 100%; 
+      padding: 1em;
+    }
+  
+    #homeImg { 
+      width: 100%; 
+      padding: 1em;
+     }
+
+  }
 `;
+
+
 
 function newFunction() {
   return `
