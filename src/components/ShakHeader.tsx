@@ -17,19 +17,31 @@ export function ShakHeader({
   div{
     font-size: 2rem;
     font-family: "Marcellus SC";
-    margin: 0 0 1rem 0;
-    }
+    margin: 0 0 1rem 1rem;
+    width: 50%;
+    display: inline-block;
+  }
+
+  nav {
+    float: right;
+    display: inline-block;
+  }
 
     a {
       font-size: 1.25rem;
       margin-right: 1.5rem;
       padding: 0 0 0.5rem 0;
+      color: #000000;
       border-bottom: 4px solid #7FEFBD;
       text-decoration: none;
-      font-family: "Marcellus";
+      font-family: "Marcellus SC";
     }
 
     a:visited {
+      color: #000000;
+    }
+
+    a:active {
       color: #000000;
     }
 
