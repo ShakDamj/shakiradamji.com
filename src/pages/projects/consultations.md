@@ -18,7 +18,7 @@ iframe: true
 
 ### Version 1
 
-<img src="circuito.gif">
+<img src="circuito.gif"></img>
 
 Short description about the project which will show on the summary
 
