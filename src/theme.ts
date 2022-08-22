@@ -22,6 +22,27 @@ export const cssReset = `
 
   html { line-sizing: normal; }
 
+
+  #homeText{
+    width: 50%; 
+    float: left;
+    padding: 1em;
+  }
+
+  #homeImg { 
+    width: 50%; 
+    float: right;
+    padding: 1em;
+   }
+
+  span {
+    font-family: "Marcellus SC";
+    font-size: 16px;
+    display: block;
+    margin-top: 2rem;
+  }
+
+
   body {
     font-size: 1rem;
     line-height: 1.5;
@@ -76,8 +97,6 @@ export const cssReset = `
   }
 
   audio { width: 100%; }
-
-  img { border-style: none; }
 
   svg { overflow: hidden; }
 

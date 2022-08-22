@@ -2,7 +2,7 @@ import React from 'react';
 import { ShakDocument } from '../components/ShakDocument.tsx';
 import { ShakHeader } from '../components/ShakHeader.tsx';
 import { getAllPagesBySection } from '../util/getAllPagesBySection.ts';
-import { Img } from '../generate/mod.ts';
+import { css, Img, PageMetadata } from '../generate/mod.ts';
 
 const sections = await getAllPagesBySection();
 
@@ -11,11 +11,14 @@ export default (props: any) => {
   return (
     <ShakDocument {...props}>
       <ShakHeader></ShakHeader>
-
+      <div id="homeText">
       <span id='smalltext'>Hello,</span>
       <h1> I'm a Senior Product Designer looking for projects I'm passionate about.</h1>
-      <p>I love solving complex design problems and creating beautiful interfaces that have a focus on inclusive design and accessibility. </p>
-      <Img src="plants.jpg" alt=""/>
+      <p>I have 8 years experience working in UX and Product Design. I love solving complex design problems and creating beautiful interfaces that have a focus on inclusive design and accessibility. </p>
+      </div>
+      <div id="homeImg">
+      <Img src="plants.jpg" alt="" />
+      </div>
     </ShakDocument>
   );
 };
