@@ -15,7 +15,7 @@ export function getImgRoot() {
 export interface ImgProps {
   className?: string;
   src: Translatable;
-  alt: Translatable;
+  alt?: Translatable;
 }
 
 export function Img({ className, src, alt }: ImgProps) {
@@ -27,7 +27,7 @@ export function Img({ className, src, alt }: ImgProps) {
     <img
       className={className}
       src={asset(`${imgRoot}/${localeSrc}`)}
-      alt={tr(alt, lang)}
+      alt={alt && tr(alt, lang)}
     />
   );
 }
