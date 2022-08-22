@@ -18,7 +18,7 @@ iframe: true
 
 ### Version 1
 
-<img src=/img/circuito.gif></img>
+<img src="circuito.gif">
 
 Short description about the project which will show on the summary
 
@@ -26,7 +26,7 @@ Short description about the project which will show on the summary
 
 ### Overview and aims
 
-These are the outcomes of the project.  
+These are the outcomes of the project.
 
 ### Process
 

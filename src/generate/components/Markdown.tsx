@@ -4,6 +4,7 @@ import { parseMarkdown } from '../deps/markdown.ts';
 import { SitePage } from '../types/SitePage.ts';
 import { getMarkdownExtract } from '../util/getMarkdownExtract.ts';
 import { highlightTheme } from '../util/highlightTheme.ts';
+import { getImgRoot } from './Img.tsx';
 import { Lang, tr, Translatable, useLang } from './Lang.tsx';
 import { usePageUtils } from './PageUtils.tsx';
 import { RawHtml } from './RawHtml.tsx';
@@ -27,7 +28,7 @@ export function Markdown({
   readMore,
   children,
 }: MarkdownProps) {
-  const { Link } = usePageUtils();
+  const { Link, asset } = usePageUtils();
   const lang = useLang();
 
   const localeMd = tr(children, lang);
@@ -35,6 +36,10 @@ export function Markdown({
   const processed = applyBlockRules(toProcess);
   const { content } = parseMarkdown(processed);
   const contentWithFixes = clearMarkdownResult(content);
+  const contentWithAssets = contentWithFixes.replace(
+    /<img src="([^"]+)"/,
+    (_, path) => `<img src="${asset(`${getImgRoot()}/${path}`)}"`
+  );
 
   const styles = css`
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial,
@@ -65,7 +70,7 @@ export function Markdown({
 
   return (
     <article className={`md ${styles} ${highlightStyles} ${className}`}>
-      <RawHtml html={contentWithFixes} />
+      <RawHtml html={contentWithAssets} />
 
       {readMore ? (
         <Link page={readMore}>

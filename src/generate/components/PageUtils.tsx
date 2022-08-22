@@ -4,6 +4,7 @@ import { Language } from './Lang.tsx';
 import { Path } from '../types/Path.ts';
 import { SitePath } from '../types/SitePath.ts';
 import { createPageLinkComponent } from './Link.tsx';
+import { relative } from 'std/path/mod.ts';
 
 // deno-lint-ignore no-explicit-any
 const Context = createContext<PageUtils>(null as any);
@@ -33,10 +34,13 @@ export function UtilsProvider({
 
 function createPageUtils(page: SitePage, root: Path, lang: Language) {
   const pagePath = page.getPublishedPath();
-  const path = root.join(pagePath) as SitePath;
+  const siteRoot = root.join(pagePath) as SitePath;
+
+  const asset = (path: string) => relative(`${siteRoot}`, path);
 
   return {
-    Link: createPageLinkComponent(path, root),
+    Link: createPageLinkComponent(siteRoot, root),
+    asset,
     root,
     path: pagePath,
     lang,
