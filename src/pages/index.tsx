@@ -15,7 +15,7 @@ export default (props: any) => {
       <span id='smalltext'>Hello,</span>
       <h1> I'm a Senior Product Designer looking for projects I'm passionate about.</h1>
       <p>I love solving complex design problems and creating beautiful interfaces that have a focus on inclusive design and accessibility. </p>
-      <img src="plants.jpg"></img>
+      <Img src="plants.jpg" alt=""/>
     </ShakDocument>
   );
 };
