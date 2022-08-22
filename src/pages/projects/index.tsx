@@ -18,7 +18,7 @@ export default (props: PageMetadata) => {
           <h2>
             <Link page={post.file}>{post.title}</Link>
           </h2>
-          <Markdown>{post.content}</Markdown>    
+          <Markdown readMore={post.file}>{post.content}</Markdown>
         </article>
       ))}
     </ShakDocument>
