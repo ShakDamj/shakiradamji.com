@@ -37,11 +37,10 @@ export const cssReset = `
 
   span {
     font-family: "Marcellus SC";
-    font-size: 16px;
+    font-size: 1.25rem;
     display: block;
-    margin-top: 2rem;
+    margin-top: 1rem;
   }
-
 
   body {
     font-size: 1rem;
@@ -66,8 +65,25 @@ export const cssReset = `
   }
 
   p {
-    font-size: 16px;
+    font-size: 1rem;
     font-family: "Mulish";
+  }
+
+  a {
+    color: #000000;
+    font-size: 1rem;
+    font-family: "Mulish";
+    padding: 0.75rem;
+    margin: 0.5rem 1rem 0 0;
+    display: inline-block;
+  }
+
+  a.primary {
+    background-color: #A5F4D1;
+  }
+
+  a.secondary{
+    border: 1px solid #A5F4D1;
   }
 
   [hidden] { display: none; }

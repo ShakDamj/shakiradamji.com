@@ -30,7 +30,7 @@ export function ShakHeader({
     a {
       font-size: 1.25rem;
       margin-right: 1.5rem;
-      padding: 0 0 0.5rem 0;
+      padding: 0 0 0.25rem 0;
       color: #000000;
       border-bottom: 4px solid #7FEFBD;
       text-decoration: none;
