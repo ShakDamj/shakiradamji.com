@@ -24,7 +24,7 @@ export const cssReset = `
 
 
   #homeText{
-    width: 50%; 
+    width: 45%; 
     float: left;
     padding: 1em;
   }
