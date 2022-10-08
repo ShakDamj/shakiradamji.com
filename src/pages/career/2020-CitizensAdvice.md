@@ -13,6 +13,8 @@ labels:
   - User Research 
   - Accessibility
 ---
+<img src="ca-logo.png" class="cvlogo" alt=''></img>
+
 National charity that works with a network of local offices in around 2500 locations nationwide to give people a way forwards. Trained advisors help with issues such as debt and benefits. 
 
 Casebook is a case management system for centrally storing client data.

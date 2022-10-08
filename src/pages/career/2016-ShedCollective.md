@@ -14,6 +14,9 @@ labels:
   - Workshops
   - Mentoring
 ---
+
+<img src="shed-logo.png" class="cvlogo" alt=''></img>
+
 Small creative agency with a variety of projects and clients. 
 
 Worked with Camden CCG to rethink the way GPs find services in their borough. Worked with the client to create a new process that allowed commissioners to more easily upload services. Tested new designs with commissioners and led meetings with in-house development team to ensure features were achievable within constraints.

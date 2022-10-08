@@ -14,6 +14,8 @@ labels:
   - Accessibility
   - Design Systems
 ---
+<img src="Semble-logo.png" class="cvlogo" alt=''></img>
+
 Electronic health record system for private healthcare. 
 
 - Rebrand work Heydoc to Semble
