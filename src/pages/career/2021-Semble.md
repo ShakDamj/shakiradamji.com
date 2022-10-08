@@ -16,3 +16,8 @@ labels:
 ---
 Electronic health record system for private healthcare. 
 
+- Rebrand work Heydoc to Semble
+- Productboard and jobs to be done with the product team and wider organisation inclusing the CS and Sales teams. 
+- Using Pendo to understand user behaviour and communciate in app 
+- User research
+- Recent projects, appointment reminders, sharing using 2FA. Also doing work around consultations, hospital appointments and improving the sharing journey. 
