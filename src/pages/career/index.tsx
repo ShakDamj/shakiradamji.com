@@ -10,7 +10,7 @@ export default (props: PageMetadata) => {
   const { Link } = usePageUtils();
 
   return (
-    <ShakDocument {...props} title="Blog">
+    <ShakDocument {...props} title="CV">
       <ShakHeader />
 
       {career.map((post) => (

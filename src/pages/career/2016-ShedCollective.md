@@ -1,4 +1,6 @@
 ---
+title: Shed Collective
+
 from: 2015-05
 to: 2019-01
 org: Shed Collective

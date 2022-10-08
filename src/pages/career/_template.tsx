@@ -7,10 +7,8 @@ export default ({ title, link, org, role, from, to, labels, content }: any) => {
   return (
     <ShakDocument title={title}>
       <ShakHeader />
-      <h2>
-        {role}
-        {org}
-      </h2>
+      <h1>{org} </h1>
+      <p>{role} </p>
       <Markdown>{content}</Markdown>
     </ShakDocument>
   );

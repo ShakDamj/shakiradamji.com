@@ -1,4 +1,6 @@
 ---
+title: Golin Digital
+
 from: 2015-07
 to: 2017-05
 org: Golin Digital
