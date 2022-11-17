@@ -56,7 +56,7 @@ export const cssReset = `
   }
 
   H2 {
-    font-size: 1.5rem;
+    font-size: 1.5em;
     font-family: "Marcellus";
   }
 
@@ -65,16 +65,16 @@ export const cssReset = `
   }
 
   p {
-    font-size: 1rem;
+    font-size: 1em;
     font-family: "Mulish";
   }
 
   a {
     color: #000000;
-    font-size: 1rem;
+    font-size: 1em;
     font-family: "Mulish";
-    padding: 0.75rem;
-    margin: 0.5rem 1rem 0 0;
+    padding: 0.75em;
+    margin: 0.5em 1em 0 0;
     display: inline-block;
   }
 
