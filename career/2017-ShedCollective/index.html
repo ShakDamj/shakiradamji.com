@@ -3,7 +3,14 @@
 .css-1e8d7s{padding-bottom:4rem;}
 .css-y26r4i{width:50%;}.css-y26r4i img{width:50%;}</style><script></script></head><body class=" css-1e8d7s"><script type="module" defer="">;(async () => {const scrollers = [...document.querySelectorAll(selector)] .map((x) => ({ el: x, className: x.dataset.scrollclass, offset: x.dataset.scrolloffset || 0, tolerance: x.dataset.scrolltolerance || 0, })) .filter((x) => x.className); const pendingScrollers = new Set(scrollers); if (pendingScrollers.size) { addEventListener('scroll', () => { const scrolled = document.documentElement.scrollTop; for (const { el, className, offset, tolerance } of pendingScrollers) { const scrollDiff = scrolled - offset; if (Math.abs(scrollDiff) < tolerance) { return; } const hasClass = el.classList.contains(className); const shouldHaveClass = scrollDiff > 0; if (shouldHaveClass === hasClass) { return; } if (shouldHaveClass) { el.classList.add(className); } else { el.classList.remove(className); } } }); } })();</script><header class="css-1dhh0dk " data-scrollclass="scrolled" data-scrolloffset="50" data-scrolltolerance="50"><div> Shakira Damji</div><nav><a href="../.." class="">Home</a><a href="../../projects" class="">Projects</a><a href=".." class="parent">CV</a><a href="../../blog" class="">Blog</a></nav></header><article class="css-y26r4i"><h1>Shed Collective </h1><p>Lead UX Designer </p><article class="md css-h3mif6  "><p><img src="../../img/shed-logo.png" class="cvlogo" alt=''></img></p>
 <div>
-Small creative agency with a variety of projects and clients. 
+The Shed Collective are a small creative agency with a variety of projects and clients. 
+
+Skills:
+- Client workshops
+- Client management
+- UX prototying, research and testing
+- User journey mapping
+- Mentorship
 
 Worked with Camden CCG to rethink the way GPs find services in their borough. Worked with the client to create a new process that allowed commissioners to more easily upload services. Tested new designs with commissioners and led meetings with in-house development team to ensure features were achievable within constraints.
 
