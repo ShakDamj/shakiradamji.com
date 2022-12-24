@@ -5,7 +5,7 @@ from: 2020-08
 to: 2021-09
 org: Citizens Advice
 link: https://www.citizensadvice.org.uk/immigration/ 
-role: Senior Product Designer
+role: Senior Product Designer, Mid-weight UX Designer
 
 labels:
   - Software Design
@@ -17,7 +17,7 @@ labels:
 
 Citizens Advice is a national charity that works with a network of local offices in around 2500 locations across the country to give people a way forwards with their problems. Trained advisors help with issues such as housing, debt and benefits. 
 
-<h2>2020 Casebook - Lead Product Designer </h2>
+<h2>2020 Casebook - Senior Product Designer </h2>
 
 Skills:
 - Accessibility
@@ -38,7 +38,7 @@ Played a key role in embedding accessibility within the team. Introduced new a11
 
 Continued to be an integral part of the Design System working group. Recent work includes helping to design the contribution model and raising the profile of the design system using presentations and workshops.
 
-<h2> 2019 - Developing an accessible design system for Citizens Advice 3 main websites </h2>
+<h2> 2019 Design System Team - Mid-weight UX Designer </h2>
 
 Skills:
 - UX prototying, research and testing
@@ -46,6 +46,8 @@ Skills:
 - Agile development
 - Accessibility
 - Design Systems
+
+Developing an accessible design system for Citizens Advice 3 main websites. 
 
 Worked in a fully agile, multidisciplinary team to rebuild and migrate the public and adviser facing websites. 
 

@@ -24,4 +24,11 @@ Skills:
 - UX Reviews
 - User journey mapping
 
-Client facing role in an agency setting. Worked with a variety of organisations to improve the user experience and information architecture of their websites. Planned and ran client workshops, ran user testing sessions attended focus groups and used real user data to inform decisions.
+Client facing role in an agency setting. Worked with a variety of organisations to improve the user experience and information architecture of their websites. Planned and ran client workshops, ran user testing sessions attended focus groups and used real user data to inform decisions. 
+
+Projects: 
+- Let's Do This 8 Week Challenge for the British Heart Foundation - Focus group and design improvements to rework an existing goal setting app. Redesigned the app for the 8 week challenge run by British Heart Foundation.
+
+- St Martin in the Fields Website - Working with the SMITF team to redesign their public website. 
+
+- My Tesco for Tesco - improving internal systems for Tesco staff 
