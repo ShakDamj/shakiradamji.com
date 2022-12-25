@@ -4,7 +4,7 @@ import { ShakHeader } from '../../components/ShakHeader.tsx';
 import { css, Lang, Markdown } from '../../generate/mod.ts';
 
 // deno-lint-ignore no-explicit-any
-export default ({ title, link, org, role, from, to, labels, content }: any) => {
+export default ({ title, link, org, role, from, to, skills, content }: any) => {
   const styles = css`
 width:50%;
 
@@ -17,7 +17,8 @@ img {
       <ShakHeader />
       <article className={styles}>
       <h1>{org} </h1>
-      <p>{role} </p>
+      <p>{role} {from} {to} </p>
+      <p>{skills}</p>
       <Markdown>{content}</Markdown>
       </article>
     </ShakDocument>

@@ -16,9 +16,6 @@ Citizens Advice is a national charity that works with a network of local offices
 
 <h2>2020 Casebook - Senior Product Designer </h2>
 
-Skills:
-
-
 Casebook is a case management system for centrally storing Citizens Advice client data.
 
 The role required designing and prototyping complex user journeys, form design, working with GDPR and knowledge of front and back-end technologies. The nature of the system meant working closely with advisers and learning how local offices work. Wider strategic work such as influencing the product roadmap and writing business proposals.
@@ -30,13 +27,6 @@ Played a key role in embedding accessibility within the team. Introduced new a11
 Continued to be an integral part of the Design System working group. Recent work includes helping to design the contribution model and raising the profile of the design system using presentations and workshops.
 
 <h2> 2019 Design System Team - Mid-weight UX Designer </h2>
-
-Skills:
-- UX prototying, research and testing
-- User journey mapping
-- Agile development
-- Accessibility
-- Design Systems
 
 Developing an accessible design system for Citizens Advice 3 main websites. 
 
