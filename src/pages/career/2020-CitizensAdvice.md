@@ -7,12 +7,9 @@ org: Citizens Advice
 link: https://www.citizensadvice.org.uk/immigration/ 
 role: Senior Product Designer, Mid-weight UX Designer
 
-labels:
-  - Software Design
-  - Saas
-  - User Research 
-  - Accessibility
+skills: Accessibility, UX prototying, research and testing, User journey mapping, Software design, Agile development, Line management, Design Systems
 ---
+
 <img src="ca-logo.png" class="cvlogo" alt=''></img>
 
 Citizens Advice is a national charity that works with a network of local offices in around 2500 locations across the country to give people a way forwards with their problems. Trained advisors help with issues such as housing, debt and benefits. 
@@ -20,13 +17,7 @@ Citizens Advice is a national charity that works with a network of local offices
 <h2>2020 Casebook - Senior Product Designer </h2>
 
 Skills:
-- Accessibility
-- UX prototying, research and testing
-- User journey mapping
-- Software design
-- Agile development
-- Line management
-- Design Systems
+
 
 Casebook is a case management system for centrally storing Citizens Advice client data.
 

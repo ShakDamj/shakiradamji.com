@@ -37,7 +37,8 @@ width: 70%;
           <h2>
             <Link page={post.file}>{post.title}</Link>
           </h2>
-          <h3> {post.role} {post.from} {post.to} </h3>
+          <h3>{post.role} {post.from} {post.to}</h3>
+          <p>{post.skills}</p>
           <Markdown readMore={post.file}>{post.content}</Markdown>
         </article>
       ))}

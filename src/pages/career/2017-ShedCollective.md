@@ -7,25 +7,13 @@ org: Shed Collective
 link: https://shedcollective.com/ 
 role: Lead UX Designer
 
-labels:
-  - Sitemapping
-  - Information Architecture
-  - Wireframing
-  - Workshops
-  - Mentoring
+skills: Client workshops, Client management, UX prototying, research and testing, User journey mapping, Mentorship
 ---
 
 <img src="shed-logo.png" class="cvlogo" alt=''></img>
 
 <div>
 The Shed Collective are a small creative agency with a variety of projects and clients. 
-
-Skills:
-- Client workshops
-- Client management
-- UX prototying, research and testing
-- User journey mapping
-- Mentorship
 
 Projects: 
 Worked with Camden CCG to rethink the way GPs find services in their borough. Worked with the client to create a new process that allowed commissioners to more easily upload services. Tested new designs with commissioners and led meetings with in-house development team to ensure features were achievable within constraints.
