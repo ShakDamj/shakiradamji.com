@@ -10,7 +10,8 @@ export default (props: PageMetadata) => {
   const { Link } = usePageUtils();
   const styles = css`
 
-width: 70%;
+width: 65%;
+margin: 0 0 1rem 1rem;
   
   .md{
     width: 70%
@@ -18,7 +19,7 @@ width: 70%;
   }
 
   h2{
-    margin-top:7rem;
+    margin-top:2rem;
   }
 
   div {
@@ -31,7 +32,7 @@ width: 70%;
   }
 
   img {
-    width: 10%;
+    width: 12%;
     float:left;
     display:inline-block;
     margin-right: 5em;

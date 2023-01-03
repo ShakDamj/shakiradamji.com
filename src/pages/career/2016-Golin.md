@@ -10,7 +10,7 @@ role: UX Designer
 skills: Sitemapping, Information Architecture, Client workshops, Wireframing, UX prototying and user testing, UX Reviews, User journey mapping
 ---
 
-<img src="golin-logo.png" class="cvlogo" alt=''></img>
+<img src="logo-golin.png" class="cvlogo" alt=''></img>
 
 <div>
 Golin are a creative agency who focus on PR and digital. They work with clients such as Unilever, Kraft Heinz and Tesco. 
