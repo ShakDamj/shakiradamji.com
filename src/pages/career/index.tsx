@@ -17,8 +17,16 @@ width: 70%;
     display: flex;
   }
 
+  h2{
+    margin-top:7rem;
+  }
+
+  a{
+    padding:0;
+  }
+
   img {
-    width: 150px;
+    width: 10%;
     float:left;
     display:inline-block;
     margin-right: 5em;

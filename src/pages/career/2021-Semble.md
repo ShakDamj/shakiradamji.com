@@ -13,9 +13,6 @@ skills: Complex user journey mapping, Continuous discovery, Productboard and Pen
 
 Software used by private GPs, consultants and hospitals to manage their business and store patient data. System features include calendar and booking, invoicing, eleactronic health records and analytics. Semble is integrated with multuple labs, pharmacies and with Compucare. The nature of the software requires very detailed knwoledge and complex user journey mapping for each project. 
 
-Skills:
-
-
 Responsibilities:
 - Productboard and jobs to be done with the product team and wider organisation inclusing the CS and Sales teams. 
 - Managing the Productboard tool, defining processes and cementing them in the product team

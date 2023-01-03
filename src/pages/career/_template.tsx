@@ -16,8 +16,8 @@ img {
     <ShakDocument title={title}>
       <ShakHeader />
       <article className={styles}>
-      <h1>{org} </h1>
-      <p>{role} {from} {to} </p>
+      <h1>{org}</h1>
+      <p>{role} {from} {to}</p>
       <p>{skills}</p>
       <Markdown>{content}</Markdown>
       </article>
