@@ -12,33 +12,36 @@ skills: Complex user journey mapping, Continuous discovery, Productboard and Pen
 <img src="logo-semble.png" class="cvlogo" alt=''></img>
 
 <div>
+<h2>Overview</h2>
 Software used by private GPs, consultants and hospitals to manage their business and store patient data. System features include calendar and booking, invoicing, eleactronic health records and analytics. Semble is integrated with multuple labs, pharmacies and with Compucare. The nature of the software requires very detailed knwoledge and complex user journey mapping for each project. 
 
-Responsibilities:
-- Productboard and jobs to be done with the product team and wider organisation inclusing the CS and Sales teams. 
-- Managing the Productboard tool, defining processes and cementing them in the product team
-- Using Pendo to understand user behaviour and communciate with customers in app. 
-- Planning and running user interviews and user testing sessions to validate ideas. 
-- Planning and running internal UX workshops. 
-- Working across 4 agile delivery teams.
-- Mentoring and skills development for the mid-weight designer
-- Presenting to the wider company 
-- Running internal training sessions 
-- Stakeholder management 
+<h2>Responsibilities</h2>
+<li>Working across 4 agile delivery teams</li>
+<li>Building relationships with customers</li>
+<li>Planning and running user research sessions with clients</li>
+<li>Championing the jtbd framework and defining Semble's user's jobs</li>
+<li>Presenting ideas and delivering training to the wider company </li>
+<li>Defining processes for Productboard and embedding them within the organisatoon</li>
+<li>Using Pendo to understand user behaviour and communciate with customers in app</li>
+<li>Delivering designs and prototypes for agile delivery</li>
+<li>Planning and running user testing sessions to validate ideas</li>
+<li>Planning and running internal UX workshops </li>
+<li>Mentoring and skills development for the mid-weight designer</li>
 
-Recent projects:
+<h2>Recent projects</h2>
 
-Rebranding Heydoc to Semble and designing the new Semble UI component library
+<p>Rebranding Heydoc to Semble and designing the new Semble UI component library.</p>
 
-Increasing the safety of sharing patient data with 2FA
+<p>Increasing the safety of sharing patient data with 2FA.</p>
 
-Sending patients reminders and follow-up messages for appointments
+<p>Sending patients reminders and follow-up messages for appointments.</p>
 
-Allowing clinics to take payment on site with Stripe payment terminals 
+<p>Allowing clinics to take payment on site with Stripe payment terminals.</p>
 
-Saving medical secretaries time by allowing them to search a list of NHS GPs
+<p>Saving medical secretaries time by allowing them to search a list of NHS GPs and add those GPs as a relationship to the patient.</p>
 
-Ability to book theatres for surgery on the calendar 
+<p>Ability to book theatres for surgery on the calendar.</p>
 
-Improving the onboarding process
+<p>Improving the onboarding process.</p>
+
 </div>

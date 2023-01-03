@@ -6,10 +6,11 @@ import { css, Lang, Markdown } from '../../generate/mod.ts';
 // deno-lint-ignore no-explicit-any
 export default ({ title, link, org, role, from, to, skills, content }: any) => {
   const styles = css`
-width:50%;
+  width: 65%;
+  margin: 0 0 1rem 1rem;
 
 img {
-  width: 50%;
+  width: 20%;
 }`
 
   return (
