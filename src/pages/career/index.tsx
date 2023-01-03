@@ -28,14 +28,14 @@ margin: 0 0 1rem 1rem;
   }
 
   a{
-    padding:0;
+    padding:0.5em 0 0 0;
   }
 
   img {
     width: 12%;
     float:left;
     display:inline-block;
-    margin-right: 5em;
+    margin-right: 2em;
   }
 
   div{
@@ -51,7 +51,7 @@ margin: 0 0 1rem 1rem;
           <h2>
             <Link page={post.file}>{post.title}</Link>
           </h2>
-          <h3>{post.role} {post.from} {post.to}</h3>
+          <h3>{post.role}, {post.from} - {post.to}</h3>
           <p>{post.skills}</p>
           <Markdown readMore={post.file}>{post.content}</Markdown>
         </article>
