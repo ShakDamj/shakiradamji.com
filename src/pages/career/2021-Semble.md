@@ -11,6 +11,7 @@ skills: Complex user journey mapping, Continuous discovery, Productboard and Pen
 ---
 <img src="Semble-logo.png" class="cvlogo" alt=''></img>
 
+<div>
 Software used by private GPs, consultants and hospitals to manage their business and store patient data. System features include calendar and booking, invoicing, eleactronic health records and analytics. Semble is integrated with multuple labs, pharmacies and with Compucare. The nature of the software requires very detailed knwoledge and complex user journey mapping for each project. 
 
 Responsibilities:
@@ -40,3 +41,4 @@ Saving medical secretaries time by allowing them to search a list of NHS GPs
 Ability to book theatres for surgery on the calendar 
 
 Improving the onboarding process
+</div>

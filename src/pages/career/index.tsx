@@ -21,6 +21,11 @@ width: 70%;
     margin-top:7rem;
   }
 
+  div {
+    display:flex;
+    flex-wrap:wrap;
+  }
+
   a{
     padding:0;
   }

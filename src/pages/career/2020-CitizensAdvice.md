@@ -12,6 +12,7 @@ skills: Accessibility, UX prototying, research and testing, User journey mapping
 
 <img src="ca-logo.png" class="cvlogo" alt=''></img>
 
+<div>
 Citizens Advice is a national charity that works with a network of local offices in around 2500 locations across the country to give people a way forwards with their problems. Trained advisors help with issues such as housing, debt and benefits. 
 
 <h2>2020 Casebook - Senior Product Designer </h2>
@@ -39,3 +40,4 @@ Used A/B testing and analytics to make improvements to components. Worked toward
 Created responsive designs in Figma that harnessed the power of global libraries and reusable components.
 
 Worked with advisers to understand pain points with search. Findings lead to a content and weighting strategy that improved results.
+</div>
