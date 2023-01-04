@@ -12,7 +12,7 @@ skills: Software design, Complex user journey mapping, Continuous discovery, Pro
 <img src="logo-semble.png" class="cvlogo" alt=''></img>
 
 <div>
-Software used by private GPs, consultants and hospitals to manage their business and store patient data. System features include calendar and booking, invoicing, eleactronic health records and analytics. Semble is integrated with multuple labs, pharmacies and with Compucare. The nature of the software requires very detailed knwoledge and complex user journey mapping for each project. 
+Semble is a software prioduct used by private GPs, consultants and hospitals to manage their business and store patient data. The system includes appointment booking, invoicing, storing electronic health records and analytics. It's also integrated with multiple labs, pharmacies and with Compucare. The nature of the software requires detailed knwoledge and complex user journey mapping for each project. As the only Product Designer in the company I am responsible for delivering tested designs to 4 agile delivery teams. 
 
 <h2>Responsibilities</h2>
 <li>Working across 4 agile delivery teams</li>
@@ -25,7 +25,7 @@ Software used by private GPs, consultants and hospitals to manage their business
 <li>Delivering designs and prototypes for agile delivery</li>
 <li>Planning and running user testing sessions to validate ideas</li>
 <li>Planning and running internal UX workshops </li>
-<li>Mentoring and skills development for the mid-weight designer</li>
+<li>Mentoring and skills development for the mid-weight graphic designer</li>
 
 <h2>Recent projects</h2>
 

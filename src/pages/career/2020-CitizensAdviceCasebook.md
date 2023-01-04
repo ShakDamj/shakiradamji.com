@@ -7,7 +7,7 @@ org: Citizens Advice
 link: https://www.citizensadvice.org.uk/immigration/ 
 role: Senior Product Designer
 
-skills: Software design, Accessibility, UX prototying, research and testing, User journey mapping, Agile development, Line management
+skills: Software design, Design Systems, Accessibility, UX prototying, research and testing, User journey mapping, Agile development, Line management
 ---
 
 <img src="logo-ca.png" class="cvlogo" alt=''></img>

@@ -13,7 +13,7 @@ skills: Sitemapping, Information Architecture, Client workshops, Wireframing, UX
 <img src="logo-golin.png" class="cvlogo" alt=''></img>
 
 <div>
-Golin are a creative agency who focus on PR and digital. They work with clients such as Unilever, Kraft Heinz and Tesco. Working here gave me a great foundation in UX, I was responsible for working with clients to understand their needs and turn these into tangible wireframes and prototypes.
+Golin are a creative agency who focus on PR and digital. They work with clients such as Unilever, Kraft Heinz and Tesco. Working here gave me a great foundation in UX, I was responsible for working with clients to understand their needs which I turned into tangible wireframes and prototypes.
 
 Client facing role in an agency setting. Worked with a variety of organisations to improve the user experience and information architecture of their websites. Planned and ran client workshops, ran user testing sessions attended focus groups and used real user data to inform decisions. 
 
