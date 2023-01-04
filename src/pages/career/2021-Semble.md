@@ -1,18 +1,17 @@
 ---
-title: Semble Health 
+title: Semble Health
 
 from: 2021-09
 to: Current
-org: Semble
+org: Semble 
 link: https://app.semble.io/  
 role: Senior Product Designer
 
-skills: Complex user journey mapping, Continuous discovery, Productboard and Pendo champion, Management, Software design, Agile development, Accessibility, Design Systems
+skills: Software design, Complex user journey mapping, Continuous discovery, Productboard and Pendo champion, Management, Agile development, Accessibility, Design Systems
 ---
 <img src="logo-semble.png" class="cvlogo" alt=''></img>
 
 <div>
-<h2>Overview</h2>
 Software used by private GPs, consultants and hospitals to manage their business and store patient data. System features include calendar and booking, invoicing, eleactronic health records and analytics. Semble is integrated with multuple labs, pharmacies and with Compucare. The nature of the software requires very detailed knwoledge and complex user journey mapping for each project. 
 
 <h2>Responsibilities</h2>
