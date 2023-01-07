@@ -37,9 +37,6 @@ margin: 0 0 1rem 1rem;
     display:inline-block;
     margin-right: 2em;
   }
-
-  div{
-  }
   `
 
   return (

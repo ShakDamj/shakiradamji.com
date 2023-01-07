@@ -9,11 +9,28 @@ const { projects } = await getAllPagesBySection();
 export default (props: PageMetadata) => {
   const { Link } = usePageUtils();
   const styles = css`
-  width: 70%;
+ 
+width: 65%;
+margin: 0 0 1rem 1rem;
   
-  img {
-    max-width: 70%
+  .md{
+    width: 70%
+    display: flex;
   }
+
+  h2{
+    margin-top:2rem;
+  }
+
+  div {
+    display:flex;
+    flex-wrap:wrap;
+  }
+
+  a{
+    padding:0.5em 0 0 0;
+  }
+
   `
   // I have added the class name to the full article to apply the styles to the index page
   return (
