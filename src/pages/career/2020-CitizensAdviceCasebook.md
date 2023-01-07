@@ -7,7 +7,7 @@ org: Citizens Advice
 link: https://www.citizensadvice.org.uk/immigration/ 
 role: Senior Product Designer
 
-skills: Software design, Design Systems, Accessibility, UX prototying, research and testing, User journey mapping, Agile development, Line management
+skills: Software design, design systems, accessibility, UX prototying, research and testing, user journey mapping, Agile development, line management
 ---
 
 <img src="logo-ca.png" class="cvlogo" alt=''></img>
@@ -21,17 +21,7 @@ Citizens Advice is a national charity that works with a network of local offices
 
 Casebook is a case management system for centrally storing Citizens Advice client data.
 
-The role required designing and prototyping complex user journeys, form design, working with GDPR and knowledge of front and back-end technologies. The nature of the system meant working closely with advisers and learning how local offices work. Wider strategic work such as influencing the product roadmap and writing business proposals.
-
-<h3>Responsibilities</h3>
-<ul>
-<li>Creating designs on Figma</li>
-<li>Creating prototypes</li>
-<li>Working with the user researcher to create research and testing plans</li>
-<li>Design demos to the delivery team</li>
-<li>Design QA</li>
-<li>Learning and training sessions with the design team</li>
-</ul>
+Role required designing and prototyping complex user journeys, form design, working with GDPR and knowledge of front and back-end technologies. Nature of the system meant working closely with advisers and learning how local offices work. Also had wider strategic involvement such as influencing the product roadmap and writing business proposals.
 
 <h3>Projects</h3>
 <p>Designed the new SMS appointment reminder feature (shown to reduce no shows by 3%), streamlined the calendars and booking system, redesigned the client registration form; which led to a successful proposal for a focused project to address issues around how we collect consent and special category data.</p>
@@ -39,3 +29,15 @@ The role required designing and prototyping complex user journeys, form design, 
 <p>Played a key role in embedding accessibility within the team. Introduced new a11y focused ways of working such as assistive tech labs, a11y acceptance criteria and a11y testing. This has resulted in prioritising accessibility in the roadmap, a suite of design changes and new components that meet WCAG compliance.</p>
 
 <p>Continued to be an integral part of the Design System working group. Recent work includes helping to design the contribution model and raising the profile of the design system using presentations and workshops.</p>
+
+<h3>Responsibilities</h3>
+<ul>
+<li>Creating designs on Figma</li>
+<li>Creating prototypes</li>
+<li>Working with the researcher on interviews and user testing</li>
+<li>Design demos to the delivery team</li>
+<li>Design QA</li>
+<li>Manual accessibility testing</li>
+<li>Running learning and training sessions with the design team</li>
+<li>Line management</li>
+</ul>
