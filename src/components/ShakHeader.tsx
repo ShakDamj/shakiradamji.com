@@ -30,11 +30,11 @@ export function ShakHeader({
     a {
       font-size: 1.25rem;
       margin-right: 1.5rem;
-      padding: 0 0 0.25rem 0;
+      padding: 0 0 0 0;
       color: #000000;
-      border-bottom: 4px solid #7FEFBD;
       text-decoration: none;
       font-family: "Marcellus SC";
+      transition: all .3s ease;
     }
 
     a:visited {
@@ -46,9 +46,10 @@ export function ShakHeader({
     }
 
     a:hover {
-      border-bottom: 8px solid #7FEFBD;
+      border-bottom: 6px solid #7FEFBD;
     }
 
+  
     ${cssBreakpoint.medium} {
       transition: padding 0.2s ease-in-out, font-size 0.2s ease-in-out;
 

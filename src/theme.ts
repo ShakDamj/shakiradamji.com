@@ -90,6 +90,7 @@ export const cssReset = `
 
   a.secondary{
     border: 1px solid #A5F4D1;
+
   }
 
   [hidden] { display: none; }
