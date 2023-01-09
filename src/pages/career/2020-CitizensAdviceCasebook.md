@@ -13,24 +13,22 @@ skills: Software design, design systems, accessibility, UX prototying, research 
 <img src="logo-ca.png" class="cvlogo" alt=''></img>
 
 <div>
-Citizens Advice is a national charity that works with a network of local offices in around 2500 locations across the country to give people a way forwards with their problems. Trained advisors help with issues such as housing, debt and benefits. I worked in a senior role on their internal software product Casebook. A case management system for centrally storing client data, arranging appointments and pulling data for reporting in policy and advocacy work. 
+Citizens Advice is a national charity that works with a network of local offices in around 2500 locations across the country. Trained advisors help with issues such as housing, debt and benefits. Worked as a the senior designer on their internal software product Casebook - a case management system for centrally storing client data.work. 
 
-<h2>2020 Casebook - Senior Product Designer </h2>
+<h2>Overview</h2>
 
-<h3>Overview</h3>
-
-Casebook is a case management system for centrally storing Citizens Advice client data.
+Casebook is a case management system for centrally storing Citizens Advice client data. Advisers use Casebook to arrange appointments and store client data. The policy team uses it to pull data for reports required for advocacy 
 
 Role required designing and prototyping complex user journeys, form design, working with GDPR and knowledge of front and back-end technologies. Nature of the system meant working closely with advisers and learning how local offices work. Also had wider strategic involvement such as influencing the product roadmap and writing business proposals.
 
-<h3>Projects</h3>
+<h2>Projects</h2>
 <p>Designed the new SMS appointment reminder feature (shown to reduce no shows by 3%), streamlined the calendars and booking system, redesigned the client registration form; which led to a successful proposal for a focused project to address issues around how we collect consent and special category data.</p>
 
 <p>Played a key role in embedding accessibility within the team. Introduced new a11y focused ways of working such as assistive tech labs, a11y acceptance criteria and a11y testing. This has resulted in prioritising accessibility in the roadmap, a suite of design changes and new components that meet WCAG compliance.</p>
 
 <p>Continued to be an integral part of the Design System working group. Recent work includes helping to design the contribution model and raising the profile of the design system using presentations and workshops.</p>
 
-<h3>Responsibilities</h3>
+<h2>Responsibilities</h2>
 <ul>
 <li>Creating designs on Figma</li>
 <li>Creating prototypes</li>
@@ -41,3 +39,5 @@ Role required designing and prototyping complex user journeys, form design, work
 <li>Running learning and training sessions with the design team</li>
 <li>Line management</li>
 </ul>
+
+</div>

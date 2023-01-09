@@ -12,7 +12,7 @@ skills: Software design, complex user journey mapping, Productboard and Pendo ch
 <img src="logo-semble.png" class="cvlogo" alt=''></img>
 
 <div>
-Semble is a software prioduct used by private GPs, consultants and hospitals to manage their business and store patient data. The system includes appointment booking, invoicing, storing electronic health records and analytics. It's also integrated with multiple labs, pharmacies and with Compucare. The nature of the software requires detailed knowledge and complex user journey mapping for each project. The only Product Designer so delivering tested designs to 4 agile delivery teams is a key responsibility. 
+Semble is a software prioduct used by private GPs, consultants and hospitals to manage their business and store patient data. The system includes appointment booking, invoicing, storing electronic health records and analytics. It's also integrated with multiple labs, pharmacies and with Compucare. The nature of the software requires detailed knowledge and complex user journey mapping for each project. As the only Product Designer in the company delivering tested designs to 4 agile delivery teams is a key responsibility. 
 
 <h2>Tools</h2>
 <p>Productboard champion - defining processes for Productboard and embedding them within the organisation. Collecting customer insights from commercial teams as well as direct from customers and using them to prioritise features and define roadmaps.</p>
